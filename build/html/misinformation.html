@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils module &mdash; misinformation 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license_link.html" />
+    <link rel="prev" title="misinformation package modules" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> misinformation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html">Misinformation campaign analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html#usage">Usage</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">misinformation package modules</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utils.AnalysisMethod"><code class="docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.AnalysisMethod.analyse_image"><code class="docutils literal notranslate"><span class="pre">AnalysisMethod.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.AnalysisMethod.set_keys"><code class="docutils literal notranslate"><span class="pre">AnalysisMethod.set_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.DownloadResource"><code class="docutils literal notranslate"><span class="pre">DownloadResource</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.DownloadResource.get"><code class="docutils literal notranslate"><span class="pre">DownloadResource.get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.DownloadResource.resources"><code class="docutils literal notranslate"><span class="pre">DownloadResource.resources</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.append_data_to_dict"><code class="docutils literal notranslate"><span class="pre">append_data_to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.dump_df"><code class="docutils literal notranslate"><span class="pre">dump_df()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.find_files"><code class="docutils literal notranslate"><span class="pre">find_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.initialize_dict"><code class="docutils literal notranslate"><span class="pre">initialize_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.misinformation_prefetch_models"><code class="docutils literal notranslate"><span class="pre">misinformation_prefetch_models()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-display">display module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#display.JSONContainer"><code class="docutils literal notranslate"><span class="pre">JSONContainer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display.explore_analysis"><code class="docutils literal notranslate"><span class="pre">explore_analysis()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-faces">faces module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#faces.EmotionDetector"><code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.analyze_single_face"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.analyze_single_face()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.clean_subdict"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.clean_subdict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.facial_expression_analysis"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.facial_expression_analysis()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.set_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.wears_mask"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.wears_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#faces.NocatchOutput"><code class="docutils literal notranslate"><span class="pre">NocatchOutput</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#faces.deepface_symlink_processor"><code class="docutils literal notranslate"><span class="pre">deepface_symlink_processor()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-objects_cvlib">objects_cvlib module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.ObjectCVLib"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.analyse_image_from_file"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.analyse_image_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.detect_objects_cvlib"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.detect_objects_cvlib()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.ObjectsMethod"><code class="docutils literal notranslate"><span class="pre">ObjectsMethod</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectsMethod.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectsMethod.analyse_image()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.init_default_objects"><code class="docutils literal notranslate"><span class="pre">init_default_objects()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.objects_from_cvlib"><code class="docutils literal notranslate"><span class="pre">objects_from_cvlib()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-objects">objects module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#objects.ObjectDetector"><code class="docutils literal notranslate"><span class="pre">ObjectDetector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.od_client"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.od_client</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.set_client_to_cvlib"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.set_client_to_cvlib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.set_client_to_imageai"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.set_client_to_imageai()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.set_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#objects.ObjectDetectorClient"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetectorClient.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetectorClient.set_client_to_cvlib"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient.set_client_to_cvlib()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetectorClient.set_client_to_imageai"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient.set_client_to_imageai()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-text">text module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text.TextDetector"><code class="docutils literal notranslate"><span class="pre">TextDetector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">TextDetector.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.clean_text"><code class="docutils literal notranslate"><span class="pre">TextDetector.clean_text()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.get_text_from_image"><code class="docutils literal notranslate"><span class="pre">TextDetector.get_text_from_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">TextDetector.set_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.translate_text"><code class="docutils literal notranslate"><span class="pre">TextDetector.translate_text()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-cropposts">cropposts module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.compute_crop_corner"><code class="docutils literal notranslate"><span class="pre">compute_crop_corner()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.crop_posts_from_files"><code class="docutils literal notranslate"><span class="pre">crop_posts_from_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.crop_posts_from_refs"><code class="docutils literal notranslate"><span class="pre">crop_posts_from_refs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.crop_posts_image"><code class="docutils literal notranslate"><span class="pre">crop_posts_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.draw_matches"><code class="docutils literal notranslate"><span class="pre">draw_matches()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.get_file_list"><code class="docutils literal notranslate"><span class="pre">get_file_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.kp_from_matches"><code class="docutils literal notranslate"><span class="pre">kp_from_matches()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.matching_points"><code class="docutils literal notranslate"><span class="pre">matching_points()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.plot_matches"><code class="docutils literal notranslate"><span class="pre">plot_matches()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.test_crop_from_file"><code class="docutils literal notranslate"><span class="pre">test_crop_from_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropposts.test_crop_from_folder"><code class="docutils literal notranslate"><span class="pre">test_crop_from_folder()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license_link.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">misinformation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">misinformation package modules</a></li>
+      <li class="breadcrumb-item active">utils module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/misinformation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utils">
+<span id="utils-module"></span><h1>utils module<a class="headerlink" href="#module-utils" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.AnalysisMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">AnalysisMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.AnalysisMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class to be inherited by all analysis methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.AnalysisMethod.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.AnalysisMethod.analyse_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.AnalysisMethod.set_keys">
+<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.AnalysisMethod.set_keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.DownloadResource">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">DownloadResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.DownloadResource" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A remote resource that needs on demand downloading</p>
+<p>We use this as a wrapper to the pooch library. The wrapper registers
+each data file and allows prefetching through the CLI entry point
+misinformation_prefetch_models.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.DownloadResource.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.DownloadResource.get" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.DownloadResource.resources">
+<span class="sig-name descname"><span class="pre">resources</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#utils.DownloadResource.resources" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.append_data_to_dict">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">append_data_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.append_data_to_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Append entries from list of dictionaries to keys in global dict.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.dump_df">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">dump_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#utils.dump_df" title="Permalink to this definition"></a></dt>
+<dd><p>Utility to dump the dictionary into a dataframe.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.find_files">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.find_files" title="Permalink to this definition"></a></dt>
+<dd><p>Find image files on the file system</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The base directory where we are looking for the images. Defaults
+to None, which uses the XDG data directory if set or the current
+working directory otherwise.</p></li>
+<li><p><strong>pattern</strong> – The naming pattern that the filename should match. Defaults to
+“<a href="#id1"><span class="problematic" id="id2">*</span></a>.png”. Can be used to allow other patterns or to only include
+specific prefixes or suffixes.</p></li>
+<li><p><strong>recursive</strong> – Whether to recurse into subdirectories.</p></li>
+<li><p><strong>limit</strong> – The maximum number of images to be found. Defaults to 20.
+To return all images, set to None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.initialize_dict">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">initialize_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.initialize_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.misinformation_prefetch_models">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">misinformation_prefetch_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.misinformation_prefetch_models" title="Permalink to this definition"></a></dt>
+<dd><p>Prefetch all the download resources</p>
+</dd></dl>
+
+</section>
+<section id="module-display">
+<span id="display-module"></span><h1>display module<a class="headerlink" href="#module-display" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="display.JSONContainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">JSONContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.JSONContainer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Expose a Python dictionary as a JSON document in JupyterLab
+rich display rendering.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="display.explore_analysis">
+<span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">explore_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'faces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.explore_analysis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-faces">
+<span id="faces-module"></span><h1>faces module<a class="headerlink" href="#module-faces" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="faces.EmotionDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">EmotionDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emotion_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">race_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="faces.EmotionDetector.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector.analyse_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="faces.EmotionDetector.analyze_single_face">
+<span class="sig-name descname"><span class="pre">analyze_single_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.analyze_single_face" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="faces.EmotionDetector.clean_subdict">
+<span class="sig-name descname"><span class="pre">clean_subdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.clean_subdict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="faces.EmotionDetector.facial_expression_analysis">
+<span class="sig-name descname"><span class="pre">facial_expression_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.facial_expression_analysis" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="faces.EmotionDetector.set_keys">
+<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.set_keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="faces.EmotionDetector.wears_mask">
+<span class="sig-name descname"><span class="pre">wears_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#faces.EmotionDetector.wears_mask" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="faces.NocatchOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">NocatchOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.NocatchOutput" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></p>
+<p>An output container that suppresses output, but not exceptions</p>
+<p>Taken from <a class="reference external" href="https://github.com/jupyter-widgets/ipywidgets/issues/3208#issuecomment-1070836153">https://github.com/jupyter-widgets/ipywidgets/issues/3208#issuecomment-1070836153</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="faces.deepface_symlink_processor">
+<span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">deepface_symlink_processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.deepface_symlink_processor" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-objects_cvlib">
+<span id="objects-cvlib-module"></span><h1>objects_cvlib module<a class="headerlink" href="#module-objects_cvlib" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">ObjectCVLib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#objects_cvlib.ObjectsMethod" title="objects_cvlib.ObjectsMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectsMethod</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib.analyse_image" title="Permalink to this definition"></a></dt>
+<dd><p>Localize objects in the local image.</p>
+<p>Args:
+subdict: The dictionary for an image expression instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib.analyse_image_from_file">
+<span class="sig-name descname"><span class="pre">analyse_image_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib.analyse_image_from_file" title="Permalink to this definition"></a></dt>
+<dd><p>Localize objects in the local image.</p>
+<p>Args:
+image_path: The path to the local file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib.detect_objects_cvlib">
+<span class="sig-name descname"><span class="pre">detect_objects_cvlib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib.detect_objects_cvlib" title="Permalink to this definition"></a></dt>
+<dd><p>Localize objects in the local image.</p>
+<p>Args:
+image_path: The path to the local file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="objects_cvlib.ObjectsMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">ObjectsMethod</span></span><a class="headerlink" href="#objects_cvlib.ObjectsMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class to be inherited by all objects methods.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="objects_cvlib.ObjectsMethod.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectsMethod.analyse_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="objects_cvlib.init_default_objects">
+<span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">init_default_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.init_default_objects" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="objects_cvlib.objects_from_cvlib">
+<span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">objects_from_cvlib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objects_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#objects_cvlib.objects_from_cvlib" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-objects">
+<span id="objects-module"></span><h1>objects module<a class="headerlink" href="#module-objects" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="objects.ObjectDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects.</span></span><span class="sig-name descname"><span class="pre">ObjectDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetector.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.analyse_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="objects.ObjectDetector.od_client">
+<span class="sig-name descname"><span class="pre">od_client</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;objects.ObjectDetectorClient</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#objects.ObjectDetector.od_client" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetector.set_client_to_cvlib">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_client_to_cvlib</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_client_to_cvlib" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetector.set_client_to_imageai">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_client_to_imageai</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_client_to_imageai" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetector.set_keys">
+<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="objects.ObjectDetectorClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects.</span></span><span class="sig-name descname"><span class="pre">ObjectDetectorClient</span></span><a class="headerlink" href="#objects.ObjectDetectorClient" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetectorClient.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.analyse_image" title="Permalink to this definition"></a></dt>
+<dd><p>Localize objects in the local image.</p>
+<p>Args:
+subdict: The dictionary for an image expression instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetectorClient.set_client_to_cvlib">
+<span class="sig-name descname"><span class="pre">set_client_to_cvlib</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.set_client_to_cvlib" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="objects.ObjectDetectorClient.set_client_to_imageai">
+<span class="sig-name descname"><span class="pre">set_client_to_imageai</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.set_client_to_imageai" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-text">
+<span id="text-module"></span><h1>text module<a class="headerlink" href="#module-text" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="text.TextDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">text.</span></span><span class="sig-name descname"><span class="pre">TextDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextDetector.analyse_image">
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.analyse_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextDetector.clean_text">
+<span class="sig-name descname"><span class="pre">clean_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.clean_text" title="Permalink to this definition"></a></dt>
+<dd><p>Clean the text from unrecognized words and any numbers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextDetector.get_text_from_image">
+<span class="sig-name descname"><span class="pre">get_text_from_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.get_text_from_image" title="Permalink to this definition"></a></dt>
+<dd><p>Detects text on the image.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextDetector.set_keys">
+<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#text.TextDetector.set_keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextDetector.translate_text">
+<span class="sig-name descname"><span class="pre">translate_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.translate_text" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-cropposts">
+<span id="cropposts-module"></span><h1>cropposts module<a class="headerlink" href="#module-cropposts" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.compute_crop_corner">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">compute_crop_corner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matches</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">28</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.compute_crop_corner" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.crop_posts_from_files">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">crop_posts_from_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crop_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_crop_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.crop_posts_from_files" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.crop_posts_from_refs">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">crop_posts_from_refs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_views</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.crop_posts_from_refs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.crop_posts_image">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">crop_posts_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.crop_posts_image" title="Permalink to this definition"></a></dt>
+<dd><p>get file lists from dir and sub dirs
+ref_view：ref_view for crop the posts images
+view: posts image that need cropping
+rte： None - not cropped, or (crop_view, number of matches)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.draw_matches">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">draw_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matches</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.draw_matches" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.get_file_list">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">get_file_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_unix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.get_file_list" title="Permalink to this definition"></a></dt>
+<dd><p>get file lists from dir and sub dirs
+dir：root dir for file lists
+ext: file extension
+rte： File list</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.kp_from_matches">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">kp_from_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matches</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.kp_from_matches" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.matching_points">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">matching_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.matching_points" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.plot_matches">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">plot_matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keypoints1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keypoints2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.plot_matches" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.test_crop_from_file">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">test_crop_from_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.test_crop_from_file" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cropposts.test_crop_from_folder">
+<span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">test_crop_from_folder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.test_crop_from_folder" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="misinformation package modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license_link.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Scientific Software Center, Heidelberg University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
