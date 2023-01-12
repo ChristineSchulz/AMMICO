@@ -175,11 +175,12 @@
 <p><strong><em>This project is currently under development!</em></strong></p>
 <p>Use the pre-processed social media posts (image files) and process to collect information:</p>
 <ol class="arabic simple">
+<li><p>Cropping images to remove comments from posts</p></li>
 <li><p>Text extraction from the images</p></li>
-<li><p>Improving the preparation of the text for the data analysis (e.g., text cleaning)</p></li>
-<li><p>Performing person and face recognition in images, facial expressions recognition, as well as the extraction of any other available individual characteristics (e.g., gender, clothes)</p></li>
+<li><p>Language recognition, translation into English, cleaning of the text/spell-check</p></li>
+<li><p>Sentiment and subjectivity analysis</p></li>
+<li><p>Performing person and face recognition in images, emotion recognition</p></li>
 <li><p>Extraction of other non-human objects in the image</p></li>
-<li><p>5-Color analysis of the images</p></li>
 </ol>
 <p>This development will serve the fight to combat misinformation, by providing more comprehensive data about its content and techniques.
 The ultimate goal of this project is to develop a computer-assisted toolset to investigate the content of disinformation campaigns worldwide.</p>
@@ -194,12 +195,15 @@ The ultimate goal of this project is to develop a computer-assisted toolset to i
 </section>
 <section id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h1>
-<p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">misinformation/notebooks</span></code> folder for you to explore the package usage:</p>
+<p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">misinformation/notebooks</span></code> folder for you to explore the package:</p>
 <ol class="arabic simple">
-<li><p>Facial analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.</p></li>
+<li><p>Text analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
+<strong>You can <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/get-text-from-image.ipynb">run this notebook on google colab</a>: Place the data files and google cloud vision API key in your google drive to access the data.</strong></p></li>
+<li><p>Facial analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.
+<strong>You can <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/facial_expressions.">run this notebook on google colab</a>: Place the data files in your google drive to access the data.</strong></p></li>
 <li><p>Object analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">ojects_expression.ipynb</span></code> to identify certain objects in the image. Currently, the following objects are being identified: person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p></li>
 </ol>
-<p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression</span></code> to identify certain colors on the image, <code class="docutils literal notranslate"><span class="pre">get-text-from-image</span></code> to extract text that is contained in an image.)</p>
+<p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image).</p>
 </section>
 
 
