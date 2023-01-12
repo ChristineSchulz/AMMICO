@@ -95,6 +95,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Misinformation campaign analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#text-extraction">Text extraction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#emotion-recognition">Emotion recognition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object-detection">Object detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cropping-of-posts">Cropping of posts</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">misinformation package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license_link.html">License</a></li>
 </ul>
@@ -198,12 +205,35 @@ The ultimate goal of this project is to develop a computer-assisted toolset to i
 <p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">misinformation/notebooks</span></code> folder for you to explore the package:</p>
 <ol class="arabic simple">
 <li><p>Text analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
-<strong>You can <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/get-text-from-image.ipynb">run this notebook on google colab</a>: Place the data files and google cloud vision API key in your google drive to access the data.</strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/get-text-from-image.ipynb">Here</a></strong><br />
+Place the data files and google cloud vision API key in your google drive to access the data.</p></li>
 <li><p>Facial analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.
-<strong>You can <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/facial_expressions.">run this notebook on google colab</a>: Place the data files in your google drive to access the data.</strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/facial_expressions.">Here</a></strong><br />
+Place the data files in your google drive to access the data.**</p></li>
 <li><p>Object analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">ojects_expression.ipynb</span></code> to identify certain objects in the image. Currently, the following objects are being identified: person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p></li>
 </ol>
 <p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image).</p>
+</section>
+<section id="features">
+<h1>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h1>
+<section id="text-extraction">
+<h2>Text extraction<a class="headerlink" href="#text-extraction" title="Permalink to this heading">¶</a></h2>
+<p>The text is extracted from the images using <a class="reference external" href="https://cloud.google.com/vision"><code class="docutils literal notranslate"><span class="pre">google-cloud-vision</span></code></a>. For this, you need an API key. Set up your google account following the instructions on the google Vision AI website.
+You then need to export the location of the API key as an environment variable:
+<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GOOGLE_APPLICATION_CREDENTIALS=&quot;location</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">.json&quot;</span></code>
+The extracted text is then stored under the <code class="docutils literal notranslate"><span class="pre">text</span></code> key (column when exporting a csv).</p>
+<p><a class="reference external" href="https://py-googletrans.readthedocs.io/en/latest/">Googletrans</a> is used to recognize the language automatically and translate into English. The text language and translated text is then stored under the <code class="docutils literal notranslate"><span class="pre">text_language</span></code> and <code class="docutils literal notranslate"><span class="pre">text_english</span></code> key (column when exporting a csv).</p>
+<p>If you further want to analyse the text, you have to set the <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">True</span></code>. In doing so, the text is then processed using <a class="reference external" href="https://spacy.io/">spacy</a> (tokenized, part-of-speech, lemma, …). The English text is cleaned from numbers and unrecognized words (<code class="docutils literal notranslate"><span class="pre">text_clean</span></code>), spelling of the English text is corrected (<code class="docutils literal notranslate"><span class="pre">text_english_correct</span></code>), and further sentiment and subjectivity analysis are carried out (<code class="docutils literal notranslate"><span class="pre">polarity</span></code>, <code class="docutils literal notranslate"><span class="pre">subjectivity</span></code>). The latter two steps are carried out using <a class="reference external" href="https://textblob.readthedocs.io/en/dev/index.html">TextBlob</a>. For more information on the sentiment analysis using TextBlob see <a class="reference external" href="https://towardsdatascience.com/my-absolute-go-to-for-sentiment-analysis-textblob-3ac3a11d524">here</a>.</p>
+</section>
+<section id="emotion-recognition">
+<h2>Emotion recognition<a class="headerlink" href="#emotion-recognition" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="object-detection">
+<h2>Object detection<a class="headerlink" href="#object-detection" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="cropping-of-posts">
+<h2>Cropping of posts<a class="headerlink" href="#cropping-of-posts" title="Permalink to this heading">¶</a></h2>
+</section>
 </section>
 
 
