@@ -115,25 +115,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#utils.misinformation_prefetch_models"><code class="docutils literal notranslate"><span class="pre">misinformation_prefetch_models()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-display">display module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#display.JSONContainer"><code class="docutils literal notranslate"><span class="pre">JSONContainer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#display.explore_analysis"><code class="docutils literal notranslate"><span class="pre">explore_analysis()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-faces">faces module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#faces.EmotionDetector"><code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.analyse_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.analyze_single_face"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.analyze_single_face()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.clean_subdict"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.clean_subdict()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.facial_expression_analysis"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.facial_expression_analysis()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.set_keys()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.wears_mask"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.wears_mask()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#faces.NocatchOutput"><code class="docutils literal notranslate"><span class="pre">NocatchOutput</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#faces.deepface_symlink_processor"><code class="docutils literal notranslate"><span class="pre">deepface_symlink_processor()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#display-module">display module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faces-module">faces module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-objects_cvlib">objects_cvlib module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.ObjectCVLib"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.analyse_image()</span></code></a></li>
@@ -164,20 +147,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-text">text module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#text.TextDetector"><code class="docutils literal notranslate"><span class="pre">TextDetector</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">TextDetector.analyse_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.analyse_topic"><code class="docutils literal notranslate"><span class="pre">TextDetector.analyse_topic()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.clean_text"><code class="docutils literal notranslate"><span class="pre">TextDetector.clean_text()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.correct_spelling"><code class="docutils literal notranslate"><span class="pre">TextDetector.correct_spelling()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.get_text_from_image"><code class="docutils literal notranslate"><span class="pre">TextDetector.get_text_from_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.sentiment_analysis"><code class="docutils literal notranslate"><span class="pre">TextDetector.sentiment_analysis()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">TextDetector.set_keys()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.translate_text"><code class="docutils literal notranslate"><span class="pre">TextDetector.translate_text()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#text-module">text module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cropposts">cropposts module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cropposts.compute_crop_corner"><code class="docutils literal notranslate"><span class="pre">compute_crop_corner()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cropposts.crop_posts_from_files"><code class="docutils literal notranslate"><span class="pre">crop_posts_from_files()</span></code></a></li>
@@ -348,73 +318,11 @@ To return all images, set to None.</p></li>
 </dd></dl>
 
 </section>
-<section id="module-display">
-<span id="display-module"></span><h1>display module<a class="headerlink" href="#module-display" title="Permalink to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="display.JSONContainer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">JSONContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.JSONContainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Expose a Python dictionary as a JSON document in JupyterLab
-rich display rendering.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="display.explore_analysis">
-<span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">explore_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'faces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.explore_analysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<section id="display-module">
+<h1>display module<a class="headerlink" href="#display-module" title="Permalink to this heading">¶</a></h1>
 </section>
-<section id="module-faces">
-<span id="faces-module"></span><h1>faces module<a class="headerlink" href="#module-faces" title="Permalink to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="faces.EmotionDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">EmotionDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emotion_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">race_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="faces.EmotionDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector.analyse_image" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="faces.EmotionDetector.analyze_single_face">
-<span class="sig-name descname"><span class="pre">analyze_single_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.analyze_single_face" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="faces.EmotionDetector.clean_subdict">
-<span class="sig-name descname"><span class="pre">clean_subdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.clean_subdict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="faces.EmotionDetector.facial_expression_analysis">
-<span class="sig-name descname"><span class="pre">facial_expression_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.facial_expression_analysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="faces.EmotionDetector.set_keys">
-<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.set_keys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="faces.EmotionDetector.wears_mask">
-<span class="sig-name descname"><span class="pre">wears_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#faces.EmotionDetector.wears_mask" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="faces.NocatchOutput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">NocatchOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.NocatchOutput" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></p>
-<p>An output container that suppresses output, but not exceptions</p>
-<p>Taken from <a class="reference external" href="https://github.com/jupyter-widgets/ipywidgets/issues/3208#issuecomment-1070836153">https://github.com/jupyter-widgets/ipywidgets/issues/3208#issuecomment-1070836153</a></p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="faces.deepface_symlink_processor">
-<span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">deepface_symlink_processor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.deepface_symlink_processor" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<section id="faces-module">
+<h1>faces module<a class="headerlink" href="#faces-module" title="Permalink to this heading">¶</a></h1>
 </section>
 <section id="module-objects_cvlib">
 <span id="objects-cvlib-module"></span><h1>objects_cvlib module<a class="headerlink" href="#module-objects_cvlib" title="Permalink to this heading">¶</a></h1>
@@ -519,56 +427,8 @@ subdict: The dictionary for an image expression instance.</p>
 </dd></dl>
 
 </section>
-<section id="module-text">
-<span id="text-module"></span><h1>text module<a class="headerlink" href="#module-text" title="Permalink to this heading">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="text.TextDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">text.</span></span><span class="sig-name descname"><span class="pre">TextDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analyse_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analyse_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.analyse_image" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.analyse_topic">
-<span class="sig-name descname"><span class="pre">analyse_topic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.analyse_topic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.clean_text">
-<span class="sig-name descname"><span class="pre">clean_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.clean_text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Clean the text from unrecognized words and any numbers.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.correct_spelling">
-<span class="sig-name descname"><span class="pre">correct_spelling</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.correct_spelling" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.get_text_from_image">
-<span class="sig-name descname"><span class="pre">get_text_from_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.get_text_from_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Detects text on the image.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.sentiment_analysis">
-<span class="sig-name descname"><span class="pre">sentiment_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.sentiment_analysis" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.set_keys">
-<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#text.TextDetector.set_keys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.translate_text">
-<span class="sig-name descname"><span class="pre">translate_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.translate_text" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<section id="text-module">
+<h1>text module<a class="headerlink" href="#text-module" title="Permalink to this heading">¶</a></h1>
 </section>
 <section id="module-cropposts">
 <span id="cropposts-module"></span><h1>cropposts module<a class="headerlink" href="#module-cropposts" title="Permalink to this heading">¶</a></h1>
