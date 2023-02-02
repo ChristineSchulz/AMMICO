@@ -165,18 +165,12 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-text">text module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#text.PostprocessText"><code class="docutils literal notranslate"><span class="pre">PostprocessText</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#text.PostprocessText.analyse_topic"><code class="docutils literal notranslate"><span class="pre">PostprocessText.analyse_topic()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.PostprocessText.get_text_df"><code class="docutils literal notranslate"><span class="pre">PostprocessText.get_text_df()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.PostprocessText.get_text_dict"><code class="docutils literal notranslate"><span class="pre">PostprocessText.get_text_dict()</span></code></a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#text.TextDetector"><code class="docutils literal notranslate"><span class="pre">TextDetector</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">TextDetector.analyse_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.analyse_topic"><code class="docutils literal notranslate"><span class="pre">TextDetector.analyse_topic()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.clean_text"><code class="docutils literal notranslate"><span class="pre">TextDetector.clean_text()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.correct_spelling"><code class="docutils literal notranslate"><span class="pre">TextDetector.correct_spelling()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.get_text_from_image"><code class="docutils literal notranslate"><span class="pre">TextDetector.get_text_from_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.remove_linebreaks"><code class="docutils literal notranslate"><span class="pre">TextDetector.remove_linebreaks()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.sentiment_analysis"><code class="docutils literal notranslate"><span class="pre">TextDetector.sentiment_analysis()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">TextDetector.set_keys()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.TextDetector.translate_text"><code class="docutils literal notranslate"><span class="pre">TextDetector.translate_text()</span></code></a></li>
@@ -528,34 +522,17 @@ subdict: The dictionary for an image expression instance.</p>
 <section id="module-text">
 <span id="text-module"></span><h1>text module<a class="headerlink" href="#module-text" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="text.PostprocessText">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">text.</span></span><span class="sig-name descname"><span class="pre">PostprocessText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_csv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">csv_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="text.PostprocessText.analyse_topic">
-<span class="sig-name descname"><span class="pre">analyse_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText.analyse_topic" title="Permalink to this definition">¶</a></dt>
-<dd><p>Topic analysis using BERTopic.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.PostprocessText.get_text_df">
-<span class="sig-name descname"><span class="pre">get_text_df</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText.get_text_df" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.PostprocessText.get_text_dict">
-<span class="sig-name descname"><span class="pre">get_text_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText.get_text_dict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="text.TextDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">text.</span></span><span class="sig-name descname"><span class="pre">TextDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analyse_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">text.</span></span><span class="sig-name descname"><span class="pre">TextDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analyse_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analyse_topic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.analyse_image">
 <span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.analyse_image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextDetector.analyse_topic">
+<span class="sig-name descname"><span class="pre">analyse_topic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.analyse_topic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -573,12 +550,6 @@ subdict: The dictionary for an image expression instance.</p>
 <dt class="sig sig-object py" id="text.TextDetector.get_text_from_image">
 <span class="sig-name descname"><span class="pre">get_text_from_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.get_text_from_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Detects text on the image.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="text.TextDetector.remove_linebreaks">
-<span class="sig-name descname"><span class="pre">remove_linebreaks</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.remove_linebreaks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove linebreaks from original and translated text.</p>
 </dd></dl>
 
 <dl class="py method">
