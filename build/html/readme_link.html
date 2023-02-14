@@ -46,7 +46,10 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Misinformation campaign analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-on-windows">Installation on Windows</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#features">Features</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#text-extraction">Text extraction</a></li>
@@ -111,6 +114,24 @@ The ultimate goal of this project is to develop a computer-assisted toolset to i
 </pre></div>
 </div>
 <p>This will install the package and its dependencies locally.</p>
+<section id="installation-on-windows">
+<h2>Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permalink to this heading"></a></h2>
+<p>Some modules use <span class="xref myst">lavis</span> to anaylse image content. To enable this functionality on Windows OS, you need to install some dependencies that are not available by default or can be obtained from the command line:</p>
+<ol class="arabic simple">
+<li><p>Download <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Visual C++</a> and install (see also <a class="reference external" href="https://github.com/philferriere/cocoapi">here</a>).</p></li>
+<li><p>Then install the coco API from Github</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&amp;subdirectory=PythonAPI&quot;</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Now you can install the package by navigating to the misinformation directory and typing</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>in the command prompt.</p>
+</section>
 </section>
 <section id="usage">
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
