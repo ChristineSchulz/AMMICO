@@ -153,7 +153,7 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 1.97G/1.97G [00:12&lt;00:00, 176MB/s]
+100%|██████████| 1.97G/1.97G [00:12&lt;00:00, 170MB/s]
 </pre></div></div>
 </div>
 <p>The tensors of all images <code class="docutils literal notranslate"><span class="pre">features_image_stacked</span></code> was saved in <code class="docutils literal notranslate"><span class="pre">&lt;Number_of_images&gt;_&lt;model_name&gt;_saved_features_image.pt</span></code>. If you run it once for current model and current set of images you do not need to repeat it again. Instead you can load this features with the command:</p>
@@ -188,7 +188,7 @@
 </div>
 <p>You can filter your results in 3 different ways: - <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>. - <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images
 with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_simularity_value</span> <span class="pre">-</span> <span class="pre">best_simularity_value_in_current_search)/best_simularity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
@@ -204,16 +204,6 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-0.16655394434928894
-0.2465319037437439
-1.0
-</pre></div></div>
 </div>
 <p>After launching <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> function, the results of each query will be added to the source dictionary.</p>
 <div class="nbinput docutils container">
