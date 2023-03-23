@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>utils module &mdash; misinformation 0.0.1 documentation</title>
+  <title>utils module &mdash; AMMICO 0.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,11 +14,13 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="License" href="license_link.html" />
-    <link rel="prev" title="misinformation package modules" href="modules.html" /> 
+    <link rel="prev" title="AMMICO package modules" href="modules.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,7 +32,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            misinformation
+            AMMICO
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,11 +44,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="readme_link.html">Misinformation campaign analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme_link.html#installation">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme_link.html#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="readme_link.html#features">Features</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">misinformation package modules</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20faces.html">Facial Expression recognition with DeepFace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20text.html">Text extraction on image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20summary.html">Image summary and visual question answering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20multimodal.html">Image Multimodal Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects Expression recognition</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">AMMICO package modules</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">utils module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#utils.AnalysisMethod"><code class="docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#utils.AnalysisMethod.analyse_image"><code class="docutils literal notranslate"><span class="pre">AnalysisMethod.analyse_image()</span></code></a></li>
@@ -62,6 +66,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#utils.dump_df"><code class="docutils literal notranslate"><span class="pre">dump_df()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.find_files"><code class="docutils literal notranslate"><span class="pre">find_files()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.initialize_dict"><code class="docutils literal notranslate"><span class="pre">initialize_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.load_model"><code class="docutils literal notranslate"><span class="pre">load_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.load_model_base"><code class="docutils literal notranslate"><span class="pre">load_model_base()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.load_model_large"><code class="docutils literal notranslate"><span class="pre">load_model_large()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.misinformation_prefetch_models"><code class="docutils literal notranslate"><span class="pre">misinformation_prefetch_models()</span></code></a></li>
 </ul>
 </li>
@@ -159,7 +166,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">misinformation</a>
+          <a href="index.html">AMMICO</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -167,7 +174,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="modules.html">misinformation package modules</a></li>
+          <li class="breadcrumb-item"><a href="modules.html">AMMICO package modules</a></li>
       <li class="breadcrumb-item active">utils module</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/misinformation.rst.txt" rel="nofollow"> View page source</a>
@@ -253,6 +260,21 @@ To return all images, set to None.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="utils.initialize_dict">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">initialize_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.initialize_dict" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.load_model">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">load_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.load_model" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.load_model_base">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">load_model_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.load_model_base" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.load_model_large">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">load_model_large</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.load_model_large" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -578,7 +600,7 @@ rte： File list</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="modules.html" class="btn btn-neutral float-left" title="misinformation package modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="AMMICO package modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="license_link.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

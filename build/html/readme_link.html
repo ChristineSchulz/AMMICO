@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Misinformation campaign analysis &mdash; misinformation 0.0.1 documentation</title>
+  <title>AMMICO - AI Media and Misinformation Content Analysis Tool &mdash; AMMICO 0.0.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -14,11 +14,13 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="misinformation package modules" href="modules.html" />
-    <link rel="prev" title="Welcome to misinformation’s documentation!" href="index.html" /> 
+    <link rel="next" title="Facial Expression recognition with DeepFace" href="notebooks/Example%20faces.html" />
+    <link rel="prev" title="Welcome to AMMICO’s documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,7 +32,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            misinformation
+            AMMICO
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,20 +44,25 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Misinformation campaign analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation-on-windows">Installation on Windows</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AMMICO - AI Media and Misinformation Content Analysis Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text-extraction">Text extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#content-extraction">Content extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#emotion-recognition">Emotion recognition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object-detection">Object detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cropping-of-posts">Cropping of posts</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#features">Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#text-extraction">Text extraction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#emotion-recognition">Emotion recognition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#object-detection">Object detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cropping-of-posts">Cropping of posts</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">misinformation package modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20faces.html">Facial Expression recognition with DeepFace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20text.html">Text extraction on image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20summary.html">Image summary and visual question answering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20multimodal.html">Image Multimodal Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects Expression recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">AMMICO package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license_link.html">License</a></li>
 </ul>
 
@@ -65,7 +72,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">misinformation</a>
+          <a href="index.html">AMMICO</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -73,7 +80,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Misinformation campaign analysis</li>
+      <li class="breadcrumb-item active">AMMICO - AI Media and Misinformation Content Analysis Tool</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/readme_link.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -83,55 +90,59 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="misinformation-campaign-analysis">
-<h1>Misinformation campaign analysis<a class="headerlink" href="#misinformation-campaign-analysis" title="Permalink to this heading"></a></h1>
+  <section id="ammico-ai-media-and-misinformation-content-analysis-tool">
+<h1>AMMICO - AI Media and Misinformation Content Analysis Tool<a class="headerlink" href="#ammico-ai-media-and-misinformation-content-analysis-tool" title="Permalink to this heading"></a></h1>
 <p><img alt="License: MIT" src="https://img.shields.io/github/license/ssciwr/misinformation" />
 <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ssciwr/misinformation/ci.yml?branch=main" />
 <img alt="codecov" src="https://img.shields.io/codecov/c/github/ssciwr/misinformation" />
 <img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=ssciwr_misinformation&amp;metric=alert_status" />
 <img alt="Language" src="https://img.shields.io/github/languages/top/ssciwr/misinformation" /></p>
-<p>Extract data from from social media images and texts in disinformation campaigns.</p>
+<p>This package extracts data from images such as social media images, and the accompanying text/text that is included in the image. The analysis can extract a very large number of features, depending on the user input.</p>
 <p><strong><em>This project is currently under development!</em></strong></p>
-<p>Use the pre-processed social media posts (image files) and process to collect information:</p>
+<p>Use pre-processed image files such as social media posts with comments and process to collect information:</p>
 <ol class="arabic simple">
-<li><p>Cropping images to remove comments from posts</p></li>
-<li><p>Text extraction from the images</p></li>
-<li><p>Language recognition, translation into English, cleaning of the text/spell-check</p></li>
-<li><p>Sentiment and subjectivity analysis</p></li>
-<li><p>Performing person and face recognition in images, emotion recognition</p></li>
-<li><p>Extraction of other non-human objects in the image</p></li>
+<li><p>Text extraction from the images</p>
+<ol class="arabic simple">
+<li><p>Language detection</p></li>
+<li><p>Translation into English or other languages</p></li>
+<li><p>Cleaning of the text, spell-check</p></li>
+<li><p>Sentiment analysis</p></li>
+<li><p>Subjectivity analysis</p></li>
+<li><p>Named entity recognition</p></li>
+<li><p>Topic analysis</p></li>
 </ol>
-<p>This development will serve the fight to combat misinformation, by providing more comprehensive data about its content and techniques.
-The ultimate goal of this project is to develop a computer-assisted toolset to investigate the content of disinformation campaigns worldwide.</p>
-</section>
+</li>
+<li><p>Content extraction from the images</p>
+<ol class="arabic simple">
+<li><p>Textual summary of the image content (“image caption”) that can be analyzed further using the above tools</p></li>
+<li><p>Feature extraction from the images: User inputs query and images are matched to that query (both text and image query)</p></li>
+<li><p>Question answering</p></li>
+</ol>
+</li>
+<li><p>Performing person and face recognition in images</p>
+<ol class="arabic simple">
+<li><p>Face mask detection</p></li>
+<li><p>Age, gender and race detection</p></li>
+<li><p>Emotion recognition</p></li>
+</ol>
+</li>
+<li><p>Object detection in images</p>
+<ol class="arabic simple">
+<li><p>Detection of position and number of objects in the image; currently  person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone</p></li>
+</ol>
+</li>
+<li><p>Cropping images to remove comments from posts</p></li>
+</ol>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">misinformation</span></code> package can be installed using pip: Navigate into your package folder <code class="docutils literal notranslate"><span class="pre">misinformation/</span></code> and execute</p>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">AMMICO</span></code> package can be installed using pip: Navigate into your package folder <code class="docutils literal notranslate"><span class="pre">misinformation/</span></code> and execute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
 <p>This will install the package and its dependencies locally.</p>
-<section id="installation-on-windows">
-<h2>Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permalink to this heading"></a></h2>
-<p>Some modules use <a class="reference internal" href="#"><span class="xref myst">lavis</span></a> to anaylse image content. To enable this functionality on Windows OS, you need to install some dependencies that are not available by default or can be obtained from the command line:</p>
-<ol class="arabic simple">
-<li><p>Download <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170">Visual C++</a> and install (see also <a class="reference external" href="https://github.com/philferriere/cocoapi">here</a>).</p></li>
-<li><p>Then install the coco API from Github</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;git+https://github.com/philferriere/cocoapi.git#egg=pycocotools&amp;subdirectory=PythonAPI&quot;</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Now you can install the package by navigating to the misinformation directory and typing</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
-</pre></div>
-</div>
-<p>in the command prompt.</p>
-</section>
 </section>
 <section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">misinformation/notebooks</span></code> folder for you to explore the package:</p>
 <ol class="arabic simple">
 <li><p>Text analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
@@ -145,9 +156,9 @@ Place the data files in your google drive to access the data.**</p></li>
 <p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image).</p>
 </section>
 <section id="features">
-<h1>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h1>
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <section id="text-extraction">
-<h2>Text extraction<a class="headerlink" href="#text-extraction" title="Permalink to this heading"></a></h2>
+<h3>Text extraction<a class="headerlink" href="#text-extraction" title="Permalink to this heading"></a></h3>
 <p>The text is extracted from the images using <a class="reference external" href="https://cloud.google.com/vision"><code class="docutils literal notranslate"><span class="pre">google-cloud-vision</span></code></a>. For this, you need an API key. Set up your google account following the instructions on the google Vision AI website.
 You then need to export the location of the API key as an environment variable:
 <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GOOGLE_APPLICATION_CREDENTIALS=&quot;location</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">.json&quot;</span></code>
@@ -155,14 +166,22 @@ The extracted text is then stored under the <code class="docutils literal notran
 <p><a class="reference external" href="https://py-googletrans.readthedocs.io/en/latest/">Googletrans</a> is used to recognize the language automatically and translate into English. The text language and translated text is then stored under the <code class="docutils literal notranslate"><span class="pre">text_language</span></code> and <code class="docutils literal notranslate"><span class="pre">text_english</span></code> key (column when exporting a csv).</p>
 <p>If you further want to analyse the text, you have to set the <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">True</span></code>. In doing so, the text is then processed using <a class="reference external" href="https://spacy.io/">spacy</a> (tokenized, part-of-speech, lemma, …). The English text is cleaned from numbers and unrecognized words (<code class="docutils literal notranslate"><span class="pre">text_clean</span></code>), spelling of the English text is corrected (<code class="docutils literal notranslate"><span class="pre">text_english_correct</span></code>), and further sentiment and subjectivity analysis are carried out (<code class="docutils literal notranslate"><span class="pre">polarity</span></code>, <code class="docutils literal notranslate"><span class="pre">subjectivity</span></code>). The latter two steps are carried out using <a class="reference external" href="https://textblob.readthedocs.io/en/dev/index.html">TextBlob</a>. For more information on the sentiment analysis using TextBlob see <a class="reference external" href="https://towardsdatascience.com/my-absolute-go-to-for-sentiment-analysis-textblob-3ac3a11d524">here</a>.</p>
 </section>
+<section id="content-extraction">
+<h3>Content extraction<a class="headerlink" href="#content-extraction" title="Permalink to this heading"></a></h3>
+<p>The image content (“caption”) is extracted using the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. This library enables vision intelligence extraction using several state-of-the-art models, depending on the task. Further, it allows feature extraction from the images, where users can input textual and image queries, and the images in the database are matched to that query (multimodal search). Another option is question answering, where the user inputs a text question and the library finds the images that match the query.</p>
+</section>
 <section id="emotion-recognition">
-<h2>Emotion recognition<a class="headerlink" href="#emotion-recognition" title="Permalink to this heading"></a></h2>
+<h3>Emotion recognition<a class="headerlink" href="#emotion-recognition" title="Permalink to this heading"></a></h3>
+<p>Emotion recognition is carried out using the <a class="reference external" href="https://github.com/serengil/deepface">deepface</a> and <a class="reference external" href="https://github.com/serengil/retinaface">retinaface</a> libraries. These libraries detect the presence of faces, and their age, gender, emotion and race based on several state-of-the-art models. It is also detected if the person is wearing a face mask - if they are, then no further detection is carried out as the mask prevents an accurate prediction.</p>
 </section>
 <section id="object-detection">
-<h2>Object detection<a class="headerlink" href="#object-detection" title="Permalink to this heading"></a></h2>
+<h3>Object detection<a class="headerlink" href="#object-detection" title="Permalink to this heading"></a></h3>
+<p>Object detection is carried out using <a class="reference external" href="https://github.com/arunponnusamy/cvlib">cvlib</a> and the <a class="reference external" href="https://github.com/AlexeyAB/darknet">YOLOv4</a> model. This library detects faces, people, and several inanimate objects; we currently have restricted the output to person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p>
 </section>
 <section id="cropping-of-posts">
-<h2>Cropping of posts<a class="headerlink" href="#cropping-of-posts" title="Permalink to this heading"></a></h2>
+<h3>Cropping of posts<a class="headerlink" href="#cropping-of-posts" title="Permalink to this heading"></a></h3>
+<p>Social media posts can automatically be cropped to remove further comments on the page and restrict the textual content to the first comment only.</p>
+</section>
 </section>
 </section>
 
@@ -170,8 +189,8 @@ The extracted text is then stored under the <code class="docutils literal notran
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to misinformation’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modules.html" class="btn btn-neutral float-right" title="misinformation package modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to AMMICO’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="notebooks/Example%20faces.html" class="btn btn-neutral float-right" title="Facial Expression recognition with DeepFace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

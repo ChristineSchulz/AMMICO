@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Multimodal Search &mdash; AMMICO 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Objects Expression recognition" href="Example%20objects.html" />
+    <link rel="prev" title="Image summary and visual question answering" href="Example%20summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            AMMICO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20faces.html">Facial Expression recognition with DeepFace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20text.html">Text extraction on image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20summary.html">Image summary and visual question answering</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Image Multimodal Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Indexing-and-extracting-features-from-images-in-selected-folder">Indexing and extracting features from images in selected folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Save-search-results-to-csv">Save search results to csv</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20objects.html">Objects Expression recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">AMMICO package modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license_link.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AMMICO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Image Multimodal Search</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/Example multimodal.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Image-Multimodal-Search">
+<h1>Image Multimodal Search<a class="headerlink" href="#Image-Multimodal-Search" title="Permalink to this heading"></a></h1>
+<p>This notebooks shows some preliminary work on Image Multimodal Search with lavis library. It is mainly meant to explore its capabilities and to decide on future research directions. We package our code into a <code class="docutils literal notranslate"><span class="pre">misinformation</span></code> package that is imported here:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">misinformation</span>
+<span class="kn">import</span> <span class="nn">misinformation.multimodal_search</span> <span class="k">as</span> <span class="nn">ms</span>
+</pre></div>
+</div>
+</div>
+<p>Set an image path as input file path.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="n">misinformation</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;data/&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span> <span class="o">=</span> <span class="n">misinformation</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">initialize_dict</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="Indexing-and-extracting-features-from-images-in-selected-folder">
+<h2>Indexing and extracting features from images in selected folder<a class="headerlink" href="#Indexing-and-extracting-features-from-images-in-selected-folder" title="Permalink to this heading"></a></h2>
+<p>You can choose one of the following models: blip, blip2, albef, clip_base, clip_vitl14, clip_vitl14_336</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_type</span> <span class="o">=</span> <span class="s2">&quot;blip&quot;</span>
+<span class="c1"># model_type = &quot;blip2&quot;</span>
+<span class="c1"># model_type = &quot;albef&quot;</span>
+<span class="c1"># model_type = &quot;clip_base&quot;</span>
+<span class="c1"># model_type = &quot;clip_vitl14&quot;</span>
+<span class="c1"># model_type = &quot;clip_vitl14_336&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">vis_processors</span><span class="p">,</span>
+    <span class="n">txt_processors</span><span class="p">,</span>
+    <span class="n">image_keys</span><span class="p">,</span>
+    <span class="n">image_names</span><span class="p">,</span>
+    <span class="n">features_image_stacked</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">MultimodalSearch</span><span class="o">.</span><span class="n">parsing_images</span><span class="p">(</span><span class="n">mydict</span><span class="p">,</span> <span class="n">model_type</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|██████████| 1.97G/1.97G [00:12&lt;00:00, 164MB/s]
+</pre></div></div>
+</div>
+<p>The tensors of all images <code class="docutils literal notranslate"><span class="pre">features_image_stacked</span></code> was saved in <code class="docutils literal notranslate"><span class="pre">&lt;Number_of_images&gt;_&lt;model_name&gt;_saved_features_image.pt</span></code>. If you run it once for current model and current set of images you do not need to repeat it again. Instead you can load this features with the command:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (</span>
+<span class="c1">#    model,</span>
+<span class="c1">#    vis_processors,</span>
+<span class="c1">#    txt_processors,</span>
+<span class="c1">#    image_keys,</span>
+<span class="c1">#    image_names,</span>
+<span class="c1">#    features_image_stacked,</span>
+<span class="c1"># ) = ms.MultimodalSearch.parsing_images(mydict, model_type,&quot;18_clip_base_saved_features_image.pt&quot;)</span>
+</pre></div>
+</div>
+</div>
+<p>Here we already processed our image folder with 18 images with <code class="docutils literal notranslate"><span class="pre">clip_base</span></code> model. So you need just write the name <code class="docutils literal notranslate"><span class="pre">18_clip_base_saved_features_image.pt</span></code> of the saved file that consists of tensors of all images as a 3rd argument to the previous function.</p>
+<p>Next, you need to form search queries. You can search either by image or by text. You can search for a single query, or you can search for several queries at once, the computational time should not be much different. The format of the queries is as follows:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_query3</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;text_input&quot;</span><span class="p">:</span> <span class="s2">&quot;politician press conference&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;text_input&quot;</span><span class="p">:</span> <span class="s2">&quot;a person wearing a mask&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="s2">&quot;data/106349S_por.png&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>You can filter your results in 3 different ways: - <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>. - <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images
+with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_simularity_value</span> <span class="pre">-</span> <span class="pre">best_simularity_value_in_current_search)/best_simularity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">MultimodalSearch</span><span class="o">.</span><span class="n">multimodal_search</span><span class="p">(</span>
+    <span class="n">mydict</span><span class="p">,</span>
+    <span class="n">model</span><span class="p">,</span>
+    <span class="n">vis_processors</span><span class="p">,</span>
+    <span class="n">txt_processors</span><span class="p">,</span>
+    <span class="n">model_type</span><span class="p">,</span>
+    <span class="n">image_keys</span><span class="p">,</span>
+    <span class="n">features_image_stacked</span><span class="p">,</span>
+    <span class="n">search_query3</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.16655394434928894
+0.2465319037437439
+1.0
+</pre></div></div>
+</div>
+<p>After launching <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> function, the results of each query will be added to the source dictionary.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span><span class="p">[</span><span class="s2">&quot;106349S_por&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;filename&#39;: &#39;data/106349S_por.png&#39;,
+ &#39;rank politician press conference&#39;: 0,
+ &#39;politician press conference&#39;: 0.16655394434928894,
+ &#39;rank a person wearing a mask&#39;: 0,
+ &#39;a person wearing a mask&#39;: 0.2465319037437439,
+ &#39;rank data/106349S_por.png&#39;: 0,
+ &#39;data/106349S_por.png&#39;: 1.0}
+</pre></div></div>
+</div>
+<p>A special function was written to present the search results conveniently.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ms</span><span class="o">.</span><span class="n">MultimodalSearch</span><span class="o">.</span><span class="n">show_results</span><span class="p">(</span><span class="n">mydict</span><span class="p">,</span> <span class="n">search_query3</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Your search query: politician press conference&#39;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Results:&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Rank: 0 Val: 0.16655394434928894&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;106349S_por&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_multimodal_20_5.png" src="../_images/notebooks_Example_multimodal_20_5.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Rank: 1 Val: 0.14405082166194916&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;102730_eng&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_multimodal_20_9.png" src="../_images/notebooks_Example_multimodal_20_9.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Rank: 2 Val: 0.1135006919503212&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;102141_2_eng&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_multimodal_20_13.png" src="../_images/notebooks_Example_multimodal_20_13.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+</section>
+<section id="Save-search-results-to-csv">
+<h2>Save search results to csv<a class="headerlink" href="#Save-search-results-to-csv" title="Permalink to this heading"></a></h2>
+<p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outdict</span> <span class="o">=</span> <span class="n">misinformation</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">append_data_to_dict</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">misinformation</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">dump_df</span><span class="p">(</span><span class="n">outdict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Check the dataframe:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>filename</th>
+      <th>rank politician press conference</th>
+      <th>politician press conference</th>
+      <th>rank a person wearing a mask</th>
+      <th>a person wearing a mask</th>
+      <th>rank data/106349S_por.png</th>
+      <th>data/106349S_por.png</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>data/102730_eng.png</td>
+      <td>1</td>
+      <td>0.144051</td>
+      <td>2</td>
+      <td>0.200887</td>
+      <td>1</td>
+      <td>0.693031</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>data/102141_2_eng.png</td>
+      <td>2</td>
+      <td>0.113501</td>
+      <td>1</td>
+      <td>0.208809</td>
+      <td>2</td>
+      <td>0.661222</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>data/106349S_por.png</td>
+      <td>0</td>
+      <td>0.166554</td>
+      <td>0</td>
+      <td>0.246532</td>
+      <td>0</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Write the csv file:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./data_out.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Example%20summary.html" class="btn btn-neutral float-left" title="Image summary and visual question answering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example%20objects.html" class="btn btn-neutral float-right" title="Objects Expression recognition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Scientific Software Center, Heidelberg University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
