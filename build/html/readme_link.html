@@ -145,15 +145,20 @@
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
 <p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">misinformation/notebooks</span></code> folder for you to explore the package:</p>
 <ol class="arabic simple">
-<li><p>Text analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
+<li><p>Text extraction: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
 <strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/get-text-from-image.ipynb">Here</a></strong><br />
 Place the data files and google cloud vision API key in your google drive to access the data.</p></li>
-<li><p>Facial analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.
+<li><p>Emotion recognition: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.
 <strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/facial_expressions.ipynb">Here</a></strong><br />
-Place the data files in your google drive to access the data.**</p></li>
-<li><p>Object analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">ojects_expression.ipynb</span></code> to identify certain objects in the image. Currently, the following objects are being identified: person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p></li>
+Place the data files in your google drive to access the data.</p></li>
+<li><p>Content extraction: Use the notebook <code class="docutils literal notranslate"><span class="pre">image_summary.ipynb</span></code> to create captions for the images and ask questions about the image content.
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/image_summary.ipynb">Here</a></strong></p></li>
+<li><p>Multimodal content: Use the notebook <code class="docutils literal notranslate"><span class="pre">multimodal_search.ipynb</span></code> to find the best fitting images to an image or text query.
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/multimodal_search.ipynb">Here</a></strong></p></li>
+<li><p>Object analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">ojects_expression.ipynb</span></code> to identify certain objects in the image. Currently, the following objects are being identified: person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/objects_expression.ipynb">Here</a></strong></p></li>
 </ol>
-<p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image).</p>
+<p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image). To crop social media posts use the <code class="docutils literal notranslate"><span class="pre">cropposts.ipynb</span></code> notebook.</p>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
