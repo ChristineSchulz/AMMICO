@@ -62,16 +62,21 @@
 <li class="toctree-l4"><a class="reference internal" href="#utils.DownloadResource.resources"><code class="docutils literal notranslate"><span class="pre">DownloadResource.resources</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.ammico_prefetch_models"><code class="docutils literal notranslate"><span class="pre">ammico_prefetch_models()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.append_data_to_dict"><code class="docutils literal notranslate"><span class="pre">append_data_to_dict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.dump_df"><code class="docutils literal notranslate"><span class="pre">dump_df()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.find_files"><code class="docutils literal notranslate"><span class="pre">find_files()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.initialize_dict"><code class="docutils literal notranslate"><span class="pre">initialize_dict()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#utils.misinformation_prefetch_models"><code class="docutils literal notranslate"><span class="pre">misinformation_prefetch_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.is_interactive"><code class="docutils literal notranslate"><span class="pre">is_interactive()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-display">display module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#display.AnalysisExplorer"><code class="docutils literal notranslate"><span class="pre">AnalysisExplorer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#display.AnalysisExplorer.run_server"><code class="docutils literal notranslate"><span class="pre">AnalysisExplorer.run_server()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display.AnalysisExplorer.update_picture"><code class="docutils literal notranslate"><span class="pre">AnalysisExplorer.update_picture()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#display.JSONContainer"><code class="docutils literal notranslate"><span class="pre">JSONContainer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#display.explore_analysis"><code class="docutils literal notranslate"><span class="pre">explore_analysis()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-faces">faces module</a><ul>
@@ -211,7 +216,7 @@
 <p>A remote resource that needs on demand downloading</p>
 <p>We use this as a wrapper to the pooch library. The wrapper registers
 each data file and allows prefetching through the CLI entry point
-misinformation_prefetch_models.</p>
+ammico_prefetch_models.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="utils.DownloadResource.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.DownloadResource.get" title="Permalink to this definition"></a></dt>
@@ -222,6 +227,12 @@ misinformation_prefetch_models.</p>
 <span class="sig-name descname"><span class="pre">resources</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#utils.DownloadResource.resources" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.ammico_prefetch_models">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">ammico_prefetch_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.ammico_prefetch_models" title="Permalink to this definition"></a></dt>
+<dd><p>Prefetch all the download resources</p>
 </dd></dl>
 
 <dl class="py function">
@@ -263,14 +274,29 @@ To return all images, set to None.</p></li>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="utils.misinformation_prefetch_models">
-<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">misinformation_prefetch_models</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.misinformation_prefetch_models" title="Permalink to this definition"></a></dt>
-<dd><p>Prefetch all the download resources</p>
-</dd></dl>
+<dt class="sig sig-object py" id="utils.is_interactive">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">is_interactive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.is_interactive" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-display">
 <span id="display-module"></span><h1>display module<a class="headerlink" href="#module-display" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="display.AnalysisExplorer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">AnalysisExplorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'faces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="display.AnalysisExplorer.run_server">
+<span class="sig-name descname"><span class="pre">run_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8050</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer.run_server" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="display.AnalysisExplorer.update_picture">
+<span class="sig-name descname"><span class="pre">update_picture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer.update_picture" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="display.JSONContainer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">JSONContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.JSONContainer" title="Permalink to this definition"></a></dt>
@@ -278,11 +304,6 @@ To return all images, set to None.</p></li>
 <p>Expose a Python dictionary as a JSON document in JupyterLab
 rich display rendering.</p>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="display.explore_analysis">
-<span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">explore_analysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'faces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.explore_analysis" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 </section>
 <section id="module-faces">
@@ -549,8 +570,8 @@ subdict: The dictionary for an image expression instance.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="cropposts.crop_posts_image">
 <span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">crop_posts_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref_view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_match</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plt_crop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">correct_margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">700</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.crop_posts_image" title="Permalink to this definition"></a></dt>
-<dd><p>get file lists from dir and sub dirs
-ref_view：ref_view for crop the posts images
+<dd><p>get file lists from dir and sub dirs</p>
+<p>ref_view： ref_view for crop the posts images
 view: posts image that need cropping
 rte： None - not cropped, or (crop_view, number of matches)</p>
 </dd></dl>
@@ -564,7 +585,7 @@ rte： None - not cropped, or (crop_view, number of matches)</p>
 <dt class="sig sig-object py" id="cropposts.get_file_list">
 <span class="sig-prename descclassname"><span class="pre">cropposts.</span></span><span class="sig-name descname"><span class="pre">get_file_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filelist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_unix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cropposts.get_file_list" title="Permalink to this definition"></a></dt>
 <dd><p>get file lists from dir and sub dirs
-dir：root dir for file lists
+dir： root dir for file lists
 ext: file extension
 rte： File list</p>
 </dd></dl>

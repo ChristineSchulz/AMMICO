@@ -92,11 +92,11 @@
              
   <section id="ammico-ai-media-and-misinformation-content-analysis-tool">
 <h1>AMMICO - AI Media and Misinformation Content Analysis Tool<a class="headerlink" href="#ammico-ai-media-and-misinformation-content-analysis-tool" title="Permalink to this heading"></a></h1>
-<p><img alt="License: MIT" src="https://img.shields.io/github/license/ssciwr/misinformation" />
-<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ssciwr/misinformation/ci.yml?branch=main" />
-<img alt="codecov" src="https://img.shields.io/codecov/c/github/ssciwr/misinformation" />
-<img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=ssciwr_misinformation&amp;metric=alert_status" />
-<img alt="Language" src="https://img.shields.io/github/languages/top/ssciwr/misinformation" /></p>
+<p><img alt="License: MIT" src="https://img.shields.io/github/license/ssciwr/AMMICO" />
+<img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/ssciwr/AMMICO/ci.yml?branch=main" />
+<img alt="codecov" src="https://img.shields.io/codecov/c/github/ssciwr/AMMICO" />
+<img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=ssciwr_ammico&amp;metric=alert_status" />
+<img alt="Language" src="https://img.shields.io/github/languages/top/ssciwr/AMMICO" /></p>
 <p>This package extracts data from images such as social media images, and the accompanying text/text that is included in the image. The analysis can extract a very large number of features, depending on the user input.</p>
 <p><strong><em>This project is currently under development!</em></strong></p>
 <p>Use pre-processed image files such as social media posts with comments and process to collect information:</p>
@@ -135,7 +135,7 @@
 </ol>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">AMMICO</span></code> package can be installed using pip: Navigate into your package folder <code class="docutils literal notranslate"><span class="pre">misinformation/</span></code> and execute</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AMMICO</span></code> package can be installed using pip: Navigate into your package folder <code class="docutils literal notranslate"><span class="pre">ammico/</span></code> and execute</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
 </pre></div>
 </div>
@@ -143,20 +143,20 @@
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h2>
-<p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">misinformation/notebooks</span></code> folder for you to explore the package:</p>
+<p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder for you to explore the package:</p>
 <ol class="arabic simple">
 <li><p>Text extraction: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/get-text-from-image.ipynb">Here</a></strong><br />
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/get-text-from-image.ipynb">Here</a></strong><br />
 Place the data files and google cloud vision API key in your google drive to access the data.</p></li>
 <li><p>Emotion recognition: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/facial_expressions.ipynb">Here</a></strong><br />
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/facial_expressions.ipynb">Here</a></strong><br />
 Place the data files in your google drive to access the data.</p></li>
 <li><p>Content extraction: Use the notebook <code class="docutils literal notranslate"><span class="pre">image_summary.ipynb</span></code> to create captions for the images and ask questions about the image content.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/image_summary.ipynb">Here</a></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/image_summary.ipynb">Here</a></strong></p></li>
 <li><p>Multimodal content: Use the notebook <code class="docutils literal notranslate"><span class="pre">multimodal_search.ipynb</span></code> to find the best fitting images to an image or text query.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/multimodal_search.ipynb">Here</a></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/multimodal_search.ipynb">Here</a></strong></p></li>
 <li><p>Object analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">ojects_expression.ipynb</span></code> to identify certain objects in the image. Currently, the following objects are being identified: person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/misinformation/blob/main/notebooks/objects_expression.ipynb">Here</a></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/objects_expression.ipynb">Here</a></strong></p></li>
 </ol>
 <p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image). To crop social media posts use the <code class="docutils literal notranslate"><span class="pre">cropposts.ipynb</span></code> notebook.</p>
 </section>
