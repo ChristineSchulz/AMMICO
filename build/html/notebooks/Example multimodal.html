@@ -148,30 +148,113 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "77321f9043d54f36bc00b902ca83b3df"}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "bf38e9a3d6f54a379da1bf1f500cb046"}</script></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d97084e8b94c45d682887b205bf9136e"}</script></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-100%|██████████| 1.97G/1.97G [00:12&lt;00:00, 172MB/s]
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[5], line 8</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> (
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     model,
+<span class="ansi-green-intense-fg ansi-bold">      3</span>     vis_processors,
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     txt_processors,
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     image_keys,
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     image_names,
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     features_image_stacked,
+<span class="ansi-green-fg">----&gt; 8</span> ) <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ms</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">parsing_images</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">path_to_saved_tensors</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">.</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:194</span>, in <span class="ansi-cyan-fg">MultimodalSearch.parsing_images</span><span class="ansi-blue-fg">(self, model_type, path_to_saved_tensors, path_to_load_tensors)</span>
+<span class="ansi-green-intense-fg ansi-bold">    180</span> select_extract_image_features <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">    181</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip2</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>extract_image_features_blip2,
+<span class="ansi-green-intense-fg ansi-bold">    182</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>extract_image_features_basic,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">clip_vitl14_336</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>extract_image_features_clip,
+<span class="ansi-green-intense-fg ansi-bold">    187</span> }
+<span class="ansi-green-intense-fg ansi-bold">    189</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> model_type <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> select_model<span style="color: rgb(98,98,98)">.</span>keys():
+<span class="ansi-green-intense-fg ansi-bold">    190</span>     (
+<span class="ansi-green-intense-fg ansi-bold">    191</span>         model,
+<span class="ansi-green-intense-fg ansi-bold">    192</span>         vis_processors,
+<span class="ansi-green-intense-fg ansi-bold">    193</span>         txt_processors,
+<span class="ansi-green-fg">--&gt; 194</span>     ) <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">select_model</span><span class="ansi-yellow-bg">[</span>
+<span class="ansi-green-intense-fg ansi-bold">    195</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span>
+<span class="ansi-green-intense-fg ansi-bold">    196</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">multimodal_device</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    197</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    198</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">SyntaxError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    199</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Please, use one of the following models: blip2, blip, albef, clip_base, clip_vitl14, clip_vitl14_336</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    200</span>     )
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:33</span>, in <span class="ansi-cyan-fg">MultimodalSearch.load_feature_extractor_model_blip</span><span class="ansi-blue-fg">(self, device)</span>
+<span class="ansi-green-intense-fg ansi-bold">     32</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">load_feature_extractor_model_blip</span>(<span style="color: rgb(0,135,0)">self</span>, device):
+<span class="ansi-green-fg">---&gt; 33</span>     model, vis_processors, txt_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_model_and_preprocess</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">     34</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">blip_feature_extractor</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     35</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">base</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     36</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">is_eval</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     37</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">     38</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     39</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model, vis_processors, txt_processors
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/lavis/models/__init__.py:195</span>, in <span class="ansi-cyan-fg">load_model_and_preprocess</span><span class="ansi-blue-fg">(name, model_type, is_eval, device)</span>
+<span class="ansi-green-intense-fg ansi-bold">    192</span> model_cls <span style="color: rgb(98,98,98)">=</span> registry<span style="color: rgb(98,98,98)">.</span>get_model_class(name)
+<span class="ansi-green-intense-fg ansi-bold">    194</span> <span style="color: rgb(95,135,135)"># load model</span>
+<span class="ansi-green-fg">--&gt; 195</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model_cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    197</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_eval:
+<span class="ansi-green-intense-fg ansi-bold">    198</span>     model<span style="color: rgb(98,98,98)">.</span>eval()
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/lavis/models/base_model.py:70</span>, in <span class="ansi-cyan-fg">BaseModel.from_pretrained</span><span class="ansi-blue-fg">(cls, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">Build a pretrained model from default configuration file, specified by model_type.</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(175,0,0)">    - model (nn.Module): pretrained or finetuned model, depending on the configuration.</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span> model_cfg <span style="color: rgb(98,98,98)">=</span> OmegaConf<span style="color: rgb(98,98,98)">.</span>load(<span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>default_config_path(model_type))<span style="color: rgb(98,98,98)">.</span>model
+<span class="ansi-green-fg">---&gt; 70</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_cfg</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     72</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_feature_extractor.py:198</span>, in <span class="ansi-cyan-fg">BlipFeatureExtractor.from_config</span><span class="ansi-blue-fg">(cls, cfg)</span>
+<span class="ansi-green-intense-fg ansi-bold">    195</span> embed_dim <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">embed_dim</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">256</span>)
+<span class="ansi-green-intense-fg ansi-bold">    196</span> max_txt_len <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">max_txt_len</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">30</span>)
+<span class="ansi-green-fg">--&gt; 198</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    199</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    200</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">text_encoder</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">text_encoder</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    201</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">embed_dim</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">embed_dim</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    202</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    203</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    205</span> <span style="color: rgb(95,135,135)"># load pre-trained weights</span>
+<span class="ansi-green-intense-fg ansi-bold">    206</span> pretrain_path <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">pretrained</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_feature_extractor.py:41</span>, in <span class="ansi-cyan-fg">BlipFeatureExtractor.__init__</span><span class="ansi-blue-fg">(self, image_encoder, text_encoder, embed_dim, max_txt_len)</span>
+<span class="ansi-green-intense-fg ansi-bold">     38</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>, image_encoder, text_encoder, embed_dim, max_txt_len<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">40</span>):
+<span class="ansi-green-intense-fg ansi-bold">     39</span>     <span style="color: rgb(0,135,0)">super</span>()<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,255)">__init__</span>()
+<span class="ansi-green-fg">---&gt; 41</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">init_tokenizer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     43</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>visual_encoder <span style="color: rgb(98,98,98)">=</span> image_encoder
+<span class="ansi-green-intense-fg ansi-bold">     44</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>text_encoder <span style="color: rgb(98,98,98)">=</span> text_encoder
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip.py:22</span>, in <span class="ansi-cyan-fg">BlipBase.init_tokenizer</span><span class="ansi-blue-fg">(cls)</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span style="color: rgb(175,0,255)">@classmethod</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">init_tokenizer</span>(<span style="color: rgb(0,135,0)">cls</span>):
+<span class="ansi-green-fg">---&gt; 22</span>     tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">BertTokenizer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">bert-base-uncased</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">bos_token</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[DEC]</span><span style="color: rgb(175,0,0)">&#34;</span>})
+<span class="ansi-green-intense-fg ansi-bold">     24</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">additional_special_tokens</span><span style="color: rgb(175,0,0)">&#34;</span>: [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[ENC]</span><span style="color: rgb(175,0,0)">&#34;</span>]})
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1788</span>, in <span class="ansi-cyan-fg">PreTrainedTokenizerBase.from_pretrained</span><span class="ansi-blue-fg">(cls, pretrained_model_name_or_path, *init_inputs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1782</span>     logger<span style="color: rgb(98,98,98)">.</span>info(
+<span class="ansi-green-intense-fg ansi-bold">   1783</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load following files from cache: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unresolved_files<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and cannot check if these </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1784</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">files are necessary for the tokenizer to operate.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1785</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1787</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">all</span>(full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files<span style="color: rgb(98,98,98)">.</span>values()):
+<span class="ansi-green-fg">-&gt; 1788</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">EnvironmentError</span>(
+<span class="ansi-green-intense-fg ansi-bold">   1789</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load tokenizer for </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">. If you were trying to load it from </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1790</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">https://huggingface.co/models</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">, make sure you don</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t have a local directory with the same name. </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1791</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Otherwise, make sure </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> is the correct path to a directory </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1792</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">containing all relevant files for a </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span><span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> tokenizer.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1793</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1795</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> file_id, file_path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> vocab_files<span style="color: rgb(98,98,98)">.</span>items():
+<span class="ansi-green-intense-fg ansi-bold">   1796</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file_id <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files:
+
+<span class="ansi-red-fg">OSError</span>: Can&#39;t load tokenizer for &#39;bert-base-uncased&#39;. If you were trying to load it from &#39;https://huggingface.co/models&#39;, make sure you don&#39;t have a local directory with the same name. Otherwise, make sure &#39;bert-base-uncased&#39; is the correct path to a directory containing all relevant files for a BertTokenizer tokenizer.
 </pre></div></div>
 </div>
 <p>The tensors of all images <code class="docutils literal notranslate"><span class="pre">features_image_stacked</span></code> was saved in <code class="docutils literal notranslate"><span class="pre">&lt;Number_of_images&gt;_&lt;model_name&gt;_saved_features_image.pt</span></code>. If you run it once for current model and current set of images you do not need to repeat it again. Instead you can load this features with the command:</p>
@@ -206,7 +289,7 @@
 </div>
 <p>You can filter your results in 3 different ways: - <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>. - <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images
 with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_simularity_value</span> <span class="pre">-</span> <span class="pre">best_simularity_value_in_current_search)/best_simularity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
@@ -223,6 +306,28 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[8], line 3</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> similarity <span style="color: rgb(98,98,98)">=</span> ms<span style="color: rgb(98,98,98)">.</span>MultimodalSearch<span style="color: rgb(98,98,98)">.</span>multimodal_search(
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     mydict,
+<span class="ansi-green-fg">----&gt; 3</span>     <span class="ansi-yellow-bg">model</span>,
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     vis_processors,
+<span class="ansi-green-intense-fg ansi-bold">      5</span>     txt_processors,
+<span class="ansi-green-intense-fg ansi-bold">      6</span>     model_type,
+<span class="ansi-green-intense-fg ansi-bold">      7</span>     image_keys,
+<span class="ansi-green-intense-fg ansi-bold">      8</span>     features_image_stacked,
+<span class="ansi-green-intense-fg ansi-bold">      9</span>     search_query3,
+<span class="ansi-green-intense-fg ansi-bold">     10</span> )
+
+<span class="ansi-red-fg">NameError</span>: name &#39;model&#39; is not defined
+</pre></div></div>
+</div>
 <p>After launching <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> function, the results of each query will be added to the source dictionary.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
@@ -238,13 +343,7 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;filename&#39;: &#39;data/106349S_por.png&#39;,
- &#39;rank politician press conference&#39;: 0,
- &#39;politician press conference&#39;: 0.16655394434928894,
- &#39;rank a person wearing a mask&#39;: 0,
- &#39;a person wearing a mask&#39;: 0.2465319037437439,
- &#39;rank data/106349S_por.png&#39;: 0,
- &#39;data/106349S_por.png&#39;: 1.0}
+{&#39;filename&#39;: &#39;data/106349S_por.png&#39;}
 </pre></div></div>
 </div>
 <p>A special function was written to present the search results conveniently.</p>
@@ -264,7 +363,7 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 &#39;Your search query: politician press conference&#39;
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -280,97 +379,35 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 &#39;Results:&#39;
 </pre></div></div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Rank: 0 Val: 0.16655394434928894&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;106349S_por&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_multimodal_20_5.png" src="../_images/notebooks_Example_multimodal_20_5.png" />
-</div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;--------------------------------------------------&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Rank: 1 Val: 0.14405082166194916&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;102730_eng&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_multimodal_20_9.png" src="../_images/notebooks_Example_multimodal_20_9.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;--------------------------------------------------&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;Rank: 2 Val: 0.1135006919503212&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;102141_2_eng&#39;
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_multimodal_20_13.png" src="../_images/notebooks_Example_multimodal_20_13.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&#39;--------------------------------------------------&#39;
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[10], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">ms</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">show_results</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">search_query3</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:650</span>, in <span class="ansi-cyan-fg">MultimodalSearch.show_results</span><span class="ansi-blue-fg">(self, query, itm, image_gradcam_with_itm)</span>
+<span class="ansi-green-intense-fg ansi-bold">    647</span>     current_querry_val <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">list</span>(query<span style="color: rgb(98,98,98)">.</span>values())[<span style="color: rgb(98,98,98)">0</span>]
+<span class="ansi-green-intense-fg ansi-bold">    648</span>     current_querry_rank <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">rank </span><span style="color: rgb(175,0,0)">&#34;</span> <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(0,135,0)">list</span>(query<span style="color: rgb(98,98,98)">.</span>values())[<span style="color: rgb(98,98,98)">0</span>]
+<span class="ansi-green-fg">--&gt; 650</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> s <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">sorted</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    651</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">items</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">lambda</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">t</span><span class="ansi-yellow-bg">:</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">t</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">current_querry_val</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">reverse</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span>
+<span class="ansi-green-intense-fg ansi-bold">    652</span> <span class="ansi-yellow-bg">)</span>:
+<span class="ansi-green-intense-fg ansi-bold">    653</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> s[<span style="color: rgb(98,98,98)">1</span>][current_querry_rank] <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    654</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">break</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:651</span>, in <span class="ansi-cyan-fg">MultimodalSearch.show_results.&lt;locals&gt;.&lt;lambda&gt;</span><span class="ansi-blue-fg">(t)</span>
+<span class="ansi-green-intense-fg ansi-bold">    647</span>     current_querry_val <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">list</span>(query<span style="color: rgb(98,98,98)">.</span>values())[<span style="color: rgb(98,98,98)">0</span>]
+<span class="ansi-green-intense-fg ansi-bold">    648</span>     current_querry_rank <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">rank </span><span style="color: rgb(175,0,0)">&#34;</span> <span style="color: rgb(98,98,98)">+</span> <span style="color: rgb(0,135,0)">list</span>(query<span style="color: rgb(98,98,98)">.</span>values())[<span style="color: rgb(98,98,98)">0</span>]
+<span class="ansi-green-intense-fg ansi-bold">    650</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> s <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">sorted</span>(
+<span class="ansi-green-fg">--&gt; 651</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>items(), key<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">lambda</span> t: <span class="ansi-yellow-bg">t</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">current_querry_val</span><span class="ansi-yellow-bg">]</span>, reverse<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
+<span class="ansi-green-intense-fg ansi-bold">    652</span> ):
+<span class="ansi-green-intense-fg ansi-bold">    653</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> s[<span style="color: rgb(98,98,98)">1</span>][current_querry_rank] <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    654</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">break</span>
+
+<span class="ansi-red-fg">KeyError</span>: &#39;politician press conference&#39;
 </pre></div></div>
 </div>
 </section>
@@ -419,44 +456,20 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
     <tr style="text-align: right;">
       <th></th>
       <th>filename</th>
-      <th>rank politician press conference</th>
-      <th>politician press conference</th>
-      <th>rank a person wearing a mask</th>
-      <th>a person wearing a mask</th>
-      <th>rank data/106349S_por.png</th>
-      <th>data/106349S_por.png</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>data/102730_eng.png</td>
-      <td>1</td>
-      <td>0.144051</td>
-      <td>2</td>
-      <td>0.200887</td>
-      <td>1</td>
-      <td>0.693031</td>
     </tr>
     <tr>
       <th>1</th>
       <td>data/102141_2_eng.png</td>
-      <td>2</td>
-      <td>0.113501</td>
-      <td>1</td>
-      <td>0.208809</td>
-      <td>2</td>
-      <td>0.661222</td>
     </tr>
     <tr>
       <th>2</th>
       <td>data/106349S_por.png</td>
-      <td>0</td>
-      <td>0.166554</td>
-      <td>0</td>
-      <td>0.246532</td>
-      <td>0</td>
-      <td>1.000000</td>
     </tr>
   </tbody>
 </table>
@@ -479,9 +492,7 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 </pre></div>
 </div>
 </div>
-<script type="application/vnd.jupyter.widget-state+json">
-{"state": {"08321c3d2267417292e434034acbb742": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b5b4f7b3a7614e98b57275e9e3ac932e": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "7df8bb29029b49d0be65f03493e4a4c8": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_08321c3d2267417292e434034acbb742", "max": 231508.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_b5b4f7b3a7614e98b57275e9e3ac932e", "tabbable": null, "tooltip": null, "value": 231508.0}}, "571bbc095b8446559127b5341893228e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "37d2fcafc7a542aa979d9d467d8398cb": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "b2bebbe3ebe34b729580e9c3ad8faf83": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_571bbc095b8446559127b5341893228e", "placeholder": "\u200b", "style": "IPY_MODEL_37d2fcafc7a542aa979d9d467d8398cb", "tabbable": null, "tooltip": null, "value": "Downloading (\u2026)solve/main/vocab.txt: 100%"}}, "15c12c04b4fc4c67b30ef3f195fc94ea": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9fff8e7bc21a4cb39f696278309bb26f": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "9c078f297a6b4f359cafccad0e005243": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_15c12c04b4fc4c67b30ef3f195fc94ea", "placeholder": "\u200b", "style": "IPY_MODEL_9fff8e7bc21a4cb39f696278309bb26f", "tabbable": null, "tooltip": null, "value": " 232k/232k [00:00&lt;00:00, 10.9MB/s]"}}, "8c732f4c671a49d8a564be516cc16ddc": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "77321f9043d54f36bc00b902ca83b3df": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_b2bebbe3ebe34b729580e9c3ad8faf83", "IPY_MODEL_7df8bb29029b49d0be65f03493e4a4c8", "IPY_MODEL_9c078f297a6b4f359cafccad0e005243"], "layout": "IPY_MODEL_8c732f4c671a49d8a564be516cc16ddc", "tabbable": null, "tooltip": null}}, "e953b7c039ac488ea4b4e56730a16ee1": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f8d43bbab820421e8fc95e4839238a94": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "3c50e1d6cc6747faac1187791823a452": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_e953b7c039ac488ea4b4e56730a16ee1", "max": 28.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_f8d43bbab820421e8fc95e4839238a94", "tabbable": null, "tooltip": null, "value": 28.0}}, "7bfb55b2b68e431f99f3d962e2b47e3d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "755c331e439649fe8c91de9f1f61360d": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "c28c9df487bd4c9aa2094ff085dda930": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_7bfb55b2b68e431f99f3d962e2b47e3d", "placeholder": "\u200b", "style": "IPY_MODEL_755c331e439649fe8c91de9f1f61360d", "tabbable": null, "tooltip": null, "value": "Downloading (\u2026)okenizer_config.json: 100%"}}, "a06b3436b4944016a53d0cbb46fc2301": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d21b389b87224f60a65a5d2718e0efa0": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "b6573b8a27334d6a9f448ee2081b30e8": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_a06b3436b4944016a53d0cbb46fc2301", "placeholder": "\u200b", "style": "IPY_MODEL_d21b389b87224f60a65a5d2718e0efa0", "tabbable": null, "tooltip": null, "value": " 28.0/28.0 [00:00&lt;00:00, 1.58kB/s]"}}, "d7f344317bf54f778911f338d56db40b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bf38e9a3d6f54a379da1bf1f500cb046": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_c28c9df487bd4c9aa2094ff085dda930", "IPY_MODEL_3c50e1d6cc6747faac1187791823a452", "IPY_MODEL_b6573b8a27334d6a9f448ee2081b30e8"], "layout": "IPY_MODEL_d7f344317bf54f778911f338d56db40b", "tabbable": null, "tooltip": null}}, "6a531b3bfd5244e09e02e892219a6933": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "1b1790954e3649c791ee0da8bc43c3b8": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "1046ad39bf5e49b391d862102517cb98": {"model_name": "FloatProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_6a531b3bfd5244e09e02e892219a6933", "max": 570.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_1b1790954e3649c791ee0da8bc43c3b8", "tabbable": null, "tooltip": null, "value": 570.0}}, "94126bdc162c485cafb5738c8ab356cd": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ce4c687cb8d74e4fb9151bb1d563df2a": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "41f808ce5a804b33ad57dae6d49df07c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_94126bdc162c485cafb5738c8ab356cd", "placeholder": "\u200b", "style": "IPY_MODEL_ce4c687cb8d74e4fb9151bb1d563df2a", "tabbable": null, "tooltip": null, "value": "Downloading (\u2026)lve/main/config.json: 100%"}}, "47e816326c494fafbe10f5a45c7b4de2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f9be3b5fc68f4ddb9afc5e1aa08f76ee": {"model_name": "HTMLStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "fd5e18215f394394891ad448a3841d6c": {"model_name": "HTMLModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_47e816326c494fafbe10f5a45c7b4de2", "placeholder": "\u200b", "style": "IPY_MODEL_f9be3b5fc68f4ddb9afc5e1aa08f76ee", "tabbable": null, "tooltip": null, "value": " 570/570 [00:00&lt;00:00, 44.0kB/s]"}}, "09ad69f2b65041188cf8d1d70c4a39a8": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d97084e8b94c45d682887b205bf9136e": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_41f808ce5a804b33ad57dae6d49df07c", "IPY_MODEL_1046ad39bf5e49b391d862102517cb98", "IPY_MODEL_fd5e18215f394394891ad448a3841d6c"], "layout": "IPY_MODEL_09ad69f2b65041188cf8d1d70c4a39a8", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}
-</script></section>
+</section>
 </section>
 
 

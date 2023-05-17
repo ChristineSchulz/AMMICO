@@ -1,4 +1,4 @@
-,filename,const_image_summary,3_non-deterministic summary,How many persons on the picture?,Are there any politicians in the picture?,Does the picture show something from medicine?
-0,data/102730_eng.png,two people in blue coats spray disinfection a van,"['people in blue costumes spray disinfection against van', 'two people in scrub suits spray disinfection with disposable gloves', 'two doctors dressed in blue, spraying water on a city street']",2,no,yes
-1,data/102141_2_eng.png,"a collage of images including a corona sign, a corona warning sign, and a hand holding a tube of blood","['a collage with several pictures of medical supplies', 'a series of photos showing a hand holding a pipe', 'a collage of various photos with corona signs']",1,no,yes
-2,data/106349S_por.png,a man wearing a face mask while looking at a cell phone,"['a man wearing a mask on a television', 'a man wearing a face mask using a microphone', 'the man wears a face mask and talks on a news anchor with a microphone']",1,yes,yes
+,filename
+0,data/102730_eng.png
+1,data/102141_2_eng.png
+2,data/106349S_por.png
