@@ -10,6 +10,8 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -43,10 +45,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20faces.html">Facial Expression recognition with DeepFace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20text.html">Text extraction on image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20text.html">Notebook for text extraction on image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20multimodal.html">Image Multimodal Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects Expression recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">AMMICO package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license_link.html">License</a></li>
 </ul>
@@ -87,10 +89,12 @@
  | <a href="#I"><strong>I</strong></a>
  | <a href="#J"><strong>J</strong></a>
  | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -101,37 +105,41 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#utils.ammico_prefetch_models">ammico_prefetch_models() (in module utils)</a>
+      <li><a href="ammico.html#utils.ammico_prefetch_models">ammico_prefetch_models() (in module utils)</a>
 </li>
-      <li><a href="misinformation.html#faces.EmotionDetector.analyse_image">analyse_image() (faces.EmotionDetector method)</a>
+      <li><a href="ammico.html#faces.EmotionDetector.analyse_image">analyse_image() (faces.EmotionDetector method)</a>
 
       <ul>
-        <li><a href="misinformation.html#objects.ObjectDetector.analyse_image">(objects.ObjectDetector method)</a>
+        <li><a href="ammico.html#objects.ObjectDetector.analyse_image">(objects.ObjectDetector method)</a>
 </li>
-        <li><a href="misinformation.html#objects.ObjectDetectorClient.analyse_image">(objects.ObjectDetectorClient method)</a>
+        <li><a href="ammico.html#objects.ObjectDetectorClient.analyse_image">(objects.ObjectDetectorClient method)</a>
 </li>
-        <li><a href="misinformation.html#objects_cvlib.ObjectCVLib.analyse_image">(objects_cvlib.ObjectCVLib method)</a>
+        <li><a href="ammico.html#objects_cvlib.ObjectCVLib.analyse_image">(objects_cvlib.ObjectCVLib method)</a>
 </li>
-        <li><a href="misinformation.html#objects_cvlib.ObjectsMethod.analyse_image">(objects_cvlib.ObjectsMethod method)</a>
+        <li><a href="ammico.html#objects_cvlib.ObjectsMethod.analyse_image">(objects_cvlib.ObjectsMethod method)</a>
 </li>
-        <li><a href="misinformation.html#text.TextDetector.analyse_image">(text.TextDetector method)</a>
+        <li><a href="ammico.html#summary.SummaryDetector.analyse_image">(summary.SummaryDetector method)</a>
 </li>
-        <li><a href="misinformation.html#utils.AnalysisMethod.analyse_image">(utils.AnalysisMethod method)</a>
+        <li><a href="ammico.html#text.TextDetector.analyse_image">(text.TextDetector method)</a>
+</li>
+        <li><a href="ammico.html#utils.AnalysisMethod.analyse_image">(utils.AnalysisMethod method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#objects_cvlib.ObjectCVLib.analyse_image_from_file">analyse_image_from_file() (objects_cvlib.ObjectCVLib method)</a>
+      <li><a href="ammico.html#objects_cvlib.ObjectCVLib.analyse_image_from_file">analyse_image_from_file() (objects_cvlib.ObjectCVLib method)</a>
 </li>
-      <li><a href="misinformation.html#text.PostprocessText.analyse_topic">analyse_topic() (text.PostprocessText method)</a>
+      <li><a href="ammico.html#summary.SummaryDetector.analyse_questions">analyse_questions() (summary.SummaryDetector method)</a>
 </li>
-      <li><a href="misinformation.html#display.AnalysisExplorer">AnalysisExplorer (class in display)</a>
+      <li><a href="ammico.html#text.PostprocessText.analyse_topic">analyse_topic() (text.PostprocessText method)</a>
 </li>
-      <li><a href="misinformation.html#utils.AnalysisMethod">AnalysisMethod (class in utils)</a>
+      <li><a href="ammico.html#display.AnalysisExplorer">AnalysisExplorer (class in display)</a>
 </li>
-      <li><a href="misinformation.html#faces.EmotionDetector.analyze_single_face">analyze_single_face() (faces.EmotionDetector method)</a>
+      <li><a href="ammico.html#utils.AnalysisMethod">AnalysisMethod (class in utils)</a>
 </li>
-      <li><a href="misinformation.html#utils.append_data_to_dict">append_data_to_dict() (in module utils)</a>
+      <li><a href="ammico.html#faces.EmotionDetector.analyze_single_face">analyze_single_face() (faces.EmotionDetector method)</a>
+</li>
+      <li><a href="ammico.html#utils.append_data_to_dict">append_data_to_dict() (in module utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -139,27 +147,29 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.EmotionDetector.clean_subdict">clean_subdict() (faces.EmotionDetector method)</a>
+      <li><a href="ammico.html#faces.EmotionDetector.clean_subdict">clean_subdict() (faces.EmotionDetector method)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector.clean_text">clean_text() (text.TextDetector method)</a>
+      <li><a href="ammico.html#text.TextDetector.clean_text">clean_text() (text.TextDetector method)</a>
 </li>
-      <li><a href="misinformation.html#cropposts.compute_crop_corner">compute_crop_corner() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.compute_crop_corner">compute_crop_corner() (in module cropposts)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector.correct_spelling">correct_spelling() (text.TextDetector method)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.compute_gradcam_batch">compute_gradcam_batch() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#text.TextDetector.correct_spelling">correct_spelling() (text.TextDetector method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#cropposts.crop_posts_from_files">crop_posts_from_files() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.crop_posts_from_files">crop_posts_from_files() (in module cropposts)</a>
 </li>
-      <li><a href="misinformation.html#cropposts.crop_posts_from_refs">crop_posts_from_refs() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.crop_posts_from_refs">crop_posts_from_refs() (in module cropposts)</a>
 </li>
-      <li><a href="misinformation.html#cropposts.crop_posts_image">crop_posts_image() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.crop_posts_image">crop_posts_image() (in module cropposts)</a>
 </li>
       <li>
     cropposts
 
       <ul>
-        <li><a href="misinformation.html#module-cropposts">module</a>
+        <li><a href="ammico.html#module-cropposts">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -168,24 +178,24 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.deepface_symlink_processor">deepface_symlink_processor() (in module faces)</a>
+      <li><a href="ammico.html#faces.deepface_symlink_processor">deepface_symlink_processor() (in module faces)</a>
 </li>
-      <li><a href="misinformation.html#objects_cvlib.ObjectCVLib.detect_objects_cvlib">detect_objects_cvlib() (objects_cvlib.ObjectCVLib method)</a>
+      <li><a href="ammico.html#objects_cvlib.ObjectCVLib.detect_objects_cvlib">detect_objects_cvlib() (objects_cvlib.ObjectCVLib method)</a>
 </li>
       <li>
     display
 
       <ul>
-        <li><a href="misinformation.html#module-display">module</a>
+        <li><a href="ammico.html#module-display">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#utils.DownloadResource">DownloadResource (class in utils)</a>
+      <li><a href="ammico.html#utils.DownloadResource">DownloadResource (class in utils)</a>
 </li>
-      <li><a href="misinformation.html#cropposts.draw_matches">draw_matches() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.draw_matches">draw_matches() (in module cropposts)</a>
 </li>
-      <li><a href="misinformation.html#utils.dump_df">dump_df() (in module utils)</a>
+      <li><a href="ammico.html#utils.dump_df">dump_df() (in module utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -193,7 +203,17 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.EmotionDetector">EmotionDetector (class in faces)</a>
+      <li><a href="ammico.html#faces.EmotionDetector">EmotionDetector (class in faces)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.extract_image_features_basic">extract_image_features_basic() (multimodal_search.MultimodalSearch method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.extract_image_features_blip2">extract_image_features_blip2() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.extract_image_features_clip">extract_image_features_clip() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.extract_text_features">extract_text_features() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -205,14 +225,14 @@
     faces
 
       <ul>
-        <li><a href="misinformation.html#module-faces">module</a>
+        <li><a href="ammico.html#module-faces">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.EmotionDetector.facial_expression_analysis">facial_expression_analysis() (faces.EmotionDetector method)</a>
+      <li><a href="ammico.html#faces.EmotionDetector.facial_expression_analysis">facial_expression_analysis() (faces.EmotionDetector method)</a>
 </li>
-      <li><a href="misinformation.html#utils.find_files">find_files() (in module utils)</a>
+      <li><a href="ammico.html#utils.find_files">find_files() (in module utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -220,17 +240,21 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#utils.DownloadResource.get">get() (utils.DownloadResource method)</a>
+      <li><a href="ammico.html#utils.DownloadResource.get">get() (utils.DownloadResource method)</a>
 </li>
-      <li><a href="misinformation.html#cropposts.get_file_list">get_file_list() (in module cropposts)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.get_att_map">get_att_map() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#cropposts.get_file_list">get_file_list() (in module cropposts)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#text.PostprocessText.get_text_df">get_text_df() (text.PostprocessText method)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.get_pathes_from_query">get_pathes_from_query() (multimodal_search.MultimodalSearch method)</a>
 </li>
-      <li><a href="misinformation.html#text.PostprocessText.get_text_dict">get_text_dict() (text.PostprocessText method)</a>
+      <li><a href="ammico.html#text.PostprocessText.get_text_df">get_text_df() (text.PostprocessText method)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector.get_text_from_image">get_text_from_image() (text.TextDetector method)</a>
+      <li><a href="ammico.html#text.PostprocessText.get_text_dict">get_text_dict() (text.PostprocessText method)</a>
+</li>
+      <li><a href="ammico.html#text.TextDetector.get_text_from_image">get_text_from_image() (text.TextDetector method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -238,13 +262,17 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#objects_cvlib.init_default_objects">init_default_objects() (in module objects_cvlib)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.image_text_match_reordering">image_text_match_reordering() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#objects_cvlib.init_default_objects">init_default_objects() (in module objects_cvlib)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#utils.initialize_dict">initialize_dict() (in module utils)</a>
+      <li><a href="ammico.html#utils.initialize_dict">initialize_dict() (in module utils)</a>
 </li>
-      <li><a href="misinformation.html#utils.is_interactive">is_interactive() (in module utils)</a>
+      <li><a href="ammico.html#utils.is_interactive">is_interactive() (in module utils)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.itm_text_precessing">itm_text_precessing() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -252,7 +280,7 @@
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#display.JSONContainer">JSONContainer (class in display)</a>
+      <li><a href="ammico.html#display.JSONContainer">JSONContainer (class in display)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -260,7 +288,35 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#cropposts.kp_from_matches">kp_from_matches() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.kp_from_matches">kp_from_matches() (in module cropposts)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_feature_extractor_model_albef">load_feature_extractor_model_albef() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_feature_extractor_model_blip">load_feature_extractor_model_blip() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_feature_extractor_model_blip2">load_feature_extractor_model_blip2() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_feature_extractor_model_clip_base">load_feature_extractor_model_clip_base() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_feature_extractor_model_clip_vitl14">load_feature_extractor_model_clip_vitl14() (multimodal_search.MultimodalSearch method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_feature_extractor_model_clip_vitl14_336">load_feature_extractor_model_clip_vitl14_336() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#summary.SummaryDetector.load_model">load_model() (summary.SummaryDetector method)</a>
+</li>
+      <li><a href="ammico.html#summary.SummaryDetector.load_model_base">load_model_base() (summary.SummaryDetector method)</a>
+</li>
+      <li><a href="ammico.html#summary.SummaryDetector.load_model_large">load_model_large() (summary.SummaryDetector method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.load_tensors">load_tensors() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -268,34 +324,53 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#cropposts.matching_points">matching_points() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.matching_points">matching_points() (in module cropposts)</a>
 </li>
       <li>
     module
 
       <ul>
-        <li><a href="misinformation.html#module-cropposts">cropposts</a>
+        <li><a href="ammico.html#module-cropposts">cropposts</a>
 </li>
-        <li><a href="misinformation.html#module-display">display</a>
+        <li><a href="ammico.html#module-display">display</a>
 </li>
-        <li><a href="misinformation.html#module-faces">faces</a>
+        <li><a href="ammico.html#module-faces">faces</a>
 </li>
-        <li><a href="misinformation.html#module-objects">objects</a>
+        <li><a href="ammico.html#module-multimodal_search">multimodal_search</a>
 </li>
-        <li><a href="misinformation.html#module-objects_cvlib">objects_cvlib</a>
+        <li><a href="ammico.html#module-objects">objects</a>
 </li>
-        <li><a href="misinformation.html#module-text">text</a>
+        <li><a href="ammico.html#module-objects_cvlib">objects_cvlib</a>
 </li>
-        <li><a href="misinformation.html#module-utils">utils</a>
+        <li><a href="ammico.html#module-summary">summary</a>
+</li>
+        <li><a href="ammico.html#module-text">text</a>
+</li>
+        <li><a href="ammico.html#module-utils">utils</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.multimodal_device">multimodal_device (multimodal_search.MultimodalSearch attribute)</a>
+</li>
+      <li>
+    multimodal_search
+
+      <ul>
+        <li><a href="ammico.html#module-multimodal_search">module</a>
+</li>
+      </ul></li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.multimodal_search">multimodal_search() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch">MultimodalSearch (class in multimodal_search)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.NocatchOutput">NocatchOutput (class in faces)</a>
+      <li><a href="ammico.html#faces.NocatchOutput">NocatchOutput (class in faces)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -303,17 +378,17 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#objects_cvlib.ObjectCVLib">ObjectCVLib (class in objects_cvlib)</a>
+      <li><a href="ammico.html#objects_cvlib.ObjectCVLib">ObjectCVLib (class in objects_cvlib)</a>
 </li>
-      <li><a href="misinformation.html#objects.ObjectDetector">ObjectDetector (class in objects)</a>
+      <li><a href="ammico.html#objects.ObjectDetector">ObjectDetector (class in objects)</a>
 </li>
-      <li><a href="misinformation.html#objects.ObjectDetectorClient">ObjectDetectorClient (class in objects)</a>
+      <li><a href="ammico.html#objects.ObjectDetectorClient">ObjectDetectorClient (class in objects)</a>
 </li>
       <li>
     objects
 
       <ul>
-        <li><a href="misinformation.html#module-objects">module</a>
+        <li><a href="ammico.html#module-objects">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -322,14 +397,14 @@
     objects_cvlib
 
       <ul>
-        <li><a href="misinformation.html#module-objects_cvlib">module</a>
+        <li><a href="ammico.html#module-objects_cvlib">module</a>
 </li>
       </ul></li>
-      <li><a href="misinformation.html#objects_cvlib.objects_from_cvlib">objects_from_cvlib() (in module objects_cvlib)</a>
+      <li><a href="ammico.html#objects_cvlib.objects_from_cvlib">objects_from_cvlib() (in module objects_cvlib)</a>
 </li>
-      <li><a href="misinformation.html#objects_cvlib.ObjectsMethod">ObjectsMethod (class in objects_cvlib)</a>
+      <li><a href="ammico.html#objects_cvlib.ObjectsMethod">ObjectsMethod (class in objects_cvlib)</a>
 </li>
-      <li><a href="misinformation.html#objects.ObjectDetector.od_client">od_client (objects.ObjectDetector attribute)</a>
+      <li><a href="ammico.html#objects.ObjectDetector.od_client">od_client (objects.ObjectDetector attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -337,11 +412,21 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#cropposts.plot_matches">plot_matches() (in module cropposts)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.parsing_images">parsing_images() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#text.PostprocessText">PostprocessText (class in text)</a>
+      <li><a href="ammico.html#cropposts.plot_matches">plot_matches() (in module cropposts)</a>
+</li>
+      <li><a href="ammico.html#text.PostprocessText">PostprocessText (class in text)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.querys_processing">querys_processing() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -349,13 +434,21 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#text.TextDetector.remove_linebreaks">remove_linebreaks() (text.TextDetector method)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.read_and_process_images">read_and_process_images() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.read_and_process_images_itm">read_and_process_images_itm() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.read_img">read_img() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#utils.DownloadResource.resources">resources (utils.DownloadResource attribute)</a>
+      <li><a href="ammico.html#text.TextDetector.remove_linebreaks">remove_linebreaks() (text.TextDetector method)</a>
 </li>
-      <li><a href="misinformation.html#display.AnalysisExplorer.run_server">run_server() (display.AnalysisExplorer method)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.resize_img">resize_img() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#utils.DownloadResource.resources">resources (utils.DownloadResource attribute)</a>
+</li>
+      <li><a href="ammico.html#display.AnalysisExplorer.run_server">run_server() (display.AnalysisExplorer method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -363,54 +456,67 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#text.TextDetector.sentiment_analysis">sentiment_analysis() (text.TextDetector method)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.save_tensors">save_tensors() (multimodal_search.MultimodalSearch method)</a>
 </li>
-      <li><a href="misinformation.html#objects.ObjectDetector.set_client_to_cvlib">set_client_to_cvlib() (objects.ObjectDetector static method)</a>
+      <li><a href="ammico.html#text.TextDetector.sentiment_analysis">sentiment_analysis() (text.TextDetector method)</a>
+</li>
+      <li><a href="ammico.html#objects.ObjectDetector.set_client_to_cvlib">set_client_to_cvlib() (objects.ObjectDetector static method)</a>
 
       <ul>
-        <li><a href="misinformation.html#objects.ObjectDetectorClient.set_client_to_cvlib">(objects.ObjectDetectorClient method)</a>
+        <li><a href="ammico.html#objects.ObjectDetectorClient.set_client_to_cvlib">(objects.ObjectDetectorClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="ammico.html#faces.EmotionDetector.set_keys">set_keys() (faces.EmotionDetector method)</a>
+
+      <ul>
+        <li><a href="ammico.html#objects.ObjectDetector.set_keys">(objects.ObjectDetector method)</a>
+</li>
+        <li><a href="ammico.html#text.TextDetector.set_keys">(text.TextDetector method)</a>
+</li>
+        <li><a href="ammico.html#utils.AnalysisMethod.set_keys">(utils.AnalysisMethod method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.EmotionDetector.set_keys">set_keys() (faces.EmotionDetector method)</a>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.show_results">show_results() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li>
+    summary
 
       <ul>
-        <li><a href="misinformation.html#objects.ObjectDetector.set_keys">(objects.ObjectDetector method)</a>
-</li>
-        <li><a href="misinformation.html#text.TextDetector.set_keys">(text.TextDetector method)</a>
-</li>
-        <li><a href="misinformation.html#utils.AnalysisMethod.set_keys">(utils.AnalysisMethod method)</a>
+        <li><a href="ammico.html#module-summary">module</a>
 </li>
       </ul></li>
+      <li><a href="ammico.html#summary.SummaryDetector">SummaryDetector (class in summary)</a>
+</li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#cropposts.test_crop_from_file">test_crop_from_file() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.test_crop_from_file">test_crop_from_file() (in module cropposts)</a>
 </li>
-      <li><a href="misinformation.html#cropposts.test_crop_from_folder">test_crop_from_folder() (in module cropposts)</a>
+      <li><a href="ammico.html#cropposts.test_crop_from_folder">test_crop_from_folder() (in module cropposts)</a>
 </li>
       <li>
     text
 
       <ul>
-        <li><a href="misinformation.html#module-text">module</a>
+        <li><a href="ammico.html#module-text">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#text.TextDetector.text_ner">text_ner() (text.TextDetector method)</a>
+      <li><a href="ammico.html#text.TextDetector.text_ner">text_ner() (text.TextDetector method)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector.text_sentiment_transformers">text_sentiment_transformers() (text.TextDetector method)</a>
+      <li><a href="ammico.html#text.TextDetector.text_sentiment_transformers">text_sentiment_transformers() (text.TextDetector method)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector.text_summary">text_summary() (text.TextDetector method)</a>
+      <li><a href="ammico.html#text.TextDetector.text_summary">text_summary() (text.TextDetector method)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector">TextDetector (class in text)</a>
+      <li><a href="ammico.html#text.TextDetector">TextDetector (class in text)</a>
 </li>
-      <li><a href="misinformation.html#text.TextDetector.translate_text">translate_text() (text.TextDetector method)</a>
+      <li><a href="ammico.html#text.TextDetector.translate_text">translate_text() (text.TextDetector method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -418,15 +524,21 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#display.AnalysisExplorer.update_picture">update_picture() (display.AnalysisExplorer method)</a>
+      <li><a href="ammico.html#display.AnalysisExplorer.update_picture">update_picture() (display.AnalysisExplorer method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.upload_model_blip2_coco">upload_model_blip2_coco() (multimodal_search.MultimodalSearch method)</a>
+</li>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.upload_model_blip_base">upload_model_blip_base() (multimodal_search.MultimodalSearch method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="ammico.html#multimodal_search.MultimodalSearch.upload_model_blip_large">upload_model_blip_large() (multimodal_search.MultimodalSearch method)</a>
+</li>
       <li>
     utils
 
       <ul>
-        <li><a href="misinformation.html#module-utils">module</a>
+        <li><a href="ammico.html#module-utils">module</a>
 </li>
       </ul></li>
   </ul></td>
@@ -435,7 +547,7 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="misinformation.html#faces.EmotionDetector.wears_mask">wears_mask() (faces.EmotionDetector method)</a>
+      <li><a href="ammico.html#faces.EmotionDetector.wears_mask">wears_mask() (faces.EmotionDetector method)</a>
 </li>
   </ul></td>
 </tr></table>

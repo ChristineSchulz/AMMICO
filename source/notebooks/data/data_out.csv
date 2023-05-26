@@ -1,4 +1,4 @@
-,filename,face,multiple_faces,no_faces,wears_mask,age,gender,race,emotion,emotion (category)
-0,data/102730_eng.png,Yes,No,1,['No'],[27],['Man'],['asian'],['sad'],['Negative']
-1,data/102141_2_eng.png,Yes,No,1,['Yes'],[25],['Man'],[None],[None],[None]
-2,data/106349S_por.png,Yes,No,1,['Yes'],[24],['Man'],[None],[None],[None]
+,filename,rank politician press conference,politician press conference,rank a world map,a world map,rank a dog,a dog,itm politician press conference,itm_rank politician press conference,itm a world map,itm_rank a world map,itm a dog,itm_rank a dog
+0,data/102730_eng.png,1,0.14405082166194916,0,0.13108758628368378,1,0.10083307325839996,0.0018555393908172846,1,0.004547642078250647,1,0.0008115967502817512,0
+1,data/102141_2_eng.png,2,0.1135006919503212,1,0.10633404552936554,2,0.04904000088572502,0.0012622162466868758,2,0.08576197177171707,0,0.00017497758381068707,1
+2,data/106349S_por.png,0,0.16655394434928894,2,0.09352913498878479,0,0.10862952470779419,0.058296382427215576,0,0.0007941100629977882,2,9.089690865948796e-05,2

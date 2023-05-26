@@ -12,6 +12,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
@@ -22,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Text extraction on image" href="Example%20text.html" />
+    <link rel="next" title="Notebook for text extraction on image" href="Example%20text.html" />
     <link rel="prev" title="AMMICO - AI Media and Misinformation Content Analysis Tool" href="../readme_link.html" /> 
 </head>
 
@@ -49,10 +51,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Facial Expression recognition with DeepFace</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20text.html">Text extraction on image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20text.html">Notebook for text extraction on image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Image Multimodal Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20objects.html">Objects Expression recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20objects.html">Objects recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">AMMICO package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license_link.html">License</a></li>
 </ul>
@@ -83,9 +85,32 @@
              
   <section id="Facial-Expression-recognition-with-DeepFace">
 <h1>Facial Expression recognition with DeepFace<a class="headerlink" href="#Facial-Expression-recognition-with-DeepFace" title="Permalink to this heading"></a></h1>
-<p>This notebooks shows some preliminary work on detecting facial expressions with DeepFace. It is mainly meant to explore its capabilities and to decide on future research directions. We package our code into a <code class="docutils literal notranslate"><span class="pre">ammico</span></code> package that is imported here:</p>
+<p>Facial expressions can be detected using <a class="reference external" href="https://github.com/serengil/deepface">DeepFace</a> and <a class="reference external" href="https://github.com/serengil/retinaface">RetinaFace</a>.</p>
+<p>The first cell is only run on google colab and installs the <a class="reference external" href="https://github.com/ssciwr/AMMICO">ammico</a> package.</p>
+<p>After that, we can import <code class="docutils literal notranslate"><span class="pre">ammico</span></code> and read in the files given a folder path.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if running on google colab</span>
+<span class="c1"># flake8-noqa-cell</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">if</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()):</span>
+    <span class="c1"># update python version</span>
+    <span class="c1"># install setuptools</span>
+    <span class="c1"># %pip install setuptools==61 -qqq</span>
+    <span class="c1"># install ammico</span>
+    <span class="o">%</span><span class="k">pip</span> install git+https://github.com/ssciwr/ammico.git -qqq
+    <span class="c1"># mount google drive for data and API key</span>
+    <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+
+    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ammico</span>
@@ -94,24 +119,17 @@
 </pre></div>
 </div>
 </div>
-<p>We select a subset of image files to try facial expression detection on. The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function finds image files within a given directory:</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span>
-    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;data/&quot;</span><span class="p">,</span>
-    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<p>If you want to fine tune the discovery of image files, you can provide more parameters:</p>
+<p>We select a subset of image files to try facial expression detection on, see the <code class="docutils literal notranslate"><span class="pre">limit</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function finds image files within a given directory:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">?</span>mutils.find_files
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here you need to provide the path to your google drive folder</span>
+<span class="c1"># or local folder containing the images</span>
+<span class="n">images</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;data/&quot;</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -124,29 +142,40 @@
 </pre></div>
 </div>
 </div>
-<p>To check the analysis, you can inspect the analyzed elements here. Loading the results takes a moment, so please be patient. If you are sure of what you are doing, you can skip this and directly export a csv file in the step below. Here, we display the face recognition results provided by the DeepFace library. Click on the tabs to see the results in the right sidebar:</p>
+<p>To check the analysis, you can inspect the analyzed elements here. Loading the results takes a moment, so please be patient. If you are sure of what you are doing, you can skip this and directly export a csv file in the step below. Here, we display the face recognition results provided by the DeepFace and RetinaFace libraries. Click on the tabs to see the results in the right sidebar. You may need to increment the <code class="docutils literal notranslate"><span class="pre">port</span></code> number if you are already running several notebook instances on the same
+server.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdisplay</span><span class="o">.</span><span class="n">explore_analysis</span><span class="p">(</span><span class="n">mydict</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="s2">&quot;faces&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_explorer</span> <span class="o">=</span> <span class="n">mdisplay</span><span class="o">.</span><span class="n">AnalysisExplorer</span><span class="p">(</span><span class="n">mydict</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="s2">&quot;faces&quot;</span><span class="p">)</span>
+<span class="n">analysis_explorer</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8050</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[5], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">mdisplay</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">explore_analysis</span>(mydict, identify<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">faces</span><span style="color: rgb(175,0,0)">&#34;</span>)
+Dash is running on http://127.0.0.1:8050/
 
-<span class="ansi-red-fg">AttributeError</span>: module &#39;ammico.display&#39; has no attribute &#39;explore_analysis&#39;
 </pre></div></div>
 </div>
-<p>Directly carry out the analysis and export the result into a csv: Analysis -</p>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<iframe
+    width="100%"
+    height="650"
+    src="http://127.0.0.1:8050/"
+    frameborder="0"
+    allowfullscreen
+
+></iframe></div>
+</div>
+<p>Instead of inspecting each of the images, you can also directly carry out the analysis and export the result into a csv. This may take a while depending on how many images you have loaded.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -174,17 +203,17 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1/1 [==============================] - 0s 405ms/step
-1/1 [==============================] - 0s 392ms/step
-1/1 [==============================] - 0s 384ms/step
-1/1 [==============================] - 0s 108ms/step
-1/1 [==============================] - 0s 213ms/step
-1/1 [==============================] - 0s 221ms/step
-1/1 [==============================] - 0s 215ms/step
-1/1 [==============================] - 0s 218ms/step
+1/1 [==============================] - 0s 359ms/step
+1/1 [==============================] - 0s 332ms/step
+1/1 [==============================] - 0s 329ms/step
+1/1 [==============================] - 0s 89ms/step
+1/1 [==============================] - 0s 185ms/step
+1/1 [==============================] - 0s 184ms/step
+1/1 [==============================] - 0s 185ms/step
+1/1 [==============================] - 0s 184ms/step
 </pre></div></div>
 </div>
-<p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
+<p>These steps are required to convert the dictionary of dictionarys into a dictionary with lists, that can be converted into a pandas dataframe and exported to a csv file.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -282,12 +311,12 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
 </table>
 </div></div>
 </div>
-<p>Write the csv file:</p>
+<p>Write the csv file - here you should provide a file path and file name for the csv file to be written.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/data_out.csv&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_out.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -300,7 +329,7 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
 </div>
 </div>
 <script type="application/vnd.jupyter.widget-state+json">
-{"state": {"524902ff74194d43a2b04f45e143f4e5": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "ed5a09203ffc4d18b871c4ecd35266c5": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_524902ff74194d43a2b04f45e143f4e5", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\r1/1 [==============================] - ETA: 0s\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r1/1 [==============================] - 1s 846ms/step\n"}], "tabbable": null, "tooltip": null}}, "dbdb6b80f0da4e4488e5803d11427d5c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7a3fcbf87bb544358fd7f719b19efd53": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_dbdb6b80f0da4e4488e5803d11427d5c", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\r1/1 [==============================] - ETA: 0s\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r1/1 [==============================] - 1s 744ms/step\n"}], "tabbable": null, "tooltip": null}}, "5b433221ab004aa28bb761234f3c1f84": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "0dd326f97f964792a7eeff696d931b30": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_5b433221ab004aa28bb761234f3c1f84", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\r1/1 [==============================] - ETA: 0s\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r1/1 [==============================] - 1s 807ms/step\n"}], "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}
+{"state": {"63a173091d5d4c0eabbc4679b3d569c7": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "883a7bbc7b834c82bcb98f19f5fd874f": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_63a173091d5d4c0eabbc4679b3d569c7", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\r1/1 [==============================] - ETA: 0s\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r1/1 [==============================] - 1s 712ms/step\n"}], "tabbable": null, "tooltip": null}}, "d04025e61c434649950db1106aa91b1b": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "77ca99d5ce344a30b7df95acda762683": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_d04025e61c434649950db1106aa91b1b", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\r1/1 [==============================] - ETA: 0s\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r1/1 [==============================] - 1s 685ms/step\n"}], "tabbable": null, "tooltip": null}}, "d9555cce928c46bebb6500b9dd5b462f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "6e5ca1d8bd3d4bf9a72884eedf2894ec": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_d9555cce928c46bebb6500b9dd5b462f", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "\r1/1 [==============================] - ETA: 0s\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\r1/1 [==============================] - 1s 671ms/step\n"}], "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}
 </script></section>
 
 
@@ -308,7 +337,7 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../readme_link.html" class="btn btn-neutral float-left" title="AMMICO - AI Media and Misinformation Content Analysis Tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Example%20text.html" class="btn btn-neutral float-right" title="Text extraction on image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Example%20text.html" class="btn btn-neutral float-right" title="Notebook for text extraction on image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
