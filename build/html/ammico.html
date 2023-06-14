@@ -17,7 +17,6 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -78,7 +77,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#display.AnalysisExplorer.update_picture"><code class="docutils literal notranslate"><span class="pre">AnalysisExplorer.update_picture()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#display.JSONContainer"><code class="docutils literal notranslate"><span class="pre">JSONContainer</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-faces">faces module</a><ul>
@@ -91,7 +89,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#faces.EmotionDetector.wears_mask"><code class="docutils literal notranslate"><span class="pre">EmotionDetector.wears_mask()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#faces.NocatchOutput"><code class="docutils literal notranslate"><span class="pre">NocatchOutput</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#faces.deepface_symlink_processor"><code class="docutils literal notranslate"><span class="pre">deepface_symlink_processor()</span></code></a></li>
 </ul>
 </li>
@@ -240,7 +237,7 @@
 <span id="utils-module"></span><h1>utils module<a class="headerlink" href="#module-utils" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="utils.AnalysisMethod">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">AnalysisMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.AnalysisMethod" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">AnalysisMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.AnalysisMethod" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class to be inherited by all analysis methods.</p>
 <dl class="py method">
@@ -259,7 +256,7 @@
 <dt class="sig sig-object py" id="utils.DownloadResource">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">DownloadResource</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.DownloadResource" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A remote resource that needs on demand downloading</p>
+<p>A remote resource that needs on demand downloading.</p>
 <p>We use this as a wrapper to the pooch library. The wrapper registers
 each data file and allows prefetching through the CLI entry point
 ammico_prefetch_models.</p>
@@ -284,7 +281,7 @@ ammico_prefetch_models.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="utils.append_data_to_dict">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">append_data_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.append_data_to_dict" title="Permalink to this definition"></a></dt>
-<dd><p>Append entries from list of dictionaries to keys in global dict.</p>
+<dd><p>Append entries from nested dictionaries to keys in a global dict.</p>
 </dd></dl>
 
 <dl class="py function">
@@ -295,21 +292,29 @@ ammico_prefetch_models.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="utils.find_files">
-<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.find_files" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#utils.find_files" title="Permalink to this definition"></a></dt>
 <dd><p>Find image files on the file system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> – The base directory where we are looking for the images. Defaults
-to None, which uses the XDG data directory if set or the current
-working directory otherwise.</p></li>
-<li><p><strong>pattern</strong> – The naming pattern that the filename should match. Defaults to
-“<a href="#id1"><span class="problematic" id="id2">*</span></a>.png”. Can be used to allow other patterns or to only include
-specific prefixes or suffixes.</p></li>
-<li><p><strong>recursive</strong> – Whether to recurse into subdirectories.</p></li>
-<li><p><strong>limit</strong> – The maximum number of images to be found. Defaults to 20.
-To return all images, set to None.</p></li>
+<li><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – The base directory where we are looking for the images. Defaults</p></li>
+<li><p><strong>None</strong> (<em>to</em>) – </p></li>
+<li><p><strong>current</strong> (<em>which uses the XDG data directory if set</em><em> or </em><em>the</em>) – </p></li>
+<li><p><strong>otherwise.</strong> (<em>working directory</em>) – </p></li>
+<li><p><strong>pattern</strong> (<em>str</em><em>, </em><em>optional</em>) – The naming pattern that the filename should match. Defaults to</p></li>
+<li><p><strong>include</strong> (<em>&quot;*.png&quot;. Can be used to allow other patterns</em><em> or </em><em>to only</em>) – </p></li>
+<li><p><strong>suffixes.</strong> (<em>specific prefixes or</em>) – </p></li>
+<li><p><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to recurse into subdirectories. Default is set to False.</p></li>
+<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of images to be found.</p></li>
+<li><p><strong>images</strong> (<em>Defaults to 20. To return all</em>) – </p></li>
+<li><p><strong>None.</strong> (<em>set to</em>) – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list with all filenames including the path.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -317,38 +322,67 @@ To return all images, set to None.</p></li>
 <dl class="py function">
 <dt class="sig sig-object py" id="utils.initialize_dict">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">initialize_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filelist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.initialize_dict" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Initialize the nested dictionary for all the found images.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filelist</strong> (<em>list</em>) – The list of files to be analyzed, including their paths.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The nested dictionary with all image ids and their paths.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="utils.is_interactive">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">is_interactive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.is_interactive" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Check if we are running in an interactive environment.</p>
+</dd></dl>
 
 </section>
 <section id="module-display">
 <span id="display-module"></span><h1>display module<a class="headerlink" href="#module-display" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="display.AnalysisExplorer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">AnalysisExplorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'faces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">AnalysisExplorer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">identify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'faces'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="display.AnalysisExplorer.run_server">
-<span class="sig-name descname"><span class="pre">run_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8050</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer.run_server" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">run_server</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8050</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#display.AnalysisExplorer.run_server" title="Permalink to this definition"></a></dt>
+<dd><p>Run the Dash server to start the analysis explorer.</p>
+<p>This method should only be called in an interactive environment like Jupyter notebooks.
+Raises an EnvironmentError if not called in an interactive environment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>port</strong> (<em>int</em><em>, </em><em>optional</em>) – The port number to run the server on (default: 8050).</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="display.AnalysisExplorer.update_picture">
-<span class="sig-name descname"><span class="pre">update_picture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer.update_picture" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
+<span class="sig-name descname"><span class="pre">update_picture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.AnalysisExplorer.update_picture" title="Permalink to this definition"></a></dt>
+<dd><p>Callback function to update the displayed image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>img_path</strong> (<em>str</em>) – The path of the selected image.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The image object to be displayed
+or None if the image path is</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Union[PIL.PngImagePlugin, None]</p>
+</dd>
+</dl>
+<p>Note:
+- This function is called when the value of the file explorer dropdown changes.
+- Reads the image file and returns the image object.</p>
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="display.JSONContainer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">display.</span></span><span class="sig-name descname"><span class="pre">JSONContainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#display.JSONContainer" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Expose a Python dictionary as a JSON document in JupyterLab
-rich display rendering.</p>
 </dd></dl>
 
 </section>
@@ -356,46 +390,101 @@ rich display rendering.</p>
 <span id="faces-module"></span><h1>faces module<a class="headerlink" href="#module-faces" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="faces.EmotionDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">EmotionDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emotion_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">race_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">EmotionDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">emotion_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">race_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="faces.EmotionDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#faces.EmotionDetector.analyse_image" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.analyse_image" title="Permalink to this definition"></a></dt>
+<dd><p>Performs facial expression analysis on the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The updated subdict dictionary with analysis results.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="faces.EmotionDetector.analyze_single_face">
 <span class="sig-name descname"><span class="pre">analyze_single_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.analyze_single_face" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Analyzes the features of a single face.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>face</strong> (<em>np.ndarray</em>) – The face image array.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The analysis results for the face.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="faces.EmotionDetector.clean_subdict">
 <span class="sig-name descname"><span class="pre">clean_subdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.clean_subdict" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Cleans the subdict dictionary by converting results into appropriate formats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result</strong> (<em>dict</em>) – The analysis results.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated subdict dictionary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="faces.EmotionDetector.facial_expression_analysis">
 <span class="sig-name descname"><span class="pre">facial_expression_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.facial_expression_analysis" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Performs facial expression analysis on the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The updated subdict dictionary with analysis results.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="faces.EmotionDetector.set_keys">
 <span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#faces.EmotionDetector.set_keys" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Sets the initial parameters for the analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary with initial parameter values.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="faces.EmotionDetector.wears_mask">
 <span class="sig-name descname"><span class="pre">wears_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#faces.EmotionDetector.wears_mask" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
+<dd><p>Determines whether a face wears a mask.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>face</strong> (<em>np.ndarray</em>) – The face image array.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the face wears a mask, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="faces.NocatchOutput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">faces.</span></span><span class="sig-name descname"><span class="pre">NocatchOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#faces.NocatchOutput" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Output</span></code></p>
-<p>An output container that suppresses output, but not exceptions</p>
-<p>Taken from <a class="reference external" href="https://github.com/jupyter-widgets/ipywidgets/issues/3208#issuecomment-1070836153">https://github.com/jupyter-widgets/ipywidgets/issues/3208#issuecomment-1070836153</a></p>
 </dd></dl>
 
 <dl class="py function">
@@ -468,7 +557,16 @@ image_path: The path to the local file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="objects.ObjectDetector.analyse_image">
 <span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.analyse_image" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Perform object detection on the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The updated dictionary with object detection results.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="objects.ObjectDetector.od_client">
@@ -478,12 +576,22 @@ image_path: The path to the local file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="objects.ObjectDetector.set_client_to_cvlib">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_client_to_cvlib</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_client_to_cvlib" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set the object detection client to use CVLib.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="objects.ObjectDetector.set_keys">
 <span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_keys" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set the default object keys for analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary with default object keys.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -494,15 +602,25 @@ image_path: The path to the local file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="objects.ObjectDetectorClient.analyse_image">
 <span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.analyse_image" title="Permalink to this definition"></a></dt>
-<dd><p>Localize objects in the local image.</p>
-<p>Args:
-subdict: The dictionary for an image expression instance.</p>
+<dd><p>Localize objects in the given image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subdict</strong> (<em>dict</em>) – The dictionary for an image expression instance.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The updated dictionary with object detection results.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="objects.ObjectDetectorClient.set_client_to_cvlib">
 <span class="sig-name descname"><span class="pre">set_client_to_cvlib</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.set_client_to_cvlib" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set the object detection client to use CVLib.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -515,19 +633,54 @@ subdict: The dictionary for an image expression instance.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="text.PostprocessText.analyse_topic">
-<span class="sig-name descname"><span class="pre">analyse_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText.analyse_topic" title="Permalink to this definition"></a></dt>
-<dd><p>Topic analysis using BERTopic.</p>
+<span class="sig-name descname"><span class="pre">analyse_topic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_topics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#text.PostprocessText.analyse_topic" title="Permalink to this definition"></a></dt>
+<dd><p>Performs topic analysis using BERTopic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>return_topics</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of topics to return. Defaults to 3.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing the topic model, topic dataframe, and most frequent topics.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.PostprocessText.get_text_df">
-<span class="sig-name descname"><span class="pre">get_text_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analyze_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText.get_text_df" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_text_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analyze_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#text.PostprocessText.get_text_df" title="Permalink to this definition"></a></dt>
+<dd><p>Extracts text from the provided dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>analyze_text</strong> (<em>str</em>) – Column name for the text field to analyze.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of text extracted from the dataframe.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.PostprocessText.get_text_dict">
-<span class="sig-name descname"><span class="pre">get_text_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analyze_text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.PostprocessText.get_text_dict" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">get_text_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analyze_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#text.PostprocessText.get_text_dict" title="Permalink to this definition"></a></dt>
+<dd><p>Extracts text from the provided dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>analyze_text</strong> (<em>str</em>) – Key for the text field to analyze.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of text extracted from the dictionary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -537,8 +690,17 @@ subdict: The dictionary for an image expression instance.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.analyse_image" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#text.TextDetector.analyse_image" title="Permalink to this definition"></a></dt>
+<dd><p>Perform text extraction and analysis of the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The updated dictionary with text analysis results.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.clean_text">
@@ -549,12 +711,13 @@ subdict: The dictionary for an image expression instance.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.correct_spelling">
 <span class="sig-name descname"><span class="pre">correct_spelling</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.correct_spelling" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Correct the spelling of the English text using TextBlob.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.get_text_from_image">
 <span class="sig-name descname"><span class="pre">get_text_from_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.get_text_from_image" title="Permalink to this definition"></a></dt>
-<dd><p>Detects text on the image.</p>
+<dd><p>Detect text on the image using Google Cloud Vision API.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -566,32 +729,46 @@ subdict: The dictionary for an image expression instance.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.sentiment_analysis">
 <span class="sig-name descname"><span class="pre">sentiment_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.sentiment_analysis" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Perform sentiment analysis on the text using SpacyTextBlob.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.set_keys">
 <span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#text.TextDetector.set_keys" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Set the default keys for text analysis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The dictionary with default text keys.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.text_ner">
 <span class="sig-name descname"><span class="pre">text_ner</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.text_ner" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Perform named entity recognition on the text using the Transformers pipeline.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.text_sentiment_transformers">
 <span class="sig-name descname"><span class="pre">text_sentiment_transformers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.text_sentiment_transformers" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Perform text classification for sentiment using the Transformers pipeline.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.text_summary">
 <span class="sig-name descname"><span class="pre">text_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.text_summary" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Generate a summary of the text using the Transformers pipeline.</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="text.TextDetector.translate_text">
 <span class="sig-name descname"><span class="pre">translate_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#text.TextDetector.translate_text" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Translate the detected text to English using the Translator object.</p>
+</dd></dl>
 
 </dd></dl>
 
