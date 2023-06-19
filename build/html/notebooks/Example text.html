@@ -235,39 +235,56 @@ Dash is running on http://127.0.0.1:8054/
 <div class="highlight"><pre>
 Collecting en-core-web-md==3.5.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.5.0/en_core_web_md-3.5.0-py3-none-any.whl (42.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 41.0 MB/s eta 0:00:00
-Requirement already satisfied: spacy&lt;3.6.0,&gt;=3.5.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from en-core-web-md==3.5.0) (3.5.3)
-Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.12)
-Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.4)
-Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.9)
-Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.0.7)
-Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.8)
-Requirement already satisfied: thinc&lt;8.2.0,&gt;=8.1.8 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (8.1.10)
-Requirement already satisfied: wasabi&lt;1.2.0,&gt;=0.9.1 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.1.2)
-Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.4.6)
-Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.0.8)
-Requirement already satisfied: typer&lt;0.8.0,&gt;=0.3.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.7.0)
-Requirement already satisfied: pathy&gt;=0.10.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.10.1)
-Requirement already satisfied: smart-open&lt;7.0.0,&gt;=5.2.1 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (6.3.0)
-Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.65.0)
-Requirement already satisfied: numpy&gt;=1.15.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.23.4)
-Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.31.0)
-Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;1.11.0,&gt;=1.7.4 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.10.9)
-Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.1.2)
-Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (58.1.0)
-Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (23.1)
-Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.3.0)
-Requirement already satisfied: typing-extensions&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from pydantic!=1.8,!=1.8.1,&lt;1.11.0,&gt;=1.7.4-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.6.3)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.1.0)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.10)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.26.16)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2023.5.7)
-Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.7.9)
-Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.0.4)
-Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from typer&lt;0.8.0,&gt;=0.3.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (8.1.3)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages (from jinja2-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.1.3)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 31.2 MB/s eta 0:00:00
+Requirement already satisfied: spacy&lt;3.6.0,&gt;=3.5.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from en-core-web-md==3.5.0) (3.5.3)
+Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.12)
+Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.4)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.9)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.0.7)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.8)
+Requirement already satisfied: thinc&lt;8.2.0,&gt;=8.1.8 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (8.1.10)
+Requirement already satisfied: wasabi&lt;1.2.0,&gt;=0.9.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.1.2)
+Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.4.6)
+Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.0.8)
+Requirement already satisfied: typer&lt;0.8.0,&gt;=0.3.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.7.0)
+Requirement already satisfied: pathy&gt;=0.10.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.10.1)
+Requirement already satisfied: smart-open&lt;7.0.0,&gt;=5.2.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (6.3.0)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.65.0)
+Requirement already satisfied: numpy&gt;=1.15.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.23.4)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.31.0)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;1.11.0,&gt;=1.7.4 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.10.9)
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.1.2)
+Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (58.1.0)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (23.1)
+Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.3.0)
+Requirement already satisfied: typing-extensions&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from pydantic!=1.8,!=1.8.1,&lt;1.11.0,&gt;=1.7.4-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.6.3)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.1.0)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.10)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.26.16)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2023.5.7)
+Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.7.9)
+Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.0.4)
+Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from typer&lt;0.8.0,&gt;=0.3.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (8.1.3)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from jinja2-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.1.3)
 Installing collected packages: en-core-web-md
 Successfully installed en-core-web-md-3.5.0
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+
+[notice] A new release of pip is available: 23.0.1 -&gt; 23.1.2
+[notice] To update, run: pip install --upgrade pip
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 <span class="ansi-green-fg">✔ Download and installation successful</span>
 You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
 </pre></div></div>
@@ -277,22 +294,19 @@ You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-
-[notice] A new release of pip is available: 22.0.4 -&gt; 23.1.2
-[notice] To update, run: pip install --upgrade pip
-Downloading (…)/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 605kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:06&lt;00:00, 183MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 25.0kB/s]
-Downloading (…)e/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 4.64MB/s]
-Downloading (…)e/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 3.49MB/s]
-Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 215kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:01&lt;00:00, 254MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 46.2kB/s]
-Downloading (…)ve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 3.68MB/s]
-Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 980kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:08&lt;00:00, 159MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 55.2kB/s]
-Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 3.31MB/s]
+Downloading (…)/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 383kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:06&lt;00:00, 196MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 11.8kB/s]
+Downloading (…)e/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 3.63MB/s]
+Downloading (…)e/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 2.46MB/s]
+Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 133kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:01&lt;00:00, 175MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 23.3kB/s]
+Downloading (…)ve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 70.2MB/s]
+Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 210kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:08&lt;00:00, 165MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 25.3kB/s]
+Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 68.4MB/s]
 </pre></div></div>
 </div>
 </section>
@@ -453,12 +467,12 @@ Reading data from dict.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2868</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2868</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2867</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 <span class="ansi-green-fg">-&gt; 2868</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">umap_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">embeddings</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2869</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2683</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>transform_mode <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">embedding</span><span style="color: rgb(175,0,0)">&#34;</span>:
 <span class="ansi-green-fg">-&gt; 2684</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_, aux_data <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_fit_embed_data</span><span class="ansi-yellow-bg">(</span>
 <span class="ansi-green-intense-fg ansi-bold">   2685</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_raw_data</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span>
@@ -471,7 +485,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2692</span>     <span style="color: rgb(95,135,135)"># They also prevent users from being deceived a distance query to one of these points.</span>
 <span class="ansi-green-intense-fg ansi-bold">   2693</span>     <span style="color: rgb(95,135,135)"># Might be worth moving this into simplicial_set_embedding or _fit_embed_data</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2714</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;A method wrapper for simplicial_set_embedding that can be</span>
 <span class="ansi-green-intense-fg ansi-bold">   2715</span> <span style="color: rgb(175,0,0)">replaced by subclasses.</span>
 <span class="ansi-green-intense-fg ansi-bold">   2716</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
@@ -500,7 +514,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2739</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">   2740</span> <span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1076</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">isinstance</span>(init, <span style="color: rgb(0,135,0)">str</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> init <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">spectral</span><span style="color: rgb(175,0,0)">&#34;</span>:
 <span class="ansi-green-intense-fg ansi-bold">   1077</span>     <span style="color: rgb(95,135,135)"># We add a little noise to avoid local minima for optimization to come</span>
 <span class="ansi-green-fg">-&gt; 1078</span>     initialisation <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">spectral_layout</span><span class="ansi-yellow-bg">(</span>
@@ -513,7 +527,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   1085</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1086</span>     expansion <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">10.0</span> <span style="color: rgb(98,98,98)">/</span> np<span style="color: rgb(98,98,98)">.</span>abs(initialisation)<span style="color: rgb(98,98,98)">.</span>max()
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">    331</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> L<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">&lt;</span> <span style="color: rgb(98,98,98)">2000000</span>:
 <span class="ansi-green-fg">--&gt; 332</span>     eigenvalues, eigenvectors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">scipy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">sparse</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">eigsh</span><span class="ansi-yellow-bg">(</span>
 <span class="ansi-green-intense-fg ansi-bold">    333</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">L</span><span class="ansi-yellow-bg">,</span>
@@ -526,7 +540,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">    340</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    341</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1604</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> issparse(A):
 <span class="ansi-green-fg">-&gt; 1605</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Cannot use scipy.linalg.eigh for sparse A with </span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">   1606</span>                     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">k &gt;= N. Use scipy.linalg.eigh(A.toarray()) or</span><span style="color: rgb(175,0,0)">&#34;</span>
@@ -551,14 +565,14 @@ File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:267</span>,
 <span class="ansi-green-intense-fg ansi-bold">    268</span> <span style="color: rgb(95,135,135)"># return the topic list</span>
 <span class="ansi-green-intense-fg ansi-bold">    269</span> topic_df <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topic_model<span style="color: rgb(98,98,98)">.</span>get_topic_info()
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:356</span>, in <span class="ansi-cyan-fg">BERTopic.fit_transform</span><span class="ansi-blue-fg">(self, documents, embeddings, y)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:356</span>, in <span class="ansi-cyan-fg">BERTopic.fit_transform</span><span class="ansi-blue-fg">(self, documents, embeddings, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">    354</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>seed_topic_list <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
 <span class="ansi-green-intense-fg ansi-bold">    355</span>     y, embeddings <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_guided_topic_modeling(embeddings)
 <span class="ansi-green-fg">--&gt; 356</span> umap_embeddings <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_reduce_dimensionality</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">embeddings</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    358</span> <span style="color: rgb(95,135,135)"># Cluster reduced embeddings</span>
 <span class="ansi-green-intense-fg ansi-bold">    359</span> documents, probabilities <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_cluster_embeddings(umap_embeddings, documents, y<span style="color: rgb(98,98,98)">=</span>y)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2872</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2872</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2869</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
 <span class="ansi-green-intense-fg ansi-bold">   2870</span>         logger<span style="color: rgb(98,98,98)">.</span>info(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">The dimensionality reduction algorithm did not contain the `y` parameter and</span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">   2871</span>                     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)"> therefore the `y` parameter was not used</span><span style="color: rgb(175,0,0)">&#34;</span>)
@@ -566,7 +580,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2874</span> umap_embeddings <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>umap_model<span style="color: rgb(98,98,98)">.</span>transform(embeddings)
 <span class="ansi-green-intense-fg ansi-bold">   2875</span> logger<span style="color: rgb(98,98,98)">.</span>info(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Reduced dimensionality</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2681</span>     <span style="color: rgb(0,135,0)">print</span>(ts(), <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Construct embedding</span><span style="color: rgb(175,0,0)">&#34;</span>)
 <span class="ansi-green-intense-fg ansi-bold">   2683</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>transform_mode <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">embedding</span><span style="color: rgb(175,0,0)">&#34;</span>:
 <span class="ansi-green-fg">-&gt; 2684</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_, aux_data <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_fit_embed_data</span><span class="ansi-yellow-bg">(</span>
@@ -581,7 +595,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2693</span>     <span style="color: rgb(95,135,135)"># Might be worth moving this into simplicial_set_embedding or _fit_embed_data</span>
 <span class="ansi-green-intense-fg ansi-bold">   2694</span>     disconnected_vertices <span style="color: rgb(98,98,98)">=</span> np<span style="color: rgb(98,98,98)">.</span>array(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>graph_<span style="color: rgb(98,98,98)">.</span>sum(axis<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">1</span>))<span style="color: rgb(98,98,98)">.</span>flatten() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2713</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_fit_embed_data</span>(<span style="color: rgb(0,135,0)">self</span>, X, n_epochs, init, random_state):
 <span class="ansi-green-intense-fg ansi-bold">   2714</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;A method wrapper for simplicial_set_embedding that can be</span>
 <span class="ansi-green-intense-fg ansi-bold">   2715</span> <span style="color: rgb(175,0,0)">    replaced by subclasses.</span>
@@ -611,7 +625,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2739</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">   2740</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1073</span>     embedding <span style="color: rgb(98,98,98)">=</span> random_state<span style="color: rgb(98,98,98)">.</span>uniform(
 <span class="ansi-green-intense-fg ansi-bold">   1074</span>         low<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">10.0</span>, high<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">10.0</span>, size<span style="color: rgb(98,98,98)">=</span>(graph<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>], n_components)
 <span class="ansi-green-intense-fg ansi-bold">   1075</span>     )<span style="color: rgb(98,98,98)">.</span>astype(np<span style="color: rgb(98,98,98)">.</span>float32)
@@ -633,7 +647,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   1092</span>         np<span style="color: rgb(98,98,98)">.</span>float32
 <span class="ansi-green-intense-fg ansi-bold">   1093</span>     )
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">    330</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 <span class="ansi-green-intense-fg ansi-bold">    331</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> L<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">&lt;</span> <span style="color: rgb(98,98,98)">2000000</span>:
 <span class="ansi-green-fg">--&gt; 332</span>         eigenvalues, eigenvectors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">scipy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">sparse</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">eigsh</span><span class="ansi-yellow-bg">(</span>
@@ -650,7 +664,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">    343</span>             L, random_state<span style="color: rgb(98,98,98)">.</span>normal(size<span style="color: rgb(98,98,98)">=</span>(L<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>], k)), largest<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, tol<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">1e-8</span>
 <span class="ansi-green-intense-fg ansi-bold">    344</span>         )
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1600</span> warnings<span style="color: rgb(98,98,98)">.</span>warn(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">k &gt;= N for N * N square matrix. </span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">   1601</span>               <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Attempting to use scipy.linalg.eigh instead.</span><span style="color: rgb(175,0,0)">&#34;</span>,
 <span class="ansi-green-intense-fg ansi-bold">   1602</span>               <span class="ansi-bold" style="color: rgb(215,95,95)">RuntimeWarning</span>)
@@ -695,12 +709,12 @@ Reading data from df.
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2868</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2868</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2867</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 <span class="ansi-green-fg">-&gt; 2868</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">umap_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">embeddings</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2869</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2683</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>transform_mode <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">embedding</span><span style="color: rgb(175,0,0)">&#34;</span>:
 <span class="ansi-green-fg">-&gt; 2684</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_, aux_data <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_fit_embed_data</span><span class="ansi-yellow-bg">(</span>
 <span class="ansi-green-intense-fg ansi-bold">   2685</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_raw_data</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span>
@@ -713,7 +727,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2692</span>     <span style="color: rgb(95,135,135)"># They also prevent users from being deceived a distance query to one of these points.</span>
 <span class="ansi-green-intense-fg ansi-bold">   2693</span>     <span style="color: rgb(95,135,135)"># Might be worth moving this into simplicial_set_embedding or _fit_embed_data</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2714</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;A method wrapper for simplicial_set_embedding that can be</span>
 <span class="ansi-green-intense-fg ansi-bold">   2715</span> <span style="color: rgb(175,0,0)">replaced by subclasses.</span>
 <span class="ansi-green-intense-fg ansi-bold">   2716</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
@@ -742,7 +756,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2739</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">   2740</span> <span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1076</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">isinstance</span>(init, <span style="color: rgb(0,135,0)">str</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> init <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">spectral</span><span style="color: rgb(175,0,0)">&#34;</span>:
 <span class="ansi-green-intense-fg ansi-bold">   1077</span>     <span style="color: rgb(95,135,135)"># We add a little noise to avoid local minima for optimization to come</span>
 <span class="ansi-green-fg">-&gt; 1078</span>     initialisation <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">spectral_layout</span><span class="ansi-yellow-bg">(</span>
@@ -755,7 +769,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   1085</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1086</span>     expansion <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">10.0</span> <span style="color: rgb(98,98,98)">/</span> np<span style="color: rgb(98,98,98)">.</span>abs(initialisation)<span style="color: rgb(98,98,98)">.</span>max()
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">    331</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> L<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">&lt;</span> <span style="color: rgb(98,98,98)">2000000</span>:
 <span class="ansi-green-fg">--&gt; 332</span>     eigenvalues, eigenvectors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">scipy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">sparse</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">eigsh</span><span class="ansi-yellow-bg">(</span>
 <span class="ansi-green-intense-fg ansi-bold">    333</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">L</span><span class="ansi-yellow-bg">,</span>
@@ -768,7 +782,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">    340</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    341</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1604</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> issparse(A):
 <span class="ansi-green-fg">-&gt; 1605</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Cannot use scipy.linalg.eigh for sparse A with </span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">   1606</span>                     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">k &gt;= N. Use scipy.linalg.eigh(A.toarray()) or</span><span style="color: rgb(175,0,0)">&#34;</span>
@@ -793,14 +807,14 @@ File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:267</span>,
 <span class="ansi-green-intense-fg ansi-bold">    268</span> <span style="color: rgb(95,135,135)"># return the topic list</span>
 <span class="ansi-green-intense-fg ansi-bold">    269</span> topic_df <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topic_model<span style="color: rgb(98,98,98)">.</span>get_topic_info()
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:356</span>, in <span class="ansi-cyan-fg">BERTopic.fit_transform</span><span class="ansi-blue-fg">(self, documents, embeddings, y)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:356</span>, in <span class="ansi-cyan-fg">BERTopic.fit_transform</span><span class="ansi-blue-fg">(self, documents, embeddings, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">    354</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>seed_topic_list <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
 <span class="ansi-green-intense-fg ansi-bold">    355</span>     y, embeddings <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_guided_topic_modeling(embeddings)
 <span class="ansi-green-fg">--&gt; 356</span> umap_embeddings <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_reduce_dimensionality</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">embeddings</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">y</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    358</span> <span style="color: rgb(95,135,135)"># Cluster reduced embeddings</span>
 <span class="ansi-green-intense-fg ansi-bold">    359</span> documents, probabilities <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_cluster_embeddings(umap_embeddings, documents, y<span style="color: rgb(98,98,98)">=</span>y)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2872</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:2872</span>, in <span class="ansi-cyan-fg">BERTopic._reduce_dimensionality</span><span class="ansi-blue-fg">(self, embeddings, y, partial_fit)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2869</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
 <span class="ansi-green-intense-fg ansi-bold">   2870</span>         logger<span style="color: rgb(98,98,98)">.</span>info(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">The dimensionality reduction algorithm did not contain the `y` parameter and</span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">   2871</span>                     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)"> therefore the `y` parameter was not used</span><span style="color: rgb(175,0,0)">&#34;</span>)
@@ -808,7 +822,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2874</span> umap_embeddings <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>umap_model<span style="color: rgb(98,98,98)">.</span>transform(embeddings)
 <span class="ansi-green-intense-fg ansi-bold">   2875</span> logger<span style="color: rgb(98,98,98)">.</span>info(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Reduced dimensionality</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2684</span>, in <span class="ansi-cyan-fg">UMAP.fit</span><span class="ansi-blue-fg">(self, X, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2681</span>     <span style="color: rgb(0,135,0)">print</span>(ts(), <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Construct embedding</span><span style="color: rgb(175,0,0)">&#34;</span>)
 <span class="ansi-green-intense-fg ansi-bold">   2683</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>transform_mode <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">embedding</span><span style="color: rgb(175,0,0)">&#34;</span>:
 <span class="ansi-green-fg">-&gt; 2684</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_, aux_data <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_fit_embed_data</span><span class="ansi-yellow-bg">(</span>
@@ -823,7 +837,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2693</span>     <span style="color: rgb(95,135,135)"># Might be worth moving this into simplicial_set_embedding or _fit_embed_data</span>
 <span class="ansi-green-intense-fg ansi-bold">   2694</span>     disconnected_vertices <span style="color: rgb(98,98,98)">=</span> np<span style="color: rgb(98,98,98)">.</span>array(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>graph_<span style="color: rgb(98,98,98)">.</span>sum(axis<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">1</span>))<span style="color: rgb(98,98,98)">.</span>flatten() <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:2717</span>, in <span class="ansi-cyan-fg">UMAP._fit_embed_data</span><span class="ansi-blue-fg">(self, X, n_epochs, init, random_state)</span>
 <span class="ansi-green-intense-fg ansi-bold">   2713</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_fit_embed_data</span>(<span style="color: rgb(0,135,0)">self</span>, X, n_epochs, init, random_state):
 <span class="ansi-green-intense-fg ansi-bold">   2714</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;A method wrapper for simplicial_set_embedding that can be</span>
 <span class="ansi-green-intense-fg ansi-bold">   2715</span> <span style="color: rgb(175,0,0)">    replaced by subclasses.</span>
@@ -853,7 +867,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   2739</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">tqdm_kwds</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">   2740</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/umap_.py:1078</span>, in <span class="ansi-cyan-fg">simplicial_set_embedding</span><span class="ansi-blue-fg">(data, graph, n_components, initial_alpha, a, b, gamma, negative_sample_rate, n_epochs, init, random_state, metric, metric_kwds, densmap, densmap_kwds, output_dens, output_metric, output_metric_kwds, euclidean_output, parallel, verbose, tqdm_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1073</span>     embedding <span style="color: rgb(98,98,98)">=</span> random_state<span style="color: rgb(98,98,98)">.</span>uniform(
 <span class="ansi-green-intense-fg ansi-bold">   1074</span>         low<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">10.0</span>, high<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">10.0</span>, size<span style="color: rgb(98,98,98)">=</span>(graph<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>], n_components)
 <span class="ansi-green-intense-fg ansi-bold">   1075</span>     )<span style="color: rgb(98,98,98)">.</span>astype(np<span style="color: rgb(98,98,98)">.</span>float32)
@@ -875,7 +889,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">   1092</span>         np<span style="color: rgb(98,98,98)">.</span>float32
 <span class="ansi-green-intense-fg ansi-bold">   1093</span>     )
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/umap/spectral.py:332</span>, in <span class="ansi-cyan-fg">spectral_layout</span><span class="ansi-blue-fg">(data, graph, dim, random_state, metric, metric_kwds)</span>
 <span class="ansi-green-intense-fg ansi-bold">    330</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 <span class="ansi-green-intense-fg ansi-bold">    331</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> L<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>] <span style="color: rgb(98,98,98)">&lt;</span> <span style="color: rgb(98,98,98)">2000000</span>:
 <span class="ansi-green-fg">--&gt; 332</span>         eigenvalues, eigenvectors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">scipy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">sparse</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">linalg</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">eigsh</span><span class="ansi-yellow-bg">(</span>
@@ -892,7 +906,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">    343</span>             L, random_state<span style="color: rgb(98,98,98)">.</span>normal(size<span style="color: rgb(98,98,98)">=</span>(L<span style="color: rgb(98,98,98)">.</span>shape[<span style="color: rgb(98,98,98)">0</span>], k)), largest<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, tol<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">1e-8</span>
 <span class="ansi-green-intense-fg ansi-bold">    344</span>         )
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.16/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/scipy/sparse/linalg/_eigen/arpack/arpack.py:1605</span>, in <span class="ansi-cyan-fg">eigsh</span><span class="ansi-blue-fg">(A, k, M, sigma, which, v0, ncv, maxiter, tol, return_eigenvectors, Minv, OPinv, mode)</span>
 <span class="ansi-green-intense-fg ansi-bold">   1600</span> warnings<span style="color: rgb(98,98,98)">.</span>warn(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">k &gt;= N for N * N square matrix. </span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">   1601</span>               <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Attempting to use scipy.linalg.eigh instead.</span><span style="color: rgb(175,0,0)">&#34;</span>,
 <span class="ansi-green-intense-fg ansi-bold">   1602</span>               <span class="ansi-bold" style="color: rgb(215,95,95)">RuntimeWarning</span>)
