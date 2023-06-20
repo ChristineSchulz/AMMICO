@@ -63,6 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20multimodal.html">Image Multimodal Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects recognition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20cropposts.html">Crop posts from social media posts images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">AMMICO package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="license_link.html">License</a></li>
 </ul>
@@ -98,7 +99,7 @@
 <img alt="codecov" src="https://img.shields.io/codecov/c/github/ssciwr/AMMICO" />
 <img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=ssciwr_ammico&amp;metric=alert_status" />
 <img alt="Language" src="https://img.shields.io/github/languages/top/ssciwr/AMMICO" /></p>
-<p>This package extracts data from images such as social media images, and the accompanying text/text that is included in the image. The analysis can extract a very large number of features, depending on the user input.</p>
+<p>This package extracts data from images such as social media posts that contain an image part and a text part. The analysis can generate a very large number of features, depending on the user input.</p>
 <p><strong><em>This project is currently under development!</em></strong></p>
 <p>Use pre-processed image files such as social media posts with comments and process to collect information:</p>
 <ol class="arabic simple">
@@ -165,12 +166,15 @@ Place the data files in your google drive to access the data.</p></li>
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <section id="text-extraction">
 <h3>Text extraction<a class="headerlink" href="#text-extraction" title="Permalink to this heading"></a></h3>
-<p>The text is extracted from the images using <a class="reference external" href="https://cloud.google.com/vision"><code class="docutils literal notranslate"><span class="pre">google-cloud-vision</span></code></a>. For this, you need an API key. Set up your google account following the instructions on the google Vision AI website.
-You then need to export the location of the API key as an environment variable:
-<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GOOGLE_APPLICATION_CREDENTIALS=&quot;location</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">.json&quot;</span></code>
-The extracted text is then stored under the <code class="docutils literal notranslate"><span class="pre">text</span></code> key (column when exporting a csv).</p>
+<p>The text is extracted from the images using <a class="reference external" href="https://cloud.google.com/vision">google-cloud-vision</a>. For this, you need an API key. Set up your google account following the instructions on the google Vision AI website.
+You then need to export the location of the API key as an environment variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span><span class="s2">&quot;location of your .json&quot;</span>
+</pre></div>
+</div>
+<p>The extracted text is then stored under the <code class="docutils literal notranslate"><span class="pre">text</span></code> key (column when exporting a csv).</p>
 <p><a class="reference external" href="https://py-googletrans.readthedocs.io/en/latest/">Googletrans</a> is used to recognize the language automatically and translate into English. The text language and translated text is then stored under the <code class="docutils literal notranslate"><span class="pre">text_language</span></code> and <code class="docutils literal notranslate"><span class="pre">text_english</span></code> key (column when exporting a csv).</p>
 <p>If you further want to analyse the text, you have to set the <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> keyword to <code class="docutils literal notranslate"><span class="pre">True</span></code>. In doing so, the text is then processed using <a class="reference external" href="https://spacy.io/">spacy</a> (tokenized, part-of-speech, lemma, …). The English text is cleaned from numbers and unrecognized words (<code class="docutils literal notranslate"><span class="pre">text_clean</span></code>), spelling of the English text is corrected (<code class="docutils literal notranslate"><span class="pre">text_english_correct</span></code>), and further sentiment and subjectivity analysis are carried out (<code class="docutils literal notranslate"><span class="pre">polarity</span></code>, <code class="docutils literal notranslate"><span class="pre">subjectivity</span></code>). The latter two steps are carried out using <a class="reference external" href="https://textblob.readthedocs.io/en/dev/index.html">TextBlob</a>. For more information on the sentiment analysis using TextBlob see <a class="reference external" href="https://towardsdatascience.com/my-absolute-go-to-for-sentiment-analysis-textblob-3ac3a11d524">here</a>.</p>
+<p>The <a class="reference external" href="https://huggingface.co/">Hugging Face transformers library</a> is used to perform another sentiment analysis, a text summary, and named entity recognition, using the <code class="docutils literal notranslate"><span class="pre">transformers</span></code> pipeline.</p>
 </section>
 <section id="content-extraction">
 <h3>Content extraction<a class="headerlink" href="#content-extraction" title="Permalink to this heading"></a></h3>
