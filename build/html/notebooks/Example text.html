@@ -68,6 +68,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Image Multimodal Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20colors.html">Color analysis of pictures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20objects.html">Objects recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20cropposts.html">Crop posts from social media posts images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">AMMICO package modules</a></li>
@@ -234,19 +235,19 @@ Dash is running on http://127.0.0.1:8054/
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Downloading (…)/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 422kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:05&lt;00:00, 216MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 11.2kB/s]
-Downloading (…)e/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 4.24MB/s]
-Downloading (…)e/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 26.7MB/s]
-Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 264kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:01&lt;00:00, 230MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 22.3kB/s]
-Downloading (…)ve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 51.8MB/s]
-Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 513kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:06&lt;00:00, 193MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 28.3kB/s]
-Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 96.0MB/s]
+Downloading (…)/a4f8f3e/config.json: 1.80kB [00:00, 2.31MB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:04&lt;00:00, 253MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 15.1kB/s]
+Downloading (…)e/a4f8f3e/vocab.json: 899kB [00:00, 12.3MB/s]
+Downloading (…)e/a4f8f3e/merges.txt: 456kB [00:00, 9.60MB/s]
+Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 164kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:01&lt;00:00, 243MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 28.7kB/s]
+Downloading (…)ve/af0f99b/vocab.txt: 232kB [00:00, 14.7MB/s]
+Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 575kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:05&lt;00:00, 228MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 34.9kB/s]
+Downloading (…)ve/f2482bf/vocab.txt: 213kB [00:00, 19.7MB/s]
 </pre></div></div>
 </div>
 </section>
@@ -308,18 +309,6 @@ Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k
   <tbody>
     <tr>
       <th>0</th>
-      <td>data/102730_eng.png</td>
-      <td>400 DEATHS GET E-BOOK X AN Corporation ncy Ser...</td>
-      <td>en</td>
-      <td>400 DEATHS GET E-BOOK X AN Corporation ncy Ser...</td>
-      <td>A municipal worker sprays disinfectant on his...</td>
-      <td>NEGATIVE</td>
-      <td>0.991692</td>
-      <td>[AN Corporation ncy Services, Ahmedabad, RE, #...</td>
-      <td>[ORG, LOC, PER, ORG]</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>data/106349S_por.png</td>
       <td>NEWS URGENTE SAMSUNG AO VIVO Rio de Janeiro NO...</td>
       <td>pt</td>
@@ -331,7 +320,7 @@ Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k
       <td>[LOC, ORG, LOC, LOC, ORG, LOC]</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>data/102141_2_eng.png</td>
       <td>CORONAVIRUS QUARANTINE CORONAVIRUS OUTBREAK BE...</td>
       <td>en</td>
@@ -341,6 +330,18 @@ Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k
       <td>0.976247</td>
       <td>[CORONAVIRUS, ##AR, ##TI, ##RONAVIR, ##C, Co]</td>
       <td>[ORG, MISC, MISC, ORG, MISC, MISC]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>data/102730_eng.png</td>
+      <td>400 DEATHS GET E-BOOK X AN Corporation ncy Ser...</td>
+      <td>en</td>
+      <td>400 DEATHS GET E-BOOK X AN Corporation ncy Ser...</td>
+      <td>A municipal worker sprays disinfectant on his...</td>
+      <td>NEGATIVE</td>
+      <td>0.991692</td>
+      <td>[AN Corporation ncy Services, Ahmedabad, RE, #...</td>
+      <td>[ORG, LOC, PER, ORG]</td>
     </tr>
   </tbody>
 </table>
@@ -388,7 +389,7 @@ To disable this warning, you can either:
         - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
 Collecting en-core-web-md==3.5.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.5.0/en_core_web_md-3.5.0-py3-none-any.whl (42.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 40.7 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 48.6 MB/s eta 0:00:00
 Requirement already satisfied: spacy&lt;3.6.0,&gt;=3.5.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from en-core-web-md==3.5.0) (3.5.3)
 Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.12)
 Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.4)

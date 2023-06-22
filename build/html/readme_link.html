@@ -53,6 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#content-extraction">Content extraction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#emotion-recognition">Emotion recognition</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#object-detection">Object detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#color-hue-detection">Color/hue detection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cropping-of-posts">Cropping of posts</a></li>
 </ul>
 </li>
@@ -62,6 +63,7 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20text.html">Notebook for text extraction on image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20multimodal.html">Image Multimodal Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20colors.html">Color analysis of pictures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20cropposts.html">Crop posts from social media posts images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">AMMICO package modules</a></li>
@@ -138,7 +140,7 @@
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">AMMICO</span></code> package can be installed using pip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ssciwr</span><span class="o">/</span><span class="n">ammico</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ammico</span>
 </pre></div>
 </div>
 <p>This will install the package and its dependencies locally.</p>
@@ -148,19 +150,22 @@
 <p>There are sample notebooks in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder for you to explore the package:</p>
 <ol class="arabic simple">
 <li><p>Text extraction: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to extract any text from the images. The text is directly translated into English. If the text should be further analysed, set the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> as demonstrated in the notebook.<br />
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/get-text-from-image.ipynb">Here</a></strong><br />
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/get-text-from-image.ipynb">Here</a></strong><br />
 Place the data files and google cloud vision API key in your google drive to access the data.</p></li>
 <li><p>Emotion recognition: Use the notebook <code class="docutils literal notranslate"><span class="pre">facial_expressions.ipynb</span></code> to identify if there are faces on the image, if they are wearing masks, and if they are not wearing masks also the race, gender and dominant emotion.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/facial_expressions.ipynb">Here</a></strong><br />
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/facial_expressions.ipynb">Here</a></strong><br />
 Place the data files in your google drive to access the data.</p></li>
 <li><p>Content extraction: Use the notebook <code class="docutils literal notranslate"><span class="pre">image_summary.ipynb</span></code> to create captions for the images and ask questions about the image content.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/image_summary.ipynb">Here</a></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/image_summary.ipynb">Here</a></strong></p></li>
 <li><p>Multimodal content: Use the notebook <code class="docutils literal notranslate"><span class="pre">multimodal_search.ipynb</span></code> to find the best fitting images to an image or text query.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/multimodal_search.ipynb">Here</a></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/multimodal_search.ipynb">Here</a></strong></p></li>
+<li><p>Color analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">color_analysis.ipynb</span></code> to identify colors the image. The colors are then classified into the main named colors in the English language.
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/colors_analysis.ipynb">Here</a></strong></p></li>
 <li><p>Object analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">ojects_expression.ipynb</span></code> to identify certain objects in the image. Currently, the following objects are being identified: person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.
-<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/notebooks/objects_expression.ipynb">Here</a></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/objects_expression.ipynb">Here</a></strong></p></li>
+<li><p>To crop social media posts use the <code class="docutils literal notranslate"><span class="pre">cropposts.ipynb</span></code> notebook.
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/cropposts.ipynb">Here</a></strong></p></li>
 </ol>
-<p>There are further notebooks that are currently of exploratory nature (<code class="docutils literal notranslate"><span class="pre">colors_expression.ipynb</span></code> to identify certain colors on the image). To crop social media posts use the <code class="docutils literal notranslate"><span class="pre">cropposts.ipynb</span></code> notebook.</p>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
@@ -187,6 +192,10 @@ You then need to export the location of the API key as an environment variable:<
 <section id="object-detection">
 <h3>Object detection<a class="headerlink" href="#object-detection" title="Permalink to this heading"></a></h3>
 <p>Object detection is carried out using <a class="reference external" href="https://github.com/arunponnusamy/cvlib">cvlib</a> and the <a class="reference external" href="https://github.com/AlexeyAB/darknet">YOLOv4</a> model. This library detects faces, people, and several inanimate objects; we currently have restricted the output to person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p>
+</section>
+<section id="color-hue-detection">
+<h3>Color/hue detection<a class="headerlink" href="#color-hue-detection" title="Permalink to this heading"></a></h3>
+<p>Color detection is carried out using <a class="reference external" href="https://github.com/obskyr/colorgram.py">colorgram.py</a> and <a class="reference external" href="https://github.com/vaab/colour">colour</a> for the distance metric. The colors can be classified into the main named colors/hues in the English language, that are red, green, blue, yellow, cyan, orange, purple, pink, brown, grey, white, black.</p>
 </section>
 <section id="cropping-of-posts">
 <h3>Cropping of posts<a class="headerlink" href="#cropping-of-posts" title="Permalink to this heading"></a></h3>

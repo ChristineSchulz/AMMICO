@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Facial Expression recognition with DeepFace &mdash; AMMICO 0.0.1 documentation</title>
+  <title>Color analysis of pictures &mdash; AMMICO 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Notebook for text extraction on image" href="Example%20text.html" />
-    <link rel="prev" title="AMMICO - AI Media and Misinformation Content Analysis Tool" href="../readme_link.html" /> 
+    <link rel="next" title="Objects recognition" href="Example%20objects.html" />
+    <link rel="prev" title="Image Multimodal Search" href="Example%20multimodal.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,11 +49,11 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Facial Expression recognition with DeepFace</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20faces.html">Facial Expression recognition with DeepFace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20text.html">Notebook for text extraction on image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Image Multimodal Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20colors.html">Color analysis of pictures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Color analysis of pictures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20objects.html">Objects recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Example%20cropposts.html">Crop posts from social media posts images</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">AMMICO package modules</a></li>
@@ -74,9 +74,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Facial Expression recognition with DeepFace</li>
+      <li class="breadcrumb-item active">Color analysis of pictures</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebooks/Example faces.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/notebooks/Example colors.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -84,9 +84,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Facial-Expression-recognition-with-DeepFace">
-<h1>Facial Expression recognition with DeepFace<a class="headerlink" href="#Facial-Expression-recognition-with-DeepFace" title="Permalink to this heading"></a></h1>
-<p>Facial expressions can be detected using <a class="reference external" href="https://github.com/serengil/deepface">DeepFace</a> and <a class="reference external" href="https://github.com/serengil/retinaface">RetinaFace</a>.</p>
+  <section id="Color-analysis-of-pictures">
+<h1>Color analysis of pictures<a class="headerlink" href="#Color-analysis-of-pictures" title="Permalink to this heading"></a></h1>
+<p>This notebook shows primary color analysis of color image using K-Means algorithm. The output are N primary colors and their corresponding percentage.</p>
 <p>The first cell is only run on google colab and installs the <a class="reference external" href="https://github.com/ssciwr/AMMICO">ammico</a> package.</p>
 <p>After that, we can import <code class="docutils literal notranslate"><span class="pre">ammico</span></code> and read in the files given a folder path.</p>
 <div class="nbinput nblast docutils container">
@@ -117,10 +117,10 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ammico</span>
 <span class="kn">from</span> <span class="nn">ammico</span> <span class="kn">import</span> <span class="n">utils</span> <span class="k">as</span> <span class="n">mutils</span>
 <span class="kn">from</span> <span class="nn">ammico</span> <span class="kn">import</span> <span class="n">display</span> <span class="k">as</span> <span class="n">mdisplay</span>
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
-<p>We select a subset of image files to try facial expression detection on, see the <code class="docutils literal notranslate"><span class="pre">limit</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function finds image files within a given directory:</p>
+<p>We select a subset of image files to try the color analysis on, see the <code class="docutils literal notranslate"><span class="pre">limit</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function finds image files within a given directory:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -128,10 +128,10 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here you need to provide the path to your google drive folder</span>
 <span class="c1"># or local folder containing the images</span>
 <span class="n">images</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span>
-    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;data/&quot;</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/&quot;</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 <span class="p">)</span>
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <p>We need to initialize the main dictionary that contains all information for the images and is updated through each subsequent analysis:</p>
@@ -143,14 +143,14 @@
 </pre></div>
 </div>
 </div>
-<p>To check the analysis, you can inspect the analyzed elements here. Loading the results takes a moment, so please be patient. If you are sure of what you are doing, you can skip this and directly export a csv file in the step below. Here, we display the face recognition results provided by the DeepFace and RetinaFace libraries. Click on the tabs to see the results in the right sidebar. You may need to increment the <code class="docutils literal notranslate"><span class="pre">port</span></code> number if you are already running several notebook instances on the same
+<p>To check the analysis, you can inspect the analyzed elements here. Loading the results takes a moment, so please be patient. If you are sure of what you are doing, you can skip this and directly export a csv file in the step below. Here, we display the color detection results provided by <code class="docutils literal notranslate"><span class="pre">colorgram</span></code> and <code class="docutils literal notranslate"><span class="pre">colour</span></code> libraries. Click on the tabs to see the results in the right sidebar. You may need to increment the <code class="docutils literal notranslate"><span class="pre">port</span></code> number if you are already running several notebook instances on the same
 server.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_explorer</span> <span class="o">=</span> <span class="n">mdisplay</span><span class="o">.</span><span class="n">AnalysisExplorer</span><span class="p">(</span><span class="n">mydict</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="s2">&quot;faces&quot;</span><span class="p">)</span>
-<span class="n">analysis_explorer</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8050</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">analysis_explorer</span> <span class="o">=</span> <span class="n">mdisplay</span><span class="o">.</span><span class="n">AnalysisExplorer</span><span class="p">(</span><span class="n">mydict</span><span class="p">,</span> <span class="n">identify</span><span class="o">=</span><span class="s2">&quot;colors&quot;</span><span class="p">)</span>
+<span class="n">analysis_explorer</span><span class="o">.</span><span class="n">run_server</span><span class="p">(</span><span class="n">port</span> <span class="o">=</span> <span class="mi">8057</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -159,7 +159,7 @@ server.</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dash is running on http://127.0.0.1:8050/
+Dash is running on http://127.0.0.1:8057/
 
 </pre></div></div>
 </div>
@@ -170,69 +170,24 @@ Dash is running on http://127.0.0.1:8050/
 <iframe
     width="100%"
     height="650"
-    src="http://127.0.0.1:8050/"
+    src="http://127.0.0.1:8057/"
     frameborder="0"
     allowfullscreen
 
 ></iframe></div>
 </div>
 <p>Instead of inspecting each of the images, you can also directly carry out the analysis and export the result into a csv. This may take a while depending on how many images you have loaded.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">mydict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">EmotionDetector</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
+    <span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ColorDetector</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/retinaface.h5&#39; to file &#39;/home/runner/.cache/pooch/3be32af6e4183fa0156bc33bda371147-retinaface.h5&#39;.
-Downloading data from &#39;https://github.com/chandrikadeb7/Face-Mask-Detection/raw/v1.0.0/mask_detector.model&#39; to file &#39;/home/runner/.cache/pooch/865b4b1e20f798935b70082440d5fb21-mask_detector.model&#39;.
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1/1 [==============================] - 1s 738ms/step
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
-Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/age_model_weights.h5&#39; to file &#39;/home/runner/.cache/pooch/39859d3331cd91ac06154cc306e1acc8-age_model_weights.h5&#39;.
-Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/facial_expression_model_weights.h5&#39; to file &#39;/home/runner/.cache/pooch/dd5d5d6d8f5cecdc0fa6cb34d4d82d16-facial_expression_model_weights.h5&#39;.
-Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/gender_model_weights.h5&#39; to file &#39;/home/runner/.cache/pooch/2e0d8fb96c5ee966ade0f3f2360f6478-gender_model_weights.h5&#39;.
-Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/race_model_single_batch.h5&#39; to file &#39;/home/runner/.cache/pooch/382cb5446128012fa5305ddb9d608751-race_model_single_batch.h5&#39;.
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1/1 [==============================] - 0s 364ms/step
-1/1 [==============================] - 0s 365ms/step
-1/1 [==============================] - 1s 699ms/step
-1/1 [==============================] - 0s 214ms/step
-1/1 [==============================] - 0s 214ms/step
-1/1 [==============================] - 1s 710ms/step
-1/1 [==============================] - 0s 228ms/step
-1/1 [==============================] - 0s 224ms/step
-1/1 [==============================] - 0s 364ms/step
-1/1 [==============================] - 0s 93ms/step
-</pre></div></div>
-</div>
 <p>These steps are required to convert the dictionary of dictionarys into a dictionary with lists, that can be converted into a pandas dataframe and exported to a csv file.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
@@ -240,6 +195,27 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
 <span class="n">df</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">dump_df</span><span class="p">(</span><span class="n">outdict</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[7], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> outdict <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">mutils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">append_data_to_dict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> df <span style="color: rgb(98,98,98)">=</span> mutils<span style="color: rgb(98,98,98)">.</span>dump_df(outdict)
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:92</span>, in <span class="ansi-cyan-fg">append_data_to_dict</span><span class="ansi-blue-fg">(mydict)</span>
+<span class="ansi-green-intense-fg ansi-bold">     89</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Append entries from nested dictionaries to keys in a global dict.&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     91</span> <span style="color: rgb(95,135,135)"># first initialize empty list for each key that is present</span>
+<span class="ansi-green-fg">---&gt; 92</span> outdict <span style="color: rgb(98,98,98)">=</span> {key: [] <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">list</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">values</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">]</span><span style="color: rgb(98,98,98)">.</span>keys()}
+<span class="ansi-green-intense-fg ansi-bold">     93</span> <span style="color: rgb(95,135,135)"># now append the values to each key in a list</span>
+<span class="ansi-green-intense-fg ansi-bold">     94</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> subdict <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> mydict<span style="color: rgb(98,98,98)">.</span>values():
+
+<span class="ansi-red-fg">IndexError</span>: list index out of range
+</pre></div></div>
 </div>
 <p>Check the dataframe:</p>
 <div class="nbinput docutils container">
@@ -251,100 +227,39 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[8], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">df</span><span style="color: rgb(98,98,98)">.</span>head(<span style="color: rgb(98,98,98)">10</span>)
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>filename</th>
-      <th>face</th>
-      <th>multiple_faces</th>
-      <th>no_faces</th>
-      <th>wears_mask</th>
-      <th>age</th>
-      <th>gender</th>
-      <th>race</th>
-      <th>emotion</th>
-      <th>emotion (category)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>data/106349S_por.png</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1</td>
-      <td>[Yes]</td>
-      <td>[24]</td>
-      <td>[Man]</td>
-      <td>[None]</td>
-      <td>[None]</td>
-      <td>[None]</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>data/102141_2_eng.png</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1</td>
-      <td>[Yes]</td>
-      <td>[25]</td>
-      <td>[Man]</td>
-      <td>[None]</td>
-      <td>[None]</td>
-      <td>[None]</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>data/102730_eng.png</td>
-      <td>Yes</td>
-      <td>No</td>
-      <td>1</td>
-      <td>[No]</td>
-      <td>[27]</td>
-      <td>[Man]</td>
-      <td>[asian]</td>
-      <td>[sad]</td>
-      <td>[Negative]</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
+</pre></div></div>
 </div>
 <p>Write the csv file - here you should provide a file path and file name for the csv file to be written.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_out.csv&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/data_out.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[9], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">df</span><span style="color: rgb(98,98,98)">.</span>to_csv(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">/content/drive/MyDrive/misinformation-data/data_out.csv</span><span style="color: rgb(175,0,0)">&#34;</span>)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
+</pre></div></div>
 </div>
 </section>
 
@@ -352,8 +267,8 @@ Downloading data from &#39;https://github.com/serengil/deepface_models/releases/
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../readme_link.html" class="btn btn-neutral float-left" title="AMMICO - AI Media and Misinformation Content Analysis Tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Example%20text.html" class="btn btn-neutral float-right" title="Notebook for text extraction on image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Example%20multimodal.html" class="btn btn-neutral float-left" title="Image Multimodal Search" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example%20objects.html" class="btn btn-neutral float-right" title="Objects recognition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
