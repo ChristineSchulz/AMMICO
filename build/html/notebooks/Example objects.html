@@ -181,23 +181,15 @@ Downloading yolov4.weights from https://github.com/AlexeyAB/darknet/releases/dow
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
- 99% |####################################################################### |
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-detection-opencv/raw/master/yolov3.txt
+100% |                                                                        |
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-100% |                                                                        |
+Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-detection-opencv/raw/master/yolov3.txt
 </pre></div></div>
 </div>
 <p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
@@ -328,27 +320,19 @@ Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-dete
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dash is running on http://127.0.0.1:8056/
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[9], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> analysis_explorer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">mdisplay</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">AnalysisExplorer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">identify</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">objects</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> analysis_explorer<span style="color: rgb(98,98,98)">.</span>run_server(port<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">8056</span>)
 
+<span class="ansi-red-fg">TypeError</span>: __init__() got an unexpected keyword argument &#39;identify&#39;
 </pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<iframe
-    width="100%"
-    height="650"
-    src="http://127.0.0.1:8056/"
-    frameborder="0"
-    allowfullscreen
-
-></iframe></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
