@@ -227,19 +227,19 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Downloading (…)/a4f8f3e/config.json: 1.80kB [00:00, 6.30MB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:12&lt;00:00, 95.8MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 25.8kB/s]
-Downloading (…)e/a4f8f3e/vocab.json: 899kB [00:00, 11.5MB/s]
-Downloading (…)e/a4f8f3e/merges.txt: 456kB [00:00, 8.34MB/s]
-Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 615kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:03&lt;00:00, 82.8MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 46.2kB/s]
-Downloading (…)ve/af0f99b/vocab.txt: 232kB [00:00, 6.12MB/s]
-Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 960kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:14&lt;00:00, 89.7MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 58.4kB/s]
-Downloading (…)ve/f2482bf/vocab.txt: 213kB [00:00, 12.7MB/s]
+Downloading (…)/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 605kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:04&lt;00:00, 264MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 23.3kB/s]
+Downloading (…)e/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 11.1MB/s]
+Downloading (…)e/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 12.0MB/s]
+Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 187kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:01&lt;00:00, 259MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 42.2kB/s]
+Downloading (…)ve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 18.1MB/s]
+Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 850kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:04&lt;00:00, 272MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 51.5kB/s]
+Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 22.2MB/s]
 </pre></div></div>
 </div>
 </section>
@@ -381,7 +381,7 @@ To disable this warning, you can either:
         - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
 Collecting en-core-web-md==3.5.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.5.0/en_core_web_md-3.5.0-py3-none-any.whl (42.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 50.0 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 59.2 MB/s eta 0:00:00
 Requirement already satisfied: spacy&lt;3.6.0,&gt;=3.5.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from en-core-web-md==3.5.0) (3.5.3)
 Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.12)
 Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.4)
@@ -414,8 +414,6 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /opt/hostedtoolcache
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from jinja2-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.1.3)
 Installing collected packages: en-core-web-md
 Successfully installed en-core-web-md-3.5.0
-<span class="ansi-green-fg">✔ Download and installation successful</span>
-You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -426,6 +424,15 @@ You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
 
 [notice] A new release of pip is available: 23.0.1 -&gt; 23.1.2
 [notice] To update, run: pip install --upgrade pip
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-green-fg">✔ Download and installation successful</span>
+You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
