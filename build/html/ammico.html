@@ -78,9 +78,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#summary.SummaryDetector"><code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.analyse_image()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.analyse_questions"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.analyse_questions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.analyse_summary"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.analyse_summary()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_base"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_base()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_large"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_large()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_vqa_model"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_vqa_model()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -353,21 +355,16 @@
 <span id="summary-module"></span><h1>summary module<a class="headerlink" href="#module-summary" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="summary.SummaryDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">summary.</span></span><span class="sig-name descname"><span class="pre">SummaryDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">summary.</span></span><span class="sig-name descname"><span class="pre">SummaryDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'base'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analysis_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'summary_and_questions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_txt_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="summary.SummaryDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">summary_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_image" title="Permalink to this definition"></a></dt>
-<dd><p>Create 1 constant and 3 non deterministic captions for image.</p>
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_image" title="Permalink to this definition"></a></dt>
+<dd><p>Analyse image with blip_caption model.</p>
+<p>Args:</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>summary_model</strong> (<em>str</em>) – model.</p></li>
-<li><p><strong>summary_vis_processors</strong> (<em>str</em>) – preprocessors for visual inputs.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with constant image summary and 3 non deterministic summary.</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with analysis results.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -382,6 +379,18 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with answers to questions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.analyse_summary">
+<span class="sig-name descname"><span class="pre">analyse_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_summary" title="Permalink to this definition"></a></dt>
+<dd><p>Create 1 constant and 3 non deterministic captions for image.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with analysis results.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -428,6 +437,22 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
 <li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_vqa_model">
+<span class="sig-name descname"><span class="pre">load_vqa_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_vqa_model" title="Permalink to this definition"></a></dt>
+<dd><p>Load blip_vqa model and preprocessors for visual and text inputs from lavis.models.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
 </ul>
 </dd>
 </dl>
