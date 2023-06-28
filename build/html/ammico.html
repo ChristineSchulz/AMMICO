@@ -196,6 +196,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#utils.get_color_table"><code class="docutils literal notranslate"><span class="pre">get_color_table()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.initialize_dict"><code class="docutils literal notranslate"><span class="pre">initialize_dict()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.is_interactive"><code class="docutils literal notranslate"><span class="pre">is_interactive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.iterable"><code class="docutils literal notranslate"><span class="pre">iterable()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-display">display module</a><ul>
@@ -1441,7 +1442,7 @@ ammico_prefetch_models.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="utils.find_files">
-<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'*.png'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#utils.find_files" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['png',</span> <span class="pre">'jpg',</span> <span class="pre">'jpeg',</span> <span class="pre">'gif',</span> <span class="pre">'webp',</span> <span class="pre">'avif',</span> <span class="pre">'tiff']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recursive</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#utils.find_files" title="Permalink to this definition"></a></dt>
 <dd><p>Find image files on the file system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1449,12 +1450,16 @@ ammico_prefetch_models.</p>
 <li><p><strong>path</strong> (<em>str</em><em>, </em><em>optional</em>) – The base directory where we are looking for the images. Defaults
 to None, which uses the XDG data directory if set or the current
 working directory otherwise.</p></li>
-<li><p><strong>pattern</strong> (<em>str</em><em>, </em><em>optional</em>) – The naming pattern that the filename should match. Defaults to
-“<a href="#id1"><span class="problematic" id="id2">*</span></a>.png”. Can be used to allow other patterns or to only include
+<li><p><strong>pattern</strong> (<em>str</em><em>|</em><em>list</em><em>, </em><em>optional</em>) – The naming pattern that the filename should match.
+Use either ‘.ext’ or just ‘ext’
+Defaults to [“png”, “jpg”, “jpeg”, “gif”, “webp”, “avif”,”tiff”]. Can be used to allow other patterns or to only include
 specific prefixes or suffixes.</p></li>
-<li><p><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to recurse into subdirectories. Default is set to False.</p></li>
-<li><p><strong>limit</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of images to be found.
-Defaults to 20. To return all images, set to None.</p></li>
+<li><p><strong>recursive</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to recurse into subdirectories. Default is set to True.</p></li>
+<li><p><strong>limit</strong> (<em>int/list</em><em>, </em><em>optional</em>) – The maximum number of images to be found.
+Provide a list or tuple of length 2 to batch the images.
+Defaults to 20. To return all images, set to None or -1.</p></li>
+<li><p><strong>random_seed</strong> (<em>int</em><em>, </em><em>optional</em>) – The random seed to use for shuffling the images.
+If None is provided the data will not be shuffeled. Defaults to None.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1487,6 +1492,11 @@ Defaults to 20. To return all images, set to None.</p></li>
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">is_interactive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utils.is_interactive" title="Permalink to this definition"></a></dt>
 <dd><p>Check if we are running in an interactive environment.</p>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.iterable">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">iterable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.iterable" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </section>
 <section id="module-display">

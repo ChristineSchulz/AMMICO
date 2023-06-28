@@ -223,7 +223,23 @@ Cell <span class="ansi-green-fg">In[4], line 4</span>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Batch cropping images done
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[5], line 5</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> ref_dir <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">../ammico/data/ref</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> save_crop_dir <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data/crop/</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-fg">----&gt; 5</span> files <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">utils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">find_files</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">path</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">crop_dir</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">limit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> ref_files <span style="color: rgb(98,98,98)">=</span> utils<span style="color: rgb(98,98,98)">.</span>find_files(path<span style="color: rgb(98,98,98)">=</span>ref_dir, limit<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">100</span>)
+<span class="ansi-green-intense-fg ansi-bold">      8</span> crpo<span style="color: rgb(98,98,98)">.</span>crop_media_posts(files, ref_files, save_crop_dir, plt_match<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, plt_crop<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, plt_image<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:134</span>, in <span class="ansi-cyan-fg">find_files</span><span class="ansi-blue-fg">(path, pattern, recursive, limit, random_seed)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>     results<span style="color: rgb(98,98,98)">.</span>extend(_match_pattern(path, p, recursive<span style="color: rgb(98,98,98)">=</span>recursive))
+<span class="ansi-green-intense-fg ansi-bold">    133</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(results) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg">--&gt; 134</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">FileNotFoundError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">No files found in </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> with pattern </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pattern<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> random_seed <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    137</span>     random<span style="color: rgb(98,98,98)">.</span>seed(random_seed)
+
+<span class="ansi-red-fg">FileNotFoundError</span>: No files found in ../ammico/data/ with pattern &#39;[&#39;png&#39;, &#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;webp&#39;, &#39;avif&#39;, &#39;tiff&#39;]&#39;
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">

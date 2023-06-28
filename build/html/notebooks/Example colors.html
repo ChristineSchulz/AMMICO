@@ -121,7 +121,7 @@
 </div>
 </div>
 <p>We select a subset of image files to try the color analysis on, see the <code class="docutils literal notranslate"><span class="pre">limit</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function finds image files within a given directory:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
@@ -134,14 +134,52 @@
 <br/></pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[3], line 3</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># Here you need to provide the path to your google drive folder</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(95,135,135)"># or local folder containing the images</span>
+<span class="ansi-green-fg">----&gt; 3</span> images <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">mutils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">find_files</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">path</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">/content/drive/MyDrive/misinformation-data/</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">limit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:134</span>, in <span class="ansi-cyan-fg">find_files</span><span class="ansi-blue-fg">(path, pattern, recursive, limit, random_seed)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span>     results<span style="color: rgb(98,98,98)">.</span>extend(_match_pattern(path, p, recursive<span style="color: rgb(98,98,98)">=</span>recursive))
+<span class="ansi-green-intense-fg ansi-bold">    133</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(results) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
+<span class="ansi-green-fg">--&gt; 134</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">FileNotFoundError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">No files found in </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> with pattern </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pattern<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> random_seed <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    137</span>     random<span style="color: rgb(98,98,98)">.</span>seed(random_seed)
+
+<span class="ansi-red-fg">FileNotFoundError</span>: No files found in /content/drive/MyDrive/misinformation-data/ with pattern &#39;[&#39;png&#39;, &#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;webp&#39;, &#39;avif&#39;, &#39;tiff&#39;]&#39;
+</pre></div></div>
+</div>
 <p>We need to initialize the main dictionary that contains all information for the images and is updated through each subsequent analysis:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">initialize_dict</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[4], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> mydict <span style="color: rgb(98,98,98)">=</span> mutils<span style="color: rgb(98,98,98)">.</span>initialize_dict(<span class="ansi-yellow-bg">images</span>)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;images&#39; is not defined
+</pre></div></div>
 </div>
 <p>To check the analysis, you can inspect the analyzed elements here. Loading the results takes a moment, so please be patient. If you are sure of what you are doing, you can skip this and directly export a csv file in the step below. Here, we display the color detection results provided by <code class="docutils literal notranslate"><span class="pre">colorgram</span></code> and <code class="docutils literal notranslate"><span class="pre">colour</span></code> libraries. Click on the tabs to see the results in the right sidebar. You may need to increment the <code class="docutils literal notranslate"><span class="pre">port</span></code> number if you are already running several notebook instances on the same
 server.</p>
@@ -160,16 +198,16 @@ server.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 Cell <span class="ansi-green-fg">In[5], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> analysis_explorer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">mdisplay</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">AnalysisExplorer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">identify</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">colors</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">----&gt; 1</span> analysis_explorer <span style="color: rgb(98,98,98)">=</span> mdisplay<span style="color: rgb(98,98,98)">.</span>AnalysisExplorer(<span class="ansi-yellow-bg">mydict</span>, identify<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">colors</span><span style="color: rgb(175,0,0)">&#34;</span>)
 <span class="ansi-green-intense-fg ansi-bold">      2</span> analysis_explorer<span style="color: rgb(98,98,98)">.</span>run_server(port <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">8057</span>)
 
-<span class="ansi-red-fg">TypeError</span>: __init__() got an unexpected keyword argument &#39;identify&#39;
+<span class="ansi-red-fg">NameError</span>: name &#39;mydict&#39; is not defined
 </pre></div></div>
 </div>
 <p>Instead of inspecting each of the images, you can also directly carry out the analysis and export the result into a csv. This may take a while depending on how many images you have loaded.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -177,6 +215,20 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
     <span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ColorDetector</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[6], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg">mydict</span><span style="color: rgb(98,98,98)">.</span>keys():
+<span class="ansi-green-intense-fg ansi-bold">      2</span>     mydict[key] <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>colors<span style="color: rgb(98,98,98)">.</span>ColorDetector(mydict[key])<span style="color: rgb(98,98,98)">.</span>analyse_image()
+
+<span class="ansi-red-fg">NameError</span>: name &#39;mydict&#39; is not defined
+</pre></div></div>
 </div>
 <p>These steps are required to convert the dictionary of dictionarys into a dictionary with lists, that can be converted into a pandas dataframe and exported to a csv file.</p>
 <div class="nbinput docutils container">
@@ -194,19 +246,12 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">IndexError</span>                                Traceback (most recent call last)
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 Cell <span class="ansi-green-fg">In[7], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> outdict <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">mutils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">append_data_to_dict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">----&gt; 1</span> outdict <span style="color: rgb(98,98,98)">=</span> mutils<span style="color: rgb(98,98,98)">.</span>append_data_to_dict(<span class="ansi-yellow-bg">mydict</span>)
 <span class="ansi-green-intense-fg ansi-bold">      2</span> df <span style="color: rgb(98,98,98)">=</span> mutils<span style="color: rgb(98,98,98)">.</span>dump_df(outdict)
 
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:96</span>, in <span class="ansi-cyan-fg">append_data_to_dict</span><span class="ansi-blue-fg">(mydict)</span>
-<span class="ansi-green-intense-fg ansi-bold">     93</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Append entries from nested dictionaries to keys in a global dict.&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     95</span> <span style="color: rgb(95,135,135)"># first initialize empty list for each key that is present</span>
-<span class="ansi-green-fg">---&gt; 96</span> outdict <span style="color: rgb(98,98,98)">=</span> {key: [] <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">list</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">values</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">0</span><span class="ansi-yellow-bg">]</span><span style="color: rgb(98,98,98)">.</span>keys()}
-<span class="ansi-green-intense-fg ansi-bold">     97</span> <span style="color: rgb(95,135,135)"># now append the values to each key in a list</span>
-<span class="ansi-green-intense-fg ansi-bold">     98</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> subdict <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> mydict<span style="color: rgb(98,98,98)">.</span>values():
-
-<span class="ansi-red-fg">IndexError</span>: list index out of range
+<span class="ansi-red-fg">NameError</span>: name &#39;mydict&#39; is not defined
 </pre></div></div>
 </div>
 <p>Check the dataframe:</p>
