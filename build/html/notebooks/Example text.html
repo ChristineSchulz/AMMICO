@@ -227,19 +227,19 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Downloading (…)/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 743kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [01:04&lt;00:00, 18.9MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 22.4kB/s]
-Downloading (…)e/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 4.44MB/s]
-Downloading (…)e/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 3.87MB/s]
-Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 635kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:08&lt;00:00, 33.3MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 46.0kB/s]
-Downloading (…)ve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 11.2MB/s]
-Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 448kB/s]
-Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:44&lt;00:00, 29.8MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 58.7kB/s]
-Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 14.0MB/s]
+Downloading (…)/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 536kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:03&lt;00:00, 323MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 25.5kB/s]
+Downloading (…)e/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 23.6MB/s]
+Downloading (…)e/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 112MB/s]
+Downloading (…)/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 585kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 268M/268M [00:00&lt;00:00, 343MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 45.7kB/s]
+Downloading (…)ve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 152MB/s]
+Downloading (…)/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 959kB/s]
+Downloading pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:05&lt;00:00, 264MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 57.2kB/s]
+Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 125MB/s]
 </pre></div></div>
 </div>
 </section>
@@ -301,18 +301,6 @@ Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k
   <tbody>
     <tr>
       <th>0</th>
-      <td>data/106349S_por.png</td>
-      <td>NEWS URGENTE SAMSUNG AO VIVO Rio de Janeiro NO...</td>
-      <td>pt</td>
-      <td>NEWS URGENT SAMSUNG LIVE Rio de Janeiro NEW CO...</td>
-      <td>NEW COUNTING METHOD RJ City HALL EXCLUDES 1,1...</td>
-      <td>NEGATIVE</td>
-      <td>0.99</td>
-      <td>[Rio de Janeiro, C, ##IT, P, ##NA, ##LTO]</td>
-      <td>[LOC, ORG, LOC, LOC, ORG, LOC]</td>
-    </tr>
-    <tr>
-      <th>1</th>
       <td>data/102141_2_eng.png</td>
       <td>CORONAVIRUS QUARANTINE CORONAVIRUS OUTBREAK BE...</td>
       <td>en</td>
@@ -322,6 +310,18 @@ Downloading (…)ve/f2482bf/vocab.txt: 100%|██████████| 213k
       <td>0.98</td>
       <td>[CORONAVIRUS, ##AR, ##TI, ##RONAVIR, ##C, Co]</td>
       <td>[ORG, MISC, MISC, ORG, MISC, MISC]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>data/106349S_por.png</td>
+      <td>NEWS URGENTE SAMSUNG AO VIVO Rio de Janeiro NO...</td>
+      <td>pt</td>
+      <td>NEWS URGENT SAMSUNG LIVE Rio de Janeiro NEW CO...</td>
+      <td>NEW COUNTING METHOD RJ City HALL EXCLUDES 1,1...</td>
+      <td>NEGATIVE</td>
+      <td>0.99</td>
+      <td>[Rio de Janeiro, C, ##IT, P, ##NA, ##LTO]</td>
+      <td>[LOC, ORG, LOC, LOC, ORG, LOC]</td>
     </tr>
     <tr>
       <th>2</th>
@@ -381,8 +381,8 @@ To disable this warning, you can either:
         - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
 Collecting en-core-web-md==3.5.0
   Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.5.0/en_core_web_md-3.5.0-py3-none-any.whl (42.8 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 58.4 MB/s eta 0:00:00
-Requirement already satisfied: spacy&lt;3.6.0,&gt;=3.5.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from en-core-web-md==3.5.0) (3.5.3)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.8/42.8 MB 61.2 MB/s eta 0:00:00
+Requirement already satisfied: spacy&lt;3.6.0,&gt;=3.5.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from en-core-web-md==3.5.0) (3.5.4)
 Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.0.12)
 Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.4)
 Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.0.9)
@@ -392,7 +392,7 @@ Requirement already satisfied: thinc&lt;8.2.0,&gt;=8.1.8 in /opt/hostedtoolcache
 Requirement already satisfied: wasabi&lt;1.2.0,&gt;=0.9.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.1.2)
 Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.4.6)
 Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.0.8)
-Requirement already satisfied: typer&lt;0.8.0,&gt;=0.3.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.7.0)
+Requirement already satisfied: typer&lt;0.10.0,&gt;=0.3.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.9.0)
 Requirement already satisfied: pathy&gt;=0.10.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.10.2)
 Requirement already satisfied: smart-open&lt;7.0.0,&gt;=5.2.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (6.3.0)
 Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.65.0)
@@ -403,14 +403,14 @@ Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.17/x64/
 Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (58.1.0)
 Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (23.1)
 Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.3.0)
-Requirement already satisfied: typing-extensions&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from pydantic!=1.8,!=1.8.1,&lt;1.11.0,&gt;=1.7.4-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.6.3)
+Requirement already satisfied: typing-extensions&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from pydantic!=1.8,!=1.8.1,&lt;1.11.0,&gt;=1.7.4-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (4.7.0)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (3.1.0)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.10)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (1.26.16)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2023.5.7)
 Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.7.9)
-Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.0.4)
-Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from typer&lt;0.8.0,&gt;=0.3.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (8.1.3)
+Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from thinc&lt;8.2.0,&gt;=8.1.8-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (0.1.0)
+Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from typer&lt;0.10.0,&gt;=0.3.0-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (8.1.3)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages (from jinja2-&gt;spacy&lt;3.6.0,&gt;=3.5.0-&gt;en-core-web-md==3.5.0) (2.1.3)
 Installing collected packages: en-core-web-md
 Successfully installed en-core-web-md-3.5.0
@@ -526,12 +526,12 @@ Cell <span class="ansi-green-fg">In[10], line 2</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">mydict</span>
 <span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_topic</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:221</span>, in <span class="ansi-cyan-fg">PostprocessText.analyse_topic</span><span class="ansi-blue-fg">(self, return_topics)</span>
-<span class="ansi-green-intense-fg ansi-bold">    219</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
-<span class="ansi-green-intense-fg ansi-bold">    220</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">BERTopic excited with an error - maybe your dataset is too small?</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-fg">--&gt; 221</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topics, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>probs <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">topic_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit_transform</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">list_text_english</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    222</span> <span style="color: rgb(95,135,135)"># return the topic list</span>
-<span class="ansi-green-intense-fg ansi-bold">    223</span> topic_df <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topic_model<span style="color: rgb(98,98,98)">.</span>get_topic_info()
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:320</span>, in <span class="ansi-cyan-fg">PostprocessText.analyse_topic</span><span class="ansi-blue-fg">(self, return_topics)</span>
+<span class="ansi-green-intense-fg ansi-bold">    318</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
+<span class="ansi-green-intense-fg ansi-bold">    319</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">BERTopic excited with an error - maybe your dataset is too small?</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-fg">--&gt; 320</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topics, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>probs <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">topic_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit_transform</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">list_text_english</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    321</span> <span style="color: rgb(95,135,135)"># return the topic list</span>
+<span class="ansi-green-intense-fg ansi-bold">    322</span> topic_df <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topic_model<span style="color: rgb(98,98,98)">.</span>get_topic_info()
 
 File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:356</span>, in <span class="ansi-cyan-fg">BERTopic.fit_transform</span><span class="ansi-blue-fg">(self, documents, embeddings, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">    354</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>seed_topic_list <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
@@ -768,12 +768,12 @@ Cell <span class="ansi-green-fg">In[11], line 2</span>
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">use_csv</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">csv_path</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">input_file_path</span>
 <span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_topic</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">return_topics</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:221</span>, in <span class="ansi-cyan-fg">PostprocessText.analyse_topic</span><span class="ansi-blue-fg">(self, return_topics)</span>
-<span class="ansi-green-intense-fg ansi-bold">    219</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
-<span class="ansi-green-intense-fg ansi-bold">    220</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">BERTopic excited with an error - maybe your dataset is too small?</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-fg">--&gt; 221</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topics, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>probs <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">topic_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit_transform</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">list_text_english</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    222</span> <span style="color: rgb(95,135,135)"># return the topic list</span>
-<span class="ansi-green-intense-fg ansi-bold">    223</span> topic_df <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topic_model<span style="color: rgb(98,98,98)">.</span>get_topic_info()
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:320</span>, in <span class="ansi-cyan-fg">PostprocessText.analyse_topic</span><span class="ansi-blue-fg">(self, return_topics)</span>
+<span class="ansi-green-intense-fg ansi-bold">    318</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
+<span class="ansi-green-intense-fg ansi-bold">    319</span>     <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">BERTopic excited with an error - maybe your dataset is too small?</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-fg">--&gt; 320</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topics, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>probs <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">topic_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">fit_transform</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">list_text_english</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    321</span> <span style="color: rgb(95,135,135)"># return the topic list</span>
+<span class="ansi-green-intense-fg ansi-bold">    322</span> topic_df <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>topic_model<span style="color: rgb(98,98,98)">.</span>get_topic_info()
 
 File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/bertopic/_bertopic.py:356</span>, in <span class="ansi-cyan-fg">BERTopic.fit_transform</span><span class="ansi-blue-fg">(self, documents, embeddings, y)</span>
 <span class="ansi-green-intense-fg ansi-bold">    354</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>seed_topic_list <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>embedding_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:

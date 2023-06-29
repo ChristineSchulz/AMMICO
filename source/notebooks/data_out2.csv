@@ -1,4 +1,4 @@
 ,filename,How many persons on the picture?,Are there any politicians in the picture?,Does the picture show something from medicine?
-0,data/106349S_por.png,1,yes,yes
-1,data/102141_2_eng.png,1,no,yes
+0,data/102141_2_eng.png,1,no,yes
+1,data/106349S_por.png,1,yes,yes
 2,data/102730_eng.png,2,no,yes
