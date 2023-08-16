@@ -191,6 +191,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.ammico_prefetch_models"><code class="docutils literal notranslate"><span class="pre">ammico_prefetch_models()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.append_data_to_dict"><code class="docutils literal notranslate"><span class="pre">append_data_to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.check_for_missing_keys"><code class="docutils literal notranslate"><span class="pre">check_for_missing_keys()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.dump_df"><code class="docutils literal notranslate"><span class="pre">dump_df()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.find_files"><code class="docutils literal notranslate"><span class="pre">find_files()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#utils.get_color_table"><code class="docutils literal notranslate"><span class="pre">get_color_table()</span></code></a></li>
@@ -1432,6 +1433,20 @@ ammico_prefetch_models.</p>
 <dt class="sig sig-object py" id="utils.append_data_to_dict">
 <span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">append_data_to_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.append_data_to_dict" title="Permalink to this definition"></a></dt>
 <dd><p>Append entries from nested dictionaries to keys in a global dict.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.check_for_missing_keys">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">check_for_missing_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mydict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#utils.check_for_missing_keys" title="Permalink to this definition"></a></dt>
+<dd><p>Check the nested dictionary for any missing keys in the subdicts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mydict</strong> (<em>dict</em>) – The nested dictionary with keys to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dict</strong> – The dictionary with keys appended.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">

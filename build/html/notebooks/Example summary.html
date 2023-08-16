@@ -163,13 +163,127 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 2.50G/2.50G [00:15&lt;00:00, 177MB/s]
-100%|██████████| 1.35G/1.35G [00:07&lt;00:00, 185MB/s]
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 46e7044b-81c7-40dd-96d4-f00f47977854)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 60a0dbec-fe0d-4c08-ab66-81694c369895)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: dc7187e1-ebbb-4567-af33-a6895b248a79)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 59a281a5-bebf-4eda-9a26-a35771174657)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[5], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> obj <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">sm</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">SummaryDetector</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> summary_model, summary_vis_processors <span style="color: rgb(98,98,98)">=</span> obj<span style="color: rgb(98,98,98)">.</span>load_model(model_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(95,135,135)"># summary_model, summary_vis_processors = mutils.load_model(&#34;large&#34;)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:72</span>, in <span class="ansi-cyan-fg">SummaryDetector.__init__</span><span class="ansi-blue-fg">(self, subdict, summary_model_type, analysis_type, list_of_questions, summary_model, summary_vis_processors, summary_vqa_model, summary_vqa_vis_processors, summary_vqa_txt_processors)</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>list_of_questions <span style="color: rgb(98,98,98)">=</span> list_of_questions
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> (
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     (summary_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">     69</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> (summary_vis_processors <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">     70</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> (analysis_type <span style="color: rgb(98,98,98)">!=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">questions</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">     71</span> ):
+<span class="ansi-green-fg">---&gt; 72</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_model, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_vis_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">load_model</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">summary_model_type</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">     76</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_model <span style="color: rgb(98,98,98)">=</span> summary_model
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:145</span>, in <span class="ansi-cyan-fg">SummaryDetector.load_model</span><span class="ansi-blue-fg">(self, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span> <span style="color: rgb(175,0,0)">Load blip_caption model and preprocessors for visual inputs from lavis.models.</span>
+<span class="ansi-green-intense-fg ansi-bold">    133</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    139</span> <span style="color: rgb(175,0,0)">    vis_processors (dict): preprocessors for visual inputs.</span>
+<span class="ansi-green-intense-fg ansi-bold">    140</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    141</span> select_model <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">    142</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>: SummaryDetector<span style="color: rgb(98,98,98)">.</span>load_model_base,
+<span class="ansi-green-intense-fg ansi-bold">    143</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">large</span><span style="color: rgb(175,0,0)">&#34;</span>: SummaryDetector<span style="color: rgb(98,98,98)">.</span>load_model_large,
+<span class="ansi-green-intense-fg ansi-bold">    144</span> }
+<span class="ansi-green-fg">--&gt; 145</span> summary_model, summary_vis_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">select_model</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    146</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> summary_model, summary_vis_processors
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:104</span>, in <span class="ansi-cyan-fg">SummaryDetector.load_model_base</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     94</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">load_model_base</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-intense-fg ansi-bold">     95</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span> <span style="color: rgb(175,0,0)">    Load base_coco blip_caption model and preprocessors for visual inputs from lavis.models.</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    102</span> <span style="color: rgb(175,0,0)">        vis_processors (dict): preprocessors for visual inputs.</span>
+<span class="ansi-green-intense-fg ansi-bold">    103</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 104</span>     summary_model, summary_vis_processors, _ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_model_and_preprocess</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    105</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">blip_caption</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    106</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">base_coco</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">is_eval</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    108</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">summary_device</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    109</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    110</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> summary_model, summary_vis_processors
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/__init__.py:195</span>, in <span class="ansi-cyan-fg">load_model_and_preprocess</span><span class="ansi-blue-fg">(name, model_type, is_eval, device)</span>
+<span class="ansi-green-intense-fg ansi-bold">    192</span> model_cls <span style="color: rgb(98,98,98)">=</span> registry<span style="color: rgb(98,98,98)">.</span>get_model_class(name)
+<span class="ansi-green-intense-fg ansi-bold">    194</span> <span style="color: rgb(95,135,135)"># load model</span>
+<span class="ansi-green-fg">--&gt; 195</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model_cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    197</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_eval:
+<span class="ansi-green-intense-fg ansi-bold">    198</span>     model<span style="color: rgb(98,98,98)">.</span>eval()
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/base_model.py:70</span>, in <span class="ansi-cyan-fg">BaseModel.from_pretrained</span><span class="ansi-blue-fg">(cls, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">Build a pretrained model from default configuration file, specified by model_type.</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(175,0,0)">    - model (nn.Module): pretrained or finetuned model, depending on the configuration.</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span> model_cfg <span style="color: rgb(98,98,98)">=</span> OmegaConf<span style="color: rgb(98,98,98)">.</span>load(<span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>default_config_path(model_type))<span style="color: rgb(98,98,98)">.</span>model
+<span class="ansi-green-fg">---&gt; 70</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_cfg</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     72</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_caption.py:216</span>, in <span class="ansi-cyan-fg">BlipCaption.from_config</span><span class="ansi-blue-fg">(cls, cfg)</span>
+<span class="ansi-green-intense-fg ansi-bold">    213</span> prompt <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">prompt</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">    214</span> max_txt_len <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">max_txt_len</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">40</span>)
+<span class="ansi-green-fg">--&gt; 216</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">text_decoder</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">prompt</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">prompt</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    217</span> model<span style="color: rgb(98,98,98)">.</span>load_checkpoint_from_config(cfg)
+<span class="ansi-green-intense-fg ansi-bold">    219</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_caption.py:43</span>, in <span class="ansi-cyan-fg">BlipCaption.__init__</span><span class="ansi-blue-fg">(self, image_encoder, text_decoder, prompt, max_txt_len)</span>
+<span class="ansi-green-intense-fg ansi-bold">     40</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>, image_encoder, text_decoder, prompt<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, max_txt_len<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">40</span>):
+<span class="ansi-green-intense-fg ansi-bold">     41</span>     <span style="color: rgb(0,135,0)">super</span>()<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,255)">__init__</span>()
+<span class="ansi-green-fg">---&gt; 43</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">init_tokenizer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>visual_encoder <span style="color: rgb(98,98,98)">=</span> image_encoder
+<span class="ansi-green-intense-fg ansi-bold">     46</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>text_decoder <span style="color: rgb(98,98,98)">=</span> text_decoder
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip.py:22</span>, in <span class="ansi-cyan-fg">BlipBase.init_tokenizer</span><span class="ansi-blue-fg">(cls)</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span style="color: rgb(175,0,255)">@classmethod</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">init_tokenizer</span>(<span style="color: rgb(0,135,0)">cls</span>):
+<span class="ansi-green-fg">---&gt; 22</span>     tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">BertTokenizer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">bert-base-uncased</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">bos_token</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[DEC]</span><span style="color: rgb(175,0,0)">&#34;</span>})
+<span class="ansi-green-intense-fg ansi-bold">     24</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">additional_special_tokens</span><span style="color: rgb(175,0,0)">&#34;</span>: [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[ENC]</span><span style="color: rgb(175,0,0)">&#34;</span>]})
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1788</span>, in <span class="ansi-cyan-fg">PreTrainedTokenizerBase.from_pretrained</span><span class="ansi-blue-fg">(cls, pretrained_model_name_or_path, *init_inputs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1782</span>     logger<span style="color: rgb(98,98,98)">.</span>info(
+<span class="ansi-green-intense-fg ansi-bold">   1783</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load following files from cache: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unresolved_files<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and cannot check if these </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1784</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">files are necessary for the tokenizer to operate.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1785</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1787</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">all</span>(full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files<span style="color: rgb(98,98,98)">.</span>values()):
+<span class="ansi-green-fg">-&gt; 1788</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">EnvironmentError</span>(
+<span class="ansi-green-intense-fg ansi-bold">   1789</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load tokenizer for </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">. If you were trying to load it from </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1790</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">https://huggingface.co/models</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">, make sure you don</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t have a local directory with the same name. </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1791</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Otherwise, make sure </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> is the correct path to a directory </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1792</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">containing all relevant files for a </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span><span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> tokenizer.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1793</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1795</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> file_id, file_path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> vocab_files<span style="color: rgb(98,98,98)">.</span>items():
+<span class="ansi-green-intense-fg ansi-bold">   1796</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file_id <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files:
+
+<span class="ansi-red-fg">OSError</span>: Can&#39;t load tokenizer for &#39;bert-base-uncased&#39;. If you were trying to load it from &#39;https://huggingface.co/models&#39;, make sure you don&#39;t have a local directory with the same name. Otherwise, make sure &#39;bert-base-uncased&#39; is the correct path to a directory containing all relevant files for a BertTokenizer tokenizer.
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -183,20 +297,128 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 24f208f6-43d7-47b6-8107-73577c6b2438)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: fd6ca06d-4f6b-47bb-8cf4-948c3ca85a08)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 8c8fd2ef-98fd-4aa6-8695-7ce208b547de)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 03ed1cf4-5e3e-4f84-a85d-019584a19d86)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
 Cell <span class="ansi-green-fg">In[6], line 2</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> mydict:
-<span class="ansi-green-fg">----&gt; 2</span>     mydict[key] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">sm</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">SummaryDetector</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">summary_model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">summary_model</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">summary_vis_processors</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">summary_vis_processors</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">----&gt; 2</span>     mydict[key] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">sm</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">SummaryDetector</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>analyse_image(
+<span class="ansi-green-intense-fg ansi-bold">      3</span>         summary_model<span style="color: rgb(98,98,98)">=</span>summary_model, summary_vis_processors<span style="color: rgb(98,98,98)">=</span>summary_vis_processors
+<span class="ansi-green-intense-fg ansi-bold">      4</span>     )
 
-<span class="ansi-red-fg">TypeError</span>: analyse_image() got an unexpected keyword argument &#39;summary_model&#39;
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:72</span>, in <span class="ansi-cyan-fg">SummaryDetector.__init__</span><span class="ansi-blue-fg">(self, subdict, summary_model_type, analysis_type, list_of_questions, summary_model, summary_vis_processors, summary_vqa_model, summary_vqa_vis_processors, summary_vqa_txt_processors)</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>list_of_questions <span style="color: rgb(98,98,98)">=</span> list_of_questions
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> (
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     (summary_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">     69</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> (summary_vis_processors <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">     70</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> (analysis_type <span style="color: rgb(98,98,98)">!=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">questions</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">     71</span> ):
+<span class="ansi-green-fg">---&gt; 72</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_model, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_vis_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">load_model</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">summary_model_type</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">     76</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_model <span style="color: rgb(98,98,98)">=</span> summary_model
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:145</span>, in <span class="ansi-cyan-fg">SummaryDetector.load_model</span><span class="ansi-blue-fg">(self, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span> <span style="color: rgb(175,0,0)">Load blip_caption model and preprocessors for visual inputs from lavis.models.</span>
+<span class="ansi-green-intense-fg ansi-bold">    133</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    139</span> <span style="color: rgb(175,0,0)">    vis_processors (dict): preprocessors for visual inputs.</span>
+<span class="ansi-green-intense-fg ansi-bold">    140</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    141</span> select_model <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">    142</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>: SummaryDetector<span style="color: rgb(98,98,98)">.</span>load_model_base,
+<span class="ansi-green-intense-fg ansi-bold">    143</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">large</span><span style="color: rgb(175,0,0)">&#34;</span>: SummaryDetector<span style="color: rgb(98,98,98)">.</span>load_model_large,
+<span class="ansi-green-intense-fg ansi-bold">    144</span> }
+<span class="ansi-green-fg">--&gt; 145</span> summary_model, summary_vis_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">select_model</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    146</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> summary_model, summary_vis_processors
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:104</span>, in <span class="ansi-cyan-fg">SummaryDetector.load_model_base</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     94</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">load_model_base</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-intense-fg ansi-bold">     95</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span> <span style="color: rgb(175,0,0)">    Load base_coco blip_caption model and preprocessors for visual inputs from lavis.models.</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    102</span> <span style="color: rgb(175,0,0)">        vis_processors (dict): preprocessors for visual inputs.</span>
+<span class="ansi-green-intense-fg ansi-bold">    103</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 104</span>     summary_model, summary_vis_processors, _ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_model_and_preprocess</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    105</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">blip_caption</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    106</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">base_coco</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">is_eval</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    108</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">summary_device</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    109</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    110</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> summary_model, summary_vis_processors
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/__init__.py:195</span>, in <span class="ansi-cyan-fg">load_model_and_preprocess</span><span class="ansi-blue-fg">(name, model_type, is_eval, device)</span>
+<span class="ansi-green-intense-fg ansi-bold">    192</span> model_cls <span style="color: rgb(98,98,98)">=</span> registry<span style="color: rgb(98,98,98)">.</span>get_model_class(name)
+<span class="ansi-green-intense-fg ansi-bold">    194</span> <span style="color: rgb(95,135,135)"># load model</span>
+<span class="ansi-green-fg">--&gt; 195</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model_cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    197</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_eval:
+<span class="ansi-green-intense-fg ansi-bold">    198</span>     model<span style="color: rgb(98,98,98)">.</span>eval()
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/base_model.py:70</span>, in <span class="ansi-cyan-fg">BaseModel.from_pretrained</span><span class="ansi-blue-fg">(cls, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">Build a pretrained model from default configuration file, specified by model_type.</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(175,0,0)">    - model (nn.Module): pretrained or finetuned model, depending on the configuration.</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span> model_cfg <span style="color: rgb(98,98,98)">=</span> OmegaConf<span style="color: rgb(98,98,98)">.</span>load(<span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>default_config_path(model_type))<span style="color: rgb(98,98,98)">.</span>model
+<span class="ansi-green-fg">---&gt; 70</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_cfg</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     72</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_caption.py:216</span>, in <span class="ansi-cyan-fg">BlipCaption.from_config</span><span class="ansi-blue-fg">(cls, cfg)</span>
+<span class="ansi-green-intense-fg ansi-bold">    213</span> prompt <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">prompt</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">    214</span> max_txt_len <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">max_txt_len</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">40</span>)
+<span class="ansi-green-fg">--&gt; 216</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">text_decoder</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">prompt</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">prompt</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    217</span> model<span style="color: rgb(98,98,98)">.</span>load_checkpoint_from_config(cfg)
+<span class="ansi-green-intense-fg ansi-bold">    219</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_caption.py:43</span>, in <span class="ansi-cyan-fg">BlipCaption.__init__</span><span class="ansi-blue-fg">(self, image_encoder, text_decoder, prompt, max_txt_len)</span>
+<span class="ansi-green-intense-fg ansi-bold">     40</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>, image_encoder, text_decoder, prompt<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, max_txt_len<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">40</span>):
+<span class="ansi-green-intense-fg ansi-bold">     41</span>     <span style="color: rgb(0,135,0)">super</span>()<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,255)">__init__</span>()
+<span class="ansi-green-fg">---&gt; 43</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">init_tokenizer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>visual_encoder <span style="color: rgb(98,98,98)">=</span> image_encoder
+<span class="ansi-green-intense-fg ansi-bold">     46</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>text_decoder <span style="color: rgb(98,98,98)">=</span> text_decoder
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip.py:22</span>, in <span class="ansi-cyan-fg">BlipBase.init_tokenizer</span><span class="ansi-blue-fg">(cls)</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span style="color: rgb(175,0,255)">@classmethod</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">init_tokenizer</span>(<span style="color: rgb(0,135,0)">cls</span>):
+<span class="ansi-green-fg">---&gt; 22</span>     tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">BertTokenizer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">bert-base-uncased</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">bos_token</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[DEC]</span><span style="color: rgb(175,0,0)">&#34;</span>})
+<span class="ansi-green-intense-fg ansi-bold">     24</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">additional_special_tokens</span><span style="color: rgb(175,0,0)">&#34;</span>: [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[ENC]</span><span style="color: rgb(175,0,0)">&#34;</span>]})
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1788</span>, in <span class="ansi-cyan-fg">PreTrainedTokenizerBase.from_pretrained</span><span class="ansi-blue-fg">(cls, pretrained_model_name_or_path, *init_inputs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1782</span>     logger<span style="color: rgb(98,98,98)">.</span>info(
+<span class="ansi-green-intense-fg ansi-bold">   1783</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load following files from cache: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unresolved_files<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and cannot check if these </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1784</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">files are necessary for the tokenizer to operate.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1785</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1787</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">all</span>(full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files<span style="color: rgb(98,98,98)">.</span>values()):
+<span class="ansi-green-fg">-&gt; 1788</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">EnvironmentError</span>(
+<span class="ansi-green-intense-fg ansi-bold">   1789</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load tokenizer for </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">. If you were trying to load it from </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1790</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">https://huggingface.co/models</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">, make sure you don</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t have a local directory with the same name. </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1791</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Otherwise, make sure </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> is the correct path to a directory </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1792</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">containing all relevant files for a </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span><span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> tokenizer.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1793</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1795</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> file_id, file_path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> vocab_files<span style="color: rgb(98,98,98)">.</span>items():
+<span class="ansi-green-intense-fg ansi-bold">   1796</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file_id <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files:
+
+<span class="ansi-red-fg">OSError</span>: Can&#39;t load tokenizer for &#39;bert-base-uncased&#39;. If you were trying to load it from &#39;https://huggingface.co/models&#39;, make sure you don&#39;t have a local directory with the same name. Otherwise, make sure &#39;bert-base-uncased&#39; is the correct path to a directory containing all relevant files for a BertTokenizer tokenizer.
 </pre></div></div>
 </div>
 <p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
@@ -251,11 +473,11 @@ Cell <span class="ansi-green-fg">In[6], line 2</span>
     </tr>
     <tr>
       <th>1</th>
-      <td>data/106349S_por.png</td>
+      <td>data/102141_2_eng.png</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>data/102141_2_eng.png</td>
+      <td>data/106349S_por.png</td>
     </tr>
   </tbody>
 </table>
@@ -343,7 +565,7 @@ Cell <span class="ansi-green-fg">In[12], line 1</span>
 <section id="Or-directly-analyze-for-further-processing">
 <h2>Or directly analyze for further processing<a class="headerlink" href="#Or-directly-analyze-for-further-processing" title="Permalink to this heading"></a></h2>
 <p>Instead of inspecting each of the images, you can also directly carry out the analysis and export the result into a csv. This may take a while depending on how many images you have loaded.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
@@ -351,6 +573,128 @@ Cell <span class="ansi-green-fg">In[12], line 1</span>
     <span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">analyse_questions</span><span class="p">(</span><span class="n">list_of_questions</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: fea2d868-d5bc-417d-9e00-4db1e10f2a39)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: f0ccba03-f0e5-43ae-be4b-91ed53e31894)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: b28cdc86-997c-466d-ad54-a6022a60c715)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json
+&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 115b5242-dca3-428c-a002-00eadbc77c47)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[13], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> mydict:
+<span class="ansi-green-fg">----&gt; 2</span>     mydict[key] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">sm</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">SummaryDetector</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>analyse_questions(list_of_questions)
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:72</span>, in <span class="ansi-cyan-fg">SummaryDetector.__init__</span><span class="ansi-blue-fg">(self, subdict, summary_model_type, analysis_type, list_of_questions, summary_model, summary_vis_processors, summary_vqa_model, summary_vqa_vis_processors, summary_vqa_txt_processors)</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>list_of_questions <span style="color: rgb(98,98,98)">=</span> list_of_questions
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> (
+<span class="ansi-green-intense-fg ansi-bold">     68</span>     (summary_model <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">     69</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> (summary_vis_processors <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">     70</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> (analysis_type <span style="color: rgb(98,98,98)">!=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">questions</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">     71</span> ):
+<span class="ansi-green-fg">---&gt; 72</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_model, <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_vis_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">load_model</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">summary_model_type</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">     76</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>summary_model <span style="color: rgb(98,98,98)">=</span> summary_model
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:145</span>, in <span class="ansi-cyan-fg">SummaryDetector.load_model</span><span class="ansi-blue-fg">(self, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">    131</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    132</span> <span style="color: rgb(175,0,0)">Load blip_caption model and preprocessors for visual inputs from lavis.models.</span>
+<span class="ansi-green-intense-fg ansi-bold">    133</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    139</span> <span style="color: rgb(175,0,0)">    vis_processors (dict): preprocessors for visual inputs.</span>
+<span class="ansi-green-intense-fg ansi-bold">    140</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    141</span> select_model <span style="color: rgb(98,98,98)">=</span> {
+<span class="ansi-green-intense-fg ansi-bold">    142</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>: SummaryDetector<span style="color: rgb(98,98,98)">.</span>load_model_base,
+<span class="ansi-green-intense-fg ansi-bold">    143</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">large</span><span style="color: rgb(175,0,0)">&#34;</span>: SummaryDetector<span style="color: rgb(98,98,98)">.</span>load_model_large,
+<span class="ansi-green-intense-fg ansi-bold">    144</span> }
+<span class="ansi-green-fg">--&gt; 145</span> summary_model, summary_vis_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">select_model</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    146</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> summary_model, summary_vis_processors
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:104</span>, in <span class="ansi-cyan-fg">SummaryDetector.load_model_base</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     94</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">load_model_base</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-intense-fg ansi-bold">     95</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     96</span> <span style="color: rgb(175,0,0)">    Load base_coco blip_caption model and preprocessors for visual inputs from lavis.models.</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    102</span> <span style="color: rgb(175,0,0)">        vis_processors (dict): preprocessors for visual inputs.</span>
+<span class="ansi-green-intense-fg ansi-bold">    103</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 104</span>     summary_model, summary_vis_processors, _ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_model_and_preprocess</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    105</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">blip_caption</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    106</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">base_coco</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    107</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">is_eval</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    108</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">summary_device</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    109</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    110</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> summary_model, summary_vis_processors
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/__init__.py:195</span>, in <span class="ansi-cyan-fg">load_model_and_preprocess</span><span class="ansi-blue-fg">(name, model_type, is_eval, device)</span>
+<span class="ansi-green-intense-fg ansi-bold">    192</span> model_cls <span style="color: rgb(98,98,98)">=</span> registry<span style="color: rgb(98,98,98)">.</span>get_model_class(name)
+<span class="ansi-green-intense-fg ansi-bold">    194</span> <span style="color: rgb(95,135,135)"># load model</span>
+<span class="ansi-green-fg">--&gt; 195</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model_cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    197</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_eval:
+<span class="ansi-green-intense-fg ansi-bold">    198</span>     model<span style="color: rgb(98,98,98)">.</span>eval()
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/base_model.py:70</span>, in <span class="ansi-cyan-fg">BaseModel.from_pretrained</span><span class="ansi-blue-fg">(cls, model_type)</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">Build a pretrained model from default configuration file, specified by model_type.</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(175,0,0)">    - model (nn.Module): pretrained or finetuned model, depending on the configuration.</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span> model_cfg <span style="color: rgb(98,98,98)">=</span> OmegaConf<span style="color: rgb(98,98,98)">.</span>load(<span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>default_config_path(model_type))<span style="color: rgb(98,98,98)">.</span>model
+<span class="ansi-green-fg">---&gt; 70</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_cfg</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     72</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_caption.py:216</span>, in <span class="ansi-cyan-fg">BlipCaption.from_config</span><span class="ansi-blue-fg">(cls, cfg)</span>
+<span class="ansi-green-intense-fg ansi-bold">    213</span> prompt <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">prompt</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">    214</span> max_txt_len <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">max_txt_len</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">40</span>)
+<span class="ansi-green-fg">--&gt; 216</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">text_decoder</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">prompt</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">prompt</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    217</span> model<span style="color: rgb(98,98,98)">.</span>load_checkpoint_from_config(cfg)
+<span class="ansi-green-intense-fg ansi-bold">    219</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_caption.py:43</span>, in <span class="ansi-cyan-fg">BlipCaption.__init__</span><span class="ansi-blue-fg">(self, image_encoder, text_decoder, prompt, max_txt_len)</span>
+<span class="ansi-green-intense-fg ansi-bold">     40</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>, image_encoder, text_decoder, prompt<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, max_txt_len<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">40</span>):
+<span class="ansi-green-intense-fg ansi-bold">     41</span>     <span style="color: rgb(0,135,0)">super</span>()<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,255)">__init__</span>()
+<span class="ansi-green-fg">---&gt; 43</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">init_tokenizer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>visual_encoder <span style="color: rgb(98,98,98)">=</span> image_encoder
+<span class="ansi-green-intense-fg ansi-bold">     46</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>text_decoder <span style="color: rgb(98,98,98)">=</span> text_decoder
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip.py:22</span>, in <span class="ansi-cyan-fg">BlipBase.init_tokenizer</span><span class="ansi-blue-fg">(cls)</span>
+<span class="ansi-green-intense-fg ansi-bold">     20</span> <span style="color: rgb(175,0,255)">@classmethod</span>
+<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">init_tokenizer</span>(<span style="color: rgb(0,135,0)">cls</span>):
+<span class="ansi-green-fg">---&gt; 22</span>     tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">BertTokenizer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">bert-base-uncased</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">bos_token</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[DEC]</span><span style="color: rgb(175,0,0)">&#34;</span>})
+<span class="ansi-green-intense-fg ansi-bold">     24</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">additional_special_tokens</span><span style="color: rgb(175,0,0)">&#34;</span>: [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[ENC]</span><span style="color: rgb(175,0,0)">&#34;</span>]})
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1788</span>, in <span class="ansi-cyan-fg">PreTrainedTokenizerBase.from_pretrained</span><span class="ansi-blue-fg">(cls, pretrained_model_name_or_path, *init_inputs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1782</span>     logger<span style="color: rgb(98,98,98)">.</span>info(
+<span class="ansi-green-intense-fg ansi-bold">   1783</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load following files from cache: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unresolved_files<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and cannot check if these </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1784</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">files are necessary for the tokenizer to operate.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1785</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1787</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">all</span>(full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files<span style="color: rgb(98,98,98)">.</span>values()):
+<span class="ansi-green-fg">-&gt; 1788</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">EnvironmentError</span>(
+<span class="ansi-green-intense-fg ansi-bold">   1789</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load tokenizer for </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">. If you were trying to load it from </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1790</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">https://huggingface.co/models</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">, make sure you don</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t have a local directory with the same name. </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1791</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Otherwise, make sure </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> is the correct path to a directory </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1792</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">containing all relevant files for a </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span><span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> tokenizer.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1793</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1795</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> file_id, file_path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> vocab_files<span style="color: rgb(98,98,98)">.</span>items():
+<span class="ansi-green-intense-fg ansi-bold">   1796</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file_id <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files:
+
+<span class="ansi-red-fg">OSError</span>: Can&#39;t load tokenizer for &#39;bert-base-uncased&#39;. If you were trying to load it from &#39;https://huggingface.co/models&#39;, make sure you don&#39;t have a local directory with the same name. Otherwise, make sure &#39;bert-base-uncased&#39; is the correct path to a directory containing all relevant files for a BertTokenizer tokenizer.
+</pre></div></div>
 </div>
 </section>
 <section id="Convert-to-dataframe-and-write-csv">
@@ -397,32 +741,20 @@ Cell <span class="ansi-green-fg">In[12], line 1</span>
     <tr style="text-align: right;">
       <th></th>
       <th>filename</th>
-      <th>How many persons on the picture?</th>
-      <th>Are there any politicians in the picture?</th>
-      <th>Does the picture show something from medicine?</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>data/102730_eng.png</td>
-      <td>2</td>
-      <td>no</td>
-      <td>yes</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>data/106349S_por.png</td>
-      <td>1</td>
-      <td>yes</td>
-      <td>yes</td>
+      <td>data/102141_2_eng.png</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>data/102141_2_eng.png</td>
-      <td>1</td>
-      <td>no</td>
-      <td>yes</td>
+      <td>data/106349S_por.png</td>
     </tr>
   </tbody>
 </table>
