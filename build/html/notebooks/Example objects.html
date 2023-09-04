@@ -12,11 +12,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -89,7 +89,7 @@
            <div itemprop="articleBody">
              
   <section id="Objects-recognition">
-<h1>Objects recognition<a class="headerlink" href="#Objects-recognition" title="Permalink to this heading"></a></h1>
+<h1>Objects recognition<a class="headerlink" href="#Objects-recognition" title="Link to this heading"></a></h1>
 <p>This notebooks shows how to detect objects quickly using <a class="reference external" href="https://github.com/arunponnusamy/cvlib">cvlib</a> and the <a class="reference external" href="https://github.com/AlexeyAB/darknet">YOLOv4</a> model. This library detects faces, people, and several inanimate objects; we currently have restricted the output to person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p>
 <p>The first cell is only run on google colab and installs the <a class="reference external" href="https://github.com/ssciwr/AMMICO">ammico</a> package.</p>
 <p>After that, we can import <code class="docutils literal notranslate"><span class="pre">ammico</span></code> and read in the files given a folder path.</p>
@@ -148,7 +148,7 @@
 </div>
 </div>
 <section id="Detect-objects-and-directly-write-to-csv">
-<h2>Detect objects and directly write to csv<a class="headerlink" href="#Detect-objects-and-directly-write-to-csv" title="Permalink to this heading"></a></h2>
+<h2>Detect objects and directly write to csv<a class="headerlink" href="#Detect-objects-and-directly-write-to-csv" title="Link to this heading"></a></h2>
 <p>You can directly carry out the analysis and export the result into a csv. This may take a while depending on how many images you have loaded.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -164,44 +164,89 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-  0% |                                                                        |
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Downloading yolov4.cfg from https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4.cfg
-Downloading yolov4.weights from https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area stderr docutils container">
-<div class="highlight"><pre>
- 99% |####################################################################### |
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-detection-opencv/raw/master/yolov3.txt
+[ WARN:0@16.043] global loadsave.cpp:248 findDecoder imread_(&#39;102141_2_eng&#39;): can&#39;t open/read file: check file path/integrity
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area stderr docutils container">
+<div class="output_area docutils container">
 <div class="highlight"><pre>
-100% |                                                                        |
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[5], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> mydict:
+<span class="ansi-green-fg">----&gt; 2</span>     mydict[key] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ob</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">ObjectDetector</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/objects.py:48</span>, in <span class="ansi-cyan-fg">ObjectDetector.analyse_image</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     42</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">analyse_image</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-intense-fg ansi-bold">     43</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Perform object detection on the image.</span>
+<span class="ansi-green-intense-fg ansi-bold">     44</span>
+<span class="ansi-green-intense-fg ansi-bold">     45</span> <span style="color: rgb(175,0,0)">    Returns:</span>
+<span class="ansi-green-intense-fg ansi-bold">     46</span> <span style="color: rgb(175,0,0)">        dict: The updated dictionary with object detection results.</span>
+<span class="ansi-green-intense-fg ansi-bold">     47</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 48</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>subdict <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ObjectDetector</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">od_client</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">subdict</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     49</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>subdict
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/objects.py:24</span>, in <span class="ansi-cyan-fg">ObjectDetectorClient.analyse_image</span><span class="ansi-blue-fg">(self, subdict)</span>
+<span class="ansi-green-intense-fg ansi-bold">     15</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">analyse_image</span>(<span style="color: rgb(0,135,0)">self</span>, subdict<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>):
+<span class="ansi-green-intense-fg ansi-bold">     16</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Localize objects in the given image.</span>
+<span class="ansi-green-intense-fg ansi-bold">     17</span>
+<span class="ansi-green-intense-fg ansi-bold">     18</span> <span style="color: rgb(175,0,0)">    Args:</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     22</span> <span style="color: rgb(175,0,0)">        dict: The updated dictionary with object detection results.</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 24</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">detector</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">subdict</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/objects_cvlib.py:73</span>, in <span class="ansi-cyan-fg">ObjectCVLib.analyse_image</span><span class="ansi-blue-fg">(self, subdict)</span>
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">analyse_image</span>(<span style="color: rgb(0,135,0)">self</span>, subdict):
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Localize objects in the local image.</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span>
+<span class="ansi-green-intense-fg ansi-bold">     70</span> <span style="color: rgb(175,0,0)">    Args:</span>
+<span class="ansi-green-intense-fg ansi-bold">     71</span> <span style="color: rgb(175,0,0)">        subdict: The dictionary for an image expression instance.</span>
+<span class="ansi-green-intense-fg ansi-bold">     72</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 73</span>     objects <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image_from_file</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">subdict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">filename</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> objects:
+<span class="ansi-green-intense-fg ansi-bold">     75</span>         subdict[key] <span style="color: rgb(98,98,98)">=</span> objects[key]
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/objects_cvlib.py:64</span>, in <span class="ansi-cyan-fg">ObjectCVLib.analyse_image_from_file</span><span class="ansi-blue-fg">(self, image_path)</span>
+<span class="ansi-green-intense-fg ansi-bold">     58</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">analyse_image_from_file</span>(<span style="color: rgb(0,135,0)">self</span>, image_path):
+<span class="ansi-green-intense-fg ansi-bold">     59</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Localize objects in the local image.</span>
+<span class="ansi-green-intense-fg ansi-bold">     60</span>
+<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">    Args:</span>
+<span class="ansi-green-intense-fg ansi-bold">     62</span> <span style="color: rgb(175,0,0)">        image_path: The path to the local file.</span>
+<span class="ansi-green-intense-fg ansi-bold">     63</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 64</span>     objects <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">detect_objects_cvlib</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">image_path</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> objects
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/objects_cvlib.py:54</span>, in <span class="ansi-cyan-fg">ObjectCVLib.detect_objects_cvlib</span><span class="ansi-blue-fg">(self, image_path)</span>
+<span class="ansi-green-intense-fg ansi-bold">     47</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Localize objects in the local image.</span>
+<span class="ansi-green-intense-fg ansi-bold">     48</span>
+<span class="ansi-green-intense-fg ansi-bold">     49</span> <span style="color: rgb(175,0,0)">Args:</span>
+<span class="ansi-green-intense-fg ansi-bold">     50</span> <span style="color: rgb(175,0,0)">    image_path: The path to the local file.</span>
+<span class="ansi-green-intense-fg ansi-bold">     51</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     52</span> img <span style="color: rgb(98,98,98)">=</span> cv2<span style="color: rgb(98,98,98)">.</span>imread(image_path)
+<span class="ansi-green-fg">---&gt; 54</span> _, label, _ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">cv</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">detect_common_objects</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">img</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     55</span> objects <span style="color: rgb(98,98,98)">=</span> objects_from_cvlib(label)
+<span class="ansi-green-intense-fg ansi-bold">     56</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> objects
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/cvlib/object_detection.py:77</span>, in <span class="ansi-cyan-fg">detect_common_objects</span><span class="ansi-blue-fg">(image, confidence, nms_thresh, model, enable_gpu)</span>
+<span class="ansi-green-intense-fg ansi-bold">     66</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">detect_common_objects</span>(image, confidence<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">0.5</span>, nms_thresh<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">0.3</span>, model<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">yolov4</span><span style="color: rgb(175,0,0)">&#39;</span>, enable_gpu<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>):
+<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;A method to detect common objects</span>
+<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">    Args:</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span> <span style="color: rgb(175,0,0)">        image: A colour image in a numpy array</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 77</span>     Height, Width <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">image</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">shape</span>[:<span style="color: rgb(98,98,98)">2</span>]
+<span class="ansi-green-intense-fg ansi-bold">     78</span>     scale <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0.00392</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">global</span> classes
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;shape&#39;
 </pre></div></div>
 </div>
 <p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -209,6 +254,68 @@ Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-dete
 <span class="n">df</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">dump_df</span><span class="p">(</span><span class="n">outdict</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[6], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> outdict <span style="color: rgb(98,98,98)">=</span> mutils<span style="color: rgb(98,98,98)">.</span>append_data_to_dict(mydict)
+<span class="ansi-green-fg">----&gt; 2</span> df <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">mutils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">dump_df</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">outdict</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:222</span>, in <span class="ansi-cyan-fg">dump_df</span><span class="ansi-blue-fg">(mydict)</span>
+<span class="ansi-green-intense-fg ansi-bold">    220</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">dump_df</span>(mydict: <span style="color: rgb(0,135,0)">dict</span>) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> DataFrame:
+<span class="ansi-green-intense-fg ansi-bold">    221</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Utility to dump the dictionary into a dataframe.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 222</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">DataFrame</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_dict</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mydict</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/pandas/core/frame.py:1816</span>, in <span class="ansi-cyan-fg">DataFrame.from_dict</span><span class="ansi-blue-fg">(cls, data, orient, dtype, columns)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1810</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-intense-fg ansi-bold">   1811</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Expected </span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">index</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">, </span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">columns</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> or </span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">tight</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> for orient parameter. </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1812</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Got </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>orient<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> instead</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">   1813</span>     )
+<span class="ansi-green-intense-fg ansi-bold">   1815</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> orient <span style="color: rgb(98,98,98)">!=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">tight</span><span style="color: rgb(175,0,0)">&#34;</span>:
+<span class="ansi-green-fg">-&gt; 1816</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1817</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1818</span>     realdata <span style="color: rgb(98,98,98)">=</span> data[<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data</span><span style="color: rgb(175,0,0)">&#34;</span>]
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/pandas/core/frame.py:736</span>, in <span class="ansi-cyan-fg">DataFrame.__init__</span><span class="ansi-blue-fg">(self, data, index, columns, dtype, copy)</span>
+<span class="ansi-green-intense-fg ansi-bold">    730</span>     mgr <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_init_mgr(
+<span class="ansi-green-intense-fg ansi-bold">    731</span>         data, axes<span style="color: rgb(98,98,98)">=</span>{<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">index</span><span style="color: rgb(175,0,0)">&#34;</span>: index, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">columns</span><span style="color: rgb(175,0,0)">&#34;</span>: columns}, dtype<span style="color: rgb(98,98,98)">=</span>dtype, copy<span style="color: rgb(98,98,98)">=</span>copy
+<span class="ansi-green-intense-fg ansi-bold">    732</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    734</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">isinstance</span>(data, <span style="color: rgb(0,135,0)">dict</span>):
+<span class="ansi-green-intense-fg ansi-bold">    735</span>     <span style="color: rgb(95,135,135)"># GH#38939 de facto copy defaults to False only in non-dict cases</span>
+<span class="ansi-green-fg">--&gt; 736</span>     mgr <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">dict_to_mgr</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">copy</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">copy</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">typ</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">manager</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    737</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span style="color: rgb(0,135,0)">isinstance</span>(data, ma<span style="color: rgb(98,98,98)">.</span>MaskedArray):
+<span class="ansi-green-intense-fg ansi-bold">    738</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">from</span> <span class="ansi-bold" style="color: rgb(0,0,255)">numpy</span><span class="ansi-bold" style="color: rgb(0,0,255)">.</span><span class="ansi-bold" style="color: rgb(0,0,255)">ma</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> mrecords
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/pandas/core/internals/construction.py:503</span>, in <span class="ansi-cyan-fg">dict_to_mgr</span><span class="ansi-blue-fg">(data, index, columns, dtype, typ, copy)</span>
+<span class="ansi-green-intense-fg ansi-bold">    499</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    500</span>         <span style="color: rgb(95,135,135)"># dtype check to exclude e.g. range objects, scalars</span>
+<span class="ansi-green-intense-fg ansi-bold">    501</span>         arrays <span style="color: rgb(98,98,98)">=</span> [x<span style="color: rgb(98,98,98)">.</span>copy() <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">hasattr</span>(x, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">dtype</span><span style="color: rgb(175,0,0)">&#34;</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> x <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> x <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> arrays]
+<span class="ansi-green-fg">--&gt; 503</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">arrays_to_mgr</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">arrays</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">columns</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">index</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">dtype</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">typ</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">typ</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">consolidate</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">copy</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/pandas/core/internals/construction.py:114</span>, in <span class="ansi-cyan-fg">arrays_to_mgr</span><span class="ansi-blue-fg">(arrays, columns, index, dtype, verify_integrity, typ, consolidate)</span>
+<span class="ansi-green-intense-fg ansi-bold">    111</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> verify_integrity:
+<span class="ansi-green-intense-fg ansi-bold">    112</span>     <span style="color: rgb(95,135,135)"># figure out the index, if necessary</span>
+<span class="ansi-green-intense-fg ansi-bold">    113</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> index <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">--&gt; 114</span>         index <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_extract_index</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">arrays</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    115</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    116</span>         index <span style="color: rgb(98,98,98)">=</span> ensure_index(index)
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/pandas/core/internals/construction.py:677</span>, in <span class="ansi-cyan-fg">_extract_index</span><span class="ansi-blue-fg">(data)</span>
+<span class="ansi-green-intense-fg ansi-bold">    675</span> lengths <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">list</span>(<span style="color: rgb(0,135,0)">set</span>(raw_lengths))
+<span class="ansi-green-intense-fg ansi-bold">    676</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(lengths) <span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(98,98,98)">1</span>:
+<span class="ansi-green-fg">--&gt; 677</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">All arrays must be of the same length</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    679</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> have_dicts:
+<span class="ansi-green-intense-fg ansi-bold">    680</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    681</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Mixing dicts with non-Series may lead to ambiguous ordering.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    682</span>     )
+
+<span class="ansi-red-fg">ValueError</span>: All arrays must be of the same length
+</pre></div></div>
 </div>
 <p>Check the dataframe:</p>
 <div class="nbinput docutils container">
@@ -220,94 +327,20 @@ Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-dete
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[7], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">df</span><span style="color: rgb(98,98,98)">.</span>head(<span style="color: rgb(98,98,98)">10</span>)
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>filename</th>
-      <th>person</th>
-      <th>bicycle</th>
-      <th>car</th>
-      <th>motorcycle</th>
-      <th>airplane</th>
-      <th>bus</th>
-      <th>train</th>
-      <th>truck</th>
-      <th>boat</th>
-      <th>traffic light</th>
-      <th>cell phone</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>data/102730_eng.png</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>data/102141_2_eng.png</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>data/106349S_por.png</td>
-      <td>yes</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>no</td>
-      <td>yes</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
+</pre></div></div>
 </div>
 <p>Write the csv file:</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
@@ -315,9 +348,22 @@ Downloading yolov3_classes.txt from https://github.com/arunponnusamy/object-dete
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[8], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">df</span><span style="color: rgb(98,98,98)">.</span>to_csv(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data_out.csv</span><span style="color: rgb(175,0,0)">&#34;</span>)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;df&#39; is not defined
+</pre></div></div>
+</div>
 </section>
 <section id="Manually-inspect-what-was-detected">
-<h2>Manually inspect what was detected<a class="headerlink" href="#Manually-inspect-what-was-detected" title="Permalink to this heading"></a></h2>
+<h2>Manually inspect what was detected<a class="headerlink" href="#Manually-inspect-what-was-detected" title="Link to this heading"></a></h2>
 <p>To check the analysis, you can inspect the analyzed elements here. Loading the results takes a moment, so please be patient. If you are sure of what you are doing, you can directly export a csv file in the step above. Here, we display the object detection results provided by the above library. Click on the tabs to see the results in the right sidebar. You may need to increment the <code class="docutils literal notranslate"><span class="pre">port</span></code> number if you are already running several notebook instances on the same server.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:

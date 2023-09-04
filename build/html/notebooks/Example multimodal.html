@@ -12,11 +12,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -91,7 +91,7 @@
            <div itemprop="articleBody">
              
   <section id="Image-Multimodal-Search">
-<h1>Image Multimodal Search<a class="headerlink" href="#Image-Multimodal-Search" title="Permalink to this heading"></a></h1>
+<h1>Image Multimodal Search<a class="headerlink" href="#Image-Multimodal-Search" title="Link to this heading"></a></h1>
 <p>This notebooks shows how to carry out an image multimodal search with the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library.</p>
 <p>The first cell is only run on google colab and installs the <a class="reference external" href="https://github.com/ssciwr/AMMICO">ammico</a> package.</p>
 <p>After that, we can import <code class="docutils literal notranslate"><span class="pre">ammico</span></code> and read in the files given a folder path.</p>
@@ -150,7 +150,9 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[&#39;data/102730_eng.png&#39;, &#39;data/102141_2_eng.png&#39;, &#39;data/106349S_por.png&#39;]
+{&#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;},
+ &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;}}
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -175,13 +177,13 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;},
- &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;},
- &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;}}
+{&#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;102141_2_eng&#39;},
+ &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;106349S_por&#39;},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;102730_eng&#39;}}
 </pre></div></div>
 </div>
 <section id="Indexing-and-extracting-features-from-images-in-selected-folder">
-<h2>Indexing and extracting features from images in selected folder<a class="headerlink" href="#Indexing-and-extracting-features-from-images-in-selected-folder" title="Permalink to this heading"></a></h2>
+<h2>Indexing and extracting features from images in selected folder<a class="headerlink" href="#Indexing-and-extracting-features-from-images-in-selected-folder" title="Link to this heading"></a></h2>
 <p>First you need to select a model. You can choose one of the following models: - <a class="reference external" href="https://github.com/salesforce/BLIP">blip</a> - <a class="reference external" href="https://huggingface.co/docs/transformers/main/model_doc/blip-2">blip2</a> - <a class="reference external" href="https://github.com/salesforce/ALBEF">albef</a> - <a class="reference external" href="https://github.com/openai/CLIP/blob/main/model-card.md">clip_base</a> - <a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14</a> - <a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14_336</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
@@ -219,9 +221,9 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;},
- &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;},
- &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;}}
+{&#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;102141_2_eng&#39;},
+ &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;106349S_por&#39;},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;102730_eng&#39;}}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -247,10 +249,10 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 7f5b6643-6ee8-496d-b43e-b7fd632e1ef4)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/vocab.txt
-&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: b5704c91-0fda-4cfe-a97e-684766d1c312)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/added_tokens.json
-&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: be664022-04b6-4d24-977e-58eb52652c76)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/special_tokens_map.json
-&#39;(ReadTimeoutError(&#34;HTTPSConnectionPool(host=&#39;huggingface.co&#39;, port=443): Read timed out. (read timeout=10)&#34;), &#39;(Request ID: 950380a7-93f7-45c9-8510-0769a1e04299)&#39;)&#39; thrown while requesting HEAD https://huggingface.co/bert-base-uncased/resolve/main/tokenizer_config.json
+Downloading (…)solve/main/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 3.28MB/s]
+Downloading (…)okenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 3.46kB/s]
+Downloading (…)lve/main/config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 195kB/s]
+100%|██████████| 1.97G/1.97G [00:14&lt;00:00, 145MB/s]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -259,7 +261,7 @@
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
 Cell <span class="ansi-green-fg">In[10], line 8</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> (
 <span class="ansi-green-intense-fg ansi-bold">      2</span>     model,
@@ -273,102 +275,70 @@ Cell <span class="ansi-green-fg">In[10], line 8</span>
 <span class="ansi-green-intense-fg ansi-bold">     10</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">path_to_save_tensors</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">data/</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
 <span class="ansi-green-intense-fg ansi-bold">     11</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:363</span>, in <span class="ansi-cyan-fg">MultimodalSearch.parsing_images</span><span class="ansi-blue-fg">(self, model_type, path_to_save_tensors, path_to_load_tensors)</span>
-<span class="ansi-green-intense-fg ansi-bold">    349</span> select_extract_image_features <span style="color: rgb(98,98,98)">=</span> {
-<span class="ansi-green-intense-fg ansi-bold">    350</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip2</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>extract_image_features_blip2,
-<span class="ansi-green-intense-fg ansi-bold">    351</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>extract_image_features_basic,
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    355</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">clip_vitl14_336</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>extract_image_features_clip,
-<span class="ansi-green-intense-fg ansi-bold">    356</span> }
-<span class="ansi-green-intense-fg ansi-bold">    358</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> model_type <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> select_model<span style="color: rgb(98,98,98)">.</span>keys():
-<span class="ansi-green-intense-fg ansi-bold">    359</span>     (
-<span class="ansi-green-intense-fg ansi-bold">    360</span>         model,
-<span class="ansi-green-intense-fg ansi-bold">    361</span>         vis_processors,
-<span class="ansi-green-intense-fg ansi-bold">    362</span>         txt_processors,
-<span class="ansi-green-fg">--&gt; 363</span>     ) <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">select_model</span><span class="ansi-yellow-bg">[</span>
-<span class="ansi-green-intense-fg ansi-bold">    364</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span>
-<span class="ansi-green-intense-fg ansi-bold">    365</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">multimodal_device</span><span class="ansi-yellow-bg">)</span>
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:371</span>, in <span class="ansi-cyan-fg">MultimodalSearch.parsing_images</span><span class="ansi-blue-fg">(self, model_type, path_to_save_tensors, path_to_load_tensors)</span>
 <span class="ansi-green-intense-fg ansi-bold">    366</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
 <span class="ansi-green-intense-fg ansi-bold">    367</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">SyntaxError</span>(
 <span class="ansi-green-intense-fg ansi-bold">    368</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Please, use one of the following models: blip2, blip, albef, clip_base, clip_vitl14, clip_vitl14_336</span><span style="color: rgb(175,0,0)">&#34;</span>
 <span class="ansi-green-intense-fg ansi-bold">    369</span>     )
+<span class="ansi-green-fg">--&gt; 371</span> _, images_tensors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read_and_process_images</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    372</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">image_names</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">vis_processors</span>
+<span class="ansi-green-intense-fg ansi-bold">    373</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    374</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> path_to_load_tensors <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    375</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> torch<span style="color: rgb(98,98,98)">.</span>no_grad():
 
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:55</span>, in <span class="ansi-cyan-fg">MultimodalSearch.load_feature_extractor_model_blip</span><span class="ansi-blue-fg">(self, device)</span>
-<span class="ansi-green-intense-fg ansi-bold">     43</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">load_feature_extractor_model_blip</span>(<span style="color: rgb(0,135,0)">self</span>, device: <span style="color: rgb(0,135,0)">str</span> <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">cpu</span><span style="color: rgb(175,0,0)">&#34;</span>):
-<span class="ansi-green-intense-fg ansi-bold">     44</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     45</span> <span style="color: rgb(175,0,0)">    Load base blip_feature_extractor model and preprocessors for visual and text inputs from lavis.models.</span>
-<span class="ansi-green-intense-fg ansi-bold">     46</span>
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:168</span>, in <span class="ansi-cyan-fg">MultimodalSearch.read_and_process_images</span><span class="ansi-blue-fg">(self, image_paths, vis_processor)</span>
+<span class="ansi-green-intense-fg ansi-bold">    156</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">read_and_process_images</span>(<span style="color: rgb(0,135,0)">self</span>, image_paths: <span style="color: rgb(0,135,0)">list</span>, vis_processor) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(0,135,0)">tuple</span>:
+<span class="ansi-green-intense-fg ansi-bold">    157</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span> <span style="color: rgb(175,0,0)">    Read and process images with vis_processor.</span>
+<span class="ansi-green-intense-fg ansi-bold">    159</span>
 <span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">     53</span> <span style="color: rgb(175,0,0)">        txt_processors (dict): preprocessors for text inputs.</span>
-<span class="ansi-green-intense-fg ansi-bold">     54</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
-<span class="ansi-green-fg">---&gt; 55</span>     model, vis_processors, txt_processors <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_model_and_preprocess</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">     56</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">blip_feature_extractor</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     57</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">base</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     58</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">is_eval</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     59</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     60</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     61</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model, vis_processors, txt_processors
+<span class="ansi-green-intense-fg ansi-bold">    166</span> <span style="color: rgb(175,0,0)">        images_tensors (torch.Tensor): tensors of images stacked in device.</span>
+<span class="ansi-green-intense-fg ansi-bold">    167</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 168</span>     raw_images <span style="color: rgb(98,98,98)">=</span> [MultimodalSearch<span style="color: rgb(98,98,98)">.</span>read_img(<span style="color: rgb(0,135,0)">self</span>, path) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> image_paths]
+<span class="ansi-green-intense-fg ansi-bold">    169</span>     images <span style="color: rgb(98,98,98)">=</span> [
+<span class="ansi-green-intense-fg ansi-bold">    170</span>         vis_processor[<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">eval</span><span style="color: rgb(175,0,0)">&#34;</span>](r_img)
+<span class="ansi-green-intense-fg ansi-bold">    171</span>         <span style="color: rgb(98,98,98)">.</span>unsqueeze(<span style="color: rgb(98,98,98)">0</span>)
+<span class="ansi-green-intense-fg ansi-bold">    172</span>         <span style="color: rgb(98,98,98)">.</span>to(MultimodalSearch<span style="color: rgb(98,98,98)">.</span>multimodal_device)
+<span class="ansi-green-intense-fg ansi-bold">    173</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> r_img <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> raw_images
+<span class="ansi-green-intense-fg ansi-bold">    174</span>     ]
+<span class="ansi-green-intense-fg ansi-bold">    175</span>     images_tensors <span style="color: rgb(98,98,98)">=</span> torch<span style="color: rgb(98,98,98)">.</span>stack(images)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/__init__.py:195</span>, in <span class="ansi-cyan-fg">load_model_and_preprocess</span><span class="ansi-blue-fg">(name, model_type, is_eval, device)</span>
-<span class="ansi-green-intense-fg ansi-bold">    192</span> model_cls <span style="color: rgb(98,98,98)">=</span> registry<span style="color: rgb(98,98,98)">.</span>get_model_class(name)
-<span class="ansi-green-intense-fg ansi-bold">    194</span> <span style="color: rgb(95,135,135)"># load model</span>
-<span class="ansi-green-fg">--&gt; 195</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">model_cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    197</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_eval:
-<span class="ansi-green-intense-fg ansi-bold">    198</span>     model<span style="color: rgb(98,98,98)">.</span>eval()
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/base_model.py:70</span>, in <span class="ansi-cyan-fg">BaseModel.from_pretrained</span><span class="ansi-blue-fg">(cls, model_type)</span>
-<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">Build a pretrained model from default configuration file, specified by model_type.</span>
-<span class="ansi-green-intense-fg ansi-bold">     62</span>
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:168</span>, in <span class="ansi-cyan-fg">&lt;listcomp&gt;</span><span class="ansi-blue-fg">(.0)</span>
+<span class="ansi-green-intense-fg ansi-bold">    156</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">read_and_process_images</span>(<span style="color: rgb(0,135,0)">self</span>, image_paths: <span style="color: rgb(0,135,0)">list</span>, vis_processor) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(0,135,0)">tuple</span>:
+<span class="ansi-green-intense-fg ansi-bold">    157</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span> <span style="color: rgb(175,0,0)">    Read and process images with vis_processor.</span>
+<span class="ansi-green-intense-fg ansi-bold">    159</span>
 <span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(175,0,0)">    - model (nn.Module): pretrained or finetuned model, depending on the configuration.</span>
-<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     69</span> model_cfg <span style="color: rgb(98,98,98)">=</span> OmegaConf<span style="color: rgb(98,98,98)">.</span>load(<span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>default_config_path(model_type))<span style="color: rgb(98,98,98)">.</span>model
-<span class="ansi-green-fg">---&gt; 70</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_cfg</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     72</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
+<span class="ansi-green-intense-fg ansi-bold">    166</span> <span style="color: rgb(175,0,0)">        images_tensors (torch.Tensor): tensors of images stacked in device.</span>
+<span class="ansi-green-intense-fg ansi-bold">    167</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 168</span>     raw_images <span style="color: rgb(98,98,98)">=</span> [<span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">read_img</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">path</span><span class="ansi-yellow-bg">)</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> image_paths]
+<span class="ansi-green-intense-fg ansi-bold">    169</span>     images <span style="color: rgb(98,98,98)">=</span> [
+<span class="ansi-green-intense-fg ansi-bold">    170</span>         vis_processor[<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">eval</span><span style="color: rgb(175,0,0)">&#34;</span>](r_img)
+<span class="ansi-green-intense-fg ansi-bold">    171</span>         <span style="color: rgb(98,98,98)">.</span>unsqueeze(<span style="color: rgb(98,98,98)">0</span>)
+<span class="ansi-green-intense-fg ansi-bold">    172</span>         <span style="color: rgb(98,98,98)">.</span>to(MultimodalSearch<span style="color: rgb(98,98,98)">.</span>multimodal_device)
+<span class="ansi-green-intense-fg ansi-bold">    173</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> r_img <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> raw_images
+<span class="ansi-green-intense-fg ansi-bold">    174</span>     ]
+<span class="ansi-green-intense-fg ansi-bold">    175</span>     images_tensors <span style="color: rgb(98,98,98)">=</span> torch<span style="color: rgb(98,98,98)">.</span>stack(images)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_feature_extractor.py:198</span>, in <span class="ansi-cyan-fg">BlipFeatureExtractor.from_config</span><span class="ansi-blue-fg">(cls, cfg)</span>
-<span class="ansi-green-intense-fg ansi-bold">    195</span> embed_dim <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">embed_dim</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">256</span>)
-<span class="ansi-green-intense-fg ansi-bold">    196</span> max_txt_len <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">max_txt_len</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">30</span>)
-<span class="ansi-green-fg">--&gt; 198</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">    199</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">image_encoder</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    200</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">text_encoder</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">text_encoder</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    201</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">embed_dim</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">embed_dim</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    202</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">max_txt_len</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    203</span> <span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    205</span> <span style="color: rgb(95,135,135)"># load pre-trained weights</span>
-<span class="ansi-green-intense-fg ansi-bold">    206</span> pretrain_path <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">pretrained</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:153</span>, in <span class="ansi-cyan-fg">MultimodalSearch.read_img</span><span class="ansi-blue-fg">(self, filepath)</span>
+<span class="ansi-green-intense-fg ansi-bold">    143</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">read_img</span>(<span style="color: rgb(0,135,0)">self</span>, filepath: <span style="color: rgb(0,135,0)">str</span>) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> Image:
+<span class="ansi-green-intense-fg ansi-bold">    144</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    145</span> <span style="color: rgb(175,0,0)">    Load Image from filepath.</span>
+<span class="ansi-green-intense-fg ansi-bold">    146</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    151</span> <span style="color: rgb(175,0,0)">        raw_image (PIL.Image): image.</span>
+<span class="ansi-green-intense-fg ansi-bold">    152</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 153</span>     raw_image <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">Image</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filepath</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>convert(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">RGB</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">    154</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> raw_image
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_feature_extractor.py:41</span>, in <span class="ansi-cyan-fg">BlipFeatureExtractor.__init__</span><span class="ansi-blue-fg">(self, image_encoder, text_encoder, embed_dim, max_txt_len)</span>
-<span class="ansi-green-intense-fg ansi-bold">     38</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>, image_encoder, text_encoder, embed_dim, max_txt_len<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">40</span>):
-<span class="ansi-green-intense-fg ansi-bold">     39</span>     <span style="color: rgb(0,135,0)">super</span>()<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,255)">__init__</span>()
-<span class="ansi-green-fg">---&gt; 41</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">init_tokenizer</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     43</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>visual_encoder <span style="color: rgb(98,98,98)">=</span> image_encoder
-<span class="ansi-green-intense-fg ansi-bold">     44</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>text_encoder <span style="color: rgb(98,98,98)">=</span> text_encoder
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/PIL/Image.py:3236</span>, in <span class="ansi-cyan-fg">open</span><span class="ansi-blue-fg">(fp, mode, formats)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3233</span>     filename <span style="color: rgb(98,98,98)">=</span> fp
+<span class="ansi-green-intense-fg ansi-bold">   3235</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> filename:
+<span class="ansi-green-fg">-&gt; 3236</span>     fp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">builtins</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filename</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">rb</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3237</span>     exclusive_fp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
+<span class="ansi-green-intense-fg ansi-bold">   3239</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip.py:22</span>, in <span class="ansi-cyan-fg">BlipBase.init_tokenizer</span><span class="ansi-blue-fg">(cls)</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span> <span style="color: rgb(175,0,255)">@classmethod</span>
-<span class="ansi-green-intense-fg ansi-bold">     21</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">init_tokenizer</span>(<span style="color: rgb(0,135,0)">cls</span>):
-<span class="ansi-green-fg">---&gt; 22</span>     tokenizer <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">BertTokenizer</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">bert-base-uncased</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     23</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">bos_token</span><span style="color: rgb(175,0,0)">&#34;</span>: <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[DEC]</span><span style="color: rgb(175,0,0)">&#34;</span>})
-<span class="ansi-green-intense-fg ansi-bold">     24</span>     tokenizer<span style="color: rgb(98,98,98)">.</span>add_special_tokens({<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">additional_special_tokens</span><span style="color: rgb(175,0,0)">&#34;</span>: [<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">[ENC]</span><span style="color: rgb(175,0,0)">&#34;</span>]})
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.17/x64/lib/python3.9/site-packages/transformers/tokenization_utils_base.py:1788</span>, in <span class="ansi-cyan-fg">PreTrainedTokenizerBase.from_pretrained</span><span class="ansi-blue-fg">(cls, pretrained_model_name_or_path, *init_inputs, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1782</span>     logger<span style="color: rgb(98,98,98)">.</span>info(
-<span class="ansi-green-intense-fg ansi-bold">   1783</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load following files from cache: </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unresolved_files<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and cannot check if these </span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1784</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">files are necessary for the tokenizer to operate.</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1785</span>     )
-<span class="ansi-green-intense-fg ansi-bold">   1787</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">all</span>(full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> full_file_name <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files<span style="color: rgb(98,98,98)">.</span>values()):
-<span class="ansi-green-fg">-&gt; 1788</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">EnvironmentError</span>(
-<span class="ansi-green-intense-fg ansi-bold">   1789</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t load tokenizer for </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">. If you were trying to load it from </span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1790</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">https://huggingface.co/models</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">, make sure you don</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">t have a local directory with the same name. </span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1791</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Otherwise, make sure </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pretrained_model_name_or_path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> is the correct path to a directory </span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1792</span>         <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">containing all relevant files for a </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span><span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span><span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> tokenizer.</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">   1793</span>     )
-<span class="ansi-green-intense-fg ansi-bold">   1795</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> file_id, file_path <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> vocab_files<span style="color: rgb(98,98,98)">.</span>items():
-<span class="ansi-green-intense-fg ansi-bold">   1796</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> file_id <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> resolved_vocab_files:
-
-<span class="ansi-red-fg">OSError</span>: Can&#39;t load tokenizer for &#39;bert-base-uncased&#39;. If you were trying to load it from &#39;https://huggingface.co/models&#39;, make sure you don&#39;t have a local directory with the same name. Otherwise, make sure &#39;bert-base-uncased&#39; is the correct path to a directory containing all relevant files for a BertTokenizer tokenizer.
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;102141_2_eng&#39;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -415,7 +385,7 @@ Cell <span class="ansi-green-fg">In[11], line 1</span>
 <p>Here we already processed our image folder with 5 images and the <code class="docutils literal notranslate"><span class="pre">clip_base</span></code> model. So you need just to write the name <code class="docutils literal notranslate"><span class="pre">5_clip_base_saved_features_image.pt</span></code> of the saved file that consists of tensors of all images as keyword argument for <code class="docutils literal notranslate"><span class="pre">path_to_load_tensors</span></code>.</p>
 </section>
 <section id="Formulate-your-search-queries">
-<h2>Formulate your search queries<a class="headerlink" href="#Formulate-your-search-queries" title="Permalink to this heading"></a></h2>
+<h2>Formulate your search queries<a class="headerlink" href="#Formulate-your-search-queries" title="Link to this heading"></a></h2>
 <p>Next, you need to form search queries. You can search either by image or by text. You can search for a single query, or you can search for several queries at once, the computational time should not be much different. The format of the queries is as follows:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -526,9 +496,9 @@ Cell <span class="ansi-green-fg">In[16], line 1</span>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;},
- &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;},
- &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;}}
+{&#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;102141_2_eng&#39;},
+ &#39;106349S_por&#39;: {&#39;filename&#39;: &#39;106349S_por&#39;},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;102730_eng&#39;}}
 </pre></div></div>
 </div>
 <p>After launching <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> function, the results of each query will be added to the source dictionary.</p>
@@ -546,7 +516,7 @@ Cell <span class="ansi-green-fg">In[16], line 1</span>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;filename&#39;: &#39;data/106349S_por.png&#39;}
+{&#39;filename&#39;: &#39;106349S_por&#39;}
 </pre></div></div>
 </div>
 <p>A special function was written to present the search results conveniently.</p>
@@ -619,7 +589,7 @@ File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.p
 </div>
 </section>
 <section id="Improve-the-search-results">
-<h2>Improve the search results<a class="headerlink" href="#Improve-the-search-results" title="Permalink to this heading"></a></h2>
+<h2>Improve the search results<a class="headerlink" href="#Improve-the-search-results" title="Link to this heading"></a></h2>
 <p>For even better results, a slightly different approach has been prepared that can improve search results. It is quite resource-intensive, so it is applied after the main algorithm has found the most relevant images. This approach works only with text queries. Among the parameters you can choose 3 models: <code class="docutils literal notranslate"><span class="pre">&quot;blip_base&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;blip_large&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;blip2_coco&quot;</span></code>. If you get an <code class="docutils literal notranslate"><span class="pre">Out</span> <span class="pre">of</span> <span class="pre">Memory</span></code> error, try reducing the batch_size value (minimum = 1), which is the number of images being processed
 simultaneously. With the parameter <code class="docutils literal notranslate"><span class="pre">need_grad_cam</span> <span class="pre">=</span> <span class="pre">True/False</span></code> you can enable the calculation of the heat map of each image to be processed. Thus the <code class="docutils literal notranslate"><span class="pre">image_text_match_reordering</span></code> function calculates new similarity values and new ranks for each image. The resulting values are added to the general dictionary.</p>
 <div class="nbinput nblast docutils container">
@@ -695,7 +665,7 @@ Cell <span class="ansi-green-fg">In[22], line 2</span>
 </div>
 </section>
 <section id="Save-search-results-to-csv">
-<h2>Save search results to csv<a class="headerlink" href="#Save-search-results-to-csv" title="Permalink to this heading"></a></h2>
+<h2>Save search results to csv<a class="headerlink" href="#Save-search-results-to-csv" title="Link to this heading"></a></h2>
 <p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
@@ -744,15 +714,15 @@ Cell <span class="ansi-green-fg">In[22], line 2</span>
   <tbody>
     <tr>
       <th>0</th>
-      <td>data/102730_eng.png</td>
+      <td>102141_2_eng</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>data/102141_2_eng.png</td>
+      <td>106349S_por</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>data/106349S_por.png</td>
+      <td>102730_eng</td>
     </tr>
   </tbody>
 </table>
