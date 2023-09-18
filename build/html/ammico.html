@@ -77,12 +77,25 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-summary">summary module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#summary.SummaryDetector"><code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.all_allowed_model_types"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.all_allowed_model_types</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.allowed_analysis_types"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.allowed_analysis_types</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.allowed_model_types"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.allowed_model_types</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.allowed_new_model_types"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.allowed_new_model_types</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.analyse_image()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.analyse_questions"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.analyse_questions()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.analyse_summary"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.analyse_summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.check_model"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.check_model()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_base"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_base()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_base_blip2_opt_caption_coco_opt67b"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_base_blip2_opt_caption_coco_opt67b()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_base_blip2_opt_pretrain_opt67b"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_base_blip2_opt_pretrain_opt67b()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_blip2_opt_caption_coco_opt27b"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_blip2_opt_caption_coco_opt27b()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_blip2_opt_pretrain_opt27b"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_blip2_opt_pretrain_opt27b()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_blip2_t5_caption_coco_flant5xl"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_blip2_t5_caption_coco_flant5xl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_blip2_t5_pretrain_flant5xl"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_blip2_t5_pretrain_flant5xl()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_blip2_t5_pretrain_flant5xxl"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_blip2_t5_pretrain_flant5xxl()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_model_large"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_model_large()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_new_model"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_new_model()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#summary.SummaryDetector.load_vqa_model"><code class="docutils literal notranslate"><span class="pre">SummaryDetector.load_vqa_model()</span></code></a></li>
 </ul>
 </li>
@@ -365,27 +378,57 @@
 <span id="summary-module"></span><h1>summary module<a class="headerlink" href="#module-summary" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="summary.SummaryDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">summary.</span></span><span class="sig-name descname"><span class="pre">SummaryDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'base'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analysis_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'summary_and_questions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_txt_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">summary.</span></span><span class="sig-name descname"><span class="pre">SummaryDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'base'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">analysis_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'summary_and_questions'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_vis_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_txt_processors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_model_new</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_vis_processors_new</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary_vqa_txt_processors_new</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="summary.SummaryDetector.all_allowed_model_types">
+<span class="sig-name descname"><span class="pre">all_allowed_model_types</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['base',</span> <span class="pre">'large',</span> <span class="pre">'blip2_t5_pretrain_flant5xxl',</span> <span class="pre">'blip2_t5_pretrain_flant5xl',</span> <span class="pre">'blip2_t5_caption_coco_flant5xl',</span> <span class="pre">'blip2_opt_pretrain_opt2.7b',</span> <span class="pre">'blip2_opt_pretrain_opt6.7b',</span> <span class="pre">'blip2_opt_caption_coco_opt2.7b',</span> <span class="pre">'blip2_opt_caption_coco_opt6.7b']</span></em><a class="headerlink" href="#summary.SummaryDetector.all_allowed_model_types" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="summary.SummaryDetector.allowed_analysis_types">
+<span class="sig-name descname"><span class="pre">allowed_analysis_types</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['summary',</span> <span class="pre">'questions',</span> <span class="pre">'summary_and_questions']</span></em><a class="headerlink" href="#summary.SummaryDetector.allowed_analysis_types" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="summary.SummaryDetector.allowed_model_types">
+<span class="sig-name descname"><span class="pre">allowed_model_types</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['base',</span> <span class="pre">'large']</span></em><a class="headerlink" href="#summary.SummaryDetector.allowed_model_types" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="summary.SummaryDetector.allowed_new_model_types">
+<span class="sig-name descname"><span class="pre">allowed_new_model_types</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['blip2_t5_pretrain_flant5xxl',</span> <span class="pre">'blip2_t5_pretrain_flant5xl',</span> <span class="pre">'blip2_t5_caption_coco_flant5xl',</span> <span class="pre">'blip2_opt_pretrain_opt2.7b',</span> <span class="pre">'blip2_opt_pretrain_opt6.7b',</span> <span class="pre">'blip2_opt_caption_coco_opt2.7b',</span> <span class="pre">'blip2_opt_caption_coco_opt6.7b']</span></em><a class="headerlink" href="#summary.SummaryDetector.allowed_new_model_types" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="summary.SummaryDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_image" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">analysis_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_of_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consequential_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_image" title="Link to this definition"></a></dt>
 <dd><p>Analyse image with blip_caption model.</p>
-<p>Args:</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with analysis results.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>analysis_type</strong> (<em>str</em>) – type of the analysis.</p></li>
+<li><p><strong>subdict</strong> (<em>dict</em>) – dictionary with analising pictures.</p></li>
+<li><p><strong>list_of_questions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – list of questions.</p></li>
+<li><p><strong>consequential_questions</strong> (<em>bool</em>) – whether to ask consequential questions. Works only for new BLIP2 models.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with analysis results.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="summary.SummaryDetector.analyse_questions">
-<span class="sig-name descname"><span class="pre">analyse_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#summary.SummaryDetector.analyse_questions" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyse_questions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_of_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">consequential_questions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#summary.SummaryDetector.analyse_questions" title="Link to this definition"></a></dt>
 <dd><p>Generate answers to free-form questions about image written in natural language.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>list_of_questions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – list of questions.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_of_questions</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – list of questions.</p></li>
+<li><p><strong>consequential_questions</strong> (<em>bool</em>) – whether to ask consequential questions. Works only for new BLIP2 models.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with answers to questions.</p>
@@ -395,12 +438,31 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="summary.SummaryDetector.analyse_summary">
-<span class="sig-name descname"><span class="pre">analyse_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_summary" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">analyse_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nondeterministic_summaries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.analyse_summary" title="Link to this definition"></a></dt>
 <dd><p>Create 1 constant and 3 non deterministic captions for image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nondeterministic_summaries</strong> (<em>bool</em>) – whether to create 3 non deterministic captions.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with analysis results.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.check_model">
+<span class="sig-name descname"><span class="pre">check_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.check_model" title="Link to this definition"></a></dt>
+<dd><p>Check model type and return appropriate model and preprocessors.</p>
 <p>Args:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>self.subdict</strong> (<em>dict</em>) – dictionary with analysis results.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – visual preprocessor.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – text preprocessor.</p></li>
+<li><p><strong>model_old</strong> (<em>bool</em>) – whether model is old or new.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -415,8 +477,8 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
-<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>summary_model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>summary_vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -430,8 +492,120 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>summary_model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>summary_vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_base_blip2_opt_caption_coco_opt67b">
+<span class="sig-name descname"><span class="pre">load_model_base_blip2_opt_caption_coco_opt67b</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_base_blip2_opt_caption_coco_opt67b" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with caption_coco_opt6.7b architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
 <li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
 <li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_base_blip2_opt_pretrain_opt67b">
+<span class="sig-name descname"><span class="pre">load_model_base_blip2_opt_pretrain_opt67b</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_base_blip2_opt_pretrain_opt67b" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with pretrain_opt6.7b architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_blip2_opt_caption_coco_opt27b">
+<span class="sig-name descname"><span class="pre">load_model_blip2_opt_caption_coco_opt27b</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_blip2_opt_caption_coco_opt27b" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with caption_coco_opt2.7b architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_blip2_opt_pretrain_opt27b">
+<span class="sig-name descname"><span class="pre">load_model_blip2_opt_pretrain_opt27b</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_blip2_opt_pretrain_opt27b" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with pretrain_opt2 architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_blip2_t5_caption_coco_flant5xl">
+<span class="sig-name descname"><span class="pre">load_model_blip2_t5_caption_coco_flant5xl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_blip2_t5_caption_coco_flant5xl" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with caption_coco_flant5xl architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_blip2_t5_pretrain_flant5xl">
+<span class="sig-name descname"><span class="pre">load_model_blip2_t5_pretrain_flant5xl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_blip2_t5_pretrain_flant5xl" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with FLAN-T5 XL architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_model_blip2_t5_pretrain_flant5xxl">
+<span class="sig-name descname"><span class="pre">load_model_blip2_t5_pretrain_flant5xxl</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_model_blip2_t5_pretrain_flant5xxl" title="Link to this definition"></a></dt>
+<dd><p>Load BLIP2 model with FLAN-T5 XXL architecture.</p>
+<p>Args:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -445,8 +619,26 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>summary_model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>summary_vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="summary.SummaryDetector.load_new_model">
+<span class="sig-name descname"><span class="pre">load_new_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#summary.SummaryDetector.load_new_model" title="Link to this definition"></a></dt>
+<dd><p>Load new BLIP2 models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_type</strong> (<em>str</em>) – type of the model.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
 <li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
 <li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
 </ul>
 </dd>
 </dl>
@@ -460,9 +652,9 @@
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
-<li><p><strong>vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
-<li><p><strong>txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
+<li><p><strong>summary_vqa_model</strong> (<em>torch.nn.Module</em>) – model.</p></li>
+<li><p><strong>summary_vqa_vis_processors</strong> (<em>dict</em>) – preprocessors for visual inputs.</p></li>
+<li><p><strong>summary_vqa_txt_processors</strong> (<em>dict</em>) – preprocessors for text inputs.</p></li>
 </ul>
 </dd>
 </dl>
