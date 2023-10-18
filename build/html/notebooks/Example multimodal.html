@@ -249,10 +249,10 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-Downloading (…)solve/main/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 6.90MB/s]
-Downloading (…)okenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 4.51kB/s]
-Downloading (…)lve/main/config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 538kB/s]
-100%|██████████| 1.97G/1.97G [00:14&lt;00:00, 147MB/s]
+(…)bert-base-uncased/resolve/main/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 4.38MB/s]
+(…)cased/resolve/main/tokenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 4.70kB/s]
+(…)rt-base-uncased/resolve/main/config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 517kB/s]
+100%|██████████| 1.97G/1.97G [00:14&lt;00:00, 145MB/s]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -331,12 +331,12 @@ File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.p
 <span class="ansi-green-fg">--&gt; 153</span>     raw_image <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">Image</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filepath</span><span class="ansi-yellow-bg">)</span><span style="color: rgb(98,98,98)">.</span>convert(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">RGB</span><span style="color: rgb(175,0,0)">&#34;</span>)
 <span class="ansi-green-intense-fg ansi-bold">    154</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> raw_image
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/PIL/Image.py:3236</span>, in <span class="ansi-cyan-fg">open</span><span class="ansi-blue-fg">(fp, mode, formats)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3233</span>     filename <span style="color: rgb(98,98,98)">=</span> fp
-<span class="ansi-green-intense-fg ansi-bold">   3235</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> filename:
-<span class="ansi-green-fg">-&gt; 3236</span>     fp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">builtins</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filename</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">rb</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   3237</span>     exclusive_fp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
-<span class="ansi-green-intense-fg ansi-bold">   3239</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/PIL/Image.py:3243</span>, in <span class="ansi-cyan-fg">open</span><span class="ansi-blue-fg">(fp, mode, formats)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3240</span>     filename <span style="color: rgb(98,98,98)">=</span> fp
+<span class="ansi-green-intense-fg ansi-bold">   3242</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> filename:
+<span class="ansi-green-fg">-&gt; 3243</span>     fp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">builtins</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filename</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">rb</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   3244</span>     exclusive_fp <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">True</span>
+<span class="ansi-green-intense-fg ansi-bold">   3246</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
 
 <span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;102141_2_eng&#39;
 </pre></div></div>

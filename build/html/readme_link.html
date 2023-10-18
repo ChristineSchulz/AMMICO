@@ -49,7 +49,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#first-install-tensorflow-https-www-tensorflow-org-install-pip">1. First, install tensorflow (https://www.tensorflow.org/install/pip)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#second-install-pytorch">2. Second, install pytorch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#after-we-prepared-right-environment-we-can-install-ammico-package">3. After we prepared right environment we can install <code class="docutils literal notranslate"><span class="pre">AMMICO</span></code> package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#after-we-prepared-right-environment-we-can-install-the-ammico-package">3. After we prepared right environment we can install the <code class="docutils literal notranslate"><span class="pre">ammico</span></code> package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#micromamba">Micromamba</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
@@ -59,7 +59,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#text-extraction">Text extraction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#content-extraction">Content extraction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#emotion-recognition">Emotion recognition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#object-detection">Object detection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#color-hue-detection">Color/hue detection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cropping-of-posts">Cropping of posts</a></li>
 </ul>
@@ -108,7 +107,7 @@
 <img alt="codecov" src="https://img.shields.io/codecov/c/github/ssciwr/AMMICO" />
 <img alt="Quality Gate Status" src="https://sonarcloud.io/api/project_badges/measure?project=ssciwr_ammico&amp;metric=alert_status" />
 <img alt="Language" src="https://img.shields.io/github/languages/top/ssciwr/AMMICO" /></p>
-<p>This package extracts data from images such as social media posts that contain an image part and a text part. The analysis can generate a very large number of features, depending on the user input.</p>
+<p>This package extracts data from images such as social media posts that contain an image part and a text part. The analysis can generate a very large number of features, depending on the user input. See <a class="reference external" href="https://dx.doi.org/10.31235/osf.io/v8txj">our paper</a> for a more in-depth description.</p>
 <p><strong><em>This project is currently under development!</em></strong></p>
 <p>Use pre-processed image files such as social media posts with comments and process to collect information:</p>
 <ol class="arabic simple">
@@ -118,7 +117,6 @@
 <li><p>Translation into English or other languages</p></li>
 <li><p>Cleaning of the text, spell-check</p></li>
 <li><p>Sentiment analysis</p></li>
-<li><p>Subjectivity analysis</p></li>
 <li><p>Named entity recognition</p></li>
 <li><p>Topic analysis</p></li>
 </ol>
@@ -137,9 +135,14 @@
 <li><p>Emotion recognition</p></li>
 </ol>
 </li>
-<li><p>Object detection in images</p>
+<li><p>Color analysis</p>
 <ol class="arabic simple">
-<li><p>Detection of position and number of objects in the image; currently  person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone</p></li>
+<li><p>Analyse hue and percentage of color on image</p></li>
+</ol>
+</li>
+<li><p>Multimodal analysis</p>
+<ol class="arabic simple">
+<li><p>Find best matches for image content or image similarity</p></li>
 </ol>
 </li>
 <li><p>Cropping images to remove comments from posts</p></li>
@@ -151,7 +154,7 @@
 </pre></div>
 </div>
 <p>This will install the package and its dependencies locally.</p>
-<p>Some ammico components require tensorflow (e.g. Emotional detector), some pytorch (e.g. Summary detector). Sometimes there are compatibility problems between these two frameworks. To avoid compatibility problems on your machines, we suggest you to follow these steps before installing the package (you need conda on your machine):</p>
+<p>Some ammico components require tensorflow (e.g. Emotion detector), some pytorch (e.g. Summary detector). Sometimes there are compatibility problems between these two frameworks. To avoid compatibility problems on your machines, we suggest you to follow these steps before installing the package (you need conda on your machine):</p>
 <section id="first-install-tensorflow-https-www-tensorflow-org-install-pip">
 <h3>1. First, install tensorflow (https://www.tensorflow.org/install/pip)<a class="headerlink" href="#first-install-tensorflow-https-www-tensorflow-org-install-pip" title="Link to this heading"></a></h3>
 <ul>
@@ -190,8 +193,8 @@ source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
 </li>
 </ul>
 </section>
-<section id="after-we-prepared-right-environment-we-can-install-ammico-package">
-<h3>3. After we prepared right environment we can install <code class="docutils literal notranslate"><span class="pre">AMMICO</span></code> package<a class="headerlink" href="#after-we-prepared-right-environment-we-can-install-ammico-package" title="Link to this heading"></a></h3>
+<section id="after-we-prepared-right-environment-we-can-install-the-ammico-package">
+<h3>3. After we prepared right environment we can install the <code class="docutils literal notranslate"><span class="pre">ammico</span></code> package<a class="headerlink" href="#after-we-prepared-right-environment-we-can-install-the-ammico-package" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ammico</span></code></p></li>
 </ul>
@@ -251,10 +254,6 @@ You then need to export the location of the API key as an environment variable:<
 <section id="emotion-recognition">
 <h3>Emotion recognition<a class="headerlink" href="#emotion-recognition" title="Link to this heading"></a></h3>
 <p>Emotion recognition is carried out using the <a class="reference external" href="https://github.com/serengil/deepface">deepface</a> and <a class="reference external" href="https://github.com/serengil/retinaface">retinaface</a> libraries. These libraries detect the presence of faces, and their age, gender, emotion and race based on several state-of-the-art models. It is also detected if the person is wearing a face mask - if they are, then no further detection is carried out as the mask prevents an accurate prediction.</p>
-</section>
-<section id="object-detection">
-<h3>Object detection<a class="headerlink" href="#object-detection" title="Link to this heading"></a></h3>
-<p>Object detection is carried out using <a class="reference external" href="https://github.com/arunponnusamy/cvlib">cvlib</a> and the <a class="reference external" href="https://github.com/AlexeyAB/darknet">YOLOv4</a> model. This library detects faces, people, and several inanimate objects; we currently have restricted the output to person, bicycle, car, motorcycle, airplane, bus, train, truck, boat, traffic light, cell phone.</p>
 </section>
 <section id="color-hue-detection">
 <h3>Color/hue detection<a class="headerlink" href="#color-hue-detection" title="Link to this heading"></a></h3>
