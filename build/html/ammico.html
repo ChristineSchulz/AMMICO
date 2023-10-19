@@ -51,7 +51,6 @@
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20summary.html">Image summary and visual question answering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20multimodal.html">Image Multimodal Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20colors.html">Color analysis of pictures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20objects.html">Objects recognition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/Example%20cropposts.html">Crop posts from social media posts images</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">AMMICO package modules</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">text module</a><ul>
@@ -150,36 +149,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#color-analysis-module">color_analysis module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-objects">objects module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#objects.ObjectDetector"><code class="docutils literal notranslate"><span class="pre">ObjectDetector</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.analyse_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.od_client"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.od_client</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.set_client_to_cvlib"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.set_client_to_cvlib()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetector.set_keys"><code class="docutils literal notranslate"><span class="pre">ObjectDetector.set_keys()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#objects.ObjectDetectorClient"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetectorClient.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient.analyse_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#objects.ObjectDetectorClient.set_client_to_cvlib"><code class="docutils literal notranslate"><span class="pre">ObjectDetectorClient.set_client_to_cvlib()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-objects_cvlib">objects_cvlib module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.ObjectCVLib"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.analyse_image()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.analyse_image_from_file"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.analyse_image_from_file()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectCVLib.detect_objects_cvlib"><code class="docutils literal notranslate"><span class="pre">ObjectCVLib.detect_objects_cvlib()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.ObjectsMethod"><code class="docutils literal notranslate"><span class="pre">ObjectsMethod</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#objects_cvlib.ObjectsMethod.analyse_image"><code class="docutils literal notranslate"><span class="pre">ObjectsMethod.analyse_image()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.init_default_objects"><code class="docutils literal notranslate"><span class="pre">init_default_objects()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#objects_cvlib.objects_from_cvlib"><code class="docutils literal notranslate"><span class="pre">objects_from_cvlib()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-module">objects module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-cvlib-module">objects_cvlib module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-cropposts">cropposts module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#cropposts.compute_crop_corner"><code class="docutils literal notranslate"><span class="pre">compute_crop_corner()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cropposts.crop_image_from_post"><code class="docutils literal notranslate"><span class="pre">crop_image_from_post()</span></code></a></li>
@@ -1273,137 +1244,11 @@
 <section id="color-analysis-module">
 <h1>color_analysis module<a class="headerlink" href="#color-analysis-module" title="Link to this heading"></a></h1>
 </section>
-<section id="module-objects">
-<span id="objects-module"></span><h1>objects module<a class="headerlink" href="#module-objects" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="objects.ObjectDetector">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects.</span></span><span class="sig-name descname"><span class="pre">ObjectDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="objects.ObjectDetector.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.analyse_image" title="Link to this definition"></a></dt>
-<dd><p>Perform object detection on the image.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dict</strong> – The updated dictionary with object detection results.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="objects.ObjectDetector.od_client">
-<span class="sig-name descname"><span class="pre">od_client</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;objects.ObjectDetectorClient</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#objects.ObjectDetector.od_client" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="objects.ObjectDetector.set_client_to_cvlib">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_client_to_cvlib</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_client_to_cvlib" title="Link to this definition"></a></dt>
-<dd><p>Set the object detection client to use CVLib.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="objects.ObjectDetector.set_keys">
-<span class="sig-name descname"><span class="pre">set_keys</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetector.set_keys" title="Link to this definition"></a></dt>
-<dd><p>Set the default object keys for analysis.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>dict</strong> – The dictionary with default object keys.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="objects.ObjectDetectorClient">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects.</span></span><span class="sig-name descname"><span class="pre">ObjectDetectorClient</span></span><a class="headerlink" href="#objects.ObjectDetectorClient" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AnalysisMethod</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="objects.ObjectDetectorClient.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.analyse_image" title="Link to this definition"></a></dt>
-<dd><p>Localize objects in the given image.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>subdict</strong> (<em>dict</em>) – The dictionary for an image expression instance.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>dict</strong> – The updated dictionary with object detection results.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="objects.ObjectDetectorClient.set_client_to_cvlib">
-<span class="sig-name descname"><span class="pre">set_client_to_cvlib</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects.ObjectDetectorClient.set_client_to_cvlib" title="Link to this definition"></a></dt>
-<dd><p>Set the object detection client to use CVLib.</p>
-</dd></dl>
-
-</dd></dl>
-
+<section id="objects-module">
+<h1>objects module<a class="headerlink" href="#objects-module" title="Link to this heading"></a></h1>
 </section>
-<section id="module-objects_cvlib">
-<span id="objects-cvlib-module"></span><h1>objects_cvlib module<a class="headerlink" href="#module-objects_cvlib" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">ObjectCVLib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#objects_cvlib.ObjectsMethod" title="objects_cvlib.ObjectsMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectsMethod</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib.analyse_image" title="Link to this definition"></a></dt>
-<dd><p>Localize objects in the local image.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>subdict</strong> – The dictionary for an image expression instance.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib.analyse_image_from_file">
-<span class="sig-name descname"><span class="pre">analyse_image_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib.analyse_image_from_file" title="Link to this definition"></a></dt>
-<dd><p>Localize objects in the local image.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>image_path</strong> – The path to the local file.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="objects_cvlib.ObjectCVLib.detect_objects_cvlib">
-<span class="sig-name descname"><span class="pre">detect_objects_cvlib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectCVLib.detect_objects_cvlib" title="Link to this definition"></a></dt>
-<dd><p>Localize objects in the local image.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>image_path</strong> – The path to the local file.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="objects_cvlib.ObjectsMethod">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">ObjectsMethod</span></span><a class="headerlink" href="#objects_cvlib.ObjectsMethod" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Base class to be inherited by all objects methods.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="objects_cvlib.ObjectsMethod.analyse_image">
-<span class="sig-name descname"><span class="pre">analyse_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subdict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.ObjectsMethod.analyse_image" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="objects_cvlib.init_default_objects">
-<span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">init_default_objects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#objects_cvlib.init_default_objects" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="objects_cvlib.objects_from_cvlib">
-<span class="sig-prename descclassname"><span class="pre">objects_cvlib.</span></span><span class="sig-name descname"><span class="pre">objects_from_cvlib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objects_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#objects_cvlib.objects_from_cvlib" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<section id="objects-cvlib-module">
+<h1>objects_cvlib module<a class="headerlink" href="#objects-cvlib-module" title="Link to this heading"></a></h1>
 </section>
 <section id="module-cropposts">
 <span id="cropposts-module"></span><h1>cropposts module<a class="headerlink" href="#module-cropposts" title="Link to this heading"></a></h1>
