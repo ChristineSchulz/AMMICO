@@ -239,10 +239,10 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the models</span>
-<span class="n">summary_model</span><span class="p">,</span> <span class="n">summary_vis_processors</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">,</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
 <span class="c1"># run the analysis without having to re-iniatialize the model</span>
 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="p">:</span>
-    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">summary_model</span><span class="o">=</span><span class="n">summary_model</span><span class="p">,</span> <span class="n">summary_vis_processors</span><span class="o">=</span><span class="n">summary_vis_processors</span><span class="p">)</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
+    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">(</span><span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">subdict</span> <span class="o">=</span> <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -255,7 +255,7 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 <span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
 Cell <span class="ansi-green-fg">In[6], line 2</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># initialize the models</span>
-<span class="ansi-green-fg">----&gt; 2</span> summary_model, summary_vis_processors <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>SummaryDetector(<span class="ansi-yellow-bg">image_dict</span>)<span style="color: rgb(98,98,98)">.</span>load_model(model_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-fg">----&gt; 2</span> obj <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>SummaryDetector(<span class="ansi-yellow-bg">image_dict</span>, analysis_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">summary</span><span style="color: rgb(175,0,0)">&#34;</span>, model_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>)
 <span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(95,135,135)"># run the analysis without having to re-iniatialize the model</span>
 <span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> image_dict:
 
@@ -349,6 +349,16 @@ sentiment and named entity recognition, by setting the keyword <code class="docu
 <p>The models can be adapted interactively in the notebook interface and the best models can then be used in a subsequent analysis of the whole data set.</p>
 <section id="Image-summary-and-query">
 <h2>Image summary and query<a class="headerlink" href="#Image-summary-and-query" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>). This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a
+caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user, <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
+<p>For VQA, a list of questions needs to be passed when carrying out the analysis; these should be given as a list of strings.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list_of_questions = [
+    &quot;How many persons on the picture?&quot;,
+    &quot;Are there any politicians in the picture?&quot;,
+    &quot;Does the picture show something from medicine?&quot;,
+]
+</pre></div>
+</div>
 </section>
 <section id="Detection-of-faces-and-facial-expression-analysis">
 <h2>Detection of faces and facial expression analysis<a class="headerlink" href="#Detection-of-faces-and-facial-expression-analysis" title="Link to this heading"></a></h2>

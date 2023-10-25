@@ -46,7 +46,8 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AMMICO - AI Media and Misinformation Content Analysis Tool</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compatibility-problems-solving">Compatibility problems solving</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#first-install-tensorflow-https-www-tensorflow-org-install-pip">1. First, install tensorflow (https://www.tensorflow.org/install/pip)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#second-install-pytorch">2. Second, install pytorch</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#after-we-prepared-right-environment-we-can-install-the-ammico-package">3. After we prepared right environment we can install the <code class="docutils literal notranslate"><span class="pre">ammico</span></code> package</a></li>
@@ -152,8 +153,11 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ammico</span>
 </pre></div>
 </div>
-<p>This will install the package and its dependencies locally.</p>
-<p>Some ammico components require tensorflow (e.g. Emotion detector), some pytorch (e.g. Summary detector). Sometimes there are compatibility problems between these two frameworks. To avoid compatibility problems on your machines, we suggest you to follow these steps before installing the package (you need conda on your machine):</p>
+<p>This will install the package and its dependencies locally. If after installation you get some errors when running some modules, please follow the instructions below.</p>
+</section>
+<section id="compatibility-problems-solving">
+<h2>Compatibility problems solving<a class="headerlink" href="#compatibility-problems-solving" title="Link to this heading"></a></h2>
+<p>Some ammico components require <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code> (e.g. Emotion detector), some <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> (e.g. Summary detector). Sometimes there are compatibility problems between these two frameworks. To avoid these problems on your machines, you can prepare proper environment before installing the package (you need conda on your machine):</p>
 <section id="first-install-tensorflow-https-www-tensorflow-org-install-pip">
 <h3>1. First, install tensorflow (https://www.tensorflow.org/install/pip)<a class="headerlink" href="#first-install-tensorflow-https-www-tensorflow-org-install-pip" title="Link to this heading"></a></h3>
 <ul>
@@ -179,7 +183,7 @@ source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code></p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">ammico_env</span> </code></p>
 </li>
-<li><p>and now we can install tensorflow</p>
+<li><p>install tensorflow</p>
 <p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tensorflow==2.12.1</span></code></p>
 </li>
 </ul>
@@ -201,7 +205,7 @@ source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
 </section>
 <section id="micromamba">
 <h3>Micromamba<a class="headerlink" href="#micromamba" title="Link to this heading"></a></h3>
-<p>If you have micromamba on your machine you can prepare environment with just one command:</p>
+<p>If you are using micromamba you can prepare environment with just one command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">micromamba</span> <span class="pre">create</span> <span class="pre">--no-channel-priority</span> <span class="pre">-c</span> <span class="pre">nvidia</span> <span class="pre">-c</span> <span class="pre">pytorch</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">-n</span> <span class="pre">ammico_env</span> <span class="pre">&quot;python=3.10&quot;</span> <span class="pre">pytorch</span> <span class="pre">torchvision</span> <span class="pre">torchaudio</span> <span class="pre">pytorch-cuda</span> <span class="pre">&quot;tensorflow-gpu&lt;=2.12.3&quot;</span> <span class="pre">&quot;numpy&lt;=1.23.4&quot;</span></code></p>
 </section>
 <section id="windows">
