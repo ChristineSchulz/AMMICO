@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMMICO: AI Media and Misinformation Content Analysis Tool &mdash; AMMICO 0.0.1 documentation</title>
+  <title>AMMICO Demonstration Notebook &mdash; AMMICO 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Image Multimodal Search" href="Example%20multimodal.html" />
+    <link rel="next" title="Multimodal search module" href="Example%20multimodal.html" />
     <link rel="prev" title="AMMICO - AI Media and Misinformation Content Analysis Tool" href="../readme_link.html" /> 
 </head>
 
@@ -49,7 +49,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">AMMICO: AI Media and Misinformation Content Analysis Tool</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AMMICO Demonstration Notebook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#Step-1:-Read-your-data-into-AMMICO">Step 1: Read your data into AMMICO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Step-2:-Inspect-the-input-files-using-the-graphical-user-interface">Step 2: Inspect the input files using the graphical user interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Step-3:-Analyze-all-images">Step 3: Analyze all images</a></li>
@@ -62,9 +62,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#Further-detector-modules">Further detector modules</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Image Multimodal Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20colors.html">Color analysis of pictures</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20cropposts.html">Crop posts from social media posts images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Multimodal search module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20colors.html">Color Detector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20cropposts.html">Crop posts module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">AMMICO package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license_link.html">License</a></li>
 </ul>
@@ -83,9 +83,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">AMMICO: AI Media and Misinformation Content Analysis Tool</li>
+      <li class="breadcrumb-item active">AMMICO Demonstration Notebook</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebooks/DemoNotebook_ammico.ipynb.txt" rel="nofollow"> View page source</a>
+              <a href="https://github.com/ssciwr/AMMICO/blob/main/source/notebooks/DemoNotebook_ammico.ipynb" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -93,9 +93,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="AMMICO:-AI-Media-and-Misinformation-Content-Analysis-Tool">
-<h1>AMMICO: AI Media and Misinformation Content Analysis Tool<a class="headerlink" href="#AMMICO:-AI-Media-and-Misinformation-Content-Analysis-Tool" title="Link to this heading"></a></h1>
-<p>With ammico, you can analyze text on images and image content at the same time. This is a demonstration notebook to showcase the capabilities of ammico. You can run this notebook on google colab or locally / on your own HPC resource. The first cell only runs on google colab; on all other machines, you need to create a conda environment first and install ammico from the Python Package Index using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ammico</span></code>.</p>
+  <section id="AMMICO-Demonstration-Notebook">
+<h1>AMMICO Demonstration Notebook<a class="headerlink" href="#AMMICO-Demonstration-Notebook" title="Link to this heading"></a></h1>
+<div class="line-block">
+<div class="line">With ammico, you can analyze text on images and image content at the same time. This is a demonstration notebook to showcase the capabilities of ammico. You can run this notebook on google colab or locally / on your own HPC resource. The first cell only runs on google colab; on all other machines, you need to create a conda environment first and install ammico from the Python Package Index using</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ammico</span></code></div>
+<div class="line">Alternatively you can install the development version from the GitHub repository</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">git+https://github.com/ssciwr/AMMICO.git</span></code></div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -129,45 +134,48 @@
 </section>
 <section id="Step-1:-Read-your-data-into-AMMICO">
 <h1>Step 1: Read your data into AMMICO<a class="headerlink" href="#Step-1:-Read-your-data-into-AMMICO" title="Link to this heading"></a></h1>
-<div class="line-block">
-<div class="line">The ammico package reads in one or several input files given in a folder for processing. The user can select to read in all image files in a folder, to include subfolders via the <code class="docutils literal notranslate"><span class="pre">recursive</span></code> option, and can select the file extension that should be considered (for example, only “jpg” files, or both “jpg” and “png” files). For reading in the files, the ammico function <code class="docutils literal notranslate"><span class="pre">find_files</span></code> is used, with optional keywords: - <code class="docutils literal notranslate"><span class="pre">path</span></code> - the directory containing the image files (defaults to the location
-set by environment variable <code class="docutils literal notranslate"><span class="pre">AMMICO_DATA_HOME</span></code>);</div>
-<div class="line">- <code class="docutils literal notranslate"><span class="pre">pattern</span></code> - the file extensions that should be considered when reading in the data (defaults to all allowed file extensions, that is “png”, “jpg”, “jpeg”, “gif”, “webp”, “avif”, “tiff”) - <code class="docutils literal notranslate"><span class="pre">recursive</span></code> - include subdirectories recursively (defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>) - <code class="docutils literal notranslate"><span class="pre">limit</span></code> - the maximum number of files that should be read. This is useful for testing, if you want to run the analysis on only a few input files (defaults to 20, to return all images that are found set to <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">-1</span></code>) -
-<code class="docutils literal notranslate"><span class="pre">random_seed</span></code> - the random seed used for shuffling the images. This is useful if you select only a few images to be read and want to preserve the order and selection (defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>) The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function returns a nested dict that contains the file ids and the paths to the files and is empty otherwise. This dict is filled step by step with more data as each detector class is run on the data (see below).</div>
-</div>
-<div class="nbinput docutils container">
+<p>The ammico package reads in one or several input files given in a folder for processing. The user can select to read in all image files in a folder, to include subfolders via the <code class="docutils literal notranslate"><span class="pre">recursive</span></code> option, and can select the file extension that should be considered (for example, only “jpg” files, or both “jpg” and “png” files). For reading in the files, the ammico function <code class="docutils literal notranslate"><span class="pre">find_files</span></code> is used, with optional keywords:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>input key</p></th>
+<th class="head"><p>input type</p></th>
+<th class="head"><p>possible input values</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the directory containing the image files (defaults to the location set by environment variable <code class="docutils literal notranslate"><span class="pre">AMMICO_DATA_HOME</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pattern</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str\|list</span></code></p></td>
+<td><p>the file extensions to consider (defaults to “png”, “jpg”, “jpeg”, “gif”, “webp”, “avif”, “tiff”)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">recursive</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>include subdirectories recursively (defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">limit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p>maximum number of files to read (defaults to <code class="docutils literal notranslate"><span class="pre">20</span></code>, for all images set to <code class="docutils literal notranslate"><span class="pre">None</span></code> or <code class="docutils literal notranslate"><span class="pre">-1</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">random_seed</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the random seed for shuffling the images; applies when only a few images are read and the selection should be preserved (defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function returns a nested dict that contains the file ids and the paths to the files and is empty otherwise. This dict is filled step by step with more data as each detector class is run on the data (see below).</p>
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_dict</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span>
-    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/&quot;</span><span class="p">,</span>
+    <span class="n">path</span><span class="o">=</span><span class="s2">&quot;data/&quot;</span><span class="p">,</span>
     <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[3], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> image_dict <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ammico</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">find_files</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">path</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">/content/drive/MyDrive/misinformation-data/</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">limit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:134</span>, in <span class="ansi-cyan-fg">find_files</span><span class="ansi-blue-fg">(path, pattern, recursive, limit, random_seed)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>     results<span style="color: rgb(98,98,98)">.</span>extend(_match_pattern(path, p, recursive<span style="color: rgb(98,98,98)">=</span>recursive))
-<span class="ansi-green-intense-fg ansi-bold">    133</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(results) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
-<span class="ansi-green-fg">--&gt; 134</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">FileNotFoundError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">No files found in </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> with pattern </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pattern<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-intense-fg ansi-bold">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> random_seed <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">    137</span>     random<span style="color: rgb(98,98,98)">.</span>seed(random_seed)
-
-<span class="ansi-red-fg">FileNotFoundError</span>: No files found in /content/drive/MyDrive/misinformation-data/ with pattern &#39;[&#39;png&#39;, &#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;webp&#39;, &#39;avif&#39;, &#39;tiff&#39;]&#39;
-</pre></div></div>
 </div>
 <section id="Step-2:-Inspect-the-input-files-using-the-graphical-user-interface">
 <h2>Step 2: Inspect the input files using the graphical user interface<a class="headerlink" href="#Step-2:-Inspect-the-input-files-using-the-graphical-user-interface" title="Link to this heading"></a></h2>
@@ -193,16 +201,15 @@ directly on the right next to the image. This way, the user can directly inspect
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> analysis_explorer <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>AnalysisExplorer(<span class="ansi-yellow-bg">image_dict</span>)
-<span class="ansi-green-intense-fg ansi-bold">      2</span> analysis_explorer<span style="color: rgb(98,98,98)">.</span>run_server(port<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">8055</span>)
+<div class="output_area rendered_html docutils container">
+<iframe
+    width="100%"
+    height="650"
+    src="http://127.0.0.1:8055/"
+    frameborder="0"
+    allowfullscreen
 
-<span class="ansi-red-fg">NameError</span>: name &#39;image_dict&#39; is not defined
-</pre></div></div>
+></iframe></div>
 </div>
 </section>
 <section id="Step-3:-Analyze-all-images">
@@ -218,19 +225,110 @@ Cell <span class="ansi-green-fg">In[4], line 1</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Collecting en-core-web-md==3.7.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.7.0/en_core_web_md-3.7.0-py3-none-any.whl (42.8 MB)
+     <span class="ansi-black-intense-fg">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class="ansi-green-fg">42.8/42.8 MB</span> <span class="ansi-red-fg">72.0 MB/s</span> eta <span class="ansi-cyan-fg">0:00:00</span>
+Requirement already satisfied: spacy&lt;3.8.0,&gt;=3.7.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from en-core-web-md==3.7.0) (3.7.2)
+Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (3.0.12)
+Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (1.0.5)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (1.0.10)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.0.8)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (3.0.9)
+Requirement already satisfied: thinc&lt;8.3.0,&gt;=8.1.8 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (8.2.1)
+Requirement already satisfied: wasabi&lt;1.2.0,&gt;=0.9.1 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (1.1.2)
+Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.4.8)
+Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.0.10)
+Requirement already satisfied: weasel&lt;0.4.0,&gt;=0.1.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (0.3.3)
+Requirement already satisfied: typer&lt;0.10.0,&gt;=0.3.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (0.9.0)
+Requirement already satisfied: smart-open&lt;7.0.0,&gt;=5.2.1 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (6.4.0)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (4.66.1)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.31.0)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (1.10.13)
+Requirement already satisfied: jinja2 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (3.1.2)
+Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (58.1.0)
+Requirement already satisfied: packaging&gt;=20.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (23.2)
+Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (3.3.0)
+Requirement already satisfied: numpy&gt;=1.19.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (1.23.4)
+Requirement already satisfied: typing-extensions&gt;=4.2.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (4.5.0)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (3.3.1)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.10)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.0.7)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2023.7.22)
+Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from thinc&lt;8.3.0,&gt;=8.1.8-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (0.7.11)
+Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from thinc&lt;8.3.0,&gt;=8.1.8-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (0.1.3)
+Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from typer&lt;0.10.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (8.1.7)
+Requirement already satisfied: cloudpathlib&lt;0.17.0,&gt;=0.7.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from weasel&lt;0.4.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (0.16.0)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (from jinja2-&gt;spacy&lt;3.8.0,&gt;=3.7.0-&gt;en-core-web-md==3.7.0) (2.1.3)
+Installing collected packages: en-core-web-md
+Successfully installed en-core-web-md-3.7.0
+<span class="ansi-green-fg">✔ Download and installation successful</span>
+You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> A new release of pip is available: <span class="ansi-red-fg">23.0.1</span> -&gt; <span class="ansi-green-fg">23.3.1</span>
+<span class="ansi-bold">[</span><span class="ansi-blue-fg">notice</span><span class="ansi-bold">]</span> To update, run: <span class="ansi-green-fg">pip install --upgrade pip</span>
+(…)art-cnn-12-6/resolve/a4f8f3e/config.json: 100%|██████████| 1.80k/1.80k [00:00&lt;00:00, 582kB/s]
+pytorch_model.bin: 100%|██████████| 1.22G/1.22G [00:12&lt;00:00, 94.6MB/s]
+(…)-6/resolve/a4f8f3e/tokenizer_config.json: 100%|██████████| 26.0/26.0 [00:00&lt;00:00, 22.6kB/s]
+(…)bart-cnn-12-6/resolve/a4f8f3e/vocab.json: 100%|██████████| 899k/899k [00:00&lt;00:00, 13.4MB/s]
+(…)bart-cnn-12-6/resolve/a4f8f3e/merges.txt: 100%|██████████| 456k/456k [00:00&lt;00:00, 12.2MB/s]
+(…)st-2-english/resolve/af0f99b/config.json: 100%|██████████| 629/629 [00:00&lt;00:00, 206kB/s]
+pytorch_model.bin: 100%|██████████| 268M/268M [00:01&lt;00:00, 145MB/s]
+(…)sh/resolve/af0f99b/tokenizer_config.json: 100%|██████████| 48.0/48.0 [00:00&lt;00:00, 44.6kB/s]
+(…)-sst-2-english/resolve/af0f99b/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 119MB/s]
+(…)ll03-english/resolve/f2482bf/config.json: 100%|██████████| 998/998 [00:00&lt;00:00, 319kB/s]
+pytorch_model.bin: 100%|██████████| 1.33G/1.33G [00:08&lt;00:00, 163MB/s]
+(…)sh/resolve/f2482bf/tokenizer_config.json: 100%|██████████| 60.0/60.0 [00:00&lt;00:00, 44.9kB/s]
+(…)onll03-english/resolve/f2482bf/vocab.txt: 100%|██████████| 213k/213k [00:00&lt;00:00, 82.7MB/s]
+Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/retinaface.h5&#39; to file &#39;/home/runner/.cache/pooch/3be32af6e4183fa0156bc33bda371147-retinaface.h5&#39;.
+Downloading data from &#39;https://github.com/chandrikadeb7/Face-Mask-Detection/raw/v1.0.0/mask_detector.model&#39; to file &#39;/home/runner/.cache/pooch/865b4b1e20f798935b70082440d5fb21-mask_detector.model&#39;.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1/1 [==============================] - 1s 677ms/step
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/age_model_weights.h5&#39; to file &#39;/home/runner/.cache/pooch/39859d3331cd91ac06154cc306e1acc8-age_model_weights.h5&#39;.
+Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/facial_expression_model_weights.h5&#39; to file &#39;/home/runner/.cache/pooch/dd5d5d6d8f5cecdc0fa6cb34d4d82d16-facial_expression_model_weights.h5&#39;.
+Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/gender_model_weights.h5&#39; to file &#39;/home/runner/.cache/pooch/2e0d8fb96c5ee966ade0f3f2360f6478-gender_model_weights.h5&#39;.
+Downloading data from &#39;https://github.com/serengil/deepface_models/releases/download/v1.0/race_model_single_batch.h5&#39; to file &#39;/home/runner/.cache/pooch/382cb5446128012fa5305ddb9d608751-race_model_single_batch.h5&#39;.
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[5], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span class="ansi-yellow-bg">image_dict</span><span style="color: rgb(98,98,98)">.</span>keys():
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     image_dict[key] <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>TextDetector(image_dict[key], analyse_text<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>)<span style="color: rgb(98,98,98)">.</span>analyse_image()
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     image_dict[key] <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>EmotionDetector(image_dict[key])<span style="color: rgb(98,98,98)">.</span>analyse_image()
-
-<span class="ansi-red-fg">NameError</span>: name &#39;image_dict&#39; is not defined
+1/1 [==============================] - 0s 359ms/step
+1/1 [==============================] - 0s 322ms/step
+1/1 [==============================] - 1s 648ms/step
+1/1 [==============================] - 0s 226ms/step
+1/1 [==============================] - 0s 207ms/step
+1/1 [==============================] - 1s 684ms/step
+1/1 [==============================] - 0s 210ms/step
+1/1 [==============================] - 0s 243ms/step
+1/1 [==============================] - 0s 338ms/step
+1/1 [==============================] - 0s 87ms/step
 </pre></div></div>
 </div>
 <p>For the computationally demanding <code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code>, it is best to initialize the model first and then analyze each image while passing the model explicitly. This can be done in a separate loop or in the same loop as for text and emotion detection.</p>
@@ -239,53 +337,40 @@ Cell <span class="ansi-green-fg">In[5], line 1</span>
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the models</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">,</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
+<span class="n">summary_model</span><span class="p">,</span> <span class="n">summary_vis_processors</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
 <span class="c1"># run the analysis without having to re-iniatialize the model</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="p">:</span>
-    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">(</span><span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">subdict</span> <span class="o">=</span> <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span>
+                                             <span class="n">summary_model</span><span class="o">=</span><span class="n">summary_model</span><span class="p">,</span>
+                                             <span class="n">summary_vis_processors</span><span class="o">=</span><span class="n">summary_vis_processors</span><span class="p">)</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
+<div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[6], line 2</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># initialize the models</span>
-<span class="ansi-green-fg">----&gt; 2</span> obj <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>SummaryDetector(<span class="ansi-yellow-bg">image_dict</span>, analysis_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">summary</span><span style="color: rgb(175,0,0)">&#34;</span>, model_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span style="color: rgb(95,135,135)"># run the analysis without having to re-iniatialize the model</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> image_dict:
-
-<span class="ansi-red-fg">NameError</span>: name &#39;image_dict&#39; is not defined
+(…)bert-base-uncased/resolve/main/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 52.5MB/s]
+(…)cased/resolve/main/tokenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 11.5kB/s]
+(…)rt-base-uncased/resolve/main/config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 480kB/s]
+100%|██████████| 2.50G/2.50G [00:24&lt;00:00, 111MB/s]
+100%|██████████| 1.35G/1.35G [00:12&lt;00:00, 115MB/s]
 </pre></div></div>
 </div>
+<p>This can be done in a separate loop or in the same loop as for text and emotion detection.</p>
+<p>The nested dictionary will be updated from containing only the file id’s and paths to the image files, to containing also all the image data.</p>
 </section>
 <section id="Step-4:-Convert-analysis-output-to-pandas-dataframe-and-write-csv">
 <h2>Step 4: Convert analysis output to pandas dataframe and write csv<a class="headerlink" href="#Step-4:-Convert-analysis-output-to-pandas-dataframe-and-write-csv" title="Link to this heading"></a></h2>
 <p>The content of the nested dictionary can then conveniently be converted into a pandas dataframe for further analysis in Python, or be written as a csv file:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[7], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> image_df <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>get_dataframe(<span class="ansi-yellow-bg">image_dict</span>)
-
-<span class="ansi-red-fg">NameError</span>: name &#39;image_dict&#39; is not defined
-</pre></div></div>
 </div>
 <p>Inspect the dataframe:</p>
 <div class="nbinput docutils container">
@@ -297,24 +382,167 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[8], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">image_df</span><span style="color: rgb(98,98,98)">.</span>head(<span style="color: rgb(98,98,98)">3</span>)
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ansi-red-fg">NameError</span>: name &#39;image_df&#39; is not defined
-</pre></div></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>filename</th>
+      <th>text</th>
+      <th>text_language</th>
+      <th>text_english</th>
+      <th>text_clean</th>
+      <th>text_summary</th>
+      <th>sentiment</th>
+      <th>sentiment_score</th>
+      <th>entity</th>
+      <th>entity_type</th>
+      <th>...</th>
+      <th>multiple_faces</th>
+      <th>no_faces</th>
+      <th>wears_mask</th>
+      <th>age</th>
+      <th>gender</th>
+      <th>race</th>
+      <th>emotion</th>
+      <th>emotion (category)</th>
+      <th>const_image_summary</th>
+      <th>3_non-deterministic_summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>data/106349S_por.png</td>
+      <td>NEWS URGENTE SAMSUNG AO VIVO Rio de Janeiro NO...</td>
+      <td>pt</td>
+      <td>NEWS URGENT SAMSUNG LIVE Rio de Janeiro NEW CO...</td>
+      <td>NEWS URGENT SAMSUNG LIVE Rio de Janeiro NEW CO...</td>
+      <td>NEW COUNTING METHOD RJ City HALL EXCLUDES 1,1...</td>
+      <td>NEGATIVE</td>
+      <td>0.99</td>
+      <td>[Rio de Janeiro, C, ##IT, ##Y, PLANALTO]</td>
+      <td>[LOC, ORG, LOC, ORG, LOC]</td>
+      <td>...</td>
+      <td>No</td>
+      <td>1</td>
+      <td>[Yes]</td>
+      <td>[24]</td>
+      <td>[Man]</td>
+      <td>[None]</td>
+      <td>[None]</td>
+      <td>[None]</td>
+      <td>a man wearing a face mask while looking at a c...</td>
+      <td>[a man wearing a medical mask holding a microp...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>data/102141_2_eng.png</td>
+      <td>CORONAVIRUS QUARANTINE CORONAVIRUS OUTBREAK BE...</td>
+      <td>en</td>
+      <td>CORONAVIRUS QUARANTINE CORONAVIRUS OUTBREAK BE...</td>
+      <td>CORONAVIRUS QUARANTINE CORONAVIRUS OUTBREAK BE...</td>
+      <td>Coronavirus QUARANTINE CORONAVIRUS OUTBREAK</td>
+      <td>NEGATIVE</td>
+      <td>0.97</td>
+      <td>[CORONAVIRUS, ##ARANTI, CORONAVIR, Co, ##ronavi]</td>
+      <td>[ORG, MISC, ORG, PER, ORG]</td>
+      <td>...</td>
+      <td>No</td>
+      <td>1</td>
+      <td>[Yes]</td>
+      <td>[25]</td>
+      <td>[Man]</td>
+      <td>[None]</td>
+      <td>[None]</td>
+      <td>[None]</td>
+      <td>a collage of images including a corona sign, a...</td>
+      <td>[a person holding a tube of coqranquinne on a ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>data/102730_eng.png</td>
+      <td>400 DEATHS GET E-BOOK X AN Corporation ncy Ser...</td>
+      <td>en</td>
+      <td>400 DEATHS GET E-BOOK X AN Corporation ncy Ser...</td>
+      <td>DEATHS GET E - BOOK X AN Corporation Services ...</td>
+      <td>A municipal worker sprays disinfectant on his...</td>
+      <td>NEGATIVE</td>
+      <td>0.99</td>
+      <td>[AN Corporation ncy Services, Ahmedabad, RE, #...</td>
+      <td>[ORG, LOC, PER, ORG]</td>
+      <td>...</td>
+      <td>No</td>
+      <td>1</td>
+      <td>[No]</td>
+      <td>[27]</td>
+      <td>[Man]</td>
+      <td>[asian]</td>
+      <td>[sad]</td>
+      <td>[Negative]</td>
+      <td>two people in blue coats spray disinfection a van</td>
+      <td>[the two people are spraying the people with t...</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 21 columns</p>
+</div></div>
 </div>
 <p>Or write to a csv file:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/data_out.csv&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_out.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="The-detector-modules">
+<h1>The detector modules<a class="headerlink" href="#The-detector-modules" title="Link to this heading"></a></h1>
+<p>The different detector modules with their options are explained in more detail in this section. ## Text detector Text on the images can be extracted using the <code class="docutils literal notranslate"><span class="pre">TextDetector</span></code> class (<code class="docutils literal notranslate"><span class="pre">text</span></code> module). The text is initally extracted using the Google Cloud Vision API and then translated into English with googletrans. The translated text is cleaned of whitespace, linebreaks, and numbers using Python syntax and spaCy.</p>
+<p><img alt="d8ef74b78ed64f69af55230c671b1adf" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
+<p>The user can set if the text should be further summarized, and analyzed for sentiment and named entity recognition, by setting the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). If set, the transformers pipeline is used for each of these tasks, with the default models as of 03/2023. Other models can be selected by setting the optional keyword <code class="docutils literal notranslate"><span class="pre">model_names</span></code> to a list of selected models, on for each task:
+<code class="docutils literal notranslate"><span class="pre">model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,</span> <span class="pre">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,</span> <span class="pre">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;]</span></code> for summary, sentiment, and ner. To be even more specific, revision numbers can also be selected by specifying the optional keyword <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> to a list of revision numbers for each model, for example <code class="docutils literal notranslate"><span class="pre">revision_numbers=[&quot;a4f8f3e&quot;,</span> <span class="pre">&quot;af0f99b&quot;,</span> <span class="pre">&quot;f2482bf&quot;]</span></code>.</p>
+<p>Please note that for the Google Cloud Vision API (the TextDetector class) you need to set a key in order to process the images. This key is ideally set as an environment variable using for example</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;GOOGLE_APPLICATION_CREDENTIALS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;misinformation-campaign-981aa55a3b13.json&quot;</span>
+<br/></pre></div>
+</div>
+</div>
+<p>where you place the key on your Google Drive if running on colab, or place it in a local folder on your machine.</p>
+<p>Summarizing, the text detection is carried out using the following method call and keywords, where <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code>, <code class="docutils literal notranslate"><span class="pre">model_names</span></code>, and <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> are optional:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">TextDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
+    <span class="n">analyse_text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">model_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sshleifer/distilbart-cnn-12-6&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;</span><span class="p">],</span>
+    <span class="n">revision_numbers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;a4f8f3e&quot;</span><span class="p">,</span> <span class="s2">&quot;af0f99b&quot;</span><span class="p">,</span> <span class="s2">&quot;f2482bf&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -324,45 +552,299 @@ Cell <span class="ansi-green-fg">In[8], line 1</span>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[9], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">image_df</span><span style="color: rgb(98,98,98)">.</span>to_csv(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">/content/drive/MyDrive/misinformation-data/data_out.csv</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-red-fg">DefaultCredentialsError</span>                   Traceback (most recent call last)
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:173</span>, in <span class="ansi-cyan-fg">TextDetector.get_text_from_image</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    172</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 173</span>     client <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">vision</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">ImageAnnotatorClient</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    174</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> DefaultCredentialsError:
 
-<span class="ansi-red-fg">NameError</span>: name &#39;image_df&#39; is not defined
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/cloud/vision_v1/services/image_annotator/client.py:462</span>, in <span class="ansi-cyan-fg">ImageAnnotatorClient.__init__</span><span class="ansi-blue-fg">(self, credentials, transport, client_options, client_info)</span>
+<span class="ansi-green-intense-fg ansi-bold">    461</span> Transport <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">type</span>(<span style="color: rgb(0,135,0)">self</span>)<span style="color: rgb(98,98,98)">.</span>get_transport_class(transport)
+<span class="ansi-green-fg">--&gt; 462</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_transport <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">Transport</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    463</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">credentials</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">credentials</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    464</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">credentials_file</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_options</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">credentials_file</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    465</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">host</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">api_endpoint</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    466</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">scopes</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_options</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">scopes</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    467</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">client_cert_source_for_mtls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_cert_source_func</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    468</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_options</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    469</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">client_info</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_info</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    470</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">always_use_jwt_access</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    471</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">api_audience</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_options</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">api_audience</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    472</span> <span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/cloud/vision_v1/services/image_annotator/transports/grpc.py:155</span>, in <span class="ansi-cyan-fg">ImageAnnotatorGrpcTransport.__init__</span><span class="ansi-blue-fg">(self, host, credentials, credentials_file, scopes, channel, api_mtls_endpoint, client_cert_source, ssl_channel_credentials, client_cert_source_for_mtls, quota_project_id, client_info, always_use_jwt_access, api_audience)</span>
+<span class="ansi-green-intense-fg ansi-bold">    154</span> <span style="color: rgb(95,135,135)"># The base transport sets the host, credentials and scopes</span>
+<span class="ansi-green-fg">--&gt; 155</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">super</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg" style="color: rgb(0,0,255)">__init__</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    156</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">host</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">host</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    157</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">credentials</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">credentials</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    158</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">credentials_file</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">credentials_file</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    159</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">scopes</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">scopes</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    160</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    161</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">client_info</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">client_info</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    162</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">always_use_jwt_access</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">always_use_jwt_access</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    163</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">api_audience</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">api_audience</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    164</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    166</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_grpc_channel:
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/cloud/vision_v1/services/image_annotator/transports/base.py:103</span>, in <span class="ansi-cyan-fg">ImageAnnotatorTransport.__init__</span><span class="ansi-blue-fg">(self, host, credentials, credentials_file, scopes, quota_project_id, client_info, always_use_jwt_access, api_audience, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    102</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> credentials <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">--&gt; 103</span>     credentials, _ <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">google</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">auth</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">default</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    104</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">scopes_kwargs</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">quota_project_id</span>
+<span class="ansi-green-intense-fg ansi-bold">    105</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    106</span>     <span style="color: rgb(95,135,135)"># Don&#39;t apply audience if the credentials file passed from user.</span>
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/auth/_default.py:657</span>, in <span class="ansi-cyan-fg">default</span><span class="ansi-blue-fg">(scopes, request, quota_project_id, default_scopes)</span>
+<span class="ansi-green-intense-fg ansi-bold">    656</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> checker <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> checkers:
+<span class="ansi-green-fg">--&gt; 657</span>     credentials, project_id <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">checker</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    658</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> credentials <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/auth/_default.py:650</span>, in <span class="ansi-cyan-fg">default.&lt;locals&gt;.&lt;lambda&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">    641</span> explicit_project_id <span style="color: rgb(98,98,98)">=</span> os<span style="color: rgb(98,98,98)">.</span>environ<span style="color: rgb(98,98,98)">.</span>get(
+<span class="ansi-green-intense-fg ansi-bold">    642</span>     environment_vars<span style="color: rgb(98,98,98)">.</span>PROJECT, os<span style="color: rgb(98,98,98)">.</span>environ<span style="color: rgb(98,98,98)">.</span>get(environment_vars<span style="color: rgb(98,98,98)">.</span>LEGACY_PROJECT)
+<span class="ansi-green-intense-fg ansi-bold">    643</span> )
+<span class="ansi-green-intense-fg ansi-bold">    645</span> checkers <span style="color: rgb(98,98,98)">=</span> (
+<span class="ansi-green-intense-fg ansi-bold">    646</span>     <span style="color: rgb(95,135,135)"># Avoid passing scopes here to prevent passing scopes to user credentials.</span>
+<span class="ansi-green-intense-fg ansi-bold">    647</span>     <span style="color: rgb(95,135,135)"># with_scopes_if_required() below will ensure scopes/default scopes are</span>
+<span class="ansi-green-intense-fg ansi-bold">    648</span>     <span style="color: rgb(95,135,135)"># safely set on the returned credentials since requires_scopes will</span>
+<span class="ansi-green-intense-fg ansi-bold">    649</span>     <span style="color: rgb(95,135,135)"># guard against setting scopes on user credentials.</span>
+<span class="ansi-green-fg">--&gt; 650</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">lambda</span>: <span class="ansi-yellow-bg">_get_explicit_environ_credentials</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg">)</span>,
+<span class="ansi-green-intense-fg ansi-bold">    651</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">lambda</span>: _get_gcloud_sdk_credentials(quota_project_id<span style="color: rgb(98,98,98)">=</span>quota_project_id),
+<span class="ansi-green-intense-fg ansi-bold">    652</span>     _get_gae_credentials,
+<span class="ansi-green-intense-fg ansi-bold">    653</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">lambda</span>: _get_gce_credentials(request, quota_project_id<span style="color: rgb(98,98,98)">=</span>quota_project_id),
+<span class="ansi-green-intense-fg ansi-bold">    654</span> )
+<span class="ansi-green-intense-fg ansi-bold">    656</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> checker <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> checkers:
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/auth/_default.py:270</span>, in <span class="ansi-cyan-fg">_get_explicit_environ_credentials</span><span class="ansi-blue-fg">(quota_project_id)</span>
+<span class="ansi-green-intense-fg ansi-bold">    269</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> explicit_file <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">--&gt; 270</span>     credentials, project_id <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_credentials_from_file</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    271</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">os</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">environ</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">environment_vars</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">CREDENTIALS</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">quota_project_id</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">quota_project_id</span>
+<span class="ansi-green-intense-fg ansi-bold">    272</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    274</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> credentials, project_id
+
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/google/auth/_default.py:114</span>, in <span class="ansi-cyan-fg">load_credentials_from_file</span><span class="ansi-blue-fg">(filename, scopes, default_scopes, quota_project_id, request)</span>
+<span class="ansi-green-intense-fg ansi-bold">    113</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> os<span style="color: rgb(98,98,98)">.</span>path<span style="color: rgb(98,98,98)">.</span>exists(filename):
+<span class="ansi-green-fg">--&gt; 114</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> exceptions<span style="color: rgb(98,98,98)">.</span>DefaultCredentialsError(
+<span class="ansi-green-intense-fg ansi-bold">    115</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">File </span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)"> was not found.</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(98,98,98)">.</span>format(filename)
+<span class="ansi-green-intense-fg ansi-bold">    116</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    118</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> io<span style="color: rgb(98,98,98)">.</span>open(filename, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">r</span><span style="color: rgb(175,0,0)">&#34;</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> file_obj:
+
+<span class="ansi-red-fg">DefaultCredentialsError</span>: File misinformation-campaign-981aa55a3b13.json was not found.
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">DefaultCredentialsError</span>                   Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[11], line 2</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> image_dict<span style="color: rgb(98,98,98)">.</span>keys():
+<span class="ansi-green-fg">----&gt; 2</span>     image_dict[key] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ammico</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">TextDetector</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">image_dict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span>
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">analyse_text</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">model_names</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">sshleifer/distilbart-cnn-12-6</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span>
+<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">distilbert-base-uncased-finetuned-sst-2-english</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">dbmdz/bert-large-cased-finetuned-conll03-english</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span>
+<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">revision_numbers</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">a4f8f3e</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">af0f99b</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">f2482bf</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:158</span>, in <span class="ansi-cyan-fg">TextDetector.analyse_image</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    152</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">analyse_image</span>(<span style="color: rgb(0,135,0)">self</span>) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(0,135,0)">dict</span>:
+<span class="ansi-green-intense-fg ansi-bold">    153</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Perform text extraction and analysis of the text.</span>
+<span class="ansi-green-intense-fg ansi-bold">    154</span>
+<span class="ansi-green-intense-fg ansi-bold">    155</span> <span style="color: rgb(175,0,0)">    Returns:</span>
+<span class="ansi-green-intense-fg ansi-bold">    156</span> <span style="color: rgb(175,0,0)">        dict: The updated dictionary with text analysis results.</span>
+<span class="ansi-green-intense-fg ansi-bold">    157</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 158</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get_text_from_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    159</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>translate_text()
+<span class="ansi-green-intense-fg ansi-bold">    160</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>remove_linebreaks()
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/text.py:175</span>, in <span class="ansi-cyan-fg">TextDetector.get_text_from_image</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    173</span>     client <span style="color: rgb(98,98,98)">=</span> vision<span style="color: rgb(98,98,98)">.</span>ImageAnnotatorClient()
+<span class="ansi-green-intense-fg ansi-bold">    174</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> DefaultCredentialsError:
+<span class="ansi-green-fg">--&gt; 175</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> DefaultCredentialsError(
+<span class="ansi-green-intense-fg ansi-bold">    176</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Please provide credentials for google cloud vision API, see https://cloud.google.com/docs/authentication/application-default-credentials.</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    177</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    178</span> <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> io<span style="color: rgb(98,98,98)">.</span>open(path, <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">rb</span><span style="color: rgb(175,0,0)">&#34;</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> image_file:
+<span class="ansi-green-intense-fg ansi-bold">    179</span>     content <span style="color: rgb(98,98,98)">=</span> image_file<span style="color: rgb(98,98,98)">.</span>read()
+
+<span class="ansi-red-fg">DefaultCredentialsError</span>: Please provide credentials for google cloud vision API, see https://cloud.google.com/docs/authentication/application-default-credentials.
 </pre></div></div>
 </div>
-</section>
-</section>
-<section id="The-detector-modules">
-<h1>The detector modules<a class="headerlink" href="#The-detector-modules" title="Link to this heading"></a></h1>
-<p>The different detector modules with their options are explained in more detail in this section. ## Text detector Text on the images can be extracted using the <code class="docutils literal notranslate"><span class="pre">TextDetector</span></code> class (<code class="docutils literal notranslate"><span class="pre">text</span></code> module). The text is initally extracted using the Google Cloud Vision API and then translated into English with googletrans. The translated text is cleaned of whitespace, linebreaks, and numbers using Python syntax and spaCy. The user can set if the text should be further summarized, and analyzed for
-sentiment and named entity recognition, by setting the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). If set, the transformers pipeline is used for each of these tasks, with the default models as of 03/2023. Other models can be selected by setting the optional keyword <code class="docutils literal notranslate"><span class="pre">model_names</span></code> to a list of selected models, on for each task:
-<code class="docutils literal notranslate"><span class="pre">model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,</span> <span class="pre">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,</span> <span class="pre">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;]</span></code> for summary, sentiment, and ner. To be even more specific, revision numbers can also be selected by specifying the optional keyword <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> to a list of revision numbers for each model, for example <code class="docutils literal notranslate"><span class="pre">revision_numbers=[&quot;a4f8f3e&quot;,</span> <span class="pre">&quot;af0f99b&quot;,</span> <span class="pre">&quot;f2482bf&quot;]</span></code>.</p>
-<p>Summarizing, the text detection is carried out using the following method call and keywords, where <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code>, <code class="docutils literal notranslate"><span class="pre">model_names</span></code>, and <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> are optional:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>image_dict[&quot;image_id&quot;] = ammico.TextDetector(image_dict[&quot;image_id&quot;],
-    analyse_text=True, model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,
-    &quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,
-    &quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;],
-    revision_numbers=[&quot;a4f8f3e&quot;, &quot;af0f99b&quot;, &quot;f2482bf&quot;]).analyse_image()
-</pre></div>
-</div>
 <p>The models can be adapted interactively in the notebook interface and the best models can then be used in a subsequent analysis of the whole data set.</p>
+<p>A detailed description of the output keys and data types is given in the following table.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>output key</p></th>
+<th class="head"><p>output type</p></th>
+<th class="head"><p>output value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the extracted text in the original language</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">text_language</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the detected dominant language of the extracted text</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">text_english</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the text translated into English</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">text_clean</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the text after cleaning from numbers and unrecognizable words</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">text_summary</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the summary of the text, generated with a transformers model</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentiment</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>the detected sentiment, generated with a transformers model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sentiment_score</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float</span></code></p></td>
+<td><p>the confidence associated with the predicted sentiment</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">entity</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>the detected named entities, generated with a transformers model</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">entity_type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>the detected entity type</p></td>
+</tr>
+</tbody>
+</table>
 <section id="Image-summary-and-query">
 <h2>Image summary and query<a class="headerlink" href="#Image-summary-and-query" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>). This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a
-caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user, <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
-<p>For VQA, a list of questions needs to be passed when carrying out the analysis; these should be given as a list of strings.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list_of_questions = [
-    &quot;How many persons on the picture?&quot;,
-    &quot;Are there any politicians in the picture?&quot;,
-    &quot;Does the picture show something from medicine?&quot;,
-]
+<p>The <code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>).</p>
+<p><img alt="a446b7f5dd1b44c888cc4786de0a203b" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
+<p>This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user,
+<code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_summary_detector</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">,</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The implemented models are listed below.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>input model name</p></th>
+<th class="head"><p>model</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>base</p></td>
+<td><p>BLIP image captioning base, ViT-B/16, pretrained on COCO dataset</p></td>
+</tr>
+<tr class="row-odd"><td><p>large</p></td>
+<td><p>BLIP image captioning large, ViT-L/16, pretrained on COCO dataset</p></td>
+</tr>
+<tr class="row-even"><td><p>vqa</p></td>
+<td><p>BLIP base model fine-tuned on VQA v2.0 dataset</p></td>
+</tr>
+<tr class="row-odd"><td><p>blip2_t5_pretrain_flant5xxl</p></td>
+<td><p>BLIP2 pretrained on FlanT5XXL</p></td>
+</tr>
+<tr class="row-even"><td><p>blip2_t5_pretrain_flant5xl</p></td>
+<td><p>BLIP2 pretrained on FlanT5XL</p></td>
+</tr>
+<tr class="row-odd"><td><p>blip2_t5_caption_coco_flant5xl</p></td>
+<td><p>BLIP2 pretrained on FlanT5XL, fine-tuned on COCO</p></td>
+</tr>
+<tr class="row-even"><td><p>blip2_opt_pretrain_opt2.7b</p></td>
+<td><p>BLIP2 pretrained on OPT-2.7b</p></td>
+</tr>
+<tr class="row-odd"><td><p>blip2_opt_pretrain_opt6.7b</p></td>
+<td><p>BLIP2 pretrained on OPT-6.7b</p></td>
+</tr>
+<tr class="row-even"><td><p>blip2_opt_caption_coco_opt2.7b</p></td>
+<td><p>BLIP2 pretrained on OPT-2.7b, fine-tuned on COCO</p></td>
+</tr>
+<tr class="row-odd"><td><p>blip2_opt_caption_coco_opt6.7b</p></td>
+<td><p>BLIP2 pretrained on OPT-6.7b, fine-tuned on COCO</p></td>
+</tr>
+</tbody>
+</table>
+<p>For VQA, a list of questions needs to be passed when carrying out the analysis; these should be given as a list of strings.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_questions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;How many persons on the picture?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Are there any politicians in the picture?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Does the picture show something from medicine?&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Summarizing, the detector is run as</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_summary_vqa_detector</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">,</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary_and_questions&quot;</span><span class="p">,</span>
+                                                    <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">image_summary_vqa_detector</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
+                                                               <span class="n">list_of_questions</span> <span class="o">=</span> <span class="n">list_of_questions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[14], line 4</span>
+<span class="ansi-green-intense-fg ansi-bold">      1</span> image_summary_vqa_detector <span style="color: rgb(98,98,98)">=</span> ammico<span style="color: rgb(98,98,98)">.</span>SummaryDetector(image_dict, analysis_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">summary_and_questions</span><span style="color: rgb(175,0,0)">&#34;</span>,
+<span class="ansi-green-intense-fg ansi-bold">      2</span>                                                     model_type<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">base</span><span style="color: rgb(175,0,0)">&#34;</span>)
+<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> key <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> image_dict<span style="color: rgb(98,98,98)">.</span>keys():
+<span class="ansi-green-fg">----&gt; 4</span>     image_dict[key] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">image_summary_vqa_detector</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">analyse_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">image_dict</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">key</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-yellow-bg">                                                               </span><span class="ansi-yellow-bg">list_of_questions</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">list_of_questions</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/summary.py:314</span>, in <span class="ansi-cyan-fg">SummaryDetector.analyse_image</span><span class="ansi-blue-fg">(self, analysis_type, subdict, list_of_questions, consequential_questions)</span>
+<span class="ansi-green-intense-fg ansi-bold">    312</span>     <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>analyse_questions(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>list_of_questions, consequential_questions)
+<span class="ansi-green-intense-fg ansi-bold">    313</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">--&gt; 314</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">ValueError</span>(
+<span class="ansi-green-intense-fg ansi-bold">    315</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">analysis_type must be one of </span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(98,98,98)">.</span>format(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>allowed_analysis_types)
+<span class="ansi-green-intense-fg ansi-bold">    316</span>     )
+<span class="ansi-green-intense-fg ansi-bold">    317</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>subdict
+
+<span class="ansi-red-fg">ValueError</span>: analysis_type must be one of [&#39;summary&#39;, &#39;questions&#39;, &#39;summary_and_questions&#39;]
+</pre></div></div>
+</div>
+<p>The output is given as a dictionary with the following keys and data types:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>output key</p></th>
+<th class="head"><p>output type</p></th>
+<th class="head"><p>output value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">const_image_summary</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>when <code class="docutils literal notranslate"><span class="pre">analysis_type=&quot;summary&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;summary_and_questions&quot;</span></code>, constant image caption (does not change upon re-running the analysis for the same model)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">3_non-deterministic_summary</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>when <code class="docutils literal notranslate"><span class="pre">analysis_type=&quot;summary&quot;</span></code> or s<code class="docutils literal notranslate"><span class="pre">ummary_and_questions</span></code>, three different captions generated with different random seeds</p></td>
+</tr>
+<tr class="row-even"><td><p><em>a user-defined input question</em></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>when <code class="docutils literal notranslate"><span class="pre">analysis_type=&quot;questions&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code>, the answer to the user-defined input question</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="Detection-of-faces-and-facial-expression-analysis">
 <h2>Detection of faces and facial expression analysis<a class="headerlink" href="#Detection-of-faces-and-facial-expression-analysis" title="Link to this heading"></a></h2>
 <p>Faces and facial expressions are detected and analyzed using the <code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code> class from the <code class="docutils literal notranslate"><span class="pre">faces</span></code> module. Initially, it is detected if faces are present on the image using RetinaFace, followed by analysis if face masks are worn (Face-Mask-Detection). The detection of age, gender, race, and emotions is carried out with deepface.</p>
+<p><img alt="91910a7abb4e4c40b872a02fd24723dc" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
 <p>Depending on the features found on the image, the face detection module returns a different analysis content: If no faces are found on the image, all further steps are skipped and the result <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[None]</span></code> is returned. If one or several faces are found, up to three faces are analyzed if they are partially concealed by a face mask. If
 yes, only age and gender are detected; if no, also race, emotion, and dominant emotion are detected. In case of the latter, the output could look like this: <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">2,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;,</span> <span class="pre">&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[27,</span> <span class="pre">28],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[&quot;Man&quot;,</span> <span class="pre">&quot;Man&quot;],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[&quot;asian&quot;,</span> <span class="pre">None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[&quot;Negative&quot;,</span> <span class="pre">&quot;Neutral&quot;]</span></code>, where for the two faces that are detected (given by <code class="docutils literal notranslate"><span class="pre">no_faces</span></code>), some of the values are returned as a list
 with the first item for the first (largest) face and the second item for the second (smaller) face (for example, <code class="docutils literal notranslate"><span class="pre">&quot;emotion&quot;</span></code> returns a list <code class="docutils literal notranslate"><span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;]</span></code> signifying the first face expressing anger, and the second face having a neutral expression).</p>
@@ -371,10 +853,81 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 <p>From the seven facial expressions, an overall dominating emotion category is identified: negative, positive, or neutral emotion. These are defined with the facial expressions angry, disgust, fear and sad for the negative category, happy for the positive category, and surprise and neutral for the neutral category.</p>
 <p>A similar threshold as for the emotion recognition is set for the race detection, <code class="docutils literal notranslate"><span class="pre">race_threshold</span></code>, with the default set to 50% so that a confidence for the race above 0.5 only will return a value in the analysis.</p>
 <p>Summarizing, the face detection is carried out using the following method call and keywords, where <code class="docutils literal notranslate"><span class="pre">emotion_threshold</span></code> and <code class="docutils literal notranslate"><span class="pre">race_threshold</span></code> are optional:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>image_dict[&quot;image_id&quot;] = ammico.EmotionDetector(image_dict[&quot;image_id&quot;], emotion_threshold=50, race_threshold=50).analyse_image()
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">EmotionDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">emotion_threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">race_threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1/1 [==============================] - 1s 740ms/step
+1/1 [==============================] - 15s 15s/step
+1/1 [==============================] - 14s 14s/step
+1/1 [==============================] - 1s 665ms/step
+1/1 [==============================] - 0s 369ms/step
+1/1 [==============================] - 0s 194ms/step
+1/1 [==============================] - 1s 659ms/step
+1/1 [==============================] - 0s 238ms/step
+1/1 [==============================] - 0s 238ms/step
+1/1 [==============================] - 16s 16s/step
+1/1 [==============================] - 0s 91ms/step
+</pre></div></div>
+</div>
 <p>The thresholds can be adapted interactively in the notebook interface and the optimal value can then be used in a subsequent analysis of the whole data set.</p>
+<p>The output keys that are generated are</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>output key</p></th>
+<th class="head"><p>output type</p></th>
+<th class="head"><p>output value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">face</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>if a face is detected</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">multiple_faces</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">str</span></code></p></td>
+<td><p>if multiple faces are detected</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">no_faces</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int</span></code></p></td>
+<td><p>the number of detected faces</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">wears_mask</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>if each of the detected faces wears a face covering, up to three faces</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">age</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[int]</span></code></p></td>
+<td><p>the detected age, up to three faces</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">gender</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>the detected gender, up to three faces</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">race</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>the detected race, up to three faces, if above the confidence threshold</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">emotion</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>the detected emotion, up to three faces, if above the confidence threshold</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">emotion</span> <span class="pre">(category)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list[str]</span></code></p></td>
+<td><p>the detected emotion category (positive, negative, or neutral), up to three faces, if above the confidence threshold</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="Further-detector-modules">
 <h2>Further detector modules<a class="headerlink" href="#Further-detector-modules" title="Link to this heading"></a></h2>
@@ -387,7 +940,7 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../readme_link.html" class="btn btn-neutral float-left" title="AMMICO - AI Media and Misinformation Content Analysis Tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Example%20multimodal.html" class="btn btn-neutral float-right" title="Image Multimodal Search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Example%20multimodal.html" class="btn btn-neutral float-right" title="Multimodal search module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

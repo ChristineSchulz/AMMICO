@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crop posts from social media posts images &mdash; AMMICO 0.0.1 documentation</title>
+  <title>Crop posts module &mdash; AMMICO 0.0.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="AMMICO package modules" href="../modules.html" />
-    <link rel="prev" title="Color analysis of pictures" href="Example%20colors.html" /> 
+    <link rel="prev" title="Color Detector" href="Example%20colors.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,12 +49,12 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DemoNotebook_ammico.html">AMMICO: AI Media and Misinformation Content Analysis Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DemoNotebook_ammico.html">AMMICO Demonstration Notebook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DemoNotebook_ammico.html#Step-1:-Read-your-data-into-AMMICO">Step 1: Read your data into AMMICO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DemoNotebook_ammico.html#The-detector-modules">The detector modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Image Multimodal Search</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Example%20colors.html">Color analysis of pictures</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Crop posts from social media posts images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20multimodal.html">Multimodal search module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Example%20colors.html">Color Detector</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Crop posts module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules.html">AMMICO package modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license_link.html">License</a></li>
 </ul>
@@ -73,9 +73,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Crop posts from social media posts images</li>
+      <li class="breadcrumb-item active">Crop posts module</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebooks/Example cropposts.ipynb.txt" rel="nofollow"> View page source</a>
+              <a href="https://github.com/ssciwr/AMMICO/blob/main/source/notebooks/Example cropposts.ipynb" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -83,8 +83,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Crop-posts-from-social-media-posts-images">
-<h1>Crop posts from social media posts images<a class="headerlink" href="#Crop-posts-from-social-media-posts-images" title="Link to this heading"></a></h1>
+  <section id="Crop-posts-module">
+<h1>Crop posts module<a class="headerlink" href="#Crop-posts-module" title="Link to this heading"></a></h1>
 <p>Crop posts from social media posts images, to keep import text informations from social media posts images. We can set some manually cropped views from social media posts as reference for cropping the same type social media posts images.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -134,14 +134,14 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load ref view for cropping the same type social media posts images.</span>
 <span class="c1"># substitute the below paths for your samples</span>
 <span class="n">path_ref</span> <span class="o">=</span> <span class="n">pkg</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;ref&quot;</span> <span class="o">/</span> <span class="s2">&quot;ref-00.png&quot;</span>
-<span class="n">ref_view</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path_ref</span><span class="p">)</span>
+<span class="n">ref_view</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path_ref</span><span class="o">.</span><span class="n">as_posix</span><span class="p">())</span>
 <span class="n">RGB_ref_view</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">ref_view</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">RGB_ref_view</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">path_post</span> <span class="o">=</span> <span class="n">pkg</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;test-crop-image.png&quot;</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path_post</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path_post</span><span class="o">.</span><span class="n">as_posix</span><span class="p">())</span>
 <span class="n">RGB_view</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">view</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">RGB_view</span><span class="p">)</span>
@@ -149,23 +149,19 @@
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_cropposts_5_0.png" src="../_images/notebooks_Example_cropposts_5_0.png" />
+</div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[3], line 4</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># load ref view for cropping the same type social media posts images.</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(95,135,135)"># substitute the below paths for your samples</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> path_ref <span style="color: rgb(98,98,98)">=</span> pkg <span style="color: rgb(98,98,98)">/</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data</span><span style="color: rgb(175,0,0)">&#34;</span> <span style="color: rgb(98,98,98)">/</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">ref</span><span style="color: rgb(175,0,0)">&#34;</span> <span style="color: rgb(98,98,98)">/</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">ref-00.png</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-fg">----&gt; 4</span> ref_view <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">cv2</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">imread</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">path_ref</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> RGB_ref_view <span style="color: rgb(98,98,98)">=</span> cv2<span style="color: rgb(98,98,98)">.</span>cvtColor(ref_view, cv2<span style="color: rgb(98,98,98)">.</span>COLOR_BGR2RGB)
-<span class="ansi-green-intense-fg ansi-bold">      6</span> plt<span style="color: rgb(98,98,98)">.</span>figure(figsize<span style="color: rgb(98,98,98)">=</span>(<span style="color: rgb(98,98,98)">10</span>, <span style="color: rgb(98,98,98)">15</span>))
-
-<span class="ansi-red-fg">TypeError</span>: Can&#39;t convert object to &#39;str&#39; for &#39;filename&#39;
-</pre></div></div>
+<img alt="../_images/notebooks_Example_cropposts_5_1.png" src="../_images/notebooks_Example_cropposts_5_1.png" />
+</div>
 </div>
 <p>You can now crop the image and check on the way that everything looks fine. <code class="docutils literal notranslate"><span class="pre">plt_match</span></code> will plot the matches on the image and below which line content will be cropped; <code class="docutils literal notranslate"><span class="pre">plt_crop</span></code> will plot the cropped text part of the social media post with the comments removed; <code class="docutils literal notranslate"><span class="pre">plt_image</span></code> will plot the image part of the social media post if applicable.</p>
 <div class="nbinput docutils container">
@@ -181,23 +177,33 @@ Cell <span class="ansi-green-fg">In[3], line 4</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_cropposts_7_0.png" src="../_images/notebooks_Example_cropposts_7_0.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_cropposts_7_1.png" src="../_images/notebooks_Example_cropposts_7_1.png" />
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_cropposts_7_2.png" src="../_images/notebooks_Example_cropposts_7_2.png" />
+</div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[4], line 4</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># crop a posts from reference view, check the cropping </span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span style="color: rgb(95,135,135)"># this will only plot something if the reference is found on the image</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> crop_view <span style="color: rgb(98,98,98)">=</span> crpo<span style="color: rgb(98,98,98)">.</span>crop_posts_from_refs(
-<span class="ansi-green-fg">----&gt; 4</span>     [<span class="ansi-yellow-bg">ref_view</span>], view,
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     plt_match<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, plt_crop<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, plt_image<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>,
-<span class="ansi-green-intense-fg ansi-bold">      6</span> )
-
-<span class="ansi-red-fg">NameError</span>: name &#39;ref_view&#39; is not defined
-</pre></div></div>
+<img alt="../_images/notebooks_Example_cropposts_7_3.png" src="../_images/notebooks_Example_cropposts_7_3.png" />
+</div>
 </div>
 <p>Batch crop images from the image folder given in <code class="docutils literal notranslate"><span class="pre">crop_dir</span></code>. The cropped images will save in <code class="docutils literal notranslate"><span class="pre">save_crop_dir</span></code> folder with the same file name as the original file. The reference images with the items to match are provided in <code class="docutils literal notranslate"><span class="pre">ref_dir</span></code>.</p>
 <p>Sometimes the cropping will be imperfect, due to improper matches on the image. It is sometimes easier to first categorize the social media posts and then set different references in the reference folder <code class="docutils literal notranslate"><span class="pre">ref_dir</span></code>.</p>
@@ -205,17 +211,47 @@ Cell <span class="ansi-green-fg">In[4], line 4</span>
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">crop_dir</span> <span class="o">=</span> <span class="s2">&quot;../ammico/data/&quot;</span>
-<span class="n">ref_dir</span> <span class="o">=</span> <span class="s2">&quot;../ammico/data/ref&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">crop_dir</span> <span class="o">=</span> <span class="s2">&quot;data/&quot;</span>
+<span class="n">ref_dir</span> <span class="o">=</span> <span class="n">pkg</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;ref&quot;</span>
 <span class="n">save_crop_dir</span> <span class="o">=</span> <span class="s2">&quot;data/crop/&quot;</span>
 
 <span class="n">files</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">crop_dir</span><span class="p">,</span><span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,)</span>
-<span class="n">ref_files</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">ref_dir</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ref_files</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">ref_dir</span><span class="o">.</span><span class="n">as_posix</span><span class="p">(),</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">crpo</span><span class="o">.</span><span class="n">crop_media_posts</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">ref_files</span><span class="p">,</span> <span class="n">save_crop_dir</span><span class="p">,</span> <span class="n">plt_match</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plt_crop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plt_image</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Batch cropping images done&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+[ WARN:0@14.722] global loadsave.cpp:248 findDecoder imread_(&#39;ref-07&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.722] global loadsave.cpp:248 findDecoder imread_(&#39;ref-12&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.722] global loadsave.cpp:248 findDecoder imread_(&#39;ref-03&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.722] global loadsave.cpp:248 findDecoder imread_(&#39;ref-10&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-05&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-13&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-11&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-09&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-08&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-01&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-00&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-02&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-04&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;ref-06&#39;): can&#39;t open/read file: check file path/integrity
+[ WARN:0@14.723] global loadsave.cpp:248 findDecoder imread_(&#39;106349S_por&#39;): can&#39;t open/read file: check file path/integrity
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Doing file 106349S_por
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -223,22 +259,67 @@ Cell <span class="ansi-green-fg">In[4], line 4</span>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[5], line 5</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> ref_dir <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">../ammico/data/ref</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> save_crop_dir <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data/crop/</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-fg">----&gt; 5</span> files <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">utils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">find_files</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">path</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">crop_dir</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">limit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> ref_files <span style="color: rgb(98,98,98)">=</span> utils<span style="color: rgb(98,98,98)">.</span>find_files(path<span style="color: rgb(98,98,98)">=</span>ref_dir, limit<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">100</span>)
-<span class="ansi-green-intense-fg ansi-bold">      8</span> crpo<span style="color: rgb(98,98,98)">.</span>crop_media_posts(files, ref_files, save_crop_dir, plt_match<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, plt_crop<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, plt_image<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+<span class="ansi-red-fg">error</span>                                     Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[5], line 8</span>
+<span class="ansi-green-intense-fg ansi-bold">      5</span> files <span style="color: rgb(98,98,98)">=</span> utils<span style="color: rgb(98,98,98)">.</span>find_files(path<span style="color: rgb(98,98,98)">=</span>crop_dir,limit<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">10</span>,)
+<span class="ansi-green-intense-fg ansi-bold">      6</span> ref_files <span style="color: rgb(98,98,98)">=</span> utils<span style="color: rgb(98,98,98)">.</span>find_files(path<span style="color: rgb(98,98,98)">=</span>ref_dir<span style="color: rgb(98,98,98)">.</span>as_posix(), limit<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">100</span>)
+<span class="ansi-green-fg">----&gt; 8</span> <span class="ansi-yellow-bg">crpo</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">crop_media_posts</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">files</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">ref_files</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">save_crop_dir</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">plt_match</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">plt_crop</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">plt_image</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      9</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Batch cropping images done</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:134</span>, in <span class="ansi-cyan-fg">find_files</span><span class="ansi-blue-fg">(path, pattern, recursive, limit, random_seed)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>     results<span style="color: rgb(98,98,98)">.</span>extend(_match_pattern(path, p, recursive<span style="color: rgb(98,98,98)">=</span>recursive))
-<span class="ansi-green-intense-fg ansi-bold">    133</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(results) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
-<span class="ansi-green-fg">--&gt; 134</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">FileNotFoundError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">No files found in </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> with pattern </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pattern<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-intense-fg ansi-bold">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> random_seed <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">    137</span>     random<span style="color: rgb(98,98,98)">.</span>seed(random_seed)
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/cropposts.py:335</span>, in <span class="ansi-cyan-fg">crop_media_posts</span><span class="ansi-blue-fg">(files, ref_files, save_crop_dir, plt_match, plt_crop, plt_image)</span>
+<span class="ansi-green-intense-fg ansi-bold">    333</span> view <span style="color: rgb(98,98,98)">=</span> cv2<span style="color: rgb(98,98,98)">.</span>imread(crop_file)
+<span class="ansi-green-intense-fg ansi-bold">    334</span> <span style="color: rgb(0,135,0)">print</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Doing file </span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(98,98,98)">.</span>format(crop_file))
+<span class="ansi-green-fg">--&gt; 335</span> crop_view <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">crop_posts_from_refs</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">    336</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">ref_views</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    337</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">view</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    338</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">plt_match</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">plt_match</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    339</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">plt_crop</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">plt_crop</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    340</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">plt_image</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">plt_image</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    341</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    342</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> crop_view <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    343</span>     <span style="color: rgb(95,135,135)"># save the image to the provided folder</span>
+<span class="ansi-green-intense-fg ansi-bold">    344</span>     filename <span style="color: rgb(98,98,98)">=</span> ntpath<span style="color: rgb(98,98,98)">.</span>basename(crop_file)
 
-<span class="ansi-red-fg">FileNotFoundError</span>: No files found in ../ammico/data/ with pattern &#39;[&#39;png&#39;, &#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;webp&#39;, &#39;avif&#39;, &#39;tiff&#39;]&#39;
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/cropposts.py:236</span>, in <span class="ansi-cyan-fg">crop_posts_from_refs</span><span class="ansi-blue-fg">(ref_views, view, plt_match, plt_crop, plt_image)</span>
+<span class="ansi-green-intense-fg ansi-bold">    234</span> found_match <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span>
+<span class="ansi-green-intense-fg ansi-bold">    235</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> ref_view <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> ref_views:
+<span class="ansi-green-fg">--&gt; 236</span>     rte <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">crop_posts_image</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">ref_view</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">view</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    237</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> rte <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-intense-fg ansi-bold">    238</span>         crop_img, match_num, v, h <span style="color: rgb(98,98,98)">=</span> rte
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/cropposts.py:185</span>, in <span class="ansi-cyan-fg">crop_posts_image</span><span class="ansi-blue-fg">(ref_view, view)</span>
+<span class="ansi-green-intense-fg ansi-bold">    171</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">crop_posts_image</span>(
+<span class="ansi-green-intense-fg ansi-bold">    172</span>     ref_view: List,
+<span class="ansi-green-intense-fg ansi-bold">    173</span>     view: np<span style="color: rgb(98,98,98)">.</span>ndarray,
+<span class="ansi-green-intense-fg ansi-bold">    174</span> ) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> Union[<span class="ansi-bold" style="color: rgb(0,135,0)">None</span>, Tuple[np<span style="color: rgb(98,98,98)">.</span>ndarray, <span style="color: rgb(0,135,0)">int</span>, <span style="color: rgb(0,135,0)">int</span>, <span style="color: rgb(0,135,0)">int</span>]]:
+<span class="ansi-green-intense-fg ansi-bold">    175</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Crop the social media post to exclude additional comments. Sometimes also crops the</span>
+<span class="ansi-green-intense-fg ansi-bold">    176</span> <span style="color: rgb(175,0,0)">    image part of the post - this is put back in later.</span>
+<span class="ansi-green-intense-fg ansi-bold">    177</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    183</span> <span style="color: rgb(175,0,0)">        np.ndarray: The cropped social media post.</span>
+<span class="ansi-green-intense-fg ansi-bold">    184</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">--&gt; 185</span>     filtered_matches, kp1, kp2 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">matching_points</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">ref_view</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">view</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    186</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(filtered_matches) <span style="color: rgb(98,98,98)">&lt;</span> MIN_MATCH_COUNT:
+<span class="ansi-green-intense-fg ansi-bold">    187</span>         <span style="color: rgb(95,135,135)"># not enough matches found</span>
+<span class="ansi-green-intense-fg ansi-bold">    188</span>         <span style="color: rgb(95,135,135)"># print(&#34;Found too few matches - {}&#34;.format(filtered_matches))</span>
+<span class="ansi-green-intense-fg ansi-bold">    189</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
+
+File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/cropposts.py:82</span>, in <span class="ansi-cyan-fg">matching_points</span><span class="ansi-blue-fg">(img1, img2)</span>
+<span class="ansi-green-intense-fg ansi-bold">     69</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">matching_points</span>(
+<span class="ansi-green-intense-fg ansi-bold">     70</span>     img1: np<span style="color: rgb(98,98,98)">.</span>ndarray, img2: np<span style="color: rgb(98,98,98)">.</span>ndarray
+<span class="ansi-green-intense-fg ansi-bold">     71</span> ) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> Tuple[cv2<span style="color: rgb(98,98,98)">.</span>DMatch, List[cv2<span style="color: rgb(98,98,98)">.</span>KeyPoint], List[cv2<span style="color: rgb(98,98,98)">.</span>KeyPoint]]:
+<span class="ansi-green-intense-fg ansi-bold">     72</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Computes keypoint matches using the SIFT algorithm between two images.</span>
+<span class="ansi-green-intense-fg ansi-bold">     73</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span> <span style="color: rgb(175,0,0)">    Args:</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">     80</span> <span style="color: rgb(175,0,0)">        cv2.KeyPoint: List of keypoints from the second image.</span>
+<span class="ansi-green-intense-fg ansi-bold">     81</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 82</span>     img1 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">cv2</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">cvtColor</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">img1</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">cv2</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">COLOR_BGR2GRAY</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     83</span>     img2 <span style="color: rgb(98,98,98)">=</span> cv2<span style="color: rgb(98,98,98)">.</span>cvtColor(img2, cv2<span style="color: rgb(98,98,98)">.</span>COLOR_BGR2GRAY)
+<span class="ansi-green-intense-fg ansi-bold">     84</span>     sift <span style="color: rgb(98,98,98)">=</span> cv2<span style="color: rgb(98,98,98)">.</span>SIFT_create()
+
+<span class="ansi-red-fg">error</span>: OpenCV(4.8.1) /io/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function &#39;cvtColor&#39;
+
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -255,7 +336,7 @@ File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:134</span>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Example%20colors.html" class="btn btn-neutral float-left" title="Color analysis of pictures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Example%20colors.html" class="btn btn-neutral float-left" title="Color Detector" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../modules.html" class="btn btn-neutral float-right" title="AMMICO package modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
