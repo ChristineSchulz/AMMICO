@@ -116,7 +116,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ammico.utils</span> <span class="k">as</span> <span class="nn">mutils</span>
@@ -125,7 +125,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">find_files</span><span class="p">(</span>
@@ -136,7 +136,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span>
@@ -144,7 +144,7 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -158,7 +158,7 @@
 <h2>Indexing and extracting features from images in selected folder<a class="headerlink" href="#Indexing-and-extracting-features-from-images-in-selected-folder" title="Link to this heading"></a></h2>
 <p>First you need to select a model. You can choose one of the following models: - <a class="reference external" href="https://github.com/salesforce/BLIP">blip</a> - <a class="reference external" href="https://huggingface.co/docs/transformers/main/model_doc/blip-2">blip2</a> - <a class="reference external" href="https://github.com/salesforce/ALBEF">albef</a> - <a class="reference external" href="https://github.com/openai/CLIP/blob/main/model-card.md">clip_base</a> - <a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14</a> - <a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14_336</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_type</span> <span class="o">=</span> <span class="s2">&quot;blip&quot;</span>
@@ -172,7 +172,7 @@
 </div>
 <p>To process the loaded images using the selected model, use the below code:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_obj</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">MultimodalSearch</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
@@ -180,7 +180,7 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_obj</span><span class="o">.</span><span class="n">subdict</span>
@@ -188,7 +188,7 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -199,7 +199,7 @@
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -221,11 +221,14 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 1.97G/1.97G [00:16&lt;00:00, 126MB/s]
+(…)bert-base-uncased/resolve/main/vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 10.2MB/s]
+(…)cased/resolve/main/tokenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 6.38kB/s]
+(…)rt-base-uncased/resolve/main/config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 466kB/s]
+100%|██████████| 1.97G/1.97G [00:09&lt;00:00, 214MB/s]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_image_stacked</span>
@@ -233,43 +236,43 @@
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 tensor([[ 1.1012e-01, -7.5168e-02,  5.1168e-02, -1.7778e-01, -1.6888e-01,
-         -9.1131e-04,  1.3566e-02, -1.4314e-01,  6.6218e-02, -4.5880e-02,
-          1.4472e-02,  4.8086e-02,  6.6030e-03,  4.4415e-02,  5.3860e-03,
+         -9.1135e-04,  1.3566e-02, -1.4314e-01,  6.6218e-02, -4.5880e-02,
+          1.4472e-02,  4.8086e-02,  6.6029e-03,  4.4415e-02,  5.3860e-03,
           4.4499e-02, -3.1550e-02,  1.0571e-02, -5.8567e-02,  3.1155e-02,
           5.4091e-02, -1.0610e-01, -2.5944e-02, -7.5799e-03,  6.8304e-02,
          -6.6986e-02,  8.0149e-02, -1.2928e-02, -6.3677e-02, -5.2397e-02,
          -1.3488e-01, -8.1277e-02,  1.1877e-03, -5.3062e-02,  7.8236e-02,
-          5.2935e-02,  3.3612e-03, -6.9611e-02, -3.2997e-02,  5.7090e-02,
+          5.2934e-02,  3.3611e-03, -6.9611e-02, -3.2997e-02,  5.7090e-02,
          -8.5948e-02, -9.3056e-02,  5.7117e-02, -1.2415e-01, -5.9904e-02,
          -5.9758e-02, -1.3205e-01, -7.9004e-02, -2.5256e-02, -1.0186e-01,
           6.6683e-02,  3.1179e-02, -8.6700e-02, -2.4749e-02,  5.9429e-02,
           5.7969e-02,  4.3389e-02,  1.4305e-02,  4.1522e-02,  4.5499e-02,
-          5.9856e-02,  5.0948e-02, -9.5958e-02,  5.9539e-04,  6.9768e-02,
+          5.9855e-02,  5.0948e-02, -9.5958e-02,  5.9531e-04,  6.9768e-02,
           4.8947e-02,  5.3179e-02,  3.9013e-02,  2.1069e-02, -7.2380e-03,
-          5.0662e-02,  1.7944e-02,  6.6896e-03,  1.5344e-02, -4.6793e-02,
+          5.0662e-02,  1.7943e-02,  6.6895e-03,  1.5344e-02, -4.6793e-02,
          -1.7770e-02,  4.4943e-02, -6.1835e-03,  4.5840e-02,  7.2644e-02,
          -2.3762e-02, -4.3159e-02,  8.2409e-02,  1.5021e-02,  4.9489e-02,
-          6.1911e-02,  8.3409e-03, -1.7154e-02, -3.0081e-02, -4.1671e-02,
+          6.1911e-02,  8.3408e-03, -1.7154e-02, -3.0081e-02, -4.1671e-02,
          -3.1439e-02, -6.8992e-02,  1.2365e-02,  3.2730e-02, -1.3427e-02,
-          4.4938e-02, -6.8477e-02,  7.6106e-02, -8.8382e-02, -4.0990e-02,
+          4.4939e-02, -6.8477e-02,  7.6106e-02, -8.8382e-02, -4.0990e-02,
           1.9999e-02, -5.8816e-02,  1.7368e-02,  5.7964e-02,  1.5909e-01,
-         -3.2197e-02,  5.1099e-02, -2.6202e-02,  1.6106e-03, -3.2062e-03,
+         -3.2197e-02,  5.1099e-02, -2.6202e-02,  1.6105e-03, -3.2063e-03,
           1.6105e-02,  5.3417e-02,  5.7979e-02, -2.6439e-02, -3.4372e-03,
-         -1.7875e-02, -5.7792e-03, -1.1739e-02, -7.6934e-02,  7.4784e-02,
+         -1.7876e-02, -5.7793e-03, -1.1739e-02, -7.6935e-02,  7.4784e-02,
          -5.2521e-02,  1.2977e-02,  2.0117e-02, -9.6784e-02,  1.6069e-02,
-          2.9233e-02,  4.5277e-02,  1.0033e-03,  6.7311e-03,  1.0139e-02,
+          2.9233e-02,  4.5277e-02,  1.0033e-03,  6.7313e-03,  1.0139e-02,
          -8.3055e-02,  1.5429e-02,  8.7240e-02,  7.2129e-03,  4.7280e-02,
-          7.6404e-02,  3.3901e-02, -4.7372e-02, -1.1717e-03, -3.7976e-02,
-          2.1521e-02,  7.8790e-04, -2.3502e-02,  4.6782e-03, -5.0353e-03,
+          7.6404e-02,  3.3901e-02, -4.7372e-02, -1.1716e-03, -3.7976e-02,
+          2.1521e-02,  7.8778e-04, -2.3503e-02,  4.6782e-03, -5.0352e-03,
          -2.6523e-02,  5.5778e-02,  2.1003e-02,  2.4718e-02,  4.3634e-03,
           2.5560e-02, -7.9926e-02,  1.3990e-01, -9.4285e-03, -3.3241e-02,
-         -3.3888e-03, -2.0583e-03,  5.1940e-02,  3.9993e-02, -8.9043e-03,
+         -3.3887e-03, -2.0582e-03,  5.1940e-02,  3.9994e-02, -8.9044e-03,
          -3.7222e-02,  5.0615e-02,  5.8512e-02, -1.1737e-01,  1.2046e-01,
          -9.1137e-02, -6.2802e-02, -1.8729e-02,  4.4493e-02,  4.8080e-02,
           6.7830e-02,  4.6744e-02,  6.2280e-02, -4.1152e-02, -1.7641e-02,
@@ -277,129 +280,129 @@ tensor([[ 1.1012e-01, -7.5168e-02,  5.1168e-02, -1.7778e-01, -1.6888e-01,
           6.6406e-02, -3.5878e-02,  4.6508e-02, -2.7463e-02, -1.1229e-01,
          -3.1511e-02, -2.2031e-02,  5.2967e-02,  8.9757e-03,  5.1510e-02,
          -2.7554e-02, -1.4970e-01, -1.6232e-02,  1.0702e-01,  3.6492e-02,
-         -3.0948e-03, -3.6520e-02,  4.5057e-02,  5.2594e-02,  7.0829e-02,
+         -3.0948e-03, -3.6520e-02,  4.5058e-02,  5.2594e-02,  7.0829e-02,
           6.3175e-02, -5.2307e-02,  4.4408e-02, -2.3004e-02, -5.8003e-02,
           6.6977e-03, -3.7382e-02,  6.8639e-02, -4.4470e-02,  5.5630e-02,
-          2.7618e-03,  1.3580e-01,  5.9817e-02,  3.3938e-02,  5.5501e-02,
+          2.7618e-03,  1.3580e-01,  5.9816e-02,  3.3938e-02,  5.5501e-02,
           1.1331e-01,  5.3495e-02, -8.7937e-02, -1.5506e-02,  2.1425e-02,
          -2.4320e-02,  7.5178e-02, -2.0411e-02, -7.3793e-02, -8.3548e-02,
-         -6.6768e-02, -7.9829e-02, -1.1950e-02, -1.1924e-01,  4.3735e-04,
-         -9.8473e-02, -2.9941e-02,  2.1787e-02, -8.7719e-02, -4.3942e-03,
-         -3.0280e-02,  2.0637e-02,  8.6543e-02, -4.2707e-02, -1.4635e-01,
+         -6.6768e-02, -7.9829e-02, -1.1950e-02, -1.1924e-01,  4.3731e-04,
+         -9.8474e-02, -2.9941e-02,  2.1787e-02, -8.7719e-02, -4.3941e-03,
+         -3.0280e-02,  2.0636e-02,  8.6543e-02, -4.2707e-02, -1.4635e-01,
          -2.1618e-02,  2.5519e-01,  6.3774e-02, -9.4064e-02, -5.5964e-02,
           8.5568e-02, -2.5098e-02, -1.8287e-03, -5.7677e-03, -4.8354e-02,
           1.1468e-01, -1.3158e-01,  1.5233e-02, -9.3690e-03, -1.5281e-01,
           2.1163e-02],
-        [-3.1164e-02,  8.1990e-03,  4.1795e-02, -1.3446e-01, -1.2907e-01,
-         -2.6754e-02, -2.6497e-02, -9.9805e-02,  6.9648e-02, -8.9567e-02,
-         -6.6048e-02,  5.2083e-02,  1.1241e-03, -9.1321e-03,  9.2743e-03,
-          9.7092e-02, -8.1129e-02,  7.2043e-02, -3.2057e-02,  9.2242e-02,
+        [-3.1164e-02,  8.1989e-03,  4.1795e-02, -1.3446e-01, -1.2907e-01,
+         -2.6754e-02, -2.6497e-02, -9.9805e-02,  6.9648e-02, -8.9566e-02,
+         -6.6048e-02,  5.2083e-02,  1.1241e-03, -9.1322e-03,  9.2742e-03,
+          9.7092e-02, -8.1129e-02,  7.2043e-02, -3.2057e-02,  9.2243e-02,
           4.2411e-02, -1.5072e-01, -5.1422e-02,  2.3339e-02,  7.7359e-02,
-         -7.0478e-02,  8.9051e-03, -7.7343e-03, -1.1392e-02, -1.1554e-02,
+         -7.0478e-02,  8.9051e-03, -7.7342e-03, -1.1392e-02, -1.1554e-02,
          -9.6200e-02, -7.8713e-02, -4.3739e-02, -1.0089e-02,  5.2780e-02,
-         -1.5134e-02, -8.3012e-02, -5.7275e-05, -5.0367e-02,  8.0765e-02,
+         -1.5134e-02, -8.3012e-02, -5.7259e-05, -5.0367e-02,  8.0765e-02,
          -3.9783e-02, -6.5552e-02,  5.4163e-02, -1.3714e-01,  1.9904e-02,
-         -3.0555e-02, -1.2708e-01, -6.9253e-02, -1.0282e-01, -1.4026e-01,
+         -3.0555e-02, -1.2708e-01, -6.9254e-02, -1.0282e-01, -1.4026e-01,
           5.2235e-02,  1.2107e-01, -6.0284e-02, -1.5995e-02,  1.1738e-01,
-         -2.6826e-02,  7.0068e-02, -6.1172e-02,  7.3894e-02, -1.1002e-02,
-          1.2297e-02,  4.2592e-02, -3.2391e-02, -5.0095e-02,  1.6831e-03,
-          8.7965e-03,  4.5042e-03,  8.0837e-02, -2.0403e-03, -3.2196e-02,
+         -2.6826e-02,  7.0068e-02, -6.1171e-02,  7.3894e-02, -1.1002e-02,
+          1.2297e-02,  4.2592e-02, -3.2391e-02, -5.0095e-02,  1.6830e-03,
+          8.7965e-03,  4.5043e-03,  8.0837e-02, -2.0403e-03, -3.2196e-02,
           2.5989e-02,  3.6446e-02,  3.4951e-02,  8.8740e-03, -7.0723e-02,
-         -6.5689e-02, -5.2307e-03, -4.5166e-02, -1.3356e-03, -3.6439e-03,
+         -6.5689e-02, -5.2307e-03, -4.5166e-02, -1.3355e-03, -3.6439e-03,
           5.6545e-02, -2.6859e-02,  8.0501e-02,  4.1611e-02,  1.0065e-02,
          -1.7620e-02,  9.6369e-02,  1.9216e-02, -3.0261e-02,  4.2976e-02,
-         -4.3991e-02,  2.1424e-04,  4.0874e-02,  5.5617e-02, -6.6902e-02,
+         -4.3991e-02,  2.1417e-04,  4.0874e-02,  5.5617e-02, -6.6902e-02,
           4.4322e-02, -7.8471e-02,  8.3969e-02, -1.1869e-01, -1.4385e-02,
           4.8134e-02, -1.3211e-01,  3.4555e-02,  4.0508e-02,  1.1793e-01,
           5.4095e-02,  6.8710e-02,  2.4825e-02, -7.3113e-02,  2.0910e-02,
           7.2264e-02, -1.9415e-02, -9.1016e-03,  5.3200e-03,  1.1442e-02,
-         -3.9044e-02, -1.1724e-02,  6.3622e-03,  3.5476e-03, -2.3111e-03,
+         -3.9044e-02, -1.1724e-02,  6.3622e-03,  3.5475e-03, -2.3111e-03,
          -1.4227e-02,  7.5602e-02,  2.4797e-02, -6.4644e-02, -2.7618e-02,
-          5.0614e-02,  6.6189e-04,  1.5340e-02,  1.0458e-01,  4.0525e-02,
+          5.0614e-02,  6.6187e-04,  1.5339e-02,  1.0458e-01,  4.0525e-02,
          -1.2838e-01,  1.1920e-02,  1.7468e-02,  7.7678e-03, -2.4481e-02,
           1.6154e-01, -4.8973e-02, -7.4852e-02,  3.4362e-02, -2.1357e-02,
-          2.6962e-02, -1.7112e-02,  6.1105e-03,  1.0571e-01,  6.9000e-05,
+          2.6962e-02, -1.7112e-02,  6.1105e-03,  1.0571e-01,  6.9005e-05,
          -1.4003e-02,  7.1748e-02,  3.0738e-02,  1.7992e-02,  5.1729e-02,
           6.6664e-02, -6.7228e-02,  1.2088e-01, -5.2015e-02,  4.6751e-02,
-          1.0251e-02, -3.9151e-02,  9.5365e-03,  1.2293e-02, -8.0279e-02,
+          1.0251e-02, -3.9151e-02,  9.5366e-03,  1.2293e-02, -8.0279e-02,
          -1.0735e-01, -5.9143e-02,  5.0980e-03,  6.0568e-02,  5.3911e-02,
-         -8.4256e-02,  2.4663e-02, -9.1507e-02, -2.6755e-02,  4.6592e-02,
+         -8.4256e-02,  2.4663e-02, -9.1507e-02, -2.6754e-02,  4.6592e-02,
           6.8756e-02,  1.1072e-02,  3.4203e-02, -8.8727e-03, -1.2427e-01,
           4.0695e-02, -6.4650e-02,  3.3053e-02, -1.5730e-02, -4.8715e-02,
           9.6889e-02,  3.7285e-02, -2.9729e-02, -1.6436e-02, -5.3257e-02,
          -3.4825e-02,  1.8575e-02,  4.2490e-02,  8.4915e-02,  6.9943e-02,
          -1.4868e-02, -8.4394e-02, -6.9336e-02, -1.7557e-02, -5.7259e-03,
           1.0456e-02, -1.3997e-02,  8.5069e-03,  3.6159e-02,  1.1070e-01,
-          1.0540e-01, -1.0440e-03,  4.3275e-02,  2.9507e-02,  8.7413e-02,
-         -4.4690e-03, -1.4300e-02,  1.1346e-01, -4.2881e-02,  9.7737e-02,
+          1.0540e-01, -1.0440e-03,  4.3275e-02,  2.9507e-02,  8.7414e-02,
+         -4.4689e-03, -1.4300e-02,  1.1346e-01, -4.2881e-02,  9.7738e-02,
           1.9278e-02,  1.8649e-01,  9.2842e-02,  1.5103e-02,  6.8677e-02,
           6.4610e-02,  5.9507e-02, -5.2550e-02, -4.7533e-02,  4.8374e-02,
          -2.0671e-03,  1.8360e-02, -8.2667e-02, -1.1774e-01, -1.2933e-01,
          -2.9302e-02, -3.2352e-02, -2.5486e-02, -3.8304e-02, -4.6321e-02,
-         -3.9816e-02,  6.5331e-02,  7.1257e-02, -9.2949e-02,  8.0231e-02,
-          5.7683e-03, -3.4453e-02,  9.1015e-02, -1.0268e-01, -8.8126e-02,
+         -3.9816e-02,  6.5332e-02,  7.1257e-02, -9.2949e-02,  8.0231e-02,
+          5.7684e-03, -3.4453e-02,  9.1015e-02, -1.0268e-01, -8.8126e-02,
           8.1906e-02,  1.2352e-01,  6.5130e-02, -8.0906e-02, -4.3627e-02,
           2.7933e-02,  3.3885e-02,  3.5205e-02,  2.2513e-03, -7.7013e-02,
-          4.9526e-02, -1.0929e-01, -3.8326e-02, -2.5681e-03, -6.6640e-02,
+          4.9526e-02, -1.0929e-01, -3.8326e-02, -2.5682e-03, -6.6640e-02,
           6.7460e-02],
-        [ 3.8704e-02, -6.5871e-03,  6.4091e-02, -1.2137e-01, -8.6449e-02,
-         -1.4590e-02, -7.4129e-03, -1.0394e-01,  2.8826e-02, -4.1845e-02,
-          3.7168e-02,  1.1118e-01, -1.3505e-02,  6.0235e-03,  8.9250e-05,
-          3.2005e-02, -1.3496e-01,  2.9081e-03, -3.8615e-02,  3.0804e-02,
+        [ 3.8704e-02, -6.5872e-03,  6.4091e-02, -1.2137e-01, -8.6449e-02,
+         -1.4590e-02, -7.4130e-03, -1.0394e-01,  2.8826e-02, -4.1845e-02,
+          3.7168e-02,  1.1118e-01, -1.3505e-02,  6.0235e-03,  8.9227e-05,
+          3.2005e-02, -1.3496e-01,  2.9082e-03, -3.8615e-02,  3.0804e-02,
           7.7103e-02, -1.4979e-01, -2.8390e-02, -1.6990e-02,  6.3808e-02,
          -1.3135e-01,  1.0513e-01,  1.4381e-02, -5.8167e-02, -1.9642e-03,
          -1.5241e-01, -4.5724e-02, -2.1128e-02, -1.0526e-01,  3.5515e-02,
           2.2537e-02, -4.3570e-02, -3.4177e-03, -7.5509e-03,  1.2463e-02,
-          8.1263e-03, -1.1059e-01,  4.8501e-02, -8.1062e-02, -8.1252e-02,
+          8.1264e-03, -1.1059e-01,  4.8502e-02, -8.1062e-02, -8.1252e-02,
          -2.7807e-02, -1.4570e-01, -8.6797e-02, -6.8093e-02, -9.7331e-02,
-          1.1802e-01,  6.9851e-02, -7.5977e-02, -2.7399e-02,  1.1688e-01,
-         -5.0666e-02,  5.2366e-02, -3.3355e-02,  3.2395e-02, -5.4475e-04,
-          3.9203e-02,  2.2738e-02, -9.1094e-02,  2.4388e-02,  2.9965e-02,
-         -3.6205e-02,  3.7492e-04,  6.1142e-02,  1.5916e-02, -6.7279e-02,
-          3.6081e-03,  4.0222e-04, -2.4583e-02,  3.1065e-02, -4.2247e-02,
+          1.1802e-01,  6.9852e-02, -7.5976e-02, -2.7399e-02,  1.1688e-01,
+         -5.0666e-02,  5.2366e-02, -3.3355e-02,  3.2395e-02, -5.4470e-04,
+          3.9203e-02,  2.2737e-02, -9.1094e-02,  2.4388e-02,  2.9964e-02,
+         -3.6205e-02,  3.7497e-04,  6.1142e-02,  1.5916e-02, -6.7279e-02,
+          3.6079e-03,  4.0223e-04, -2.4583e-02,  3.1065e-02, -4.2247e-02,
          -5.3042e-02,  2.7570e-02,  5.3230e-02,  1.4304e-02,  6.8737e-02,
-          1.4924e-02, -4.0731e-03,  1.5391e-02,  1.3633e-02, -6.9916e-02,
-          4.9007e-03, -2.1637e-02, -3.9184e-02, -3.0116e-02,  5.9534e-02,
+          1.4924e-02, -4.0730e-03,  1.5391e-02,  1.3633e-02, -6.9916e-02,
+          4.9008e-03, -2.1637e-02, -3.9184e-02, -3.0116e-02,  5.9534e-02,
          -4.2737e-02, -3.0022e-02,  8.3971e-03,  5.3988e-02, -1.3125e-01,
           1.0547e-02, -1.4760e-01,  6.2876e-02, -1.5544e-01,  5.5300e-02,
          -2.2773e-02, -2.4887e-02, -5.4123e-03,  7.0171e-02,  9.8391e-02,
-         -3.3292e-02,  7.9825e-02, -7.9297e-02, -3.3894e-02,  4.6762e-02,
+         -3.3291e-02,  7.9825e-02, -7.9297e-02, -3.3894e-02,  4.6762e-02,
           3.0376e-02,  3.0549e-02,  4.6353e-02, -4.4347e-02,  1.0420e-01,
          -1.1635e-01,  3.8742e-02,  2.5165e-02, -6.6759e-02,  1.1625e-01,
           7.1682e-03,  5.8881e-02,  8.9747e-02, -6.0257e-02,  1.2392e-02,
-          8.8685e-02,  7.9759e-02,  7.4902e-02,  3.3598e-02,  4.5775e-03,
+          8.8685e-02,  7.9759e-02,  7.4902e-02,  3.3598e-02,  4.5776e-03,
          -1.3680e-01, -3.9998e-02,  2.0899e-02, -1.9931e-02,  1.1591e-02,
           6.0340e-02, -2.6890e-02, -5.2974e-02,  1.3127e-02,  6.9916e-02,
-         -3.3790e-03, -4.8345e-02, -4.2393e-02,  5.4170e-02, -2.1097e-02,
-         -2.6963e-02, -3.7906e-02,  4.5741e-02,  3.0892e-02,  8.3127e-02,
-          8.3920e-03, -8.2778e-02,  1.7831e-01,  9.0947e-03,  3.0161e-02,
-          6.9507e-02, -3.2588e-02,  1.7632e-02,  5.8313e-03, -2.9669e-02,
+         -3.3791e-03, -4.8345e-02, -4.2392e-02,  5.4170e-02, -2.1096e-02,
+         -2.6964e-02, -3.7906e-02,  4.5741e-02,  3.0892e-02,  8.3127e-02,
+          8.3920e-03, -8.2779e-02,  1.7831e-01,  9.0946e-03,  3.0161e-02,
+          6.9507e-02, -3.2588e-02,  1.7632e-02,  5.8314e-03, -2.9669e-02,
          -5.3066e-02, -4.6275e-02,  2.9985e-02, -2.7543e-02, -1.5128e-02,
          -7.7447e-02,  4.6040e-02, -2.1461e-02, -5.4988e-02,  1.0719e-03,
-          5.9942e-02, -2.4077e-03,  9.9754e-02,  9.7725e-03, -7.7468e-02,
+          5.9942e-02, -2.4077e-03,  9.9754e-02,  9.7726e-03, -7.7468e-02,
           1.1552e-02,  8.3116e-02,  5.7766e-02,  1.7199e-02,  1.4087e-02,
           1.3115e-01, -4.9539e-02,  2.2415e-02, -4.1460e-02, -7.4067e-02,
-         -7.4912e-03, -9.0612e-02, -3.9120e-02,  1.6215e-02,  1.1568e-01,
-         -1.9876e-02, -1.1729e-01, -4.7538e-04, -1.9799e-03,  1.2053e-02,
+         -7.4913e-03, -9.0612e-02, -3.9120e-02,  1.6216e-02,  1.1568e-01,
+         -1.9876e-02, -1.1729e-01, -4.7536e-04, -1.9798e-03,  1.2053e-02,
          -4.6838e-02,  4.5577e-02,  4.3319e-02, -1.1650e-02,  9.4887e-02,
-          1.0965e-01,  1.1615e-04, -1.4307e-03,  2.2079e-02,  3.4985e-02,
+          1.0965e-01,  1.1613e-04, -1.4307e-03,  2.2078e-02,  3.4985e-02,
           5.8727e-02, -5.4662e-02,  3.3419e-02, -3.0432e-02,  1.1281e-01,
           7.0955e-02,  1.2149e-01,  3.5411e-02,  2.6957e-02,  4.6307e-02,
-          7.8417e-02,  4.0231e-02,  2.0678e-02, -8.7644e-02,  3.9371e-02,
+          7.8418e-02,  4.0232e-02,  2.0678e-02, -8.7644e-02,  3.9371e-02,
           3.8554e-02,  8.6980e-02, -8.4941e-02, -5.5180e-02, -9.9368e-02,
           3.6541e-02,  1.7492e-02, -5.1596e-02, -1.1429e-01, -2.5058e-02,
-         -9.1812e-02,  9.4610e-02,  3.1208e-02, -1.0094e-01,  1.8693e-02,
-          1.2707e-02, -2.2691e-02,  1.1470e-01,  3.1515e-03,  1.7054e-02,
-          7.1725e-02,  1.2500e-01,  6.4919e-02, -3.3964e-02,  2.3053e-03,
-          4.3615e-02,  3.2326e-02, -4.9830e-02, -8.4111e-02, -6.9008e-02,
-          1.9245e-02, -4.8980e-02, -7.1299e-02, -2.9685e-02, -6.5941e-02,
+         -9.1812e-02,  9.4610e-02,  3.1208e-02, -1.0094e-01,  1.8692e-02,
+          1.2707e-02, -2.2691e-02,  1.1470e-01,  3.1514e-03,  1.7054e-02,
+          7.1725e-02,  1.2500e-01,  6.4919e-02, -3.3964e-02,  2.3052e-03,
+          4.3615e-02,  3.2325e-02, -4.9830e-02, -8.4111e-02, -6.9008e-02,
+          1.9245e-02, -4.8980e-02, -7.1298e-02, -2.9685e-02, -6.5941e-02,
           4.7879e-02]])
 </pre></div></div>
 </div>
 <p>The images are then processed and stored in a numerical representation, a tensor. These tensors do not change for the same image and same model - so if you run this analysis once, and save the tensors giving a path with the keyword <code class="docutils literal notranslate"><span class="pre">path_to_save_tensors</span></code>, a file with filename <code class="docutils literal notranslate"><span class="pre">.&lt;Number_of_images&gt;_&lt;model_name&gt;_saved_features_image.pt</span></code> will be placed there.</p>
 <p>This will save you a lot of time if you want to analyse same images with the same model but different questions. To run using the saved tensors, execute the below code giving the path and name of the tensor file.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (</span>
@@ -422,7 +425,7 @@ tensor([[ 1.1012e-01, -7.5168e-02,  5.1168e-02, -1.7778e-01, -1.6888e-01,
 <h2>Formulate your search queries<a class="headerlink" href="#Formulate-your-search-queries" title="Link to this heading"></a></h2>
 <p>Next, you need to form search queries. You can search either by image or by text. You can search for a single query, or you can search for several queries at once, the computational time should not be much different. The format of the queries is as follows:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_query3</span> <span class="o">=</span> <span class="p">[</span>
@@ -436,7 +439,7 @@ tensor([[ 1.1012e-01, -7.5168e-02,  5.1168e-02, -1.7778e-01, -1.6888e-01,
 <p>You can filter your results in 3 different ways: - <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>. - <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images
 with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_simularity_value</span> <span class="pre">-</span> <span class="pre">best_simularity_value_in_current_search)/best_simularity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity</span><span class="p">,</span> <span class="n">sorted_lists</span> <span class="o">=</span> <span class="n">my_obj</span><span class="o">.</span><span class="n">multimodal_search</span><span class="p">(</span>
@@ -453,7 +456,7 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">similarity</span>
@@ -461,7 +464,7 @@ with similarity less than 0.2 will be discarded. - <code class="docutils literal
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -472,7 +475,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_lists</span>
@@ -480,7 +483,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -489,7 +492,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span>
@@ -497,37 +500,37 @@ tensor([[0.1135, 0.1063, 0.0490],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 {&#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;,
   &#39;rank politician press conference&#39;: 0,
-  &#39;politician press conference&#39;: 0.16655391454696655,
+  &#39;politician press conference&#39;: 0.16655394434928894,
   &#39;rank a world map&#39;: 2,
-  &#39;a world map&#39;: 0.0935291051864624,
+  &#39;a world map&#39;: 0.09352913498878479,
   &#39;rank a dog&#39;: 0,
-  &#39;a dog&#39;: 0.1086294949054718},
+  &#39;a dog&#39;: 0.10862952470779419},
  &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;,
   &#39;rank politician press conference&#39;: 2,
-  &#39;politician press conference&#39;: 0.11350081115961075,
+  &#39;politician press conference&#39;: 0.1135006919503212,
   &#39;rank a world map&#39;: 1,
-  &#39;a world map&#39;: 0.1063341423869133,
+  &#39;a world map&#39;: 0.10633404552936554,
   &#39;rank a dog&#39;: 2,
-  &#39;a dog&#39;: 0.04904010146856308},
+  &#39;a dog&#39;: 0.04904000088572502},
  &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;,
   &#39;rank politician press conference&#39;: 1,
-  &#39;politician press conference&#39;: 0.14405080676078796,
+  &#39;politician press conference&#39;: 0.14405082166194916,
   &#39;rank a world map&#39;: 0,
   &#39;a world map&#39;: 0.13108758628368378,
   &#39;rank a dog&#39;: 1,
-  &#39;a dog&#39;: 0.10083306580781937}}
+  &#39;a dog&#39;: 0.10083307325839996}}
 </pre></div></div>
 </div>
 <p>After launching <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> function, the results of each query will be added to the source dictionary.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydict</span><span class="p">[</span><span class="s2">&quot;106349S_por&quot;</span><span class="p">]</span>
@@ -535,23 +538,23 @@ tensor([[0.1135, 0.1063, 0.0490],
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 {&#39;filename&#39;: &#39;data/106349S_por.png&#39;,
  &#39;rank politician press conference&#39;: 0,
- &#39;politician press conference&#39;: 0.16655391454696655,
+ &#39;politician press conference&#39;: 0.16655394434928894,
  &#39;rank a world map&#39;: 2,
- &#39;a world map&#39;: 0.0935291051864624,
+ &#39;a world map&#39;: 0.09352913498878479,
  &#39;rank a dog&#39;: 0,
- &#39;a dog&#39;: 0.1086294949054718}
+ &#39;a dog&#39;: 0.10862952470779419}
 </pre></div></div>
 </div>
 <p>A special function was written to present the search results conveniently.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_obj</span><span class="o">.</span><span class="n">show_results</span><span class="p">(</span>
@@ -589,7 +592,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;Rank: 0 Val: 0.16655391454696655&#39;
+&#39;Rank: 0 Val: 0.16655394434928894&#39;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -604,7 +607,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_multimodal_27_5.png" src="../_images/notebooks_Example_multimodal_27_5.png" />
+<img alt="../_images/notebooks_Example_multimodal_28_5.png" src="../_images/notebooks_Example_multimodal_28_5.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -620,7 +623,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;Rank: 1 Val: 0.14405080676078796&#39;
+&#39;Rank: 1 Val: 0.14405082166194916&#39;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -635,7 +638,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_multimodal_27_9.png" src="../_images/notebooks_Example_multimodal_27_9.png" />
+<img alt="../_images/notebooks_Example_multimodal_28_9.png" src="../_images/notebooks_Example_multimodal_28_9.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -651,7 +654,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;Rank: 2 Val: 0.11350081115961075&#39;
+&#39;Rank: 2 Val: 0.1135006919503212&#39;
 </pre></div></div>
 </div>
 <div class="nboutput docutils container">
@@ -666,7 +669,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_multimodal_27_13.png" src="../_images/notebooks_Example_multimodal_27_13.png" />
+<img alt="../_images/notebooks_Example_multimodal_28_13.png" src="../_images/notebooks_Example_multimodal_28_13.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -683,7 +686,7 @@ tensor([[0.1135, 0.1063, 0.0490],
 <p>For even better results, a slightly different approach has been prepared that can improve search results. It is quite resource-intensive, so it is applied after the main algorithm has found the most relevant images. This approach works only with text queries. Among the parameters you can choose 3 models: <code class="docutils literal notranslate"><span class="pre">&quot;blip_base&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;blip_large&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;blip2_coco&quot;</span></code>. If you get an <code class="docutils literal notranslate"><span class="pre">Out</span> <span class="pre">of</span> <span class="pre">Memory</span></code> error, try reducing the batch_size value (minimum = 1), which is the number of images being processed
 simultaneously. With the parameter <code class="docutils literal notranslate"><span class="pre">need_grad_cam</span> <span class="pre">=</span> <span class="pre">True/False</span></code> you can enable the calculation of the heat map of each image to be processed. Thus the <code class="docutils literal notranslate"><span class="pre">image_text_match_reordering</span></code> function calculates new similarity values and new ranks for each image. The resulting values are added to the general dictionary.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">itm_model</span> <span class="o">=</span> <span class="s2">&quot;blip_base&quot;</span>
@@ -693,7 +696,7 @@ simultaneously. With the parameter <code class="docutils literal notranslate"><s
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">itm_scores</span><span class="p">,</span> <span class="n">image_gradcam_with_itm</span> <span class="o">=</span> <span class="n">my_obj</span><span class="o">.</span><span class="n">image_text_match_reordering</span><span class="p">(</span>
@@ -707,149 +710,17 @@ simultaneously. With the parameter <code class="docutils literal notranslate"><s
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
- 60%|██████    | 1.07G/1.78G [00:18&lt;00:11, 63.3MB/s]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">OSError</span>                                   Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[19], line 1</span>
-<span class="ansi-green-fg">----&gt; 1</span> itm_scores, image_gradcam_with_itm <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">my_obj</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">image_text_match_reordering</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">search_query3</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">itm_model</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">image_keys</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">sorted_lists</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">batch_size</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      7</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">need_grad_cam</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-yellow-bg">)</span>
-
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:822</span>, in <span class="ansi-cyan-fg">MultimodalSearch.image_text_match_reordering</span><span class="ansi-blue-fg">(self, search_query, itm_model_type, image_keys, sorted_lists, batch_size, need_grad_cam)</span>
-<span class="ansi-green-intense-fg ansi-bold">    812</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">SyntaxError</span>(
-<span class="ansi-green-intense-fg ansi-bold">    813</span>         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">The blip2_coco model does not yet work with gradcam. Please set need_grad_cam to False</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">    814</span>     )
-<span class="ansi-green-intense-fg ansi-bold">    816</span> choose_model <span style="color: rgb(98,98,98)">=</span> {
-<span class="ansi-green-intense-fg ansi-bold">    817</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip_base</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>upload_model_blip_base,
-<span class="ansi-green-intense-fg ansi-bold">    818</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip_large</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>upload_model_blip_large,
-<span class="ansi-green-intense-fg ansi-bold">    819</span>     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip2_coco</span><span style="color: rgb(175,0,0)">&#34;</span>: MultimodalSearch<span style="color: rgb(98,98,98)">.</span>upload_model_blip2_coco,
-<span class="ansi-green-intense-fg ansi-bold">    820</span> }
-<span class="ansi-green-fg">--&gt; 822</span> itm_model, vis_processor_itm <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">choose_model</span><span class="ansi-yellow-bg">[</span><span class="ansi-yellow-bg">itm_model_type</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    823</span> text_processor <span style="color: rgb(98,98,98)">=</span> load_processor(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip_caption</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-intense-fg ansi-bold">    824</span> tokenizer <span style="color: rgb(98,98,98)">=</span> BlipBase<span style="color: rgb(98,98,98)">.</span>init_tokenizer()
-
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/multimodal_search.py:761</span>, in <span class="ansi-cyan-fg">MultimodalSearch.upload_model_blip_base</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    753</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">upload_model_blip_base</span>(<span style="color: rgb(0,135,0)">self</span>) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> <span style="color: rgb(0,135,0)">tuple</span>:
-<span class="ansi-green-intense-fg ansi-bold">    754</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">    755</span> <span style="color: rgb(175,0,0)">    Load base blip_image_text_matching model and preprocessors for visual input from lavis.models.</span>
-<span class="ansi-green-intense-fg ansi-bold">    756</span>
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    759</span> <span style="color: rgb(175,0,0)">        vis_processor (dict): preprocessors for visual inputs.</span>
-<span class="ansi-green-intense-fg ansi-bold">    760</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
-<span class="ansi-green-fg">--&gt; 761</span>     itm_model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">load_model</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">    762</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">blip_image_text_matching</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    763</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">base</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#34;</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    764</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">is_eval</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    765</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">device</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">MultimodalSearch</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">multimodal_device</span><span class="ansi-yellow-bg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">    766</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    767</span>     vis_processor <span style="color: rgb(98,98,98)">=</span> load_processor(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">blip_image_eval</span><span style="color: rgb(175,0,0)">&#34;</span>)<span style="color: rgb(98,98,98)">.</span>build(image_size<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">384</span>)
-<span class="ansi-green-intense-fg ansi-bold">    768</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> itm_model, vis_processor
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/lavis/models/__init__.py:107</span>, in <span class="ansi-cyan-fg">load_model</span><span class="ansi-blue-fg">(name, model_type, is_eval, device, checkpoint)</span>
-<span class="ansi-green-intense-fg ansi-bold">     87</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">load_model</span>(name, model_type, is_eval<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, device<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">cpu</span><span style="color: rgb(175,0,0)">&#34;</span>, checkpoint<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">None</span>):
-<span class="ansi-green-intense-fg ansi-bold">     88</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     89</span> <span style="color: rgb(175,0,0)">    Load supported models.</span>
-<span class="ansi-green-intense-fg ansi-bold">     90</span>
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">    104</span> <span style="color: rgb(175,0,0)">        model (torch.nn.Module): model.</span>
-<span class="ansi-green-intense-fg ansi-bold">    105</span> <span style="color: rgb(175,0,0)">    &#34;&#34;&#34;</span>
-<span class="ansi-green-fg">--&gt; 107</span>     model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">registry</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">get_model_class</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">name</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_pretrained</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">model_type</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    109</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> checkpoint <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">    110</span>         model<span style="color: rgb(98,98,98)">.</span>load_checkpoint(checkpoint)
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/lavis/models/base_model.py:70</span>, in <span class="ansi-cyan-fg">BaseModel.from_pretrained</span><span class="ansi-blue-fg">(cls, model_type)</span>
-<span class="ansi-green-intense-fg ansi-bold">     60</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     61</span> <span style="color: rgb(175,0,0)">Build a pretrained model from default configuration file, specified by model_type.</span>
-<span class="ansi-green-intense-fg ansi-bold">     62</span>
-<span class="ansi-green-fg">   (...)</span>
-<span class="ansi-green-intense-fg ansi-bold">     67</span> <span style="color: rgb(175,0,0)">    - model (nn.Module): pretrained or finetuned model, depending on the configuration.</span>
-<span class="ansi-green-intense-fg ansi-bold">     68</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     69</span> model_cfg <span style="color: rgb(98,98,98)">=</span> OmegaConf<span style="color: rgb(98,98,98)">.</span>load(<span style="color: rgb(0,135,0)">cls</span><span style="color: rgb(98,98,98)">.</span>default_config_path(model_type))<span style="color: rgb(98,98,98)">.</span>model
-<span class="ansi-green-fg">---&gt; 70</span> model <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">cls</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">model_cfg</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     72</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/lavis/models/blip_models/blip_image_text_matching.py:146</span>, in <span class="ansi-cyan-fg">BlipITM.from_config</span><span class="ansi-blue-fg">(cls, cfg)</span>
-<span class="ansi-green-intense-fg ansi-bold">    137</span> max_txt_len <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">max_txt_len</span><span style="color: rgb(175,0,0)">&#34;</span>, <span style="color: rgb(98,98,98)">35</span>)
-<span class="ansi-green-intense-fg ansi-bold">    139</span> model <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">cls</span>(
-<span class="ansi-green-intense-fg ansi-bold">    140</span>     image_encoder<span style="color: rgb(98,98,98)">=</span>image_encoder,
-<span class="ansi-green-intense-fg ansi-bold">    141</span>     text_encoder<span style="color: rgb(98,98,98)">=</span>text_encoder,
-<span class="ansi-green-intense-fg ansi-bold">    142</span>     embed_dim<span style="color: rgb(98,98,98)">=</span>embed_dim,
-<span class="ansi-green-intense-fg ansi-bold">    143</span>     max_txt_len<span style="color: rgb(98,98,98)">=</span>max_txt_len,
-<span class="ansi-green-intense-fg ansi-bold">    144</span> )
-<span class="ansi-green-fg">--&gt; 146</span> <span class="ansi-yellow-bg">model</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">load_checkpoint_from_config</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">cfg</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    148</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> model
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/lavis/models/base_model.py:95</span>, in <span class="ansi-cyan-fg">BaseModel.load_checkpoint_from_config</span><span class="ansi-blue-fg">(self, cfg, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">     91</span>     finetune_path <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">finetuned</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
-<span class="ansi-green-intense-fg ansi-bold">     92</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">assert</span> (
-<span class="ansi-green-intense-fg ansi-bold">     93</span>         finetune_path <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
-<span class="ansi-green-intense-fg ansi-bold">     94</span>     ), <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Found load_finetuned is True, but finetune_path is None.</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-fg">---&gt; 95</span>     <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">load_checkpoint</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url_or_filename</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">finetune_path</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     96</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
-<span class="ansi-green-intense-fg ansi-bold">     97</span>     <span style="color: rgb(95,135,135)"># load pre-trained weights</span>
-<span class="ansi-green-intense-fg ansi-bold">     98</span>     pretrain_path <span style="color: rgb(98,98,98)">=</span> cfg<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">pretrained</span><span style="color: rgb(175,0,0)">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/lavis/models/base_model.py:37</span>, in <span class="ansi-cyan-fg">BaseModel.load_checkpoint</span><span class="ansi-blue-fg">(self, url_or_filename)</span>
-<span class="ansi-green-intense-fg ansi-bold">     30</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     31</span> <span style="color: rgb(175,0,0)">Load from a finetuned checkpoint.</span>
-<span class="ansi-green-intense-fg ansi-bold">     32</span>
-<span class="ansi-green-intense-fg ansi-bold">     33</span> <span style="color: rgb(175,0,0)">This should expect no mismatch in the model keys and the checkpoint keys.</span>
-<span class="ansi-green-intense-fg ansi-bold">     34</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">     36</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_url(url_or_filename):
-<span class="ansi-green-fg">---&gt; 37</span>     cached_file <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">download_cached_file</span><span class="ansi-yellow-bg">(</span>
-<span class="ansi-green-intense-fg ansi-bold">     38</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg">url_or_filename</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">check_hash</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">False</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">progress</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg ansi-bold" style="color: rgb(0,135,0)">True</span>
-<span class="ansi-green-intense-fg ansi-bold">     39</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     40</span>     checkpoint <span style="color: rgb(98,98,98)">=</span> torch<span style="color: rgb(98,98,98)">.</span>load(cached_file, map_location<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">cpu</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-intense-fg ansi-bold">     41</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> os<span style="color: rgb(98,98,98)">.</span>path<span style="color: rgb(98,98,98)">.</span>isfile(url_or_filename):
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/lavis/common/dist_utils.py:132</span>, in <span class="ansi-cyan-fg">download_cached_file</span><span class="ansi-blue-fg">(url, check_hash, progress)</span>
-<span class="ansi-green-intense-fg ansi-bold">    129</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> cached_file
-<span class="ansi-green-intense-fg ansi-bold">    131</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_main_process():
-<span class="ansi-green-fg">--&gt; 132</span>     <span class="ansi-yellow-bg">timm_hub</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">download_cached_file</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">check_hash</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">progress</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    134</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> is_dist_avail_and_initialized():
-<span class="ansi-green-intense-fg ansi-bold">    135</span>     dist<span style="color: rgb(98,98,98)">.</span>barrier()
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/timm/models/hub.py:51</span>, in <span class="ansi-cyan-fg">download_cached_file</span><span class="ansi-blue-fg">(url, check_hash, progress)</span>
-<span class="ansi-green-intense-fg ansi-bold">     49</span>         r <span style="color: rgb(98,98,98)">=</span> HASH_REGEX<span style="color: rgb(98,98,98)">.</span>search(filename)  <span style="color: rgb(95,135,135)"># r is Optional[Match[str]]</span>
-<span class="ansi-green-intense-fg ansi-bold">     50</span>         hash_prefix <span style="color: rgb(98,98,98)">=</span> r<span style="color: rgb(98,98,98)">.</span>group(<span style="color: rgb(98,98,98)">1</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> r <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
-<span class="ansi-green-fg">---&gt; 51</span>     <span class="ansi-yellow-bg">download_url_to_file</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">cached_file</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">hash_prefix</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">progress</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">progress</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     52</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> cached_file
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/torch/hub.py:636</span>, in <span class="ansi-cyan-fg">download_url_to_file</span><span class="ansi-blue-fg">(url, dst, hash_prefix, progress)</span>
-<span class="ansi-green-intense-fg ansi-bold">    634</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(buffer) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
-<span class="ansi-green-intense-fg ansi-bold">    635</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">break</span>
-<span class="ansi-green-fg">--&gt; 636</span> <span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">write</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">buffer</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    637</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> hash_prefix <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">    638</span>     sha256<span style="color: rgb(98,98,98)">.</span>update(buffer)
-
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/tempfile.py:478</span>, in <span class="ansi-cyan-fg">_TemporaryFileWrapper.__getattr__.&lt;locals&gt;.func_wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    476</span> <span style="color: rgb(175,0,255)">@_functools</span><span style="color: rgb(98,98,98)">.</span>wraps(func)
-<span class="ansi-green-intense-fg ansi-bold">    477</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">func_wrapper</span>(<span style="color: rgb(98,98,98)">*</span>args, <span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>kwargs):
-<span class="ansi-green-fg">--&gt; 478</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">func</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
-
-<span class="ansi-red-fg">OSError</span>: [Errno 28] No space left on device
+100%|██████████| 1.78G/1.78G [00:11&lt;00:00, 164MB/s]
 </pre></div></div>
 </div>
 <p>Then using the same output function you can add the <code class="docutils literal notranslate"><span class="pre">ITM=True</span></code> arguments to output the new image order. You can also add the <code class="docutils literal notranslate"><span class="pre">image_gradcam_with_itm</span></code> argument to output the heat maps of the calculated images.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_obj</span><span class="o">.</span><span class="n">show_results</span><span class="p">(</span>
@@ -858,19 +729,121 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.18/x64/lib/pyth
 </pre></div>
 </div>
 </div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Your search query: politician press conference&#39;
+</pre></div></div>
+</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[20], line 2</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> my_obj<span style="color: rgb(98,98,98)">.</span>show_results(
-<span class="ansi-green-fg">----&gt; 2</span>     search_query3[<span style="color: rgb(98,98,98)">0</span>], itm<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, image_gradcam_with_itm<span style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">image_gradcam_with_itm</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> )
-
-<span class="ansi-red-fg">NameError</span>: name &#39;image_gradcam_with_itm&#39; is not defined
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Results:&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Rank: 0 Val: 0.058296382427215576&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;106349S_por&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_multimodal_33_5.png" src="../_images/notebooks_Example_multimodal_33_5.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Rank: 1 Val: 0.0018555393908172846&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;102730_eng&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_multimodal_33_9.png" src="../_images/notebooks_Example_multimodal_33_9.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;Rank: 2 Val: 0.0012622162466868758&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;102141_2_eng&#39;
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebooks_Example_multimodal_33_13.png" src="../_images/notebooks_Example_multimodal_33_13.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&#39;--------------------------------------------------&#39;
 </pre></div></div>
 </div>
 </section>
@@ -878,7 +851,7 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
 <h2>Save search results to csv<a class="headerlink" href="#Save-search-results-to-csv" title="Link to this heading"></a></h2>
 <p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">mutils</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
@@ -887,7 +860,7 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
 </div>
 <p>Check the dataframe:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -895,7 +868,7 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -924,6 +897,12 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
       <th>a world map</th>
       <th>rank a dog</th>
       <th>a dog</th>
+      <th>itm politician press conference</th>
+      <th>itm_rank politician press conference</th>
+      <th>itm a world map</th>
+      <th>itm_rank a world map</th>
+      <th>itm a dog</th>
+      <th>itm_rank a dog</th>
     </tr>
   </thead>
   <tbody>
@@ -935,7 +914,13 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
       <td>2</td>
       <td>0.093529</td>
       <td>0</td>
-      <td>0.108629</td>
+      <td>0.108630</td>
+      <td>0.058296</td>
+      <td>0</td>
+      <td>0.000794</td>
+      <td>2</td>
+      <td>0.000091</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>1</th>
@@ -946,6 +931,12 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
       <td>0.106334</td>
       <td>2</td>
       <td>0.049040</td>
+      <td>0.001262</td>
+      <td>2</td>
+      <td>0.085762</td>
+      <td>0</td>
+      <td>0.000175</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
@@ -956,6 +947,12 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
       <td>0.131088</td>
       <td>1</td>
       <td>0.100833</td>
+      <td>0.001856</td>
+      <td>1</td>
+      <td>0.004548</td>
+      <td>1</td>
+      <td>0.000812</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -963,7 +960,7 @@ Cell <span class="ansi-green-fg">In[20], line 2</span>
 </div>
 <p>Write the csv file:</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data/data_out.csv&quot;</span><span class="p">)</span>
