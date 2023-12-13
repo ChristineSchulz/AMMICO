@@ -152,8 +152,8 @@
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 {&#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;},
- &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;},
- &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;}}
+ &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;}}
 </pre></div></div>
 </div>
 <section id="Indexing-and-extracting-features-from-images-in-selected-folder">
@@ -196,8 +196,8 @@
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 {&#39;106349S_por&#39;: {&#39;filename&#39;: &#39;data/106349S_por.png&#39;},
- &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;},
- &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;}}
+ &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;}}
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -223,10 +223,10 @@
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 11.1MB/s]
-tokenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 14.4kB/s]
-config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 748kB/s]
-100%|██████████| 1.97G/1.97G [00:09&lt;00:00, 213MB/s]
+vocab.txt: 100%|██████████| 232k/232k [00:00&lt;00:00, 31.3MB/s]
+tokenizer_config.json: 100%|██████████| 28.0/28.0 [00:00&lt;00:00, 17.1kB/s]
+config.json: 100%|██████████| 570/570 [00:00&lt;00:00, 1.11MB/s]
+100%|██████████| 1.97G/1.97G [00:07&lt;00:00, 281MB/s]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -514,20 +514,20 @@ tensor([[0.1135, 0.1063, 0.0490],
   &#39;a world map&#39;: 0.09352904558181763,
   &#39;rank a dog&#39;: 0,
   &#39;a dog&#39;: 0.10862946510314941},
- &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;,
-  &#39;rank politician press conference&#39;: 1,
-  &#39;politician press conference&#39;: 0.14405086636543274,
-  &#39;rank a world map&#39;: 0,
-  &#39;a world map&#39;: 0.13108763098716736,
-  &#39;rank a dog&#39;: 1,
-  &#39;a dog&#39;: 0.10083308815956116},
  &#39;102141_2_eng&#39;: {&#39;filename&#39;: &#39;data/102141_2_eng.png&#39;,
   &#39;rank politician press conference&#39;: 2,
   &#39;politician press conference&#39;: 0.11350078880786896,
   &#39;rank a world map&#39;: 1,
   &#39;a world map&#39;: 0.10633410513401031,
   &#39;rank a dog&#39;: 2,
-  &#39;a dog&#39;: 0.04904009774327278}}
+  &#39;a dog&#39;: 0.04904009774327278},
+ &#39;102730_eng&#39;: {&#39;filename&#39;: &#39;data/102730_eng.png&#39;,
+  &#39;rank politician press conference&#39;: 1,
+  &#39;politician press conference&#39;: 0.14405086636543274,
+  &#39;rank a world map&#39;: 0,
+  &#39;a world map&#39;: 0.13108763098716736,
+  &#39;rank a dog&#39;: 1,
+  &#39;a dog&#39;: 0.10083308815956116}}
 </pre></div></div>
 </div>
 <p>After launching <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> function, the results of each query will be added to the source dictionary.</p>
@@ -717,7 +717,7 @@ simultaneously. With the parameter <code class="docutils literal notranslate"><s
 </div>
 <div class="output_area stderr docutils container">
 <div class="highlight"><pre>
-100%|██████████| 1.78G/1.78G [00:14&lt;00:00, 130MB/s]
+100%|██████████| 1.78G/1.78G [00:09&lt;00:00, 200MB/s]
 </pre></div></div>
 </div>
 <p>Then using the same output function you can add the <code class="docutils literal notranslate"><span class="pre">ITM=True</span></code> arguments to output the new image order. You can also add the <code class="docutils literal notranslate"><span class="pre">image_gradcam_with_itm</span></code> argument to output the heat maps of the calculated images.</p>
@@ -926,22 +926,6 @@ simultaneously. With the parameter <code class="docutils literal notranslate"><s
     </tr>
     <tr>
       <th>1</th>
-      <td>data/102730_eng.png</td>
-      <td>1</td>
-      <td>0.144051</td>
-      <td>0</td>
-      <td>0.131088</td>
-      <td>1</td>
-      <td>0.100833</td>
-      <td>0.001856</td>
-      <td>1</td>
-      <td>0.004548</td>
-      <td>1</td>
-      <td>0.000812</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
       <td>data/102141_2_eng.png</td>
       <td>2</td>
       <td>0.113501</td>
@@ -955,6 +939,22 @@ simultaneously. With the parameter <code class="docutils literal notranslate"><s
       <td>0</td>
       <td>0.000175</td>
       <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>data/102730_eng.png</td>
+      <td>1</td>
+      <td>0.144051</td>
+      <td>0</td>
+      <td>0.131088</td>
+      <td>1</td>
+      <td>0.100833</td>
+      <td>0.001856</td>
+      <td>1</td>
+      <td>0.004548</td>
+      <td>1</td>
+      <td>0.000812</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
