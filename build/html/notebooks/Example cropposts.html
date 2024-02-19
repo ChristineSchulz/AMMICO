@@ -90,7 +90,7 @@
 <h1>Crop posts module<a class="headerlink" href="#Crop-posts-module" title="Link to this heading"></a></h1>
 <p>Crop posts from social media posts images, to keep import text informations from social media posts images. We can set some manually cropped views from social media posts as reference for cropping the same type social media posts images.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please ignore this cell: extra install steps that are only executed when running the notebook on Google Colab</span>
@@ -117,7 +117,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ammico.cropposts</span> <span class="k">as</span> <span class="nn">crpo</span>
@@ -130,8 +130,8 @@
 </div>
 </div>
 <p>The cropping is carried out by finding reference images on the image to be cropped. If a reference matches a region on the image, then everything below the matched region is removed. Manually look at a reference and an example post with the code below.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load ref view for cropping the same type social media posts images.</span>
@@ -152,23 +152,9 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_cropposts_5_0.png" src="../_images/notebooks_Example_cropposts_5_0.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_cropposts_5_1.png" src="../_images/notebooks_Example_cropposts_5_1.png" />
-</div>
-</div>
 <p>You can now crop the image and check on the way that everything looks fine. <code class="docutils literal notranslate"><span class="pre">plt_match</span></code> will plot the matches on the image and below which line content will be cropped; <code class="docutils literal notranslate"><span class="pre">plt_crop</span></code> will plot the cropped text part of the social media post with the comments removed; <code class="docutils literal notranslate"><span class="pre">plt_image</span></code> will plot the image part of the social media post if applicable.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># crop a posts from reference view, check the cropping</span>
@@ -180,38 +166,10 @@
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_cropposts_7_0.png" src="../_images/notebooks_Example_cropposts_7_0.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_cropposts_7_1.png" src="../_images/notebooks_Example_cropposts_7_1.png" />
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_cropposts_7_2.png" src="../_images/notebooks_Example_cropposts_7_2.png" />
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/notebooks_Example_cropposts_7_3.png" src="../_images/notebooks_Example_cropposts_7_3.png" />
-</div>
-</div>
 <p>Batch crop images from the image folder given in <code class="docutils literal notranslate"><span class="pre">crop_dir</span></code>. The cropped images will save in <code class="docutils literal notranslate"><span class="pre">save_crop_dir</span></code> folder with the same file name as the original file. The reference images with the items to match are provided in <code class="docutils literal notranslate"><span class="pre">ref_dir</span></code>.</p>
 <p>Sometimes the cropping will be imperfect, due to improper matches on the image. It is sometimes easier to first categorize the social media posts and then set different references in the reference folder <code class="docutils literal notranslate"><span class="pre">ref_dir</span></code>.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><span></span><span class="n">crop_dir</span> <span class="o">=</span> <span class="s2">&quot;data/&quot;</span>
@@ -225,30 +183,6 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Batch cropping images done&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[5], line 5</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> ref_dir <span style="color: rgb(98,98,98)">=</span> pkg <span style="color: rgb(98,98,98)">/</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data</span><span style="color: rgb(175,0,0)">&#34;</span> <span style="color: rgb(98,98,98)">/</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">ref</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> save_crop_dir <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">data/crop/</span><span style="color: rgb(175,0,0)">&#34;</span>
-<span class="ansi-green-fg">----&gt; 5</span> files <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">utils</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">find_files</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">path</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">crop_dir</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">limit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">10</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> ref_files <span style="color: rgb(98,98,98)">=</span> utils<span style="color: rgb(98,98,98)">.</span>find_files(path<span style="color: rgb(98,98,98)">=</span>ref_dir<span style="color: rgb(98,98,98)">.</span>as_posix(), limit<span style="color: rgb(98,98,98)">=</span><span style="color: rgb(98,98,98)">100</span>)
-<span class="ansi-green-intense-fg ansi-bold">      8</span> crpo<span style="color: rgb(98,98,98)">.</span>crop_media_posts(files, ref_files, save_crop_dir, plt_match<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">True</span>, plt_crop<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>, plt_image<span style="color: rgb(98,98,98)">=</span><span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
-
-File <span class="ansi-green-fg">~/work/AMMICO/AMMICO/ammico/utils.py:134</span>, in <span class="ansi-cyan-fg">find_files</span><span class="ansi-blue-fg">(path, pattern, recursive, limit, random_seed)</span>
-<span class="ansi-green-intense-fg ansi-bold">    131</span>     results<span style="color: rgb(98,98,98)">.</span>extend(_match_pattern(path, p, recursive<span style="color: rgb(98,98,98)">=</span>recursive))
-<span class="ansi-green-intense-fg ansi-bold">    133</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">len</span>(results) <span style="color: rgb(98,98,98)">==</span> <span style="color: rgb(98,98,98)">0</span>:
-<span class="ansi-green-fg">--&gt; 134</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">FileNotFoundError</span>(<span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">No files found in </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>path<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> with pattern </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>pattern<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#34;</span>)
-<span class="ansi-green-intense-fg ansi-bold">    136</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> random_seed <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
-<span class="ansi-green-intense-fg ansi-bold">    137</span>     random<span style="color: rgb(98,98,98)">.</span>seed(random_seed)
-
-<span class="ansi-red-fg">FileNotFoundError</span>: No files found in data/ with pattern &#39;[&#39;png&#39;, &#39;jpg&#39;, &#39;jpeg&#39;, &#39;gif&#39;, &#39;webp&#39;, &#39;avif&#39;, &#39;tiff&#39;]&#39;
-</pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
