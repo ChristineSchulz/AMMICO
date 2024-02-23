@@ -131,7 +131,7 @@
     <span class="c1"># install setuptools</span>
     <span class="c1"># %pip install setuptools==61 -qqq</span>
     <span class="c1"># uninstall some pre-installed packages due to incompatibility</span>
-    <span class="o">%</span><span class="k">pip</span> uninstall tensorflow-probability dopamine-rl lida pandas-gbq torchaudio torchdata torchtext orbax-checkpoint flex-y -qqq
+    <span class="o">%</span><span class="k">pip</span> uninstall --yes tensorflow-probability dopamine-rl lida pandas-gbq torchaudio torchdata torchtext orbax-checkpoint flex-y -qqq
     <span class="c1"># install ammico</span>
     <span class="o">%</span><span class="k">pip</span> install git+https://github.com/ssciwr/ammico.git -qqq
     <span class="c1"># mount google drive for data and API key</span>
@@ -245,7 +245,8 @@ tf.ones([2, 2])
 </tbody>
 </table>
 <p>The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function returns a nested dict that contains the file ids and the paths to the files and is empty otherwise. This dict is filled step by step with more data as each detector class is run on the data (see below).</p>
-<p>If you downloaded the test dataset above, you can directly provide the path you already set for the test directory, <code class="docutils literal notranslate"><span class="pre">data_path</span></code>.</p>
+<p>If you downloaded the test dataset above, you can directly provide the path you already set for the test directory, <code class="docutils literal notranslate"><span class="pre">data_path</span></code>. The below cell is already set up for the test dataset.</p>
+<p>If you use your own dataset, you need to toggle the path and provide the directory where you have saved your data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -321,8 +322,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># clear memory on cuda first? Faces seems to always not release GPU</span>
-<span class="c1"># initialize the models</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># initialize the models</span>
 <span class="n">image_summary_detector</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">SummaryDetector</span><span class="p">(</span><span class="n">subdict</span> <span class="o">=</span> <span class="n">image_dict</span><span class="p">,</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">)</span>
 
 <span class="c1"># run the analysis without having to re-iniatialize the model</span>
@@ -390,7 +390,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="The-detector-modules">
 <h1>The detector modules<a class="headerlink" href="#The-detector-modules" title="Link to this heading"></a></h1>
 <p>The different detector modules with their options are explained in more detail in this section. ## Text detector Text on the images can be extracted using the <code class="docutils literal notranslate"><span class="pre">TextDetector</span></code> class (<code class="docutils literal notranslate"><span class="pre">text</span></code> module). The text is initally extracted using the Google Cloud Vision API and then translated into English with googletrans. The translated text is cleaned of whitespace, linebreaks, and numbers using Python syntax and spaCy.</p>
-<p><img alt="19da8c365c0d47949be0505a43631eba" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
+<p><img alt="19be893e1a8b438bb04555d1ae58848e" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
 <p>The user can set if the text should be further summarized, and analyzed for sentiment and named entity recognition, by setting the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). If set, the transformers pipeline is used for each of these tasks, with the default models as of 03/2023. Other models can be selected by setting the optional keyword <code class="docutils literal notranslate"><span class="pre">model_names</span></code> to a list of selected models, on for each task:
 <code class="docutils literal notranslate"><span class="pre">model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,</span> <span class="pre">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,</span> <span class="pre">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;]</span></code> for summary, sentiment, and ner. To be even more specific, revision numbers can also be selected by specifying the optional keyword <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> to a list of revision numbers for each model, for example <code class="docutils literal notranslate"><span class="pre">revision_numbers=[&quot;a4f8f3e&quot;,</span> <span class="pre">&quot;af0f99b&quot;,</span> <span class="pre">&quot;f2482bf&quot;]</span></code>.</p>
 <p>Please note that for the Google Cloud Vision API (the TextDetector class) you need to set a key in order to process the images. This key is ideally set as an environment variable using for example</p>
@@ -472,7 +472,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Image-summary-and-query">
 <h2>Image summary and query<a class="headerlink" href="#Image-summary-and-query" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>).</p>
-<p><img alt="e0ffcefc22bf4cc698fa5a3ec8b6fe50" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
+<p><img alt="a732a7b033cd457cb8aff189e4fc8ef9" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
 <p>This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user,
 <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
 <p>The implemented models are listed below.</p>
@@ -611,7 +611,7 @@ directly on the right next to the image. This way, the user can directly inspect
 </table>
 <section id="BLIP2-models">
 <h3>BLIP2 models<a class="headerlink" href="#BLIP2-models" title="Link to this heading"></a></h3>
-<p>This is very heavy models. They requare approx 60GB of RAM and they can use more than 20GB GPUs memory.</p>
+<p>The BLIP2 models are computationally very heavy models, and require approximately 60GB of RAM. These models can easily use more than 20GB GPU memory.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -634,28 +634,6 @@ directly on the right next to the image. This way, the user can directly inspect
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="p">:</span>
-    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">(</span><span class="n">subdict</span> <span class="o">=</span> <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;summary_and_questions&quot;</span><span class="p">)</span>
-
-<span class="c1"># analysis_type can be</span>
-<span class="c1"># &quot;summary&quot;,</span>
-<span class="c1"># &quot;questions&quot;,</span>
-<span class="c1"># &quot;summary_and_questions&quot;.</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_dict</span>
-</pre></div>
-</div>
-</div>
 <p>You can also pass a list of questions to this cell if <code class="docutils literal notranslate"><span class="pre">analysis_type=&quot;summary_and_questions&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">analysis_type=&quot;questions&quot;</span></code>. But the format of questions has changed in new models.</p>
 <p>Here is an example of a list of questions:</p>
 <div class="nbinput nblast docutils container">
@@ -675,7 +653,12 @@ directly on the right next to the image. This way, the user can directly inspect
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">image_dict</span><span class="p">:</span>
     <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">(</span><span class="n">subdict</span> <span class="o">=</span> <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">analysis_type</span><span class="o">=</span><span class="s2">&quot;questions&quot;</span><span class="p">,</span> <span class="n">list_of_questions</span><span class="o">=</span><span class="n">list_of_questions</span><span class="p">)</span>
-</pre></div>
+
+<span class="c1"># analysis_type can be</span>
+<span class="c1"># &quot;summary&quot;,</span>
+<span class="c1"># &quot;questions&quot;,</span>
+<span class="c1"># &quot;summary_and_questions&quot;.</span>
+<br/></pre></div>
 </div>
 </div>
 <p>You can also pass a question with previous answers as context into this model and pass in questions like this one to get a more accurate answer:</p>
@@ -742,7 +725,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Detection-of-faces-and-facial-expression-analysis">
 <h2>Detection of faces and facial expression analysis<a class="headerlink" href="#Detection-of-faces-and-facial-expression-analysis" title="Link to this heading"></a></h2>
 <p>Faces and facial expressions are detected and analyzed using the <code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code> class from the <code class="docutils literal notranslate"><span class="pre">faces</span></code> module. Initially, it is detected if faces are present on the image using RetinaFace, followed by analysis if face masks are worn (Face-Mask-Detection). The detection of age, gender, race, and emotions is carried out with deepface.</p>
-<p><img alt="f8e5421a61d74ebd88abc76b20ad0442" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
+<p><img alt="b76db59fd4454f0eaf0935641e072dc5" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
 <p>Depending on the features found on the image, the face detection module returns a different analysis content: If no faces are found on the image, all further steps are skipped and the result <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[None]</span></code> is returned. If one or several faces are found, up to three faces are analyzed if they are partially concealed by a face mask. If
 yes, only age and gender are detected; if no, also race, emotion, and dominant emotion are detected. In case of the latter, the output could look like this: <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">2,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;,</span> <span class="pre">&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[27,</span> <span class="pre">28],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[&quot;Man&quot;,</span> <span class="pre">&quot;Man&quot;],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[&quot;asian&quot;,</span> <span class="pre">None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[&quot;Negative&quot;,</span> <span class="pre">&quot;Neutral&quot;]</span></code>, where for the two faces that are detected (given by <code class="docutils literal notranslate"><span class="pre">no_faces</span></code>), some of the values are returned as a list
 with the first item for the first (largest) face and the second item for the second (smaller) face (for example, <code class="docutils literal notranslate"><span class="pre">&quot;emotion&quot;</span></code> returns a list <code class="docutils literal notranslate"><span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;]</span></code> signifying the first face expressing anger, and the second face having a neutral expression).</p>
@@ -856,12 +839,14 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 </div>
 </div>
 <p>The images are then processed and stored in a numerical representation, a tensor. These tensors do not change for the same image and same model - so if you run this analysis once, and save the tensors giving a path with the keyword <code class="docutils literal notranslate"><span class="pre">path_to_save_tensors</span></code>, a file with filename <code class="docutils literal notranslate"><span class="pre">.&lt;Number_of_images&gt;_&lt;model_name&gt;_saved_features_image.pt</span></code> will be placed there.</p>
-<p>This can save you time if you want to analyse same images with the same model but different questions. To run using the saved tensors, execute the below code giving the path and name of the tensor file.</p>
+<p>This can save you time if you want to analyse same images with the same model but different questions. To run using the saved tensors, execute the below code giving the path and name of the tensor file. Any subsequent query of the model will run in a fraction of the time than it run in initially.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># (</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment the code below if you want to load the tensors from the drive</span>
+<span class="c1"># and just want to ask different questions for the same set of images</span>
+<span class="c1"># (</span>
 <span class="c1">#     model,</span>
 <span class="c1">#     vis_processors,</span>
 <span class="c1">#     txt_processors,</span>
