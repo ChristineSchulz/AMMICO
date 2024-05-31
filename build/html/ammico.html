@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -61,6 +61,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#text.PostprocessText.analyse_topic"><code class="docutils literal notranslate"><span class="pre">PostprocessText.analyse_topic()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.PostprocessText.get_text_df"><code class="docutils literal notranslate"><span class="pre">PostprocessText.get_text_df()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#text.PostprocessText.get_text_dict"><code class="docutils literal notranslate"><span class="pre">PostprocessText.get_text_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#text.TextAnalyzer"><code class="docutils literal notranslate"><span class="pre">TextAnalyzer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#text.TextAnalyzer.read_csv"><code class="docutils literal notranslate"><span class="pre">TextAnalyzer.read_csv()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#text.TextDetector"><code class="docutils literal notranslate"><span class="pre">TextDetector</span></code></a><ul>
@@ -277,6 +281,24 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>list</strong> – A list of text extracted from the dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="text.TextAnalyzer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">text.</span></span><span class="sig-name descname"><span class="pre">TextAnalyzer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#text.TextAnalyzer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Used to get text from a csv and then run the TextDetector on it.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="text.TextAnalyzer.read_csv">
+<span class="sig-name descname"><span class="pre">read_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#text.TextAnalyzer.read_csv" title="Link to this definition"></a></dt>
+<dd><p>Read the CSV file and return the dictionary with the text entries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dict</strong> – The dictionary with the text entries.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1056,7 +1078,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="multimodal_search.MultimodalSearch.read_img">
-<span class="sig-name descname"><span class="pre">read_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">&lt;module</span> <span class="pre">'PIL.Image'</span> <span class="pre">from</span> <span class="pre">'/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/PIL/Image.py'&gt;</span></span></span><a class="headerlink" href="#multimodal_search.MultimodalSearch.read_img" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">read_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">&lt;module</span> <span class="pre">'PIL.Image'</span> <span class="pre">from</span> <span class="pre">'/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/PIL/Image.py'&gt;</span></span></span><a class="headerlink" href="#multimodal_search.MultimodalSearch.read_img" title="Link to this definition"></a></dt>
 <dd><p>Load Image from filepath.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1070,7 +1092,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="multimodal_search.MultimodalSearch.resize_img">
-<span class="sig-name descname"><span class="pre">resize_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_img:</span> <span class="pre">&lt;module</span> <span class="pre">'PIL.Image'</span> <span class="pre">from</span> <span class="pre">'/opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages/PIL/Image.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multimodal_search.MultimodalSearch.resize_img" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">resize_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_img:</span> <span class="pre">&lt;module</span> <span class="pre">'PIL.Image'</span> <span class="pre">from</span> <span class="pre">'/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/PIL/Image.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#multimodal_search.MultimodalSearch.resize_img" title="Link to this definition"></a></dt>
 <dd><p>Proportional resize image to 240 p width.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
