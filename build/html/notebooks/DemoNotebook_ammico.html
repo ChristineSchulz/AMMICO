@@ -63,6 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#Step-2:-Inspect-the-input-files-using-the-graphical-user-interface">Step 2: Inspect the input files using the graphical user interface</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Step-3:-Analyze-all-images">Step 3: Analyze all images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Step-4:-Convert-analysis-output-to-pandas-dataframe-and-write-csv">Step 4: Convert analysis output to pandas dataframe and write csv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-in-a-csv-file-containing-text-and-translating/analysing-the-text">Read in a csv file containing text and translating/analysing the text</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#The-detector-modules">The detector modules</a><ul>
@@ -182,6 +183,9 @@
 <span class="kn">import</span> <span class="nn">ammico</span>
 <span class="c1"># for displaying a progress bar</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="c1"># to get the reference data for text_dict</span>
+<span class="kn">import</span> <span class="nn">importlib_resources</span>
+<span class="n">pkg</span> <span class="o">=</span> <span class="n">importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;ammico&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -386,11 +390,87 @@ directly on the right next to the image. This way, the user can directly inspect
 </div>
 </div>
 </section>
+<section id="Read-in-a-csv-file-containing-text-and-translating/analysing-the-text">
+<h2>Read in a csv file containing text and translating/analysing the text<a class="headerlink" href="#Read-in-a-csv-file-containing-text-and-translating/analysing-the-text" title="Link to this heading"></a></h2>
+<p>Instead of extracting text from an image, or to re-process text that was already extracted, it is also possible to provide a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file containing text in its rows. Provide the path and name of the csv file with the keyword <code class="docutils literal notranslate"><span class="pre">csv_path</span></code>. The keyword <code class="docutils literal notranslate"><span class="pre">column_key</span></code> tells the Analyzer which column key in the csv file holds the text that should be analyzed. This defaults to “text”.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csv_path</span> <span class="o">=</span> <span class="n">pkg</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;ref&quot;</span> <span class="o">/</span> <span class="s2">&quot;test.csv&quot;</span>
+<span class="n">ta</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">TextAnalyzer</span><span class="p">(</span><span class="n">csv_path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">csv_path</span><span class="p">),</span> <span class="n">column_key</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># read the csv file</span>
+<span class="n">ta</span><span class="o">.</span><span class="n">read_csv</span><span class="p">()</span>
+<span class="c1"># set up the dict containing all text entries</span>
+<span class="n">text_dict</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="n">mydict</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the dump file</span>
+<span class="c1"># dump file name</span>
+<span class="n">dump_file</span> <span class="o">=</span> <span class="s2">&quot;dump_file.csv&quot;</span>
+<span class="c1"># dump every N images</span>
+<span class="n">dump_every</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># analyze the csv file</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">text_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">text_dict</span><span class="p">)):</span>  <span class="c1"># loop through all text entries</span>
+    <span class="n">ammico</span><span class="o">.</span><span class="n">TextDetector</span><span class="p">(</span><span class="n">text_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">analyse_text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">skip_extraction</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span> <span class="c1"># analyse text with TextDetector and update dict</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">dump_every</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">num</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">text_dict</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>     <span class="c1"># save results every dump_every to dump_file</span>
+        <span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">text_dict</span><span class="p">)</span>
+        <span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save the results to a csv file</span>
+<span class="n">text_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">text_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inspect</span>
+<span class="n">text_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write to csv</span>
+<span class="n">text_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_out.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 <section id="The-detector-modules">
 <h1>The detector modules<a class="headerlink" href="#The-detector-modules" title="Link to this heading"></a></h1>
 <p>The different detector modules with their options are explained in more detail in this section. ## Text detector Text on the images can be extracted using the <code class="docutils literal notranslate"><span class="pre">TextDetector</span></code> class (<code class="docutils literal notranslate"><span class="pre">text</span></code> module). The text is initally extracted using the Google Cloud Vision API and then translated into English with googletrans. The translated text is cleaned of whitespace, linebreaks, and numbers using Python syntax and spaCy.</p>
-<p><img alt="5594c8b386f842539f22fdef58903d68" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
+<p><img alt="0c75cc0bcb7d4081982b65bb456f1ab4" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
 <p>The user can set if the text should be further summarized, and analyzed for sentiment and named entity recognition, by setting the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). If set, the transformers pipeline is used for each of these tasks, with the default models as of 03/2023. Other models can be selected by setting the optional keyword <code class="docutils literal notranslate"><span class="pre">model_names</span></code> to a list of selected models, on for each task:
 <code class="docutils literal notranslate"><span class="pre">model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,</span> <span class="pre">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,</span> <span class="pre">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;]</span></code> for summary, sentiment, and ner. To be even more specific, revision numbers can also be selected by specifying the optional keyword <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> to a list of revision numbers for each model, for example <code class="docutils literal notranslate"><span class="pre">revision_numbers=[&quot;a4f8f3e&quot;,</span> <span class="pre">&quot;af0f99b&quot;,</span> <span class="pre">&quot;f2482bf&quot;]</span></code>.</p>
 <p>Please note that for the Google Cloud Vision API (the TextDetector class) you need to set a key in order to process the images. This key is ideally set as an environment variable using for example</p>
@@ -472,7 +552,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Image-summary-and-query">
 <h2>Image summary and query<a class="headerlink" href="#Image-summary-and-query" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>).</p>
-<p><img alt="8e08f9c3392c452b9175bc9f8c780875" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
+<p><img alt="df3e5d6617b3447eb877e276342bc93b" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
 <p>This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user,
 <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
 <p>The implemented models are listed below.</p>
@@ -725,7 +805,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Detection-of-faces-and-facial-expression-analysis">
 <h2>Detection of faces and facial expression analysis<a class="headerlink" href="#Detection-of-faces-and-facial-expression-analysis" title="Link to this heading"></a></h2>
 <p>Faces and facial expressions are detected and analyzed using the <code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code> class from the <code class="docutils literal notranslate"><span class="pre">faces</span></code> module. Initially, it is detected if faces are present on the image using RetinaFace, followed by analysis if face masks are worn (Face-Mask-Detection). The detection of age, gender, race, and emotions is carried out with deepface.</p>
-<p><img alt="b7b2a3f0855c45038179c223a9e64214" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
+<p><img alt="e4ff58bce9a849e1b3cd5e3b9b08a5ba" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
 <p>Depending on the features found on the image, the face detection module returns a different analysis content: If no faces are found on the image, all further steps are skipped and the result <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[None]</span></code> is returned. If one or several faces are found, up to three faces are analyzed if they are partially concealed by a face mask. If
 yes, only age and gender are detected; if no, also race, emotion, and dominant emotion are detected. In case of the latter, the output could look like this: <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">2,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;,</span> <span class="pre">&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[27,</span> <span class="pre">28],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[&quot;Man&quot;,</span> <span class="pre">&quot;Man&quot;],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[&quot;asian&quot;,</span> <span class="pre">None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[&quot;Negative&quot;,</span> <span class="pre">&quot;Neutral&quot;]</span></code>, where for the two faces that are detected (given by <code class="docutils literal notranslate"><span class="pre">no_faces</span></code>), some of the values are returned as a list
 with the first item for the first (largest) face and the second item for the second (smaller) face (for example, <code class="docutils literal notranslate"><span class="pre">&quot;emotion&quot;</span></code> returns a list <code class="docutils literal notranslate"><span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;]</span></code> signifying the first face expressing anger, and the second face having a neutral expression).</p>
