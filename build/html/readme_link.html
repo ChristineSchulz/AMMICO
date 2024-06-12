@@ -72,6 +72,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#what-happens-to-the-images-that-are-sent-to-google-cloud-vision">What happens to the images that are sent to google Cloud Vision?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-happens-to-the-text-that-is-sent-to-google-translate">What happens to the text that is sent to google Translate?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-happens-if-i-don-t-have-internet-access-can-i-still-use-ammico">What happens if I don’t have internet access - can I still use ammico?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-don-t-i-get-probabilistic-assessments-of-age-gender-and-race-when-running-the-emotion-detector">Why don’t I get probabilistic assessments of age, gender and race when running the Emotion Detector?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="create_API_key_link.html">Instructions how to generate and enable a google Cloud Vision API key</a></li>
@@ -260,7 +261,7 @@ You then need to export the location of the API key as an environment variable:<
 </section>
 <section id="emotion-recognition">
 <h3>Emotion recognition<a class="headerlink" href="#emotion-recognition" title="Link to this heading"></a></h3>
-<p>Emotion recognition is carried out using the <a class="reference external" href="https://github.com/serengil/deepface">deepface</a> and <a class="reference external" href="https://github.com/serengil/retinaface">retinaface</a> libraries. These libraries detect the presence of faces, and their age, gender, emotion and race based on several state-of-the-art models. It is also detected if the person is wearing a face mask - if they are, then no further detection is carried out as the mask prevents an accurate prediction.</p>
+<p>Emotion recognition is carried out using the <a class="reference external" href="https://github.com/serengil/deepface">deepface</a> and <a class="reference external" href="https://github.com/serengil/retinaface">retinaface</a> libraries. These libraries detect the presence of faces, as well as provide probabilistic assessment of their age, gender, race, and emotion based on several state-of-the-art models. It is also detected if the person is wearing a face mask - if they are, then no further detection is carried out as the mask affects the assessment acuracy. Because the detection of gender, race and age is carried out in simplistic categories (e.g., for gender, using only “male” and “female”), and because of the ethical implications of such assessments, users can only access this part of the tool if they agree with an ethical disclosure statement (see FAQ). Moreover, once users accept the disclosure, they can further set their own detection confidence threshholds.</p>
 </section>
 <section id="color-hue-detection">
 <h3>Color/hue detection<a class="headerlink" href="#color-hue-detection" title="Link to this heading"></a></h3>
@@ -306,6 +307,11 @@ Google also temporarily logs some metadata about your Vision API requests (such 
 <li><p>Multimodal search: After an initial download of the models, the <code class="docutils literal notranslate"><span class="pre">multimodal_search</span></code> module does not require an internet connection.</p></li>
 <li><p>Color analysis: The <code class="docutils literal notranslate"><span class="pre">color</span></code> module does not require an internet connection.</p></li>
 </ul>
+</section>
+<section id="why-don-t-i-get-probabilistic-assessments-of-age-gender-and-race-when-running-the-emotion-detector">
+<h2>Why don’t I get probabilistic assessments of age, gender and race when running the Emotion Detector?<a class="headerlink" href="#why-don-t-i-get-probabilistic-assessments-of-age-gender-and-race-when-running-the-emotion-detector" title="Link to this heading"></a></h2>
+<p>Due to well documented biases in the detection of minorities with computer vision tools, and to the ethical implications of such detection, these parts of the tool are not directly made available to users. To access these capabilities, users must first agree with a ethical disclosure statement that reads: “The Emotion Detector uses RetinaFace to probabilistically assess the gender, age and race of the detected faces. Such assessments may not reflect how the individuals identified by the tool view themselves. Additionally, the classification is carried out in simplistic categories and contains only the most basic classes, for example “male” and “female” for gender. By continuing to use the tool, you certify that you understand the ethical implications such assessments have for the interpretation of the results.”
+This disclosure statement is included as a separate line of code early in the flow of the Emotion Detector. Once the user has agreed with the statement, further data analyses will also include these assessments.</p>
 </section>
 </section>
 
