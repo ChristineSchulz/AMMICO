@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -6,22 +8,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AMMICO Demonstration Notebook &mdash; AMMICO 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=7ab3649f" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=d45e8c67"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -51,7 +49,7 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../readme_link.html">AMMICO - AI Media and Misinformation Content Analysis Tool</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../readme_link.html#faq">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq_link.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../create_API_key_link.html">Instructions how to generate and enable a google Cloud Vision API key</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">AMMICO Demonstration Notebook</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Use-a-test-dataset">Use a test dataset</a></li>
@@ -62,6 +60,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#Step-1:-Read-your-data-into-AMMICO">Step 1: Read your data into AMMICO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Step-2:-Inspect-the-input-files-using-the-graphical-user-interface">Step 2: Inspect the input files using the graphical user interface</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Ethical-disclosure-statement">Ethical disclosure statement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Privacy-disclosure-statement">Privacy disclosure statement</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Step-3:-Analyze-all-images">Step 3: Analyze all images</a></li>
@@ -127,7 +126,10 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if running on google colab</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if running on google colab\</span>
+<span class="c1"># PLEASE RUN THIS ONLY AS CPU RUNTIME</span>
+<span class="c1"># for a GPU runtime, there are conflicts with pre-installed packages -</span>
+<span class="c1"># you first need to uninstall them (prepare a clean environment with no pre-installs) and then install ammico</span>
 <span class="c1"># flake8-noqa-cell</span>
 
 <span class="k">if</span> <span class="s2">&quot;google.colab&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_ipython</span><span class="p">()):</span>
@@ -135,9 +137,10 @@
     <span class="c1"># install setuptools</span>
     <span class="c1"># %pip install setuptools==61 -qqq</span>
     <span class="c1"># uninstall some pre-installed packages due to incompatibility</span>
-    <span class="o">%</span><span class="k">pip</span> uninstall --yes tensorflow-probability dopamine-rl lida pandas-gbq torchaudio torchdata torchtext orbax-checkpoint flex-y -qqq
+    <span class="o">%</span><span class="k">pip</span> uninstall --yes tensorflow-probability dopamine-rl lida pandas-gbq torchaudio torchdata torchtext orbax-checkpoint flex-y jax jaxlib -qqq
     <span class="c1"># install ammico</span>
     <span class="o">%</span><span class="k">pip</span> install git+https://github.com/ssciwr/ammico.git -qqq
+    <span class="c1"># install older version of jax to support transformers use of diffusers</span>
     <span class="c1"># mount google drive for data and API key</span>
     <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 
@@ -147,7 +150,7 @@
 </div>
 <section id="Use-a-test-dataset">
 <h2>Use a test dataset<a class="headerlink" href="#Use-a-test-dataset" title="Link to this heading"></a></h2>
-<p>You can download a dataset for test purposes. Skip this step if you use your own data.</p>
+<p>You can download this dataset for test purposes. Skip this step if you use your own data. If the data set on Hugging Face is gated or private, Hugging Face will ask you for a login token. However, for the default dataset in this notebook you do not need to provide one.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -183,12 +186,12 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># jax also sometimes leads to problems on google colab</span>
+<span class="c1"># if this is the case, try restarting the kernel and executing this</span>
+<span class="c1"># and the above two code cells again</span>
 <span class="kn">import</span> <span class="nn">ammico</span>
 <span class="c1"># for displaying a progress bar</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-<span class="c1"># to get the reference data for text_dict</span>
-<span class="kn">import</span> <span class="nn">importlib_resources</span>
-<span class="n">pkg</span> <span class="o">=</span> <span class="n">importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;ammico&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -251,7 +254,7 @@ tf.ones([2, 2])
 </tr>
 </tbody>
 </table>
-<p>The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function returns a nested dict that contains the file ids and the paths to the files and is empty otherwise. This dict is filled step by step with more data as each detector class is run on the data (see below).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">find_files</span></code> function returns a nested dictionary that contains the file ids and the paths to the files and is empty otherwise. This dict is filled step by step with more data as each detector class is run on the data (see below).</p>
 <p>If you downloaded the test dataset above, you can directly provide the path you already set for the test directory, <code class="docutils literal notranslate"><span class="pre">data_path</span></code>. The below cell is already set up for the test dataset.</p>
 <p>If you use your own dataset, you need to toggle the path and provide the directory where you have saved your data.</p>
 <div class="nbinput nblast docutils container">
@@ -274,8 +277,8 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Ethical-disclosure-statement">
 <h3>Ethical disclosure statement<a class="headerlink" href="#Ethical-disclosure-statement" title="Link to this heading"></a></h3>
 <p>If you want to run an analysis using the EmotionDetector detector type, you have first have to respond to an ethical disclosure statement. This disclosure statement ensures that you only use the full capabilities of the EmotionDetector after you have been made aware of its shortcomings.</p>
-<p>For this, answer “yes” or “no” to the below prompt. This will set an environment variable with the name given as in <code class="docutils literal notranslate"><span class="pre">accept_disclosure</span></code>. To re-run the disclosure prompt, unset the variable by uncommenting the line <code class="docutils literal notranslate"><span class="pre">os.environ.pop(accept_disclosure,</span> <span class="pre">None)</span></code>. To permanently set this envorinment variable, add it to your shell via your <code class="docutils literal notranslate"><span class="pre">.profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashr</span></code> file.</p>
-<p>If the disclosure statement is accepted, the EmotionDetector will perform age, gender and race/ethnicity classification dependend on the provided thresholds. If the disclosure is rejected, only the presence of faces and emotion (if not wearing a mask) is detected.</p>
+<p>For this, answer “yes” or “no” to the below prompt. This will set an environment variable with the name given as in <code class="docutils literal notranslate"><span class="pre">accept_disclosure</span></code>. To re-run the disclosure prompt, unset the variable by uncommenting the line <code class="docutils literal notranslate"><span class="pre">os.environ.pop(accept_disclosure,</span> <span class="pre">None)</span></code>. To permanently set this environment variable, add it to your shell via your <code class="docutils literal notranslate"><span class="pre">.profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashr</span></code> file.</p>
+<p>If the disclosure statement is accepted, the EmotionDetector will perform age, gender and race/ethnicity classification depending on the provided thresholds. If the disclosure is rejected, only the presence of faces and emotion (if not wearing a mask) is detected.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -287,6 +290,26 @@ directly on the right next to the image. This way, the user can directly inspect
 <span class="n">accept_disclosure</span> <span class="o">=</span> <span class="s2">&quot;DISCLOSURE_AMMICO&quot;</span>
 <span class="c1"># os.environ.pop(accept_disclosure, None)</span>
 <span class="n">_</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">ethical_disclosure</span><span class="p">(</span><span class="n">accept_disclosure</span><span class="o">=</span><span class="n">accept_disclosure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Privacy-disclosure-statement">
+<h3>Privacy disclosure statement<a class="headerlink" href="#Privacy-disclosure-statement" title="Link to this heading"></a></h3>
+<p>If you want to run an analysis using the TextDetector detector type, you have first have to respond to a privacy disclosure statement. This disclosure statement ensures that you are aware that your data will be sent to google cloud vision servers for analysis.</p>
+<p>For this, answer “yes” or “no” to the below prompt. This will set an environment variable with the name given as in <code class="docutils literal notranslate"><span class="pre">accept_privacy</span></code>. To re-run the disclosure prompt, unset the variable by uncommenting the line <code class="docutils literal notranslate"><span class="pre">os.environ.pop(accept_privacy,</span> <span class="pre">None)</span></code>. To permanently set this environment variable, add it to your shell via your <code class="docutils literal notranslate"><span class="pre">.profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bashr</span></code> file.</p>
+<p>If the privacy disclosure statement is accepted, the TextDetector will perform the text extraction, translation and if selected, analysis. If the privacy disclosure is rejected, no text processing will be carried out and you cannot use the TextDetector.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># respond to the privacy disclosure statement</span>
+<span class="c1"># this will set an environment variable for you</span>
+<span class="c1"># if you do not want to re-accept the privacy disclosure every time, you can set this environment variable in your shell</span>
+<span class="c1"># to re-set the environment variable, uncomment the below line</span>
+<span class="n">accept_privacy</span> <span class="o">=</span> <span class="s2">&quot;PRIVACY_AMMICO&quot;</span>
+<span class="c1"># os.environ.pop(accept_privacy, None)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">privacy_disclosure</span><span class="p">(</span><span class="n">accept_privacy</span><span class="o">=</span><span class="n">accept_privacy</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -321,9 +344,17 @@ directly on the right next to the image. This way, the user can directly inspect
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">image_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)):</span>    <span class="c1"># loop through all images</span>
-    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">EmotionDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span> <span class="c1"># analyse image with EmotionDetector and update dict</span>
-
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set the thresholds for the emotion detection</span>
+<span class="n">emotion_threshold</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># this is the default value for the detection confidence</span>
+<span class="c1"># the lowest possible value is 0</span>
+<span class="c1"># the highest possible value is 100</span>
+<span class="n">race_threshold</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">gender_threshold</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">image_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)):</span>    <span class="c1"># loop through all images</span>
+    <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">EmotionDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span>
+                                             <span class="n">emotion_threshold</span><span class="o">=</span><span class="n">emotion_threshold</span><span class="p">,</span>
+                                             <span class="n">race_threshold</span><span class="o">=</span><span class="n">race_threshold</span><span class="p">,</span>
+                                             <span class="n">gender_threshold</span><span class="o">=</span><span class="n">gender_threshold</span><span class="p">)</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span> <span class="c1"># analyse image with EmotionDetector and update dict</span>
     <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">dump_every</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">num</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>      <span class="c1"># save results every dump_every to dump_file</span>
         <span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span>
         <span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
@@ -420,8 +451,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">csv_path</span> <span class="o">=</span> <span class="n">pkg</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;ref&quot;</span> <span class="o">/</span> <span class="s2">&quot;test.csv&quot;</span>
-<span class="n">ta</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">TextAnalyzer</span><span class="p">(</span><span class="n">csv_path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">csv_path</span><span class="p">),</span> <span class="n">column_key</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ta</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">TextAnalyzer</span><span class="p">(</span><span class="n">csv_path</span><span class="o">=</span><span class="s2">&quot;../data/ref/test.csv&quot;</span><span class="p">,</span> <span class="n">column_key</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -493,7 +523,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="The-detector-modules">
 <h1>The detector modules<a class="headerlink" href="#The-detector-modules" title="Link to this heading"></a></h1>
 <p>The different detector modules with their options are explained in more detail in this section. ## Text detector Text on the images can be extracted using the <code class="docutils literal notranslate"><span class="pre">TextDetector</span></code> class (<code class="docutils literal notranslate"><span class="pre">text</span></code> module). The text is initally extracted using the Google Cloud Vision API and then translated into English with googletrans. The translated text is cleaned of whitespace, linebreaks, and numbers using Python syntax and spaCy.</p>
-<p><img alt="10a9852f3be149b8b5518e25c50f6ca8" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
+<p><img alt="4627534faec74c6cb30013b3b78abb84" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
 <p>The user can set if the text should be further summarized, and analyzed for sentiment and named entity recognition, by setting the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). If set, the transformers pipeline is used for each of these tasks, with the default models as of 03/2023. Other models can be selected by setting the optional keyword <code class="docutils literal notranslate"><span class="pre">model_names</span></code> to a list of selected models, on for each task:
 <code class="docutils literal notranslate"><span class="pre">model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,</span> <span class="pre">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,</span> <span class="pre">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;]</span></code> for summary, sentiment, and ner. To be even more specific, revision numbers can also be selected by specifying the optional keyword <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> to a list of revision numbers for each model, for example <code class="docutils literal notranslate"><span class="pre">revision_numbers=[&quot;a4f8f3e&quot;,</span> <span class="pre">&quot;af0f99b&quot;,</span> <span class="pre">&quot;f2482bf&quot;]</span></code>.</p>
 <p>Please note that for the Google Cloud Vision API (the TextDetector class) you need to set a key in order to process the images. This key is ideally set as an environment variable using for example</p>
@@ -521,6 +551,16 @@ directly on the right next to the image. This way, the user can directly inspect
     <span class="k">if</span> <span class="n">num</span> <span class="o">%</span> <span class="n">dump_every</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">num</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>   <span class="c1"># save results every dump_every to dump_file</span>
         <span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span>
         <span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">dump_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write output to csv</span>
+<span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span>
+<span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/data_out.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -575,7 +615,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Image-summary-and-query">
 <h2>Image summary and query<a class="headerlink" href="#Image-summary-and-query" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>).</p>
-<p><img alt="95bce83c68244063a385bb5376de0dac" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
+<p><img alt="89ab67ce3b0e471e8741cfc2b23d97f1" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
 <p>This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user,
 <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
 <p>The implemented models are listed below.</p>
@@ -761,7 +801,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <span class="c1"># &quot;summary&quot;,</span>
 <span class="c1"># &quot;questions&quot;,</span>
 <span class="c1"># &quot;summary_and_questions&quot;.</span>
-<br/></pre></div>
+</pre></div>
 </div>
 </div>
 <p>You can also pass a question with previous answers as context into this model and pass in questions like this one to get a more accurate answer:</p>
@@ -794,7 +834,7 @@ directly on the right next to the image. This way, the user can directly inspect
 </pre></div>
 </div>
 </div>
-<p>You can also ask sequential questions if you pass the argument <code class="docutils literal notranslate"><span class="pre">cosequential_questions=True</span></code>. This means that the answers to previous questions will be passed as context to the next question. However, this method will work a bit slower, because for each image the answers to the questions will not be calculated simultaneously, but sequentially.</p>
+<p>You can also ask sequential questions if you pass the argument <code class="docutils literal notranslate"><span class="pre">consequential_questions=True</span></code>. This means that the answers to previous questions will be passed as context to the next question. However, this method will work a bit slower, because for each image the answers to the questions will not be calculated simultaneously, but sequentially.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -823,12 +863,22 @@ directly on the right next to the image. This way, the user can directly inspect
 </pre></div>
 </div>
 </div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write output to csv</span>
+<span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span>
+<span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/data_out.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </section>
 </section>
 <section id="Detection-of-faces-and-facial-expression-analysis">
 <h2>Detection of faces and facial expression analysis<a class="headerlink" href="#Detection-of-faces-and-facial-expression-analysis" title="Link to this heading"></a></h2>
 <p>Faces and facial expressions are detected and analyzed using the <code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code> class from the <code class="docutils literal notranslate"><span class="pre">faces</span></code> module. Initially, it is detected if faces are present on the image using RetinaFace, followed by analysis if face masks are worn (Face-Mask-Detection). The probabilistic detection of age, gender, race, and emotions is carried out with deepface, but only if the disclosure statement has been accepted (see above).</p>
-<p><img alt="c8ab1d7bfd1546ca904f1ff91de93fb7" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
+<p><img alt="08b5f56998844e20961d743a8d32ea91" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
 <p>Depending on the features found on the image, the face detection module returns a different analysis content: If no faces are found on the image, all further steps are skipped and the result <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[None]</span></code> is returned. If one or several faces are found, up to three faces are analyzed if they are partially concealed by a face mask. If
 yes, only age and gender are detected; if no, also race, emotion, and dominant emotion are detected. In case of the latter, the output could look like this: <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">2,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;,</span> <span class="pre">&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[27,</span> <span class="pre">28],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[&quot;Man&quot;,</span> <span class="pre">&quot;Man&quot;],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[&quot;asian&quot;,</span> <span class="pre">None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[&quot;Negative&quot;,</span> <span class="pre">&quot;Neutral&quot;]</span></code>, where for the two faces that are detected (given by <code class="docutils literal notranslate"><span class="pre">no_faces</span></code>), some of the values are returned as a list
 with the first item for the first (largest) face and the second item for the second (smaller) face (for example, <code class="docutils literal notranslate"><span class="pre">&quot;emotion&quot;</span></code> returns a list <code class="docutils literal notranslate"><span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;]</span></code> signifying the first face expressing anger, and the second face having a neutral expression).</p>
@@ -847,6 +897,16 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
     <span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">EmotionDetector</span><span class="p">(</span><span class="n">image_dict</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">emotion_threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">race_threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
                                              <span class="n">gender_threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
                                              <span class="n">accept_disclosure</span><span class="o">=</span><span class="s2">&quot;DISCLOSURE_AMMICO&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">analyse_image</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write output to csv</span>
+<span class="n">image_df</span> <span class="o">=</span> <span class="n">ammico</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">image_dict</span><span class="p">)</span>
+<span class="n">image_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/misinformation-data/data_out.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -946,7 +1006,7 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 </div>
 </div>
 <p>The images are then processed and stored in a numerical representation, a tensor. These tensors do not change for the same image and same model - so if you run this analysis once, and save the tensors giving a path with the keyword <code class="docutils literal notranslate"><span class="pre">path_to_save_tensors</span></code>, a file with filename <code class="docutils literal notranslate"><span class="pre">.&lt;Number_of_images&gt;_&lt;model_name&gt;_saved_features_image.pt</span></code> will be placed there.</p>
-<p>This can save you time if you want to analyse same images with the same model but different questions. To run using the saved tensors, execute the below code giving the path and name of the tensor file. Any subsequent query of the model will run in a fraction of the time than it run in initially.</p>
+<p>This can save you time if you want to analyse the same images with the same model but different questions. To run using the saved tensors, execute the below code giving the path and name of the tensor file. Any subsequent query of the model will run in a fraction of the time than it run in initially.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -989,7 +1049,7 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 </div>
 </div>
 <p>You can filter your results in 3 different ways: - <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>. - <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images
-with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_simularity_value</span> <span class="pre">-</span> <span class="pre">best_simularity_value_in_current_search)/best_simularity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
+with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_similarity_value</span> <span class="pre">-</span> <span class="pre">best_similarity_value_in_current_search)/best_similarity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1083,7 +1143,7 @@ images being processed simultaneously. With the parameter <code class="docutils 
 </pre></div>
 </div>
 </div>
-<p>Then using the same output function you can add the <code class="docutils literal notranslate"><span class="pre">itm=True</span></code> argument to output the new image order. Remember that for images querys, an error will be thrown with <code class="docutils literal notranslate"><span class="pre">itm=True</span></code> argument. You can also add the <code class="docutils literal notranslate"><span class="pre">image_gradcam_with_itm</span></code> along with <code class="docutils literal notranslate"><span class="pre">itm=True</span></code> argument to output the heat maps of the calculated images.</p>
+<p>Then using the same output function you can add the <code class="docutils literal notranslate"><span class="pre">itm=True</span></code> argument to output the new image order. Remember that for images queries, an error will be thrown with <code class="docutils literal notranslate"><span class="pre">itm=True</span></code> argument. You can also add the <code class="docutils literal notranslate"><span class="pre">image_gradcam_with_itm</span></code> along with <code class="docutils literal notranslate"><span class="pre">itm=True</span></code> argument to output the heat maps of the calculated images.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1097,7 +1157,7 @@ images being processed simultaneously. With the parameter <code class="docutils 
 </section>
 <section id="Save-search-results-to-csv">
 <h3>Save search results to csv<a class="headerlink" href="#Save-search-results-to-csv" title="Link to this heading"></a></h3>
-<p>Convert the dictionary of dictionarys into a dictionary with lists:</p>
+<p>Convert the dictionary of dictionaries into a dictionary with lists:</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
