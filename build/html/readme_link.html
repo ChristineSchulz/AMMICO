@@ -6,14 +6,14 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AMMICO - AI Media and Misinformation Content Analysis Tool &mdash; AMMICO 0.0.1 documentation</title>
+  <title>AMMICO - AI Media and Misinformation Content Analysis Tool &mdash; AMMICO 0.2.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=7ab3649f" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/documentation_options.js?v=000c92bf"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -85,7 +85,7 @@
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">AMMICO - AI Media and Misinformation Content Analysis Tool</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/ssciwr/AMMICO/blob/main/source/readme_link.md" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/ssciwr/AMMICO/blob/main/docs/source/readme_link.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -147,25 +147,25 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">ammico</span>
 </pre></div>
 </div>
-<p>This will install the package and its dependencies locally. If after installation you get some errors when running some modules, please follow the instructions in the <a class="reference internal" href="#FAQ.md"><span class="xref myst">FAQ</span></a>.</p>
+<p>This will install the package and its dependencies locally. If after installation you get some errors when running some modules, please follow the instructions in the <a class="reference external" href="https://ssciwr.github.io/AMMICO/build/html/faq_link.html">FAQ</a>.</p>
 </section>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
-<p>The main demonstration notebook can be found in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder and also on google colab: [<img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" />].</p>
+<p>The main demonstration notebook can be found in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder and also on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/DemoNotebook_ammico.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>.</p>
 <p>There are further sample notebooks in the <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> folder for the more experimental features:</p>
 <ol class="arabic simple">
 <li><p>Topic analysis: Use the notebook <code class="docutils literal notranslate"><span class="pre">get-text-from-image.ipynb</span></code> to analyse the topics of the extraced text.<br />
-<strong>You can run this notebook on google colab: [<img alt="Open In Colab" src="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/get-text-from-image.ipynb" /></strong><br />
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/get-text-from-image.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></strong><br />
 Place the data files and google cloud vision API key in your google drive to access the data.</p></li>
 <li><p>To crop social media posts use the <code class="docutils literal notranslate"><span class="pre">cropposts.ipynb</span></code> notebook.
-<strong>You can run this notebook on google colab: [<img alt="Open In Colab" src="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/cropposts.ipynb" /></strong></p></li>
+<strong>You can run this notebook on google colab: <a class="reference external" href="https://colab.research.google.com/github/ssciwr/ammico/blob/main/ammico/notebooks/cropposts.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></strong></p></li>
 </ol>
 </section>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
 <section id="text-extraction">
 <h3>Text extraction<a class="headerlink" href="#text-extraction" title="Link to this heading"></a></h3>
-<p>The text is extracted from the images using <a class="reference external" href="https://cloud.google.com/vision">google-cloud-vision</a>. For this, you need an API key. Set up your google account following the instructions on the google Vision AI website or as described <a class="reference internal" href="#docs/source/set_up_credentials.md"><span class="xref myst">here</span></a>.
+<p>The text is extracted from the images using <a class="reference external" href="https://cloud.google.com/vision">google-cloud-vision</a>. For this, you need an API key. Set up your google account following the instructions on the google Vision AI website or as described <a class="reference external" href="https://ssciwr.github.io/AMMICO/build/html/create_API_key_link.html">here</a>.
 You then need to export the location of the API key as an environment variable:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span><span class="s2">&quot;location of your .json&quot;</span>
 </pre></div>
