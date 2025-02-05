@@ -7,7 +7,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AMMICO Demonstration Notebook &mdash; AMMICO 0.2.2 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
@@ -144,7 +144,7 @@ google colab comes with pre-installed libraries that can lead to dependency conf
     <span class="o">%</span><span class="k">pip</span> install git+https://github.com/ssciwr/ammico.git -qqq
     <span class="c1"># install older version of jax to support transformers use of diffusers</span>
     <span class="c1"># mount google drive for data and API key</span>
-    <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
 
     <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">)</span>
 </pre></div>
@@ -157,8 +157,8 @@ google colab comes with pre-installed libraries that can lead to dependency conf
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datasets</span> <span class="kn">import</span> <span class="n">load_dataset</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_dataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># If the dataset is gated/private, make sure you have run huggingface-cli login</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iulusoy/test-images&quot;</span><span class="p">)</span>
@@ -187,13 +187,13 @@ google colab comes with pre-installed libraries that can lead to dependency conf
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="c1"># jax also sometimes leads to problems on google colab</span>
 <span class="c1"># if this is the case, try restarting the kernel and executing this</span>
 <span class="c1"># and the above two code cells again</span>
-<span class="kn">import</span> <span class="nn">ammico</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ammico</span>
 <span class="c1"># for displaying a progress bar</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 </pre></div>
 </div>
 </div>
@@ -525,7 +525,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="The-detector-modules">
 <h1>The detector modules<a class="headerlink" href="#The-detector-modules" title="Link to this heading"></a></h1>
 <p>The different detector modules with their options are explained in more detail in this section. ## Text detector Text on the images can be extracted using the <code class="docutils literal notranslate"><span class="pre">TextDetector</span></code> class (<code class="docutils literal notranslate"><span class="pre">text</span></code> module). The text is initally extracted using the Google Cloud Vision API and then translated into English with googletrans. The translated text is cleaned of whitespace, linebreaks, and numbers using Python syntax and spaCy.</p>
-<p><img alt="ef385a7871c34a39879635fd251b1035" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
+<p><img alt="03d3a0123c3f48e781c8cd2cae09e653" class="no-scaled-link" src="../_images/text_detector.png" style="width: 800px;" /></p>
 <p>The user can set if the text should be further summarized, and analyzed for sentiment and named entity recognition, by setting the keyword <code class="docutils literal notranslate"><span class="pre">analyse_text</span></code> to <code class="docutils literal notranslate"><span class="pre">True</span></code> (the default is <code class="docutils literal notranslate"><span class="pre">False</span></code>). If set, the transformers pipeline is used for each of these tasks, with the default models as of 03/2023. Other models can be selected by setting the optional keyword <code class="docutils literal notranslate"><span class="pre">model_names</span></code> to a list of selected models, on for each task:
 <code class="docutils literal notranslate"><span class="pre">model_names=[&quot;sshleifer/distilbart-cnn-12-6&quot;,</span> <span class="pre">&quot;distilbert-base-uncased-finetuned-sst-2-english&quot;,</span> <span class="pre">&quot;dbmdz/bert-large-cased-finetuned-conll03-english&quot;]</span></code> for summary, sentiment, and ner. To be even more specific, revision numbers can also be selected by specifying the optional keyword <code class="docutils literal notranslate"><span class="pre">revision_numbers</span></code> to a list of revision numbers for each model, for example <code class="docutils literal notranslate"><span class="pre">revision_numbers=[&quot;a4f8f3e&quot;,</span> <span class="pre">&quot;af0f99b&quot;,</span> <span class="pre">&quot;f2482bf&quot;]</span></code>.</p>
 <p>Please note that for the Google Cloud Vision API (the TextDetector class) you need to set a key in order to process the images. This key is ideally set as an environment variable using for example</p>
@@ -617,7 +617,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Image-summary-and-query">
 <h2>Image summary and query<a class="headerlink" href="#Image-summary-and-query" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">SummaryDetector</span></code> can be used to generate image captions (<code class="docutils literal notranslate"><span class="pre">summary</span></code>) as well as visual question answering (<code class="docutils literal notranslate"><span class="pre">VQA</span></code>).</p>
-<p><img alt="c2072c94e80743f3bbe7b027881dd82a" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
+<p><img alt="2e319caa900b451b83d0e3cbb9d76e6d" class="no-scaled-link" src="../_images/summary_detector.png" style="width: 800px;" /></p>
 <p>This module is based on the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library. Since the models can be quite large, an initial object is created which will load the necessary models into RAM/VRAM and then use them in the analysis. The user can specify the type of analysis to be performed using the <code class="docutils literal notranslate"><span class="pre">analysis_type</span></code> keyword. Setting it to <code class="docutils literal notranslate"><span class="pre">summary</span></code> will generate a caption (summary), <code class="docutils literal notranslate"><span class="pre">questions</span></code> will prepare answers (VQA) to a list of questions as set by the user,
 <code class="docutils literal notranslate"><span class="pre">summary_and_questions</span></code> will do both. Note that the desired analysis type needs to be set here in the initialization of the detector object, and not when running the analysis for each image; the same holds true for the selected model.</p>
 <p>The implemented models are listed below.</p>
@@ -880,7 +880,7 @@ directly on the right next to the image. This way, the user can directly inspect
 <section id="Detection-of-faces-and-facial-expression-analysis">
 <h2>Detection of faces and facial expression analysis<a class="headerlink" href="#Detection-of-faces-and-facial-expression-analysis" title="Link to this heading"></a></h2>
 <p>Faces and facial expressions are detected and analyzed using the <code class="docutils literal notranslate"><span class="pre">EmotionDetector</span></code> class from the <code class="docutils literal notranslate"><span class="pre">faces</span></code> module. Initially, it is detected if faces are present on the image using RetinaFace, followed by analysis if face masks are worn (Face-Mask-Detection). The probabilistic detection of age, gender, race, and emotions is carried out with deepface, but only if the disclosure statement has been accepted (see above).</p>
-<p><img alt="df79889c1e754068ad51b0bd44420b29" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
+<p><img alt="1f51703f536341d9809ba64a5c0c3c8b" class="no-scaled-link" src="../_images/emotion_detector.png" style="width: 800px;" /></p>
 <p>Depending on the features found on the image, the face detection module returns a different analysis content: If no faces are found on the image, all further steps are skipped and the result <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;No&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">0,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[None],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[None]</span></code> is returned. If one or several faces are found, up to three faces are analyzed if they are partially concealed by a face mask. If
 yes, only age and gender are detected; if no, also race, emotion, and dominant emotion are detected. In case of the latter, the output could look like this: <code class="docutils literal notranslate"><span class="pre">&quot;face&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;multiple_faces&quot;:</span> <span class="pre">&quot;Yes&quot;,</span> <span class="pre">&quot;no_faces&quot;:</span> <span class="pre">2,</span> <span class="pre">&quot;wears_mask&quot;:</span> <span class="pre">[&quot;No&quot;,</span> <span class="pre">&quot;No&quot;],</span> <span class="pre">&quot;age&quot;:</span> <span class="pre">[27,</span> <span class="pre">28],</span> <span class="pre">&quot;gender&quot;:</span> <span class="pre">[&quot;Man&quot;,</span> <span class="pre">&quot;Man&quot;],</span> <span class="pre">&quot;race&quot;:</span> <span class="pre">[&quot;asian&quot;,</span> <span class="pre">None],</span> <span class="pre">&quot;emotion&quot;:</span> <span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;],</span> <span class="pre">&quot;emotion</span> <span class="pre">(category)&quot;:</span> <span class="pre">[&quot;Negative&quot;,</span> <span class="pre">&quot;Neutral&quot;]</span></code>, where for the two faces that are detected (given by <code class="docutils literal notranslate"><span class="pre">no_faces</span></code>), some of the values are returned as a list
 with the first item for the first (largest) face and the second item for the second (smaller) face (for example, <code class="docutils literal notranslate"><span class="pre">&quot;emotion&quot;</span></code> returns a list <code class="docutils literal notranslate"><span class="pre">[&quot;angry&quot;,</span> <span class="pre">&quot;neutral&quot;]</span></code> signifying the first face expressing anger, and the second face having a neutral expression).</p>
@@ -966,7 +966,15 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 <p>This module shows how to carry out an image multimodal search with the <a class="reference external" href="https://github.com/salesforce/LAVIS">LAVIS</a> library.</p>
 <section id="Indexing-and-extracting-features-from-images-in-selected-folder">
 <h3>Indexing and extracting features from images in selected folder<a class="headerlink" href="#Indexing-and-extracting-features-from-images-in-selected-folder" title="Link to this heading"></a></h3>
-<p>First you need to select a model. You can choose one of the following models: - <a class="reference external" href="https://github.com/salesforce/BLIP">blip</a> - <a class="reference external" href="https://huggingface.co/docs/transformers/main/model_doc/blip-2">blip2</a> - <a class="reference external" href="https://github.com/salesforce/ALBEF">albef</a> - <a class="reference external" href="https://github.com/openai/CLIP/blob/main/model-card.md">clip_base</a> - <a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14</a> - <a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14_336</a></p>
+<p>First you need to select a model. You can choose one of the following models:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/salesforce/BLIP">blip</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/docs/transformers/main/model_doc/blip-2">blip2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/salesforce/ALBEF">albef</a></p></li>
+<li><p><a class="reference external" href="https://github.com/openai/CLIP/blob/main/model-card.md">clip_base</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mlfoundations/open_clip">clip_vitl14_336</a></p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1038,7 +1046,7 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">importlib_resources</span>                                                                       <span class="c1"># only require for image query example</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">importlib_resources</span>                                                                       <span class="c1"># only require for image query example</span>
 <span class="n">image_example_query</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">importlib_resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="s2">&quot;ammico&quot;</span><span class="p">)</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;test-crop-image.png&quot;</span><span class="p">)</span>   <span class="c1"># creating the path to the image for the image query example</span>
 
 <span class="n">search_query</span> <span class="o">=</span> <span class="p">[</span>
@@ -1050,8 +1058,12 @@ default is set to 50%, so that a confidence above 0.5 results in an emotion bein
 </pre></div>
 </div>
 </div>
-<p>You can filter your results in 3 different ways: - <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>. - <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images
-with similarity less than 0.2 will be discarded. - <code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_similarity_value</span> <span class="pre">-</span> <span class="pre">best_similarity_value_in_current_search)/best_similarity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p>
+<p>You can filter your results in 3 different ways:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span></code> limits the number of images found. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_number_of_images</span> <span class="pre">=</span> <span class="pre">10</span></code>, then the first 10 images that best match the query will be shown. The other images ranks will be set to <code class="docutils literal notranslate"><span class="pre">None</span></code> and the similarity value to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code> limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span></code>. That is, if the parameter <code class="docutils literal notranslate"><span class="pre">filter_val_limit</span> <span class="pre">=</span> <span class="pre">0.2</span></code>, all images with similarity less than 0.2 will be discarded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filter_rel_error</span></code> (percentage) limits the output of images with a similarity value not bigger than <code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">abs(current_similarity_value</span> <span class="pre">-</span> <span class="pre">best_similarity_value_in_current_search)/best_similarity_value_in_current_search</span> <span class="pre">&lt;</span> <span class="pre">filter_rel_error</span></code>. That is, if we set filter_rel_error = 30, it means that if the top1 image have 0.5 similarity value, we discard all image with similarity less than 0.35.</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
